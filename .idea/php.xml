@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PhpIncludePathManager">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/masterminds/html5" />
+      <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/sabberworm/php-css-parser" />
+      <path value="$PROJECT_DIR$/vendor/dompdf/dompdf" />
+      <path value="$PROJECT_DIR$/vendor/dompdf/php-svg-lib" />
+      <path value="$PROJECT_DIR$/vendor/dompdf/php-font-lib" />
+      <path value="$PROJECT_DIR$/application/vendor/dompdf/dompdf" />
+      <path value="$PROJECT_DIR$/application/vendor/dompdf/php-svg-lib" />
+      <path value="$PROJECT_DIR$/application/vendor/dompdf/php-font-lib" />
+      <path value="$PROJECT_DIR$/application/vendor/composer" />
+      <path value="$PROJECT_DIR$/application/vendor/masterminds/html5" />
+      <path value="$PROJECT_DIR$/application/vendor/sabberworm/php-css-parser" />
+      <path value="$PROJECT_DIR$/CodeIgniter-3.1.13/vendor/sebastian/object-enumerator" />
+      <path value="$PROJECT_DIR$/CodeIgniter-3.1.13/vendor/sebastian/lines-of-code" />
+      <path value="$PROJECT_DIR$/CodeIgniter-3.1.13/vendor/sebastian/diff" />
+      <path value="$PROJECT_DIR$/CodeIgniter-3.1.13/vendor/sebastian/type" />
+      <path value="$PROJECT_DIR$/CodeIgniter-3.1.13/vendor/sebastian/exporter" />
+      <path value="$PROJECT_DIR$/CodeIgniter-3.1.13/vendor/sebastian/cli-parser" />
+      <path value="$PROJECT_DIR$/CodeIgniter-3.1.13/vendor/sebastian/code-unit" />
+      <path value="$PROJECT_DIR$/CodeIgniter-3.1.13/vendor/sebastian/comparator" />
+      <path value="$PROJECT_DIR$/CodeIgniter-3.1.13/vendor/sebastian/resource-operations" />
+      <path value="$PROJECT_DIR$/CodeIgniter-3.1.13/vendor/doctrine/instantiator" />
+      <path value="$PROJECT_DIR$/CodeIgniter-3.1.13/vendor/sebastian/recursion-context" />
+      <path value="$PROJECT_DIR$/CodeIgniter-3.1.13/vendor/sebastian/complexity" />
+      <path value="$PROJECT_DIR$/CodeIgniter-3.1.13/vendor/sebastian/version" />
+      <path value="$PROJECT_DIR$/CodeIgniter-3.1.13/vendor/mikey179/vfsstream" />
+      <path value="$PROJECT_DIR$/CodeIgniter-3.1.13/vendor/myclabs/deep-copy" />
+      <path value="$PROJECT_DIR$/CodeIgniter-3.1.13/vendor/phar-io/manifest" />
+      <path value="$PROJECT_DIR$/CodeIgniter-3.1.13/vendor/phar-io/version" />
+      <path value="$PROJECT_DIR$/CodeIgniter-3.1.13/vendor/phpunit/php-timer" />
+      <path value="$PROJECT_DIR$/CodeIgniter-3.1.13/vendor/nikic/php-parser" />
+      <path value="$PROJECT_DIR$/CodeIgniter-3.1.13/vendor/phpunit/php-file-iterator" />
+      <path value="$PROJECT_DIR$/CodeIgniter-3.1.13/vendor/phpunit/php-invoker" />
+      <path value="$PROJECT_DIR$/CodeIgniter-3.1.13/vendor/phpunit/php-text-template" />
+      <path value="$PROJECT_DIR$/CodeIgniter-3.1.13/vendor/theseer/tokenizer" />
+      <path value="$PROJECT_DIR$/CodeIgniter-3.1.13/vendor/phpunit/phpunit" />
+      <path value="$PROJECT_DIR$/CodeIgniter-3.1.13/vendor/phpunit/php-code-coverage" />
+      <path value="$PROJECT_DIR$/CodeIgniter-3.1.13/vendor/sebastian/object-reflector" />
+      <path value="$PROJECT_DIR$/CodeIgniter-3.1.13/vendor/sebastian/environment" />
+      <path value="$PROJECT_DIR$/CodeIgniter-3.1.13/vendor/sebastian/global-state" />
+      <path value="$PROJECT_DIR$/CodeIgniter-3.1.13/vendor/sebastian/code-unit-reverse-lookup" />
+      <path value="$PROJECT_DIR$/CodeIgniter-3.1.13/vendor/composer" />
+    </include_path>
+  </component>
+  <component name="PhpProjectSharedConfiguration" php_language_level="8.0">
+    <option name="suggestChangeDefaultLanguageLevel" value="false" />
+  </component>
+  <component name="PhpUnit">
+    <phpunit_settings>
+      <PhpUnitSettings custom_loader_path="$PROJECT_DIR$/CodeIgniter-3.1.13/vendor/autoload.php" />
+    </phpunit_settings>
+  </component>
+</project>

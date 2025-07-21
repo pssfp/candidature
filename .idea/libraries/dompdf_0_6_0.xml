@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="dompdf-0.6.0">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/systemOld/helpers/dompdf-0.6.0.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

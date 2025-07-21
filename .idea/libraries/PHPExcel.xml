@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="PHPExcel">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/application/third_party/PHPExcel.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -18,7 +18,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | development and MUST NOT be used in production!
 |
 */
-$config['base_url'] = "http://" . $_SERVER['HTTP_HOST'] . "/candidature.pfinancespubliques.org/";
+$config['base_url'] = "http://" . $_SERVER['HTTP_HOST'] . "/candidature/";
 
 /*
 |--------------------------------------------------------------------------

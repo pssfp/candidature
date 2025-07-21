@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="ci_3.1.13">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/ci_3.1.13.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

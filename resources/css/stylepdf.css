@@ -1,0 +1,81 @@
+/* 
+    Document   : style
+    Created on : 23 déc. 2013, 13:46:43
+    Author     : Anatole ABE
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+#content table {border:1px solid #606060;min-width: 500px;}
+#content table th {border:1px solid #0074B3; background-color:#0085cc; color:#fff;}
+#content table td {border:1px solid #606060;}
+#content table tr.bg td {background-color:#e8f6ff;}
+
+.header{
+
+
+}
+
+.header_left{
+
+    text-align: center;
+    width: 300px;
+	font-size: 11px;
+	font-weight: bolder;
+}
+
+.header_middle{
+
+
+
+}
+
+.info{
+	font-size:13px;
+}
+
+.info_fin{
+	font-size:13px;
+	margin-bottom: 20px;
+}
+
+.header_right{
+
+    text-align: center;
+    width: 300px;
+	font-size: 11px;
+	font-weight: bolder;
+}
+
+.photo{
+
+    border: 1px solid;
+    border-radius: 10px 10px 10px 10px;
+    height: 130px;
+    line-height: 75px;
+    text-align: center;
+    width: 180px;
+	font-style: italic;
+	font-size:12px;
+}
+
+@page {
+	margin-top: 0.3em;
+	margin-left: 0.6em;
+	margin-bottom: 0.3em;
+}
+
+.margin_haut{
+	margin-top: -20px;
+	font-size: 8px;
+	color: #ccc;
+	text-align:center;
+}
+.pousser_haut{
+	margin-top: -50px;
+}
+
+h4{
+	margin-bottom:5px
+	margin-top:5px
+}

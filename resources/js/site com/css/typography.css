@@ -1,0 +1,708 @@
+/* CSS Document */
+.yt-typo-blocks-wrap h1.yt-typo-title{
+	background:none;
+	border-bottom:2px solid #000;
+	text-transform:uppercase;
+}
+.yt-typo-block-row {
+    padding: 0 0 20px 20px;
+	overflow:hidden;
+	/*width:100%;*/
+}
+.yt-typo-block-row:hover .yt-typo-block h2.yt-typo-title span,
+.yt-typo-block-row h2.yt-typo-title span{
+	display:inline-block;
+	padding:3px 5px;
+	background:#E7ECEE;
+}
+.yt-typo-block-row:hover h2.yt-typo-title span,
+.yt-typo-block-row:hover .yt-typo-block:hover h2.yt-typo-title span{
+	/*background:#999;*/
+	color:red;
+}
+.yt-typo-blocks-wrap .cols-2 .yt-typo-block {
+    float: left;
+    width: 50%;
+}
+.yt-typo-blocks-wrap .cols-3 .yt-typo-block {
+    float: left;
+    width: 33%;
+}
+.yt-typo-blocks-wrap .cols-4 .yt-typo-block {
+    float: left;
+    width: 24%;
+}
+.yt-typo-blocks-wrap .yt-typo-block.last {
+    float: right;
+	
+}
+.yt-typo-block .yt-typo-block-padding {
+    padding: 0 14px;
+}
+.yt-typo-block-padding ul, .yt-typo-block-padding ol, .yt-typo-block-padding dl {
+    margin: 15px 0 !important;
+}
+.yt-typo-block-padding dl{
+	padding:0 0
+}
+dl dt{
+	font-weight:bold;
+}
+dl dd{
+	margin:0 0 0 15px;
+}
+.yt-typo-block-padding ul.list-bullet{ padding:0 14px}
+.yt-typo-block-padding ol li {
+    margin-left: 30px !important;
+    padding: 0;
+}
+ul.yt-typo-list li {
+    background: none repeat scroll 0 0 transparent;
+    overflow: hidden;
+    padding: 0 0 0 25px;
+    position: relative;
+}
+ul.yt-typo-list.list-bullet li {
+    list-style: disc outside none;
+    margin-left: 0;
+    overflow: visible;
+    padding: 0;
+}
+ul.list-arrow span.icon {
+    background-position: left top;
+}
+ul.yt-typo-list span.icon {
+    background-image:url(../images/typography/icons-sprites-silk.png);
+    background-repeat: no-repeat;
+    display: block;
+    height: 18px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 18px;
+}
+ul.list-star span.icon {
+    background-position: left -18px;
+}
+ul.list-home span.icon {
+    background-position: right -18px;
+}
+ul.list-cal span.icon {
+    background-image: url(../images/typography/icons-sprites-silk1.png);
+    background-position: left top;
+    background-repeat: no-repeat;
+}
+ul.list-check span.icon {
+    background-position: left -36px;
+}
+ul.list-email span.icon {
+    background-position: right -36px;
+}
+
+
+
+.blocknumber {
+    min-height: 44px;
+    padding: 5px 0 5px 55px !important;
+    position: relative;
+}
+.yt-img-style-wrap {
+    /*position: relative;*/
+}
+.left{ float:left}
+.right{ float:right}
+.yt-img-style-wrap.yt-style1 {
+    background: url(../images/typography/img-shadow-br.png) no-repeat scroll center bottom transparent;
+    padding-bottom: 4px;
+	padding-right:9px;
+}
+.yt-img-style-wrap.yt-style2 {
+    background: url(../images/typography/img-shadow-br2.png) no-repeat scroll center bottom transparent;
+    padding-bottom: 9px;
+}
+.yt-img-style-wrap.yt-style3 {
+    background: url(../images/typography/img-shadow-br3.png) no-repeat scroll center bottom transparent;
+    padding-bottom: 6px;
+}
+.yt-img-style-wrap img {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #E2E2E2;
+    padding: 5px;
+}
+
+p.yt-typo-icon {
+    padding-left: 25px;
+    position: relative;
+	overflow:hidden;
+}
+p.icon-error span.icon {
+    background-position: left -54px;
+}
+p.yt-typo-icon span.icon {
+    background-image: url(../images/typography/icons-sprites-silk.png);
+    background-repeat: no-repeat;
+    display: block;
+    height: 18px;
+    left: 0;
+    position: absolute;
+    top: 2px;
+    width: 18px;
+}
+p.icon-error span.icon {
+    background-position: left -54px;
+}
+p.icon-cart span.icon {
+    background-position: right -54px;
+}
+p.icon-message span.icon {
+    background-position: left -72px;
+}
+p.icon-message span.icon {
+    background-position: left -72px;
+}
+p.icon-tips span.icon {
+    background-position: left -90px;
+}
+p.icon-note span.icon {
+    background-position: right -90px;
+}
+p.icon-key span.icon {
+    background-position: left -108px;
+}
+p.icon-photo span.icon {
+    background-position: right -108px;
+}
+p.icon-tag span.icon {
+    background-position: left -126px;
+}
+p.icon-mobi span.icon {
+    background-position: right -126px;
+}
+.yt-typo-btn {
+    color: #FFFFFF;
+    display:inline-block;
+	margin:10px 0;
+	vertical-align:middle;
+}
+.yt-typo-btn .yt-typo-btn-in1{
+	/*background:url(../images/typography/button-bg-trans.png) repeat-x center left;*/
+}
+.yt-typo-btn span { 
+	display:inline-block;
+}
+.yt-typo-btn.btn-size-1,
+.yt-typo-btn.btn-size-1 .yt-typo-btn-in2{
+	height:27px;
+	line-height:27px;
+}
+.yt-typo-btn.btn-size-2,
+.yt-typo-btn.btn-size-2 .yt-typo-btn-in1{
+	height:32px; line-height:32px;
+}
+.yt-typo-btn.btn-size-3,
+.yt-typo-btn.btn-size-3 .yt-typo-btn-in1{
+	height:40px; line-height:40px;
+}
+.yt-typo-btn.btn-size-1 .yt-typo-btn-in1{
+	padding:0 10px;
+}
+.yt-typo-btn.btn-style-1.btn-size-1 .yt-typo-btn-in1{
+	padding:0 0;
+}
+.yt-typo-btn.btn-size-2 .yt-typo-btn-in1{
+	padding:0 15px;
+}
+.yt-typo-btn.btn-size-3 .yt-typo-btn-in1{
+	padding:0 20px;
+}
+.yt-typo-btn.btn-style-1{
+	background:url(../images/typography/button_tl.png) no-repeat center left;
+}
+
+.yt-typo-btn.btn-style-1 .yt-typo-btn-in1{
+	background:url(../images/typography/button_tr.png) no-repeat center right;
+}
+.yt-typo-btn.btn-style-1 .yt-typo-btn-in2 {
+    background:url(../images/typography/button_re.png) repeat-x center left;
+	margin:0 8px;
+	padding: 0 10px;
+	height:27px;
+	line-height:24px;
+	text-shadow:1px 1px 1px #000000
+}
+
+p.yt-typo-blocknumber {
+	padding:5px 0 5px 0px;
+	/*position:relative;*/
+	margin-left:15px;
+}
+.yt-typo-bignumber-1{
+	background-position:left top;
+}
+.yt-typo-bignumber-2 {
+	background-position:left -44px;
+}
+.yt-typo-bignumber-3 {
+	background-position:left -88px;
+}
+.yt-typo-bignumber-1, .yt-typo-bignumber-2, .yt-typo-bignumber-3 {
+	background-image:url("../images/typography/numberlist-bg.png");
+	background-repeat:no-repeat;
+	color:#FFFFFF;
+	display:block;
+	font-family:Arial,sans-serif;
+	font-size:20px;
+	font-size-adjust:none;
+	font-stretch:normal;
+	font-style:normal;
+	font-variant:normal;
+	font-weight:bold;
+	height:44px;
+	left:0;
+	line-height:44px !important;
+	/*position:absolute;*/
+	float:left;
+	text-align:center;
+	margin: 0 10px 0 0;
+	width:44px;
+}
+/* boxes style*/
+.yt-typo-box-sticky {
+	background:url("../images/typography/sticky-big.png") no-repeat scroll 10px center #FFFFFF;
+	border-color:#D2D2B6;
+	padding-left:50px !important;
+}
+.yt-typo-box-sticky, .yt-typo-box-download {
+	border:3px solid #DDDDDD;
+	margin:15px 0 15px 20px;
+	padding-bottom:10px;
+	padding-left:50px;
+	padding-top:10px;
+}
+.yt-typo-box-download {
+	background:url("../images/typography/download-big.png") no-repeat scroll 10px center #FFFFFF;
+	border-color:#CC3333;
+	padding-left:50px;
+}
+/* Typo Bubble*/
+div.yt-typo-bubble1, div.yt-typo-bubble2, div.yt-typo-bubble3, div.yt-typo-bubble4 {margin:15px 0;padding-left:20px;}
+div.yt-typo-bubble1 span.yt-typo-author, div.yt-typo-bubble2 span.yt-typo-author, div.yt-typo-bubble3 span.yt-typo-author, div.yt-typo-bubble4 span.yt-typo-author {
+	display:inline-block;
+	/*font-weight:bold;*/
+	line-height:18px;
+	margin-left:35px;
+}
+div.yt-typo-bubble1 div {
+	background:url("../images/typography/bub1-br.png") no-repeat scroll right bottom transparent;
+	margin:0;
+	width:100%;
+}
+div.yt-typo-bubble1 div div {
+	background:url("../images/typography/bub1-bl.png") no-repeat scroll left bottom transparent;
+}
+div.yt-typo-bubble1 div div div {
+	background:url("../images/typography/bub1-tr.png") no-repeat scroll right top transparent;
+}
+div.yt-typo-bubble1 div div div div {
+	background:url("../images/typography/bub1-tl.png") no-repeat scroll left top transparent;
+}
+div.yt-typo-bubble1 div div div div div {
+	margin:0;
+	padding:10px 15px 20px;
+	width:auto;
+}
+div.yt-typo-bubble2 div {
+	background:url("../images/typography/bub2-br.png") no-repeat scroll right bottom transparent;
+	margin:0;
+	width:100%;
+}
+div.yt-typo-bubble2 div div {
+	background:url("../images/typography/bub2-bl.png") no-repeat scroll left bottom transparent;
+}
+div.yt-typo-bubble2 div div div {
+	background:url("../images/typography/bub2-tr.png") no-repeat scroll right top transparent;
+}
+div.yt-typo-bubble2 div div div div {
+	background:url("../images/typography/bub2-tl.png") no-repeat scroll left top transparent;
+}
+div.yt-typo-bubble2 div div div div div {
+	margin:0;
+	padding:10px 15px 20px;
+	width:auto;
+}
+div.yt-typo-bubble3 div {
+	background:url("../images/typography/bub3-br.png") no-repeat scroll right bottom transparent;
+	margin:0;
+	width:100%;
+}
+div.yt-typo-bubble3 div div {
+	background:url("../images/typography/bub3-bl.png") no-repeat scroll left bottom transparent;
+}
+div.yt-typo-bubble3 div div div {
+	background:url("../images/typography/bub3-tr.png") no-repeat scroll right top transparent;
+}
+div.yt-typo-bubble3 div div div div {
+	background:url("../images/typography/bub3-tl.png") no-repeat scroll left top transparent;
+}
+div.yt-typo-bubble3 div div div div div {
+	margin:0;
+	padding:14px 15px 50px;
+	width:auto;
+}
+
+div.yt-typo-bubble4 div {
+	background:url("../images/typography/bub4-br.png") no-repeat scroll right bottom transparent;
+	margin:0;
+	width:100%;
+}
+div.yt-typo-bubble4 div div {
+	background:url("../images/typography/bub4-bl.png") no-repeat scroll left bottom transparent;
+}
+div.yt-typo-bubble4 div div div {
+	background:url("../images/typography/bub4-tr.png") no-repeat scroll right top transparent;
+}
+div.yt-typo-bubble4 div div div div {
+	background:url("../images/typography/bub4-tl.png") no-repeat scroll left top transparent;
+}
+div.yt-typo-bubble4 div div div div div {
+	margin:0;
+	padding:14px 15px 50px;
+	width:auto;
+}
+div.yt-typo-bubble {
+	position:relative;
+}
+div.yt-typo-bubble-l1 div.yt-typo-box-ct {
+	background:none repeat scroll 0 0 #E0E0E0;
+}
+div.yt-typo-bubble .yt-typo-box-ct {
+	padding:16px;
+	position:relative;
+}
+div.yt-typo-bubble-l1 span.yt-typo-arrow{
+	background:url("../images/typography/bubble-l.png") no-repeat scroll left top transparent;
+}
+div.yt-typo-bubble span.yt-typo-arrow {
+	display:block;
+	font-weight:bold;
+	height:7px;
+	margin-left:35px;
+	width:13px;
+}
+
+div.yt-typo-bubble span.yt-typo-author {
+	background:url("../images/typography/icon-author.gif") no-repeat scroll 10px 3px transparent;
+	display:block;
+	font-weight:bold;
+	padding-left:25px;
+	margin-left:15px;
+}
+div.yt-typo-bubble-l1 div.yt-typo-box-ct {
+	background:none repeat scroll 0 0 #E0E0E0;
+	margin-left:15px;
+	overflow:hidden;
+}
+div.yt-typo-bubble-l1 .tl, div.yt-typo-bubble-l1 .tr, div.yt-typo-bubble-l1 .bl, div.yt-typo-bubble-l1 .br {
+	background-image:url("../images/typography/bubble-l.png");
+}
+div.yt-typo-bubble .tl {
+	background-position:left -20px;
+	left:0;
+	top:0;
+}
+div.yt-typo-bubble .tr {
+	background-position:right -20px;
+	right:0;
+	top:0;
+}
+div.yt-typo-bubble .bl {
+	background-position:left bottom;
+	bottom:0;
+	left:0;
+}
+div.yt-typo-bubble .br {
+	background-position:right bottom;
+	bottom:0;
+	right:0;
+}
+div.yt-typo-bubble .tl, div.yt-typo-bubble .tr, div.yt-typo-bubble .br, div.yt-typo-bubble .bl {
+	background-repeat:no-repeat;
+	position:absolute;
+}
+div.yt-typo-bubble .yt-typo-box {
+	height:16px;
+	position:absolute;
+	width:16px;
+}
+/* Buttons*/
+
+.yt-typo-blockswrap {
+	margin:15px 0;
+}
+.yt-typo-blockrow {
+	padding:0 0 20px;
+}
+.yt-typo-blockswrap .cols-1 .yt-typo-block {
+	float:none;
+	width:100%;
+}
+
+.yt-typo-blockswrap .yt-typo-btn {
+	float:left;
+	margin:0 30px 20px 0;
+}
+
+.yt-typo-blockswrap h2.yt-typo-title {
+	font-family:"Arial Narrow",Helvetica,Arial,sans-serif;
+	font-size:115%;
+	margin:0;
+	padding:0 10px;
+	text-transform:uppercase;
+}
+.yt-btn-blue, .yt-btn-green, .yt-btn-black {
+	background-image:url("../images/typography/grad-d1-trans.png");
+	border:1px solid #CCCCCC;
+	color:#FFFFFF;
+}
+.yt-typo-blockswrap h2.yt-typo-title .yt-typo-btn-inner {
+	background:none repeat scroll 0 0 #F2F2F2;
+	color:#666666;
+	display:inline-block;
+	padding:3px 10px;
+}
+.yt-typo-blockct {
+	padding:0 10px;
+}
+.yt-btn-blue .yt-typo-btn-inner {
+	border-color:#6AB9E1;
+}
+.yt-btn-blue {
+	background-color:#0088CC;
+	border-color:#0088CC;
+}
+.yt-typo-btn-big .yt-typo-btn-inner {
+	border:1px solid #FFFFFF;
+	display:block;
+	padding:5px 18px;
+	font-weight: bold;
+}
+.yt-btn-green {
+	background-color:#669900;
+	border-color:#669900;
+	text-shadow:0 1px 2px rgba(0, 0, 0, 0.8)
+}
+.yt-btn-green .yt-typo-btn-inner{
+	border-color:#B1CB7D;
+}
+
+.yt-btn-black {
+	background-color:#666666;
+	border-color:#666666;
+	text-shadow:0 1px 2px rgba(0, 0, 0, 0.8)
+}
+.yt-btn-black .yt-typo-btn-inner{
+	border-color:#999999;
+}
+.yt-typo-block .yt-typo-btn .yt-typo-btn-inner:hover{color:#000;opacity:0.8}
+.yt-typo-block .yt-typo-btn:hover{color:#000;opacity:0.8}
+.yt-typo-btn-sm .yt-typo-btn-inner{
+	border:1px solid #FFFFFF;
+	display:block;
+	padding:2px 13px;
+	background:no-repeat;
+	font-weight: bold;
+	text-shadow:0 1px 2px rgba(0, 0, 0, 0.8);
+	cursor:pointer
+}
+.yt-typo-dropcap {
+	display:block;
+	float:left;
+	font:5.8em/75% Georgia,"Times New Roman",Times,serif;
+	padding:7px 10px 0 0;
+}
+.yt-typo-btn .btn-style-5 {
+	background:url("../images/typography/left.png") no-repeat scroll left center transparent;
+}
+.yt-typo-btn .btn-size-5, .yt-typo-btn .btn-size-5 .yt-typo-btn-in2 {
+	height:27px;
+	line-height:27px;
+}
+.yt-typo-btn .btn-style-5.btn-size-5 .yt-typo-btn-in1 {
+	padding:0;
+}
+.yt-typo-btn .btn-style-5 .yt-typo-btn-in1 {
+	background:url("../images/typography/right.png") no-repeat scroll right center transparent;
+}
+.yt-typo-btn .btn-style-5 .yt-typo-btn-in2 {
+	background:url("../images/typography/center_rm.png") repeat-x scroll left center transparent;
+	height:27px;
+	line-height:24px;
+	margin:0 7px 00 56px;
+	text-indent:-44px;
+	text-shadow:1px 1px 1px #000000;
+	
+}
+.muiten_style5 {
+	background:url("../images/typography/muiten_rm.png") no-repeat scroll left center transparent;
+	display:inline !important;
+	height:22px;
+	overflow:hidden;
+	padding:5px 30px 7px 1px;
+	width:28px;
+}
+.yt-typo-btn .btn-style-5 .yt-typo-btn-in2:hover{text-shadow:1px 1px 1px #fff;}
+
+/* code */
+pre, .code{
+    background-color: #FFFFDD;
+    border-color: #CCCCCC;
+    border-style: solid;
+    border-width: 1px 1px 1px 5px;
+    font: 1em/1.6 Monaco,Consolas,"Courier News",monospace;
+    padding: 10px 15px;
+}
+/* highlight */
+.highlight,
+span.highlight {
+    background:#CCC;
+    /*font-weight: bold;*/
+	text-shadow:1px 1px 1px #FFF;
+    padding: 1px 5px;
+}
+/* blockquote */
+blockquote span.open {
+    background: url(../images/typography/bq-open.gif) no-repeat left top;
+    display: inline-block;
+    padding: 0 0 0 20px;
+}
+blockquote span.close {
+    background: url(../images/typography/bq-close.gif) no-repeat right bottom;
+    display: inline-block;
+    padding: 0 20px 0 0;
+}
+/* Legen */
+.yt-typo-legend {
+    border: 3px solid #DDDDDD;
+    margin: 20px 0;
+    padding: 20px 15px 15px;
+    position: relative;
+}
+.yt-typo-legend .legend-title {
+    background: none repeat scroll 0 0 #FFFFFF;
+    display: block;
+    float: left;
+    font-family: Arial,sans-serif;
+    font-size: 125%;
+    font-weight: bold;
+    left: 10px;
+    line-height: normal;
+    margin: 0 !important;
+    padding: 5px !important;
+    position: absolute;
+    top: -17px;
+}
+.yt-typo-legend .legend-title {
+    border: 0 none;
+    margin: 0 !important;
+    padding: 5px !important;
+}
+.legend2 {
+    border: 3px solid #CC3333;
+}
+.legend2 .legend-title {
+    color: #CC3333;
+}
+/* form fieldset */
+fieldset.yt-typo-fieldset {
+    border: 3px solid #DDDDDD;
+    padding: 10px 12px;
+}
+fieldset.yt-typo-fieldset legend {
+    padding: 0 10px;
+}
+legend {
+    font-size: 125%;
+    font-weight: bolder;
+    line-height: 1.2;
+}
+
+fieldset.fieldset2 {
+    border-radius: 8px 8px 8px 8px;
+	-moz-border-radius: 8px 8px 8px 8px;
+	-webkit-border-radius: 8px 8px 8px 8px;
+}
+fieldset.fieldset2 {
+    border: 3px solid #CC3333;
+}
+fieldset.fieldset2 legend {
+    color: #CC3333;
+}
+
+/* form element */
+.yt-typo-block input#checkbox{
+	margin:0 5px 0 10px;
+}
+
+/* Button */
+
+
+/* Defining four button colors */
+
+
+/* Blue Button */
+.yt-typo-button.style1 { 
+	background: #222 /*url(/images/overlay-button.png) repeat-x 0 0*/; 
+	display: inline-block; 
+	padding: 5px 15px 6px; 
+	color: #fff !important; 
+	font-size: 13px; 
+	font-weight: bold; 
+	line-height: 1; 
+	text-decoration: none; 
+	/*-moz-border-radius: 5px; 
+	-webkit-border-radius: 5px; */
+	-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.25); 
+	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.25); 
+	text-shadow: 0 -1px 1px rgba(0,0,0,0.25); 
+	border-bottom: 1px solid rgba(0,0,0,0.25); 
+	border-right: 1px solid rgba(0,0,0,0.25); 
+	position: relative; 
+	cursor: pointer; 
+	overflow: visible; 
+	width: auto; 
+}
+.yt-typo-button.style1::-moz-focus-inner { border: 0; padding: 0; }
+
+.yt-typo-button.style1:hover { background-color: #111; color: #fff; }
+.yt-typo-button.style1:active { -webkit-transform: translateY(1px); -moz-transform: translateY(1px); }
+
+/* Small Buttons */
+.small.yt-typo-button.style1 { font-size: 11px; }
+/* Large Buttons */
+.yt-typo-button.style1 {font-size: 12px; padding: 8px 16px; }
+/* Colors for our beloved buttons */
+.green.yt-typo-button.style1 { background-color: #91bd09; }
+.green.yt-typo-button.style1:hover { background-color: #749a02; }
+.blue.yt-typo-button.style1 { background-color: #2daebf; }
+.blue.yt-typo-button.style1:hover { background-color: #007d9a; }
+.red.yt-typo-button.style1 { background-color: #e33100; }
+.red.yt-typo-button.style1:hover { background-color: #872300; }
+.magenta.yt-typo-button.style1{ background-color: #a9014b; }
+.magenta.yt-typo-button.style1:hover { background-color: #630030; }
+.orange.yt-typo-button.style1 { background-color: #ff5c00; }
+.orange.yt-typo-button.style1:hover { background-color: #d45500; }
+.orangellow.yt-typo-button.style1 { background-color: #ffb515; }
+.orangellow.yt-typo-button.style1:hover { background-color: #fc9200; }
+.white.yt-typo-button.style1 { background-color: #fff; border: 1px solid #ccc; color: #666 !important; font-weight: normal; text-shadow: 0 1px 1px rgba(255,255,255,1); }
+.white.yt-typo-button.style1:hover { background-color: #eee; }
+
+.rosy.yt-typo-button.style1 { background-color: #f3808e;}
+.rosy.yt-typo-button.style1:hover { background-color: #df6876; }
+.brown.yt-typo-button.style1 { background-color: #915a23;}
+.brown.yt-typo-button.style1:hover { background-color: #7a4007; }
+.black.yt-typo-button.style1 { background-color: #515151;}
+.black.yt-typo-button.style1:hover { background-color: #333; }
+.gray.yt-typo-button.style1 { background-color: #A9ADB1;}
+.gray.yt-typo-button.style1:hover { background-color: #707070; }
+.pink.yt-typo-button.style1 { background-color: #e640a1;}
+.pink.yt-typo-button.style1:hover { background-color: #a21769; }

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sitestyle>
+	<blue>
+		<filestyle>blue</filestyle>
+	</blue>
+	<black>
+		<filestyle>black</filestyle>
+	</black>
+	
+	<brow>
+		<filestyle>brow</filestyle>
+	</brow>
+	<green>
+		<filestyle>green</filestyle>
+	</green>
+	<cyan>
+		<filestyle>cyan</filestyle>
+	</cyan>
+</sitestyle>

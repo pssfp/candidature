@@ -1,0 +1,27 @@
+/* Block YT Mainmenu ---*/
+ul.navi div.level1.separator,
+ul.navi a.level1{color:#224272;}
+
+ul.navi li.level1:hover div.separator.level1,
+ul.navi li.level1:hover a.level1 {color:#FF0033;}
+
+ul.navi li.level1.hover div.separator.level1,
+ul.navi li.level1.hover a.level1 {color:#FF0033;}
+
+ul.navi li.level2:hover div.separator.level2,
+ul.navi li.level3:hover div.separator.level3,
+ul.navi li.level4:hover div.separator.level4,
+ul.navi li.level2:hover a.level2 ,
+ul.navi li.level3:hover a.level3,
+ul.navi li.level4:hover a.level4{
+	color: #224272;
+}
+ul.navi li.level2.active div.separator.level2,
+ul.navi li.level3.active div.separator.level3,
+ul.navi li.level4.active div.separator.level4,
+ul.navi li.level2.active a.level2,
+ul.navi li.level3.active a.level3,
+ul.navi li.level4.active a.level4{
+	color: #FF0033;
+}
+ul.navi a.readon:hover{background: #224272;}

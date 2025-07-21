@@ -1,0 +1,288 @@
+/******************************************
+***          YT Framework: CSS          ***
+*******************************************/
+
+/*   General style    */
+a{
+	-webkit-transition: color 0.2s ease-in-out 0s;
+	-moz-transition: color 0.2s ease-in-out 0s;
+	-o-transition: color 0.2s ease-in-out 0s;
+	-ms-transition: color 0.2s ease-in-out 0s;
+	transition: color 0.2s ease-in-out 0s;	
+}
+
+
+button,.button,
+ul.yt-login-regis li > a.show,
+span.catItemImage img{
+	-webkit-transition: all 0.3s ease-in-out 0s;
+	-moz-transition: all 0.3s ease-in-out 0s;
+	-o-transition: all 0.3s ease-in-out 0s;
+	-ms-transition: all 0.3s ease-in-out 0s;
+	transition: all 0.3s ease-in-out 0s;	
+}
+textarea,
+input[type="text"],
+input[type="password"]{
+	-webkit-transition: background-color 0.3s ease-in-out 0s;
+	-moz-transition: background-color 0.3s ease-in-out 0s;
+	-o-transition: background-color 0.3s ease-in-out 0s;
+	-ms-transition: background-color 0.3s ease-in-out 0s;
+	transition: background-color 0.3s ease-in-out 0s;	
+}
+
+/*    Block: Header   */
+#mod-finder-searchform div.finder button{
+	-webkit-transition: all 0.3s ease-in-out 0.1s;
+	-moz-transition: all 0.3s ease-in-out 0.1s;
+	-o-transition: all 0.3s ease-in-out 0s;
+	-ms-transition: all 0.3s ease-in-out 0s;
+	transition: all 0.3s ease-in-out 0s;	
+}
+div.block-thenews ul.lst-news li,
+#nav2 ul.menu li > a,
+ul.navi a.readon{
+	-webkit-transition: all 0.3s ease-in-out 0s;
+	-moz-transition: all 0.3s ease-in-out 0s;
+	-o-transition: all 0.3s ease-in-out 0s;
+	-ms-transition: all 0.3s ease-in-out 0s;
+	transition: all 0.3s ease-in-out 0s;	
+}
+#nav2 ul.menu li:before{
+	-webkit-transition: all 0.2s ease-in-out 0s;
+	-moz-transition: all 0.2s ease-in-out 0s;
+	-o-transition: all 0.2s ease-in-out 0s;
+	-ms-transition: all 0.2s ease-in-out 0s;
+	transition: all 0.2s ease-in-out 0s;	
+	-moz-transform:scale(0);
+	-webkit-transform:scale(0);
+	-o-transform:scale(0);
+	-ms-transform:scale(0);
+	transform:scale(0);
+}
+#nav2 ul.menu li:hover:before{
+	-moz-transform:scale(1);
+	-webkit-transform:scale(1);
+	-o-transform:scale(1);
+	-ms-transform:scale(1);
+	transform:scale(1);
+}
+#nav2 ul.menu li.active:before{
+	-moz-transform:scale(1);
+	-webkit-transform:scale(1);
+	-o-transform:scale(1);
+	-ms-transform:scale(1);
+	transform:scale(1);
+}
+/*    Block: Custom Module   */
+ul.social-link li > a,
+div.k2TagCloudBlock a,
+.box-shadow{
+	-webkit-transition: all 0.3s ease-in-out 0s;
+	-moz-transition: all 0.3s ease-in-out 0s;
+	-o-transition: all 0.3s ease-in-out 0s;
+	-ms-transition: all 0.3s ease-in-out 0s;
+	transition: all 0.3s ease-in-out 0s;	
+}
+/*    Block: yt_spotlight   */
+#yt_spotlight5 ul.menu li,
+#yt_footer #footnav li > a,
+#yt_footer #footnav li span.separator,
+div.top-news ul li{
+	-webkit-transition: background-color 0.5s ease-in-out 0s;
+	-moz-transition: background-color 0.5s ease-in-out 0s;
+	-o-transition: background-color 0.5s ease-in-out 0s;
+	-ms-transition: background-color 0.5s ease-in-out 0s;
+	transition: background-color 0.5s ease-in-out 0s;	
+}
+#yt_spotlight5 ul.menu li:hover,
+#yt_footer #footnav li a:hover,
+#yt_footer #footnav li span.separator:hover,
+div.top-news ul li:hover{
+	-webkit-transition: background-color 0.1s ease-in-out 0s;
+	-moz-transition: background-color 0.1s ease-in-out 0s;
+	-o-transition: background-color 0.1s ease-in-out 0s;
+	-ms-transition: background-color 0.1s ease-in-out 0s;
+	transition: background-color 0.1s ease-in-out 0s;	
+}
+
+div.img_caption img{
+	-moz-transition: all 0.3s ease 0s;
+	-webkit-transition: all 0.3s ease-in-out 0s;
+	-o-transition: all 0.3s ease-in-out 0s;
+	-ms-transition: all 0.3s ease-in-out 0s;
+	transition: all 0.3s ease-in-out 0s;
+}
+
+
+/*   K2  */
+div.k2TagCloudBlock > a > span{
+	-webkit-transition-property: padding, max-width;
+	-moz-transition-property: padding, max-width;
+	-ms-transition-property: padding, max-width;
+	-o-transition-property: padding, max-width;
+	transition-property: padding, max-width;
+	
+	-webkit-transition: 0.3s ease-out;
+	-moz-transition: 0.3s ease-out;
+	-ms-transition: 0.3s ease-out;
+	-o-transition: 0.3s ease-out;
+	transition: 0.3s ease-out;
+}
+div.k2ItemsBlock ul li,
+div.k2LatestCommentsBlock ul li,
+div.userItemImageBlock span.userItemImage a,
+div.userItemImageBlock span.userItemImage a,
+div.itemListCategoriesBlock .subCategoryContainer{
+	-webkit-transition: all 0.3s ease-in-out 0s;
+	-moz-transition: all 0.3s ease-in-out 0s;
+	-o-transition: all 0.3s ease-in-out 0s;
+	-ms-transition: all 0.3s ease-in-out 0s;
+	transition: all 0.3s ease-in-out 0s;	
+}
+
+.yt_so_article_theme3 .so_content_theme3,
+div.yt-accordion .yt-accordion-image,
+div.caption_center_bg_theme5 > h3.title,
+div.article-tool a.moduleItemComments,
+div.k2ItemsBlock ul li a.moduleItemComments{
+	-moz-transition: all 0.3s ease 0s;
+	-webkit-transition: all 0.3s ease-in-out 0s;
+	-o-transition: all 0.3s ease-in-out 0s;
+	-ms-transition: all 0.3s ease-in-out 0s;
+	transition: all 0.3s ease-in-out 0s;
+}
+div.yt_so_article_theme3 .so_slider_content:hover ul > li .so_item_theme3 > div{
+	-webkit-transition: opacity 0.2s ease-in-out 0s;
+	-moz-transition: opacity 0.2s ease-in-out 0s;
+	-o-transition: opacity 0.2s ease-in-out 0s;
+	-ms-transition: opacity 0.2s ease-in-out 0s;
+	transition: opacity 0.2s ease-in-out 0s;	
+}
+div.hot-event ul > li{
+	-webkit-transition: padding 0.3s ease-in-out 0s;
+	-moz-transition: padding 0.3s ease-in-out 0s;
+	-o-transition: padding 0.3s ease-in-out 0s;
+	-ms-transition: padding 0.3s ease-in-out 0s;
+	transition: padding 0.3s ease-in-out 0s;	
+}
+div.hot-event ul li a.moduleItemReadMore{
+	-moz-transition: all 0.3s ease 0s;
+	-webkit-transition: all 0.3s ease-in-out 0s;
+	-o-transition: all 0.3s ease-in-out 0s;
+	-ms-transition: all 0.3s ease-in-out 0s;
+	transition: all 0.3s ease-in-out 0s;
+}
+span.image-inset:after,
+div.yt-accordion-content a.readmore{
+	-moz-transition: all 0.3s ease 0s;
+	-webkit-transition: all 0.3s ease-in-out 0s;
+	-o-transition: all 0.3s ease-in-out 0s;
+	-ms-transition: all 0.3s ease-in-out 0s;
+	transition: all 0.3s ease-in-out 0s;
+}
+div.yt_mega_news ul.link > li{
+	-moz-transition: margin 0.3s ease-in-out 0s;
+	-webkit-transition: margin 0.3s ease-in-out 0s;
+	-o-transition: margin 0.3s ease-in-out 0s;
+	-ms-transition: margin 0.3s ease-in-out 0s;
+	transition: margin 0.3s ease-in-out 0s;
+}
+
+/* SJ  K2 Slider */
+
+div.yt_so_article_theme3 .so_slider_content ul > li,
+div.k2slider15 .so_slider_content .so_item_theme3{
+	-moz-transition: all 0.3s ease 0.2s;
+	-webkit-transition: all 0.3s ease-in-out 0.2s;
+	-o-transition: all 0.3s ease-in-out 0.2s;
+	-ms-transition: all 0.3s ease-in-out 0.2s;
+	transition: all 0.3s ease-in-out 0.2s;
+
+}
+
+/* SJ  Article_slider */
+div.k2slider15 .so_slider_content .so-blockitem .so_blockcontent{
+	-moz-transition: all 0.3s ease-out 0.2s;
+	-webkit-transition: all 0.3s ease-out 0.2s;
+	-o-transition: all 0.3s ease-out 0.2s;
+	-ms-transition: all 0.3s ease-out 0.2s;
+	transition: all 0.3s ease-out 0.2s;
+}
+
+div.k2slider15 .so_slider_content .so-blockitem:hover .so_blockcontent{
+	-webkit-transition-delay: 0s;
+   -moz-transition-delay: 0s;
+   -o-transition-delay: 0s;
+   -ms-transition-delay: 0s;
+   transition-delay: 0s;
+   -webkit-animation: bounceY 0.9s linear;
+   -moz-animation: bounceY 0.9s linear;
+   -ms-animation: bounceY 0.9s linear;
+   animation: bounceY 0.9s linear;
+}
+
+/*   Mobile  */
+#yt_bottommenu ul.menu li > a,
+.com_content .blog p.readmore > a{
+		-moz-transition: all 0.3s ease-out 0s;
+	-webkit-transition: all 0.3s ease-out 0s;
+	-o-transition: all 0.3s ease-out 0s;
+	-ms-transition: all 0.3s ease-out 0s;
+	transition: all 0.3s ease-out 0s;
+}
+
+@keyframes bounceY {
+    0% { transform: translateY(-205px);}
+    40% { transform: translateY(-100px);}
+    65% { transform: translateY(-52px);}
+    82% { transform: translateY(-25px);}
+    92% { transform: translateY(-12px);}
+    55%, 75%, 87%, 97%, 100% { transform: translateY(0px);}
+}
+@-moz-keyframes bounceY {
+    0% { -moz-transform: translateY(-205px);}
+    40% { -moz-transform: translateY(-100px);}
+    65% { -moz-transform: translateY(-52px);}
+    82% { -moz-transform: translateY(-25px);}
+    92% { -moz-transform: translateY(-12px);}
+    55%, 75%, 87%, 97%, 100% { -moz-transform: translateY(0px);}
+}
+@-webkit-keyframes bounceY {
+    0% { -webkit-transform: translateY(-205px);}
+    40% { -webkit-transform: translateY(-100px);}
+    65% { -webkit-transform: translateY(-52px);}
+    82% { -webkit-transform: translateY(-25px);}
+    92% { -webkit-transform: translateY(-12px);}
+    55%, 75%, 87%, 97%, 100% { -webkit-transform: translateY(0px);}
+}
+
+/*Bubble Social */
+ul.author-link li > span{
+	 -moz-transition:all 0.4s ease;
+    -webkit-transition:all 0.4s ease;
+    -ms-transition:all 0.4s ease;
+    -o-transition:all 0.4s ease;
+    transition:all 0.4s ease;
+	
+}
+
+/*Menu up*/
+div.menu-fixed{
+	opacity: 1;
+	animation:menu 1s ease  ;
+    -moz-animation:menu 1s ease   ; /* Firefox */
+    -webkit-animation:menu 1s ease  ; /* Safari and Chrome */
+}
+@keyframes menu {
+     0% { opacity: 0;}
+    100% { opacity: 1;}
+}
+@-moz-keyframes menu {
+    0% { opacity: 0;}
+    100% { opacity: 1;}
+}
+@-webkit-keyframes menu {
+    0% { opacity: 0;}
+    100% { opacity: 1;}
+}

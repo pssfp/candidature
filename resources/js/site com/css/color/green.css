@@ -1,0 +1,148 @@
+/*------  Base style ----*/
+a {outline: none;color: #336003;text-decoration: none;}
+a:hover {color:#60a714;  }
+button, .button{background-color:#60a714;border-color:#60a714;}
+
+/* Module variations  ---*/
+.moduletable.title3 > h3,
+.moduletable.title4 > h3,
+.moduletable.title5 > h3{color: #4c890b;}
+
+/* Block YT Top ----*/
+#yt_top{background-color: #326101 ;}
+ul.yt-login-regis li > a:hover,
+ul.yt-login-regis ul.yt-login-links li a:hover{color:#326101; }
+#nav2 ul.menu li:hover:before,
+#nav2 ul.menu li.active:before{background-color: #4f7829;}
+body ul.autocompleter-choices li.autocompleter-selected {background-color: #4f7829;}
+
+/* Block YT Mainmenu ---*/
+ul.navi div.level1.separator,
+ul.navi a.level1{color:#336003;}
+
+ul.navi li.level2:hover div.separator.level2,
+ul.navi li.level3:hover div.separator.level3,
+ul.navi li.level4:hover div.separator.level4,
+ul.navi li.level2:hover a.level2 ,
+ul.navi li.level3:hover a.level3,
+ul.navi li.level4:hover a.level4{
+	color: #336003;
+}
+ul.navi li.level2.active div.separator.level2,
+ul.navi li.level3.active div.separator.level3,
+ul.navi li.level4.active div.separator.level4,
+ul.navi li.level2.active a.level2,
+ul.navi li.level3.active a.level3,
+ul.navi li.level4.active a.level4{
+	color: #4c890b;
+}
+
+ul.navi a.readon:hover{background: #336003;}
+
+/* Block YT Slide ---*/
+div.yt-yttitleflash .sliderwrapper{background: #326103;}
+
+/* Block YT Spotlight1 ---*/
+div.ytc_background_theme5 div.content-box-normal-theme5{background: #326103;}
+div.content-box-normal-theme5 div.content_box_theme5 div.cover_item_box div.content_box_item ul > li{border-color: #588135;}
+div.content-box-normal-theme5 div.content_box_theme5 div.cover_item_box div.content_box_item ul > li:hover{background: #3d7305;}
+
+/* Block YT Body Main ---*/
+div.yt_mega_news .theme1 .tabs > a:hover {color: #4c890b;}
+div.yt_mega_news .theme1 .box_mega:hover .tabs > a{color: #4c890b;}
+div.yt_mega_news ul li:hover {background: url("../../images/green/bullet-1.png") no-repeat  0 9px ;}
+div.yt_mega_news .theme1 .link li > a:hover{color: #4c890b;}
+
+.moduletable.bgcolor2{background: #326103;}
+div.newletter .button:hover{background-color: #326103;}
+
+div.yt-accordion h3.yt-toggler.open,
+div.yt-accordion h3.yt-toggler.open:hover{background-color: #326103;color: #fff;}
+div.yt-element div.yt-accordion-content > p,
+div.yt-accordion h3.yt-toggler:hover{color: #4c890b;}
+div.article-tool a.moduleItemComments:hover {color: #4c890b;}
+div.k2ItemsBlock ul li a.moduleItemComments:hover{color: #4c890b;}
+
+/* Block YT Spotlight3 ---*/
+ul.author-link li:hover a, ul.author-link li:hover a:active {color: #4c890b;}
+ul.author-link li > span{
+	background-color:#4c890b;
+	background-image:-moz-linear-gradient(top,#93b86c,#4c890b);
+    background-image:-webkit-linear-gradient(top,#93b86c,#4c890b);
+    background-image:-o-linear-gradient(top,#93b86c,#4c890b);
+    background-image:-ms-linear-gradient(top,#93b86c,#4c890b);
+    background-image:linear-gradient(top,#93b86c,#4c890b);
+}
+ul.author-link li > span:after{border-top-color:#4c890b; }
+
+
+#yt_spotlight4 .yt-main-in1,
+#yt_spotlight5 .yt-main-in1,
+#yt_footer .yt-main-in1{background: #326103;}
+#yt_spotlight5 ul.menu li{border-bottom-color: #559613;}
+#yt_spotlight5 ul.menu li:hover{background-color: #3c7108;}
+
+div.k2slider15 .so_blockcontent h4.so_title{background: #6f9b43;}
+div.k2slider15 .so_slider_content .so-blockitem .so_blockcontent .so_readmore > a{background: #6f9b43;border-color:#92bd68;}
+div.k2slider15 .so_slider_content .so-blockitem .so_blockcontent .so_readmore > a:hover {background-color: #82ad56;border-color:#a2c97a;}
+
+ul.list-video li > a:hover{color: #4c890b;}
+	div.hot-event ul > li{background-color: #46721d;border-left-color: #326103;}
+	div.hot-event ul > li:hover{background-color: #5b8136;}
+	div.hot-event ul li:hover a.moduleItemReadMore{color: #4c890b;}
+	div.hot-event ul li:hover a.moduleItemReadMore{background-image: url(../../images/green/list-arrow2.png) ;}
+
+div.k2ItemsBlock ul li a.moduleItemComments,
+	div.article-tool a.moduleItemComments{background: url("../../images/green/comment.png") no-repeat scroll 0 0 ;}
+	div.k2ItemsBlock ul li:hover a.moduleItemTitle{color:#4c890b; }
+	div.k2ItemsBlock ul li:hover a.moduleItemComments,
+	div.article-tool a.moduleItemComments:hover{background: url("../../images/green/comment.png") no-repeat scroll 0 -20px ; color: #4c890b;}
+
+	
+/* Block YT Footer ---*/
+#yt_footer #footnav{border-bottom-color: #588135;border-top-color:  #588135;}
+#yt_footer #footnav li{border-left-color: #588135;}
+#yt_footer #footnav li#current a, #yt_footer #footnav li a:hover,
+#yt_footer #footnav li span.separator:hover, #yt_footer #footnav li a#active_menu-nav{background: #46721d;}
+
+/* Component Content  ---*/
+ul.pagination li > strong{background-color: #4c890b;}
+ul.pagination li:hover > strong{background-color: #5fa019;}
+ul.related-items li.related-item,
+div.itemAuthorLatest ul > li,
+div.itemRelated ul > li{background-image: url(../../images/green/list-arrow2.png);}
+
+
+/* Component K2  ---*/
+div.catItemCommentsLink a:hover,
+div.userItemCommentsLink a:hover{color: #4c890b;}
+div.itemCommentsForm form input#submitCommentButton{background-color:#60a714;border-color:#60a714;}
+.subCategory:hover h2 a {color: #4c890b;}
+div.subCategory:hover a.subCategoryMore{background-color: #4c890b;}
+div.itemBackToTop > a:hover{background-color: #4c890b;}
+
+/* --- K2 Tag Cloud --- */
+div.k2TagCloudBlock > a:after{
+	 background: #569810;
+	-webkit-box-shadow: inset 1px 0 #99400e;
+	box-shadow: inset 1px 0 #99400e;
+}
+div.k2TagCloudBlock > a:hover{color: #569810;}
+div.k2TagCloudBlock > a > span {
+	border-color: #467f0d #467f0d #467f0d;
+	background-color: #4d8a0c;
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #4d8a0c), color-stop(100%, #6eb51f));
+	background-image: -webkit-linear-gradient(top, #4d8a0c, #6eb51f);
+	background-image: -moz-linear-gradient(top, #4d8a0c, #6eb51f);
+	background-image: -ms-linear-gradient(top, #4d8a0c, #6eb51f);
+	background-image: -o-linear-gradient(top, #4d8a0c, #6eb51f);
+	background-image: linear-gradient(top, #4d8a0c, #6eb51f);
+}
+
+/* RTL Languages  ---*/
+.rtl div.yt_mega_news ul.link > li:hover {background-position: 100% 9px;}
+.rtl #yt_footer #footnav li:first-child{border-left-color: #588135;}
+.rtl ul.related-items li.related-item,
+.rtl div.itemAuthorLatest ul > li,
+.rtl div.itemRelated ul > li{background-image: url(../../images/green/rtl/list-arrow2.png) ;}
+.rtl div.hot-event ul li:hover a.moduleItemReadMore{background-image: url(../../images/green/rtl/list-arrow2.png) ;}

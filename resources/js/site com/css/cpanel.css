@@ -1,0 +1,218 @@
+#cpanel_btn {
+	cursor: pointer;
+	right: -6px;
+	position: fixed;
+	bottom: 440px;
+	z-index: 9999;
+	font-size:12px;
+}
+#cpanel_btn span,
+.cpanel-normal span {
+	width: 53px;
+	height: 43px;
+	display: block;
+	background: url(../images/cpanel/edit.png) no-repeat 0 0;
+}
+#cpanel_btn.cpanel-actived span {
+	background: url(../images/cpanel/no-edit.png) no-repeat 0 0;
+}
+#cpanel_wrapper {
+    -moz-border-radius-bottomleft: 16px;
+    -moz-border-radius-topleft: 16px;
+    background:url(../images/cpanel/cpanel-bg.png) repeat top left;
+	border:1px solid #6a6b70;
+	border-right:none;
+    color: #000;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:11px;
+    right: -140px;
+    padding: 5px 0 5px 5px;
+    position: fixed;
+    bottom: 20px;
+    width: 254px; /* +5+1 */
+    z-index: 999;
+	right:-260px;
+}
+#cpanel_wrapper .inner {
+	-moz-border-radius-bottomleft: 10px;
+    -moz-border-radius-topleft: 10px;
+	padding: 0;
+	border:1px solid #c5c5c5;
+	border-right:none;
+	background:#FFF;
+	height:auto;
+	width:253px; /* 254-1*/
+}
+#cpanel_wrapper .helplink{
+	height:45px;
+	background:url(../images/cpanel/cpanel-head.gif) no-repeat top left;
+	-moz-border-radius-topleft: 10px;
+	line-height:45px;
+}
+#cpanel_wrapper .helplink div{
+	padding-left:105px;
+	height:100%;
+}
+#cpanel_wrapper .helplink a{
+	margin-top:11px;
+	padding:0 6px;
+	margin:11px 2px 0;
+	height:22px;
+	line-height:22px;
+	color:#CCC;
+	display:block;
+	float:left;
+}
+#cpanel_wrapper .helplink a:hover{
+	border-radius:10px;
+	color:#FFF;
+	background:#393939;
+	text-decoration:none;
+}
+#cpanel_wrapper .action {
+	padding-top:13px;
+	height:40px;
+	background:#262626;
+	border-top:5px solid #939393;
+	-moz-border-radius-bottomleft: 10px;
+	text-align:center;
+}
+#cpanel_wrapper .action input.button{
+	background:url(../images/cpanel/button.png) no-repeat top left;
+	height:29px;
+	width:68px;
+	border:none;
+	color:#262626;
+	margin:0 5px;
+	vertical-align: middle;
+	box-shadow: none;
+	-moz-transition: none;
+	-webkit-transition: none;
+	-o-transition: none;
+	-ms-transition: none;
+	transition: none;
+}
+#cpanel_wrapper .action input.button:hover{
+	background-position:left -29px;
+	color:#FFF;
+}
+#cpanel_wrapper .action a.reset{
+	cursor:pointer;
+	color:#FFF;
+	margin:0 5px;
+}
+#cpanel_wrapper .item{
+	overflow:hidden;
+	padding:7px 8px 5px 12px;
+	background:#FFF;
+}
+#cpanel_wrapper .item.bg{
+	border-bottom:1px solid #D4D4D4;
+	border-top:1px solid #D4D4D4;
+	background:#F4F4F4;
+}
+#cpanel_wrapper h3{
+	font-size:14px;
+	margin:0 0 5px;
+	font-weight:normal;
+	color:#101010;
+	text-transform:uppercase;
+}
+#cpanel_wrapper .font-family{
+	width:145px;
+	float:left;
+	margin-left:10px;
+}
+#cpanel_wrapper .font-size{
+	width:60px;
+	float:left;
+}
+
+#cpanel_wrapper .cp_text{
+	border:1px solid #9A9A9A;
+}
+#cpanel_wrapper .cp_text:hover{
+	border-color:#000;
+}
+#cpanel_wrapper .cp_select{
+	border:1px solid #9A9A9A;
+	padding:1px;
+}
+#cpanel_wrapper .cp_radio{
+	border:none;
+	margin: 0;
+	vertical-align:middle;
+}
+
+#cpanel_wrapper div,
+#cpanel_wrapper a{
+	font-size:12px;
+}
+#cpanel_wrapper ul{
+	margin:0 0;
+	width:100%;
+	overflow:hidden;
+}
+#cpanel_wrapper ul li{
+	background:none;
+	width:49%;
+	float:left;
+	margin-bottom: 3px;
+	padding: 0 5px;
+	
+  -webkit-box-sizing: border-box; /* <=iOS4, <= Android  2.3 */
+     -moz-box-sizing: border-box; /* FF1+ */
+          box-sizing: border-box; /* Chrome, IE8, Opera, Safari 5.1*/
+
+}
+#cpanel_wrapper ul li label{
+	cursor:pointer;
+}
+.loaded .field .cp_text{
+	background:#FF0;
+}
+/* Control fontsize */
+#cpanel_wrapper ul.yt-fontsize{ 
+	margin:0 0 10px; 
+	padding:0;
+	width:100%;
+	float:left;
+}
+#cpanel_wrapper ul.yt-fontsize li{ 
+	display:inline; 
+	float:left; 
+	margin:0 0;
+	color:#000000;
+	padding:0 0;
+}
+#cpanel_wrapper ul.yt-fontsize li.dec{
+	background:url(../images/FS-yttool.gif) no-repeat -25px center;
+	height:15px; 
+	width:20px;	
+}
+#cpanel_wrapper ul.yt-fontsize li.inc{
+	background:url(../images/FS-yttool.gif) no-repeat -3px center;
+	height:15px; 
+	width:20px;
+
+}
+div.yt-fontsize{
+	margin:1px 0 0 5px;
+}
+#cpanel_wrapper ul.yt-fontsize li.reset{
+	background:url(../images/FS-yttool.gif) no-repeat -41px center;
+	height:15px; 
+	width:20px;
+	display:inline-block;
+	line-height:29px;
+}
+
+#cpanel_wrapper .templatewidth .field{
+	margin-bottom:5px;
+}
+.templatewidth label{
+	width:130px;
+	float:left;
+	cursor:pointer;
+	margin:0 0 0 10px;
+}

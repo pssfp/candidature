@@ -1,0 +1,76 @@
+/* 
+    Document   : style
+    Created on : 23 déc. 2013, 13:46:43
+    Author     : Anatole ABE
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+.taille_champ{
+    /*max-width:  350px;*/
+    /*text-align: center;*/
+}
+
+.marge_droit{
+    margin-left: 50px;
+}
+
+
+.form-group span {
+    font-size: 16px;
+    color: #2fa4e7;
+    font-weight: bolder;
+    margin-left: 50px;
+}
+
+.list-group .list-group-item h4 {
+    
+}
+
+.list-group .list-group-item h4:hover {
+    color: #2fa4e7;
+    text-decoration: underline;
+}
+
+table tr {
+    
+    font-weight: bolder;
+   
+}
+
+.left_align{
+    text-align: left;
+}
+
+.right_align{
+    text-align: right;
+}
+
+.centrer{
+    margin: 0 auto;
+}
+
+
+/*pour tableau*/
+
+
+.t_header {
+  background-color: #683884;
+  color: #fff;
+}
+
+.t_border_color{
+    border-style: solid;
+    border-width: 1px;
+    border-color:  #683884;
+}
+
+#myForm{
+    margin-left: 30px;
+}
+
+/* Menu principal */
+
+#menu-principal a{
+	color: #fff;
+}

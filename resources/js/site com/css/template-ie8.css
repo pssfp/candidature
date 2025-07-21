@@ -1,0 +1,85 @@
+
+/*Header-------*/
+
+#nav2 ul.menu li > a:hover{background: none;}
+
+/*Mainmenu----*/
+ul.navi li.level1:hover{margin: -1px -1px 0 -1px !important; }
+
+ul.navi li.level1:hover div.separator.level1,
+ul.navi li.level1:hover a.level1{
+	padding-top: 5px !important;
+}
+
+ul.navi li.level1 div.separator.level1,
+ul.navi li.level1 a.level1 {background-position: 90% 7px ;}
+ul.navi li.level1.hover div.separator.level1,
+ul.navi li.level1.hover a.level1 {background-position: 90% -25px !important ;}
+
+ul.navirtl li.level1 div.separator.level1,
+ul.navirtl li.level1 a.level1 {background-position: 10% 7px ;}
+ul.navirtl li.level1.hover div.separator.level1,
+ul.navirtl li.level1.hover a.level1 {background-position: 10% -25px !important ;}
+
+/*Images ----*/
+img {width:auto;max-width: none;}
+
+div.login-fields input[type="text"],
+div.login-fields input[type="password"]{width:150px;}
+
+/*K2 Component ----*/
+div.k2ItemsBlock.slideshow ul li  div.moduleItemImage img{height: auto;width:100% !important;max-width: 100%;}
+
+span.image-inset{
+	position: relative;
+	height: 100%;
+	width: 100%;
+	display: table;
+	font-family: 'fontello';
+	color:#fff;
+}
+span.image-inset:after{
+	content: " ";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+	z-index: 10;
+	box-shadow: 0 0 3px 1px rgba(54, 54, 54, 0.5) inset;
+}
+
+#k2Container()
+	#yt_component img,
+	#k2Container img{height: auto;width:auto;max-width: none;}
+	#k2Container div.itemComments ul.itemCommentsList li img{max-width: none;width: 48px; }
+	#k2Container span[class="userItemImage"]{max-width: none ;}
+	#k2Container div.subCategory a.subCategoryImage img{width: auto ;max-width: 100% ;}
+	ul.list-video li img.img-border{width: auto ;max-width: 100% ;}
+	
+#fontIncrease img,
+#fontDecrease img{
+	max-width: none;
+	height:14px;
+	width:14px;
+
+}
+
+/*Content Component ----*/
+#yt_component  span.userItemImage img[style],
+#yt_component  span.tagItemImage img[style]{max-width: none;}
+
+div.yt_mega_news .theme1 .tabs{box-sizing: border-box; }
+.yt_mega_news .theme1 .image .image-inset:after {background: #000;overflow: hidden;}
+.yt_mega_news .theme1 .image .image-inset:hover:after {
+    background: none repeat scroll 0 0 #000000;
+}
+
+div.yt-accordion h3.yt-toggler:hover {
+    background-position: 99% -65px;
+	background-image: url("../images/arrow-accordion.png");
+}
+.rtl div.yt-accordion h3.yt-toggler:hover {
+    background-position: 1% -65px;
+	background-image: url("../images/arrow-accordion.png");
+}

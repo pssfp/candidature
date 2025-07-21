@@ -1,0 +1,31 @@
+/*
+ * Fix for the email validation issue showing "Valeur non identique à la copie"
+ *
+ * In your controller file at:
+ * /Applications/XAMPP/xamppfiles/htdocs/candidature.pfinancespubliques.org/application/controllers/candidature.php
+ *
+ * Find this section (around line 90-100):
+ */
+
+$this->form_validation->set_rules('telephone', 'Telephone', 'trim|required|is_unique[candidats.telephone]|is_unique[candidats.telephone2]');
+$this->form_validation->set_rules('telephone2', 'Telephone', 'trim|is_unique[candidats.telephone2]|is_unique[candidats.telephone]');
+$this->form_validation->set_rules('emailverif', 'Email', 'trim|required|is_unique[candidats.email]|matches[email]');
+
+/*
+ * And replace it with this:
+ */
+
+$this->form_validation->set_rules('telephone', 'Telephone', 'trim|required|is_unique[candidats.telephone]|is_unique[candidats.telephone2]');
+$this->form_validation->set_rules('telephone2', 'Telephone', 'trim|is_unique[candidats.telephone2]|is_unique[candidats.telephone]');
+$this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email|is_unique[candidats.email]');
+$this->form_validation->set_rules('emailverif', 'Email de confirmation', 'trim|required|valid_email|matches[email]');
+
+$this->form_validation->set_message('is_unique', 'Cette valeur est déjà utilisée');
+$this->form_validation->set_message('matches', 'Les emails ne correspondent pas');
+
+/*
+ * This change:
+ * 1. Adds validation for the email field before checking emailverif
+ * 2. Improves the error message for the email match check
+ * 3. Uses more descriptive field names in error messages
+ */

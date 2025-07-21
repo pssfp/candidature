@@ -1,0 +1,106 @@
+/* CSS Document */
+/*typo*/
+.yt-typo-block-row {
+    padding: 0 20px 20px 0;
+	overflow:hidden;
+	/*width:100%;*/
+}
+#yt_component .yt-typo-blocks-wrap .yt-typo-block.last ul{padding:0 14px;}
+#yt_component ul.yt-typo-list span.icon {right:0;}
+#yt_component ul.yt-typo-list li {padding:0 25px 0 0}
+#yt_component ul.yt-typo-list.list-bullet li{ padding:0;}
+#yt_component .yt-typo-block .yt-typo-block-padding {
+    direction: rtl;
+	display:block;
+	float:right;
+}
+#yt_component .yt-typo-blocks-wrap .yt-typo-block.last {
+    float: left;
+}
+#yt_component .yt-typo-blocks-wrap .cols-2 .yt-typo-block {
+    float: right;
+}
+
+#yt_component .yt-typo-blocks-wrap .cols-3 .yt-typo-block {float:right}
+p.yt-typo-icon span.icon {right:0}
+p.yt-typo-icon {padding-right:25px;}
+.yt-typo-blocks-wrap .cols-4 .yt-typo-block {float:right}
+.yt-typo-blocknumber .yt-typo-bignumber-1, .yt-typo-bignumber-2, .yt-typo-bignumber-3 { float:right; margin:0 0 0 10px}
+p.yt-typo-blocknumber {
+	direction:ltr;
+	text-align:right;
+	margin-right:0;
+	padding:5px 0 5px 0;
+	/*position:relative;*/
+}
+.yt-typo-block-padding ol li {
+    margin-right: 30px !important;
+    padding: 0;
+}
+div.yt-typo-bubble span.yt-typo-arrow {margin-right:35px;width:auto;}
+div.yt-typo-bubble-l1 span.yt-typo-arrow {
+    background: url("../images/typography/bubble-l.png") no-repeat scroll right top;
+}
+
+div.yt-typo-bubble-l1 div.yt-typo-box-ct {
+    direction: rtl;
+	margin:0 15px 0 0;
+}
+div.yt-typo-bubble1, div.yt-typo-bubble2, div.yt-typo-bubble3, div.yt-typo-bubble4 {
+	direction:rtl;
+	padding:0 15px 0 0;
+}
+div.yt-typo-bubble span.yt-typo-author { padding-right:25px; margin-right:15px; background:url("../images/typography/icon-author.gif") no-repeat scroll right 3px; direction:rtl;}
+.yt-typo-box-download {
+	padding-right:50px; 
+	background:url("../images/typography/download-big.png") no-repeat scroll 99% center #FFFFFF; 
+	margin:15px 15px 0 20px;
+}
+.yt-typo-box-sticky{
+	padding-right:50px; 
+	background:url("../images/typography/sticky-big.png") no-repeat scroll 99% center #FFFFFF;
+	margin:15px 15px 0 20px;
+}
+.yt-typo-blockswrap a.yt-typo-btn {margin:0 0px 20px 30px; float:right;}
+.yt-typo-dropcap {float:right; padding:7px 0 0 10px;}
+div.yt-typo-bubble1 div div {
+	background:url("../images/typography/bub1-bl-rtl.png") no-repeat scroll right bottom;
+}
+div.yt-typo-bubble1 div {
+	background:url("../images/typography/bub1-br-rtl.png") no-repeat scroll left bottom;
+}
+div.yt-typo-bubble2 div {
+	background:url("../images/typography/bub2-br-rtl.png") no-repeat scroll left bottom;
+}
+div.yt-typo-bubble2 div div {
+	background:url("../images/typography/bub2-bl-rtl.png") no-repeat scroll right bottom;
+}
+div.yt-typo-bubble3 div div {
+	background:url("../images/typography/bub3-bl-rtl.png") no-repeat scroll right bottom;
+}
+div.yt-typo-bubble3 div {
+	background:url("../images/typography/bub3-br-rtl.png") no-repeat scroll left bottom;
+}
+div.yt-typo-bubble4 div div {
+	background:url("../images/typography/bub4-bl-rtl.png") no-repeat scroll right bottom;
+}
+div.yt-typo-bubble4 div {
+	background:url("../images/typography/bub4-br-rtl.png") no-repeat scroll left bottom;
+}
+
+/* code */
+pre, .code{
+    border-width: 1px 5px 1px 1px;
+}
+/* blockquote */
+blockquote span.open {
+    background: url(../images/typography/bq-open-rtl.gif) no-repeat right top;
+    padding: 0 20px 0 0;
+}
+blockquote span.close {
+    background: url(../images/typography/bq-close-rtl.gif) no-repeat left bottom;
+    padding: 0 0 0 20px;
+}
+
+
+

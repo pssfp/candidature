@@ -1,0 +1,404 @@
+/******************************************
+***          YT Framework: CSS          ***
+*******************************************/
+
+/* Common Style */
+html{direction: rtl;}
+ul li {background-position:right 10px;padding:3px 12px 3px 0;}
+ul.menu li{background-position:right 9px;}
+ol li{margin:3px 35px 3px 0;}
+body.contentpane .mailto-close {right:auto;left: 10px;text-align: left;}
+.pos-html{float:right;}
+textarea, input[type="text"],
+input[type="email"],
+input[type="password"]{margin: 0 0 0 5px;}
+/* -----------------------------*/
+/*     Yt tools                 */
+/* -----------------------------*/
+/* Switch modes view */
+.switchmodes-wrap{float: left;}
+.yt-switch_modes span.title-swm{float:right;}
+.yt-switch_modes ul.nav-swm{float:right}
+.yt-switch_modes ul.nav-swm li{float:right;}
+
+/* Link validate and language support  */
+.yt-linkfooter ul{margin:0 0;	}
+.yt-linkfooter ul li.first{background:none;padding:0 0 0 8px;}
+
+/* -----------------------------*/
+/*     Module variations        */
+/* -----------------------------*/
+
+/* Default module */
+img.caption{float: right;}
+div.img_caption{margin: 0 0 10px 10px;}
+
+/* level2 */
+.moduletable.menu ul li ul{margin: 8px 10px 0 0;}
+.moduletable.menu ul li li{padding:4px 12px 4px 0;background-position: 100% 12px;}
+.moduletable.menu ul li li.active,
+.moduletable.menu ul li li:hover{background-position: 100% 12px;}
+
+/* level 3*/
+.moduletable.menu ul li li li{background-position: 100% 12px;}
+
+/* Suffix class: bage */
+.moduletable span.badge{right: auto;left: 0;}
+div.icon-worldnews .icon{right: auto;left: -50px;}
+
+/* ----------------------------*/
+/*     Block: yt_header        */
+/* ----------------------------*/
+#yt_header .yt-main{background-position: 10% bottom;}
+#yt_top{}
+	#nav2 div.yt-position-inner {
+		background-position: right center;
+		padding: 0 30px 0 10px;
+	}
+	#nav2 ul.menu li{float:right;}
+	#mod-finder-searchform{float: left;}
+	ul.yt-login-regis{float:left;}
+	ul.yt-login-regis .button{float: left;}
+	ul.yt-login-regis li{float:right;border: none;border-left: 1px dotted #F0F4F6;display: inline;}
+	ul.yt-login-regis .show-box{right:auto;left:3px;border-radius: 0 5px 5px 5px}
+	ul.yt-login-regis ul.yt-login-links li{background-position: 98% 5px;}
+	#form_login_remember input{float:right;}
+	
+#yt_header {}
+	#yt_header h1.logo {float:right;margin:18px 2px 0 0;}
+	div.site-slogan{float:right;}
+	h1.logo-text{margin:20px 0 0 0;}
+	div.block-thenews ul.lst-news li{background:url(../images/rtl/bullet-2.png) no-repeat right 8px;}
+	div.block-thenews ul.lst-news li:hover{margin: 0 10px 0 0;}
+	div.block-thenews{float: left;}
+
+/* ----------------------------*/
+/*     Block: yt_menuwrap      */
+/* ----------------------------*/
+
+/*Breaking News*/
+div.yt-yttitleflash #breakingnews-title{float: right;border-radius: 0 5px 5px 0;}
+div.yt-yttitleflash .yt-titleflash-pagination{right: auto;left: 0;}
+div.yt-yttitleflash .sliderwrapper{border-radius: 5px 0 0 5px;}
+div.yt-yttitleflash .sliderwrapper .contentdiv{padding: 5px 10px 0 10px;left: auto;right: 0;}
+div.yt-yttitleflash .sliderwrapper .contentdiv > a{float: right;}
+
+/* ----------------------------*/
+/*     Block: yt_spotlight    */
+/* ----------------------------*/
+div.position-first div.yt-position-inner{padding:0 0 0 5px;}
+div.position-last div.yt-position-inner{padding:0 5px 0 0;}
+#yt_spotlight5 ul.menu li{background-position: 99% 13px;}
+#yt_spotlight5 ul.menu li:hover{background-position: 99% -41px;}
+
+/* Custom Module */
+div.newletter{float: left;}
+div.hot-event ul > li:hover {padding: 0 0 0 20px;}
+div.hot-event ul li a.moduleItemReadMore{background-position: 20% -84px;}
+div.hot-event ul li:hover a.moduleItemReadMore{padding: 4px 10px 4px 15px;background: #fff url(../images/rtl/list-arrow2.png) no-repeat 12% -84px;}
+
+#user3 ul.social-link li{float: right;}
+ul.author-link{float: right;}
+
+/* K2 Module*/
+div.widget-wrap .alignleft{float: right;margin: 0 0 0 15px;}
+div.k2slider15 .so_slider_content{direction: ltr;}
+div.k2slider15 .so_navigation_nav{right: auto;left: 0;}
+
+div.yt_so_article_theme3{direction: ltr;}
+
+div.yt_mega_news ul.link > li{background-position: 100% 9px;}
+div.yt_mega_news ul.link > li:hover{background-position: 100% -15px;margin: 0 7px 0 0;}
+
+div.k2ItemsBlock ul li > a.moduleItemImage,
+div.k2LatestCommentsBlock ul li a.k2Avatar{float: right;margin: 0 0 0 8px;}
+div.k2ItemsBlock.slideshow ul li div.moduleItemImage .icon-capture{right: auto;left: 0;}
+
+div.yt-accordion .yt-accordion-image{float: right;}
+div.yt-accordion h3.yt-toggler{background-position: 1% -31px;}
+div.yt-accordion h3.yt-toggler:hover {
+    background-position: 1% -65px, 0 0;
+    background-repeat: no-repeat, repeat-x;
+}
+div.yt-accordion h3.yt-toggler.open{background-position: 1% 2px;}
+div.yt-accordion div.yt-accordion-content{text-align: right;}
+div.yt-accordion div.yt-accordion-content span.yt-accordion-readmore{float: right !important;}
+
+div.article-tool .moduleItemDateCreated{float: right;}
+div.article-tool a.moduleItemComments{float: left;padding: 0 20px 0 0;background-position: 100% 0;}
+
+div.k2ItemsBlock ul li  a.moduleItemComments,
+div.k2LatestCommentsBlock ul li span.lcUsername{padding: 0 20px 0 0;background-position: 100% 0;}
+
+div.k2ItemsBlock ul li:hover  a.moduleItemComments,
+div.article-tool a.moduleItemComments:hover{background-position: 100% -20px;}
+
+div.moduletabs.top-position.clearfix div.tabs-container ul.tabs li{float: right;margin: 0 0 0 5px;}
+
+div.yt_extra_inner .yt_extra_carousel .yt_extra_content{direction: ltr;}
+div.yt_extra_top{right: auto;left: 0;}
+div.yt_extra_content .yt_item_thumb{float: right;}
+div.yt_item_content .yt_item_desc,
+div.yt_item_content .yt_item_title{text-align: right;}
+
+/* ----------------------------*/
+/*     Block: yt_footer        */
+/* ----------------------------*/
+#yt_footer .group-footnav .group-inner{float:right;}
+#yt_footer #footnav li:first-child {border-left: 1px solid #4E688E;}
+#yt_footer #footnav li:last-child {border-left: none;}
+
+/* ----------------------------*/
+/*     Block: content          */
+/* ----------------------------*/
+/* breadcrumb */
+#breadcrumb .breadcrumbs{padding:0 7px 0 0;}
+#breadcrumb .breadcrumbs span.separator,
+#breadcrumb .breadcrumbs a{float:right;}
+#breadcrumb .arrow-bre{float:right;}
+
+.image-content.intro{float: right;margin: 0 0 5px 10px;}
+#advanced-search-toggle{padding: 0 15px 0 0;background: url(../images/rtl/bullet-2.png) no-repeat 95% 4px;}
+
+/* System-messag */
+#system-message > dd > ul{background-position: 100% top;}
+
+/* Related Item */
+ul.related-items li.related-item { background: url("../images/list-arrow2.png") no-repeat  100% 9px ;}
+ul.related-items li.related-item:hover{background-position: 100% -84px;}
+/* module main content */
+#main1_50 .yt-position-inner{margin:0 0 0 5px;}
+#main2_50 .yt-position-inner{margin:0 5px 0 0;}
+
+/* module left, right content */
+
+/* ---------------------------------------*/
+/*    Components (content, k2, vm, ...)   */
+/* ---------------------------------------*/
+
+/* -----------------
+Component content */
+.formelm .fltlft{float:right;}
+.formelm-area label,
+.formelm label{
+	float:right;
+}
+
+
+p.counter{float:left;}
+ul.actions{float:left;}
+dl.article-info{float:right;}
+.createdby, .hits{float:right;}
+.hits {
+    background-position: right center;
+    margin: 0 5px 0 0;padding: 0 6px 0 0;
+}
+.buttonheading,
+.article-tools .buttonheading {
+    float: left;
+}
+.articleinfo,
+.article-tools .article-meta {
+    float: right;
+}
+.categories-list ul li dl dt{
+	float:right;
+	margin:0 0 0 5px;
+}
+.article_default img{margin:0 10px 10px 15px;float:right;}
+.article-content{margin:0 0 0 10px;}
+#image-content img.image-intro{
+	float:right;
+	margin:0 0 0 10px;
+}
+.com_content .categories-list ul li dl dt {float: right;margin: 0 0 0 5px;}
+
+/* -------------
+Component k2 */
+
+.k2AccountPage th.k2ProfileHeading{text-align: right;}
+.module-inner .k2Avatar img{
+	float:right;
+	margin:0 0 0 10px;
+}
+div.catItemCommentsLink{border: none;border-right: 1px solid #999;}
+div.itemComments ul.itemCommentsList li span.commentDate{border: none;border-left: 1px solid #999;display: inline-block;}
+.itemDateCreated, 
+.catItemDateCreated {
+    left:auto;
+	right:0px;
+}
+div.catItemHeader span.catItemAuthor {
+	background-position:left center;
+    float: right;
+    margin: 0 0 0 8px;
+    padding: 0 0 0 8px;
+}
+div.catItemTagsBlock span {
+	background-position:right center;
+    padding: 0 20px 0 8px;
+}
+div.userItemCommentsLink{border: none;border-right:1px solid #999;}
+#itemListPrimary div.catItemImageBlock {}
+.ico-feature {left:auto;right:10px;}
+div.itemListCategory img{float: right;margin: 0 0 0 15px;}
+div.catItemCommentsLink a {
+	background-position:right center;
+    padding: 0 20px 0 0;
+}
+div.catItemReadMore a {
+	background-position:center right;
+    padding: 0 20px 0 0;
+}
+#itemListLinks .itemContainer span.catItemImage{
+	text-align:right;
+}
+.k2Pagination span.result {
+    float: left;
+}
+div.itemHeader span.k2item-print, 
+div.itemHeader span.k2item-fontsize, 
+div.itemHeader span.itemAuthor{
+	background-position:left center;
+    float: right;
+    margin: 0 0 0 8px;
+    padding: 0 0 0 8px;
+}
+.k2item-fontsize{display:block;}
+.itemTextResizerTitle{
+	padding:0 0 0 3px;
+}
+div.itemToolbar ul{
+	text-align:left;
+}
+span.itemHits,div.itemCategory{float:right;padding: 0 25px 0 0;}
+span.itemHits:before,
+div.itemCategory:before{left: auto;right: 0;}
+div.itemAuthorLatest ul > li, div.itemRelated ul > li{
+	padding: 2px 12px 2px 0;
+	background: url(../images/rtl/list-arrow2.png) no-repeat 99% 7px;
+}
+div.itemAuthorLatest ul > li:hover, div.itemRelated ul > li:hover{
+	background-position: 99% -86px;
+}
+div.itemBackToTop > a{float: left;}
+div.itemContentFooter {text-align: left;}
+div.itemRatingBlock {text-align: right;overflow:hidden;float: left;}
+div.itemRatingBlock span {
+    float: right;
+    padding: 0 0 0 4px;
+}
+.itemRatingList {float: right;}
+.itemRatingLog {
+    float: right;
+    padding: 0 4px 0 0;
+}
+div.itemCategory{
+	text-align:right;
+}
+div.itemTagsBlock span{
+	background-position:right center;
+	padding:0 20px 0 0;
+}
+div.itemTwitterButton {
+    float: right;
+    margin: 2px 0 0 15px;
+}
+div.itemGooglePlusOneButton {
+    float: right;
+}
+div.itemFacebookButton {
+    float: right;
+}
+
+div.itemAuthorBlock img.itemAuthorAvatar {
+    float: right;
+    margin: 0 0 0 8px;
+}
+
+div.itemNavigation span.itemNavigationTitle{
+	float:right;
+}
+div.itemNavigation a.itemPrevious{
+	float:right;
+}
+div.itemComments ul.itemCommentsList li span.commentLink {
+    float: left;
+    margin: 0 8px 0 0;
+}
+div.itemComments ul.itemCommentsList li img {
+	margin:0 0 10px 10px;
+    float: right;
+}
+div.itemComments ul.itemCommentsList li span.commentDate {
+	border:none;
+    border-left: 1px solid #CCCCCC;
+    margin: 0 0 0 8px;
+    padding: 0 0 0 4px;
+	float:right;
+}
+div.itemHeader ul{float: right;}
+div.itemHeader ul > li{float: right;border: none;border-left: 1px solid #999;margin: 0 0 0 5px;padding: 0 0 0 5px;}
+div.tagItemImageBlock {float: right;}
+div.itemToolbar-r{float: left;}
+div.itemHeader span.k2item-print,
+div.itemHeader span.k2item-email{float: right;margin: 0;padding: 0;}
+div.itemHeader span.k2item-print > a,
+div.itemHeader span.k2item-email > a{padding: 1px 25px 1px 0;background-position: 90% center;}
+span.tagItemImage {margin: 0 0 8px 8px;}
+div.userItemImageBlock {
+    float: right;
+}
+div.k2FeedIcon a, 
+div.k2FeedIcon a:hover{
+	float:left;
+}
+
+div.userItemTagsBlock span {
+	background-position:right center;
+    padding: 0 20px 0 8px;
+}
+div.userItemCommentsLink a {
+	background-position:right center;
+    padding: 0 20px 0 0;
+}
+span.userItemImage {
+    margin: 0 0 0 8px;
+}
+div.userItemReadMore a, div.tagItemReadMore a {
+	background-position:right center;
+    padding: 0 20px 0 0;
+}
+div.userBlock img {
+    float: right;
+    margin: 0 0 0 8px;
+}
+div.k2CategoriesListBlock ul li a span.catTitle {
+	float:right;
+    padding: 0 0 0 4px;
+}
+.box-3{float: right;}
+.rtl h4.so_title{text-align: right;}
+.rtl .so_description{text-align: right;}
+.rtl .so_readmore{text-align: right !important;}
+.rtl .so_readmore{float: right;}
+/* -----------------------
+Component smart search */
+#advanced-search{
+	text-align:right;
+}
+#advanced-search ul li.filter-branch{
+	background-position:right center;
+}
+#advanced-search ul li.filter-branch label{
+	padding:0 0 0 5px;
+}
+
+/* --------------------
+Component News Feed, Contact, Weblink... */
+.contact .panel .contact-image { float: left;}
+.contact .panel dl dt label { float: right;margin: 0 10px 0 0;}
+table.category th {text-align:right;}
+.align-left,.alignleft {float: right;}
+.align-right,.alignright {float: left;}
+

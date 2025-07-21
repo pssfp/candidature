@@ -1,0 +1,28 @@
+/******************************************
+***          YT Framework: CSS          ***
+*******************************************/
+
+/*   General style    */
+
+@font-face {
+    font-family: 'Socialico';
+    src: url('../elements/fonts/socialico-webfont.eot');
+    src: url('../elements/fonts/socialico-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../elements/fonts/socialico-webfont.woff') format('woff'),
+         url('../elements/fonts/socialico-webfont.ttf') format('truetype'),
+         url('../elements/fonts/socialico-webfont.svg#SocialicoRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'fontello';
+  src:  url("../elements/fonts/fontello.eot");
+  src:  url("../elements/fonts/fontello.eot?#iefix") format('embedded-opentype'),
+        url("../elements/fonts/fontello.woff") format('woff'),
+        url("../elements/fonts/fontello.ttf") format('truetype'),
+        url("../elements/fonts/fontello.svg#fontello") format('svg');
+  font-weight: normal;
+  font-style: normal;
+}

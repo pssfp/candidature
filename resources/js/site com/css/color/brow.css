@@ -1,0 +1,137 @@
+/*------  Base style ----*/
+a {outline: none;color: #671c05;text-decoration: none;}
+a:hover {color:#a73f1f;  }
+button, .button{background-color:#8d3e25;border-color:#8d3e25;}
+
+/* Module variations  ---*/
+.moduletable.title3 > h3,
+.moduletable.title4 > h3,
+.moduletable.title5 > h3{color: #671c05;}
+
+/* Block YT Top ----*/
+#yt_top{background-color: #611903 ;}
+ul.yt-login-regis li > a:hover,
+ul.yt-login-regis ul.yt-login-links li a:hover{color:#a73f1f; }
+#nav2 ul.menu li:hover:before,
+#nav2 ul.menu li.active:before{background-color: #7c280e;}
+body ul.autocompleter-choices li.autocompleter-selected {background-color: #7c280e;}
+
+/* Block YT Mainmenu ---*/
+ul.navi div.level1.separator,
+ul.navi a.level1{color:#a73f1f;}
+
+ul.navi li.level2:hover div.separator.level2,
+ul.navi li.level3:hover div.separator.level3,
+ul.navi li.level4:hover div.separator.level4,
+ul.navi li.level2:hover a.level2 ,
+ul.navi li.level3:hover a.level3,
+ul.navi li.level4:hover a.level4{
+	color: #a73f1f;
+}
+
+ul.navi a.readon:hover{background: #671c05;}
+
+/* Block YT Slide ---*/
+div.yt-yttitleflash .sliderwrapper{background: #611901;}
+
+/* Block YT Spotlight1 ---*/
+div.ytc_background_theme5 div.content-box-normal-theme5{background: #611901;}
+div.content-box-normal-theme5 div.content_box_theme5 div.cover_item_box div.content_box_item ul > li{border-color: #814634;}
+div.content-box-normal-theme5 div.content_box_theme5 div.cover_item_box div.content_box_item ul > li:hover{background: #72260d;}
+
+/* Block YT Body Main ---*/
+div.yt_mega_news .theme1 .tabs > a:hover {color: #a73f1f;}
+div.yt_mega_news .theme1 .box_mega:hover .tabs > a{color: #a73f1f;}
+div.yt_mega_news ul li:hover {background: url("../../images/brow/bullet-1.png") no-repeat  0 9px ;}
+div.yt_mega_news .theme1 .link li > a:hover{color: #611901;}
+
+.moduletable.bgcolor2{background: #611901;}
+div.newletter .button:hover{background-color: #611901;}
+
+div.yt-accordion h3.yt-toggler.open,
+div.yt-accordion h3.yt-toggler.open:hover{background-color: #611901;color: #fff;}
+div.yt-element div.yt-accordion-content > p,
+div.yt-accordion h3.yt-toggler:hover{color: #a73f1f;}
+div.article-tool a.moduleItemComments:hover {color: #a73f1f;}
+div.k2ItemsBlock ul li  a.moduleItemComments:hover{color: #a73f1f;}
+
+/* Block YT Spotlight3 ---*/
+ul.author-link li:hover a, ul.author-link li:hover a:active {color: #a73f1f;}
+ul.author-link li > span{
+	background-color:#a73f1f;
+	background-image:-moz-linear-gradient(top,#b94928,#a73f1f);
+    background-image:-webkit-linear-gradient(top,#b94928,#a73f1f);
+    background-image:-o-linear-gradient(top,#b94928,#a73f1f);
+    background-image:-ms-linear-gradient(top,#b94928,#a73f1f);
+    background-image:linear-gradient(top,#b94928,#a73f1f);
+}
+ul.author-link li > span:after{border-top-color:#a73f1f; }
+
+#yt_spotlight4 .yt-main-in1,
+#yt_spotlight5 .yt-main-in1,
+#yt_footer .yt-main-in1{background: #611901;}
+#yt_spotlight5 ul.menu li{border-bottom-color: #863d27;}
+#yt_spotlight5 ul.menu li:hover{background-color: #71301c;}
+
+div.k2slider15 .so_blockcontent h4.so_title{background: #863d27;}
+div.k2slider15 .so_slider_content .so-blockitem .so_blockcontent .so_readmore > a{background: #863d27;border-color:#a34f36;}
+div.k2slider15 .so_slider_content .so-blockitem .so_blockcontent .so_readmore > a:hover {background-color: #a34f36;border-color:#b36149;} 
+
+ul.list-video li > a:hover{color: #a73f1f;}
+	div.hot-event ul > li{background-color: #71301c;border-left-color: #611901;}
+	div.hot-event ul > li:hover{background-color: #814634;}
+	div.hot-event ul li:hover a.moduleItemReadMore{color: #611901;}
+	div.hot-event ul li:hover a.moduleItemReadMore{background-image: url(../../images/brow/list-arrow2.png) ;}
+
+div.k2ItemsBlock ul li a.moduleItemComments,
+div.article-tool a.moduleItemComments{background: url("../../images/brow/comment.png") no-repeat scroll 0 0 ;}
+div.k2ItemsBlock ul li:hover a.moduleItemTitle{color:#a73f1f; }
+div.k2ItemsBlock ul li:hover a.moduleItemComments,
+div.article-tool a.moduleItemComments:hover{background: url("../../images/brow/comment.png") no-repeat scroll 0 -20px ; color: #a73f1f;}
+
+/* Block YT Footer ---*/
+#yt_footer #footnav{border-bottom-color: #814634;border-top-color:  #814634;}
+#yt_footer #footnav li{border-left-color: #814634;}
+#yt_footer #footnav li#current a, #yt_footer #footnav li a:hover,
+#yt_footer #footnav li span.separator:hover, #yt_footer #footnav li a#active_menu-nav{background: #71301c;}
+
+/* Component Content  ---*/
+ul.pagination li > strong{background-color: #611901;}
+ul.pagination li:hover > strong{background-color: #71301c;}
+ul.related-items li.related-item,
+div.itemAuthorLatest ul > li,
+div.itemRelated ul > li{background-image: url(../../images/brow/list-arrow2.png);}
+
+/* Component K2  ---*/
+div.catItemCommentsLink a:hover,
+div.userItemCommentsLink a:hover{color: #71301c;}
+div.itemCommentsForm form input#submitCommentButton{background-color:#8d3e25;border-color:#8d3e25;}
+.subCategory:hover h2 a {color: #71301c;}
+div.subCategory:hover a.subCategoryMore{background-color: #71301c;}
+div.itemBackToTop > a:hover{background-color: #611901;}
+
+/* --- K2 Tag Cloud --- */
+div.k2TagCloudBlock > a:after{
+	 background: #a22900;
+	-webkit-box-shadow: inset 1px 0 #99400e;
+	box-shadow: inset 1px 0 #99400e;
+}
+div.k2TagCloudBlock > a:hover{color: #a73f1f;}
+div.k2TagCloudBlock > a > span {
+	border-color: #7e1f00 #7e1f00 #7e1f00;
+	background-color: #c13000;
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #922500), color-stop(100%, #c13000));
+	background-image: -webkit-linear-gradient(top, #ed7b39, #c13000);
+	background-image: -moz-linear-gradient(top, #922500, #c13000);
+	background-image: -ms-linear-gradient(top, #922500, #c13000);
+	background-image: -o-linear-gradient(top, #922500, #c13000);
+	background-image: linear-gradient(top, #922500, #c13000);
+}
+
+/* RTL Languages  ---*/
+.rtl div.yt_mega_news ul.link > li:hover {background-position: 100% 9px;}
+.rtl #yt_footer #footnav li:first-child{border-left-color: #814634;}
+.rtl ul.related-items li.related-item,
+.rtl div.itemAuthorLatest ul > li,
+.rtl div.itemRelated ul > li{background-image: url(../../images/brow/rtl/list-arrow2.png) ;}
+.rtl div.hot-event ul li:hover a.moduleItemReadMore{background-image: url(../../images/brow/rtl/list-arrow2.png) ;}

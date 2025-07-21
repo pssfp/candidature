@@ -1,0 +1,146 @@
+/*------  Base style ----*/
+a {outline: none;color: #035561;text-decoration: none;}
+a:hover {color:#24acbf;  }
+button, .button{background-color:#108191;border-color:#108191;}
+
+/* Module variations  ---*/
+.moduletable.title3 > h3,
+.moduletable.title4 > h3,
+.moduletable.title5 > h3{color: #108191;}
+
+/* Block YT Top ----*/
+#yt_top{background-color: #035561 ;}
+ul.yt-login-regis li > a:hover,
+ul.yt-login-regis ul.yt-login-links li a:hover{color:#035561; }
+#nav2 ul.menu li:hover:before,
+#nav2 ul.menu li.active:before{background-color: #266c76;}
+body ul.autocompleter-choices li.autocompleter-selected {background-color: #266c76;}
+
+/* Block YT Mainmenu ---*/
+ul.navi div.level1.separator,
+ul.navi a.level1{color:#035561;}
+
+ul.navi li.level2:hover div.separator.level2,
+ul.navi li.level3:hover div.separator.level3,
+ul.navi li.level4:hover div.separator.level4,
+ul.navi li.level2:hover a.level2 ,
+ul.navi li.level3:hover a.level3,
+ul.navi li.level4:hover a.level4{
+	color: #035561;
+}
+ul.navi li.level2.active div.separator.level2,
+ul.navi li.level3.active div.separator.level3,
+ul.navi li.level4.active div.separator.level4,
+ul.navi li.level2.active a.level2,
+ul.navi li.level3.active a.level3,
+ul.navi li.level4.active a.level4{
+	color: #035561;
+}
+
+ul.navi a.readon:hover{background: #035561;}
+
+/* Block YT Slide ---*/
+div.yt-yttitleflash .sliderwrapper{background: #035561;}
+
+/* Block YT Spotlight1 ---*/
+div.ytc_background_theme5 div.content-box-normal-theme5{background: #035561;}
+div.content-box-normal-theme5 div.content_box_theme5 div.cover_item_box div.content_box_item ul > li{border-color: #347780;}
+div.content-box-normal-theme5 div.content_box_theme5 div.cover_item_box div.content_box_item ul > li:hover{background: #056573;}
+
+/* Block YT Body Main ---*/
+div.yt_mega_news .theme1 .tabs > a:hover {color: #108191;}
+div.yt_mega_news .theme1 .box_mega:hover .tabs > a{color: #108191;}
+div.yt_mega_news ul li:hover {background: url("../../images/cyan/bullet-1.png") no-repeat  0 9px ;}
+div.yt_mega_news .theme1 .link li > a:hover{color: #035561;}
+
+.moduletable.bgcolor2{background: #035561;}
+div.newletter .button:hover{background-color: #035561;}
+
+div.yt-accordion h3.yt-toggler.open,
+div.yt-accordion h3.yt-toggler.open:hover{background-color: #035561;color: #fff;}
+div.yt-element div.yt-accordion-content > p,
+div.yt-accordion h3.yt-toggler:hover{color: #108191;}
+div.article-tool a.moduleItemComments:hover {color: #108191;}
+div.k2ItemsBlock ul li a.moduleItemComments:hover{color: #108191;}
+
+/* Block YT Spotlight3 ---*/
+ul.author-link li:hover a, ul.author-link li:hover a:active {color: #108191;}
+ul.author-link li > span{
+	background-color:#2aacbe;
+	background-image:-moz-linear-gradient(top,#2aacbe,#197c8d);
+    background-image:-webkit-linear-gradient(top,#2aacbe,#197c8d);
+    background-image:-o-linear-gradient(top,#2aacbe,#197c8d);
+    background-image:-ms-linear-gradient(top,#2aacbe,#197c8d);
+    background-image:linear-gradient(top,#2aacbe,#197c8d);
+}
+ul.author-link li > span:after{border-top-color:#197c8d; }
+
+#yt_spotlight4 .yt-main-in1,
+#yt_spotlight5 .yt-main-in1,
+#yt_footer .yt-main-in1{background: #035561;}
+#yt_spotlight5 ul.menu li{border-bottom-color: #387681;}
+#yt_spotlight5 ul.menu li:hover{background-color: #1c6671;}
+
+div.k2slider15 .so_blockcontent h4.so_title{background: #3fb9cb;}
+div.k2slider15 .so_slider_content .so-blockitem .so_blockcontent .so_readmore > a{background: #3fb9cb;border-color:#6eccda;}
+div.k2slider15 .so_slider_content .so-blockitem .so_blockcontent .so_readmore > a:hover {background-color: #4cc6d8;border-color:#7fd8e5;}
+
+ul.list-video li > a:hover{color: #1c6671;}
+	div.hot-event ul > li{background-color: #1c6671;border-left-color: #108191;}
+	div.hot-event ul > li:hover{background-color: #347780;}
+	div.hot-event ul li:hover a.moduleItemReadMore{color: #1c6671;}
+	div.hot-event ul li:hover a.moduleItemReadMore{background-image: url(../../images/cyan/list-arrow2.png) ;}
+
+div.k2ItemsBlock ul li a.moduleItemComments,
+	div.article-tool a.moduleItemComments{background: url("../../images/cyan/comment.png") no-repeat scroll 0 0 ;}
+	div.k2ItemsBlock ul li:hover a.moduleItemTitle{color:#24acbf; }
+	div.k2ItemsBlock ul li:hover a.moduleItemComments,
+	div.article-tool a.moduleItemComments:hover{background: url("../../images/cyan/comment.png") no-repeat scroll 0 -20px ; color: #1c6671;}
+
+
+/* Block YT Footer ---*/
+#yt_footer #footnav{border-bottom-color: #387681;border-top-color:  #387681;}
+#yt_footer #footnav li{border-left-color: #387681;}
+#yt_footer #footnav li#current a, #yt_footer #footnav li a:hover,
+#yt_footer #footnav li span.separator:hover, #yt_footer #footnav li a#active_menu-nav{background: #1c6671;}
+
+/* Component Content  ---*/
+ul.pagination li > strong{background-color: #1c6671;}
+ul.pagination li:hover > strong{background-color: #387681;}
+ul.related-items li.related-item,
+div.itemAuthorLatest ul > li,
+div.itemRelated ul > li{background-image: url(../../images/cyan/list-arrow2.png);}
+
+/* Component K2  ---*/
+div.catItemCommentsLink a:hover,
+div.userItemCommentsLink a:hover{color: #1c6671;}
+div.itemCommentsForm form input#submitCommentButton{background-color:#24acbf;border-color:#24acbf;}
+.subCategory:hover h2 a {color: #108191;}
+div.subCategory:hover a.subCategoryMore{background-color: #108191;}
+div.itemBackToTop > a:hover{background-color: #108191;}
+
+/* --- K2 Tag Cloud --- */
+div.k2TagCloudBlock > a:after{
+	 background: #1faec2;
+	-webkit-box-shadow: inset 1px 0 #99400e;
+	box-shadow: inset 1px 0 #99400e;
+}
+div.k2TagCloudBlock > a:hover{color: #139db0;}
+div.k2TagCloudBlock > a > span {
+	border-color: #179aac #179aac #179aac;
+	background-color: #2abbcf;
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #139db0), color-stop(100%, #2abbcf));
+	background-image: -webkit-linear-gradient(top, #139db0, #2abbcf);
+	background-image: -moz-linear-gradient(top, #139db0, #2abbcf);
+	background-image: -ms-linear-gradient(top, #139db0, #2abbcf);
+	background-image: -o-linear-gradient(top, #139db0, #2abbcf);
+	background-image: linear-gradient(top, #139db0, #2abbcf);
+}
+
+/* RTL Languages  ---*/
+.rtl div.yt_mega_news ul.link > li:hover {background-position: 100% 9px;}
+.rtl #yt_footer #footnav li:first-child{border-left-color: #387681;}
+.rtl ul.related-items li.related-item,
+.rtl div.itemAuthorLatest ul > li,
+.rtl div.itemRelated ul > li{background-image: url(../../images/cyan/rtl/list-arrow2.png) ;}
+.rtl div.hot-event ul li:hover a.moduleItemReadMore{background-image: url(../../images/cyan/rtl/list-arrow2.png) ;}

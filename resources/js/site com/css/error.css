@@ -1,0 +1,130 @@
+/**
+ * @copyright	Copyright (C) 2005 - 2012 Open Source Matters, Inc. All rights reserved.
+ * @license		GNU General Public License version 2 or later; see LICENSE.txt
+ */
+
+/* Start Common Styles */
+* {
+	font-family: arial, sans-serif;
+	font-size: 12px;
+	color: #666666;
+}
+
+body {
+	margin: 0px;
+	padding: 0px;
+	background: #fff;
+}
+
+div.error {
+	display: block;
+	max-width: 800px;
+	margin: 60px auto 0;
+}
+#errorboxoutline {
+	width:100%;display: table;
+}
+div.errorboxleft{
+	width:400px;height: 450px;
+	float: left;
+	background: url(../images/404/404.png) no-repeat 0 10px;
+}
+.errorboxoutline-inner {
+   float: left;
+   width:380px;
+   padding: 10px 20px;
+   box-sizing: border-box;
+   -moz-box-sizing:  border-box;
+}
+table, td, th, div, pre, blockquote, ul, ol, dl, address,.componentheading,.contentheading,.contentpagetitle,.sectiontableheader,.newsfeedheading {
+	font-family: helvetica, arial, sans-serif;
+	font-weight: normal;
+}
+
+#outline {
+	display: block;
+}
+
+
+.logo {
+	
+	padding: 0 0 25px;
+}
+.logo a {
+	background:url(..//images/logo.png) no-repeat left 0;
+	display:block;
+	width: 230px;
+	height: 60px;
+	text-indent: -999em;
+}
+.e404 {
+	font-weight: bold;
+	font-size: 150% !important;
+	margin: 0 20px;
+}
+#errorboxheader {
+	margin: 0px;
+	font-size: 250%;
+	line-height: 38px;
+}
+#errorboxheader span {
+	display: inline-block;
+    font-size: 100%;
+    height: 40px;
+    text-indent: -999em;
+    width: 110px;
+	background: url(..//images/e404.png) no-repeat center center;
+}
+ol{padding: 0 17px;margin: 0;}
+ul.links {padding: 0;margin: 2em 0;}
+ul.links a {
+	color: #2060a3;
+	text-decoration: none;
+}
+ul.links a:hover{color: #3983d1;}
+ul.links li {
+	line-height:32px;
+	list-style: none;
+	margin-bottom: 5px;
+	padding: 2px 0 2px 70px;
+}
+ul.links li.homepage {
+	background: url(../images/404/404-arrow.png) no-repeat left 0;
+}
+ul.links li.searchsite {
+	background: url(../images/404/404-arrow.png) no-repeat left bottom;
+}
+.errorboxfooter {
+	width:100%;
+	height:18px;
+	background: url(..//images/e404Bg-footer-l.png) no-repeat left top;
+}
+.errorboxfooter-inner {
+	width:100%;
+	height:18px;
+	background: url(..//images/e404Bg-footer-r.png) no-repeat right top;
+}
+#errorboxbody {
+	margin: 0px;
+	text-align: left;
+	line-height: 20px;
+}
+#techinfo {
+	margin: 10px;
+	padding: 10px;
+	text-align: left;
+	border: 1px solid #CCCCCC;
+	color: #CCCCCC;
+}
+#techinfo p {
+	color: #666;
+}
+
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) {
+	div.error{max-width:480px;}
+	div.errorboxleft{width:100% !important;background-size: 100% auto;}
+	div.errorboxoutline-inner{width:100% !important;}
+	div.errorboxoutline-inner{clear: both;}
+}

@@ -1,0 +1,68 @@
+/* Form input fixes - Applied globally */
+.formbold-form-input {
+    color: #2d3748;
+    background-color: #ffffff;
+    padding: 10px 5px;
+    height: 40px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 16px;
+    line-height: normal;
+}
+
+.formbold-form-input option {
+    color: #2d3748;
+    background-color: #ffffff;
+    padding: 10px 5px;
+    font-size: 16px;
+}
+
+.formbold-form-input option:checked {
+    background-color: #f0f0f0;
+}
+
+/* Additional select styling to ensure visibility */
+select.formbold-form-input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 16px center;
+    background-repeat: no-repeat;
+    background-size: 16px;
+    padding-right: 40px;
+}
+
+/* Ensure textarea has proper height */
+textarea.formbold-form-input {
+    height: auto;
+    min-height: 100px;
+}
+
+/* Fix for date inputs */
+input[type="date"].formbold-form-input {
+    padding-right: 10px;
+}
+
+/* Consistent height for all browsers */
+@-moz-document url-prefix() {
+    .formbold-form-input {
+        height: 40px;
+    }
+}
+
+/* Fix for Chrome and Safari */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    .formbold-form-input {
+        height: 40px;
+    }
+}
+
+/* Fix for Edge/IE */
+@supports (-ms-ime-align:auto) {
+    .formbold-form-input {
+        height: 40px;
+    }
+}

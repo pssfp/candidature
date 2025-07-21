@@ -1,0 +1,41 @@
+.inline_menu,
+.inline_logo {
+	right:auto;
+    left: 4%;
+}
+#btn_search{float: right;}
+.top a {
+    float: left;
+}
+.yt-switch_modes {
+    margin:  0 0;
+}
+.yt-fontsize li {float: right;}
+#yt_bottommenu ul.menu li {
+    background-position: right center;
+}
+
+ul.yt-login-links li {
+    background-position: right center;
+}
+p#form-login-remember input {
+    float: right;
+    margin: 8px 0 0 10px;
+}
+#btn_login, #btn_regis {
+    float: right;
+    margin: 0 5px 0 0;
+}
+div.yt-fontsize > ul{float: left;}
+.close-popup{right: auto;left: 0;}
+#bd #mod-finder-searchform div.finder{float: right !important;}
+.switchmodes-wrap{float: right;}
+#yt_bottommenu ul.menu li > a:hover { margin: 0 10px 0 0;}
+
+/*Responsive*/
+
+/*Com Content*/
+.image-content.intro{margin: 0;}
+div.itemComments ul.itemCommentsList li img{padding: 0;border: 0;margin: 0  0 0 10px !important;}
+div.itemComments ul.itemCommentsList li span.commentLink{float: none;margin: 0;}
+div.itemComments ul.itemCommentsList li span.commentDate{float: right;width:140px;border: none;height: 20px;overflow: hidden;}

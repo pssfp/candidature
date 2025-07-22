@@ -134,6 +134,7 @@
     </head>
     
     <body>
+        <!-- Première page - Copie Candidat -->
         <div class="filigrane">COPIE CANDIDAT</div>
 
         <table class="header-table">
@@ -147,7 +148,7 @@
                     EN FINANCES PUBLIQUES<br />
                 </td>
                 <td class="header-middle">
-                    <img src="/home/www/www.candidature.pfinancespubliques.org/candidature.pfinancespubliques.org/resources/images/logo5.png" alt="Logo">
+                    <img src="/home/www/www.candidature.pfinancespubliques.org/candidature.pfinancespubliques.org/resources/images/logopssfp.png" alt="Logo">
                 </td>
                 <td class="header-right">
                     REPUBLIC OF CAMEROON<br />
@@ -235,6 +236,7 @@
         <!-- Saut de page pour la copie administration -->
         <div class="page-break"></div>
 
+        <!-- Deuxième page - Copie Administration (identique sauf filigrane) -->
         <div class="filigrane">COPIE ADMINISTRATION</div>
 
         <table class="header-table">
@@ -248,7 +250,7 @@
                     EN FINANCES PUBLIQUES<br />
                 </td>
                 <td class="header-middle">
-                    <img src="/home/www/www.candidature.pfinancespubliques.org/candidature.pfinancespubliques.org/resources/images/logo5.png" alt="Logo">
+                    <img src="/home/www/www.candidature.pfinancespubliques.org/candidature.pfinancespubliques.org/resources/images/logopssfp.png" alt="Logo">
                 </td>
                 <td class="header-right">
                     REPUBLIC OF CAMEROON<br />

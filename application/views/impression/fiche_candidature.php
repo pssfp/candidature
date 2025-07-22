@@ -1,248 +1,337 @@
-<html lang="en">
-	
+<html lang="fr">
+    <head>
+        <style>
+            body {
+                font-family: DejaVu Sans, sans-serif;
+                font-size: 11px;
+                margin: 0;
+                padding: 0;
+            }
+
+            .filigrane {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%) rotate(-30deg);
+                font-size: 25px;
+                font-weight: 800;
+                color: rgba(158, 158, 158, 0.2);
+                z-index: 0;
+            }
+
+            .header {
+                position: relative;
+                text-align: center;
+                border-bottom: -2px solid #6a0dad;
+                margin-bottom: 20px;
+                padding-bottom: 10px;
+            }
+
+            .header h1 {
+                color: #6a0dad;
+                font-size: 18px;
+                margin-bottom: 5px;
+            }
+
+            .photo-box {
+                float: right;
+                border: 1px solid #ccc;
+                width: 120px;
+                height: 120px;
+                margin-left: 10px;
+                text-align: center;
+                font-size: 10px;
+                overflow: hidden;
+            }
+
+            .photo-box img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            .qr-box {
+                float: right;
+                width: 100px;
+                height: 100px;
+                margin-left: 10px;
+                margin-top: 10px;
+            }
+
+            .section {
+                margin-bottom: 20px;
+                clear: both;
+            }
+
+            .section-title {
+                background: #f4f0ff;
+                border-left: 5px solid #6a0dad;
+                padding: 5px 10px;
+                font-weight: bold;
+                color: #333;
+                margin-bottom: 5px;
+            }
+
+            .info-row {
+                margin: 4px 0;
+            }
+
+            .info-label {
+                display: inline-block;
+                width: 35%;
+                font-weight: bold;
+                vertical-align: top;
+            }
+
+            .info-value {
+                display: inline-block;
+                width: 60%;
+            }
+
+            .footer {
+                font-size: 10px;
+                text-align: center;
+                color: #666;
+                border-top: 1px solid #ccc;
+                margin-top: 30px;
+                padding-top: 10px;
+            }
+
+            .qr-container {
+                position: absolute;
+                bottom: 70px;
+                right: 0px;
+                text-align: center;
+                font-size: 8px;
+            }
+
+            .header-table {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+            
+            .header-left, .header-right {
+                font-size: 9px;
+                text-align: center;
+                width: 35%;
+				margin-bottom: -10px;
+            }
+            
+            .header-middle {
+                width: 30%;
+                text-align: center;
+            }
+            
+            .header-middle img {
+                width: 100px;
+            }
+
+            .page-break {
+                page-break-after: always;
+                margin-top: 50px;
+            }
+        </style>
+    </head>
+    
     <body>
-    <link rel="stylesheet" href="/home/www/www.candidature.pfinancespubliques.org/candidature.pfinancespubliques.org/resources/css/stylepdf.css">
-    <style>
-		@page {
-			margin-top: 0.3em;
-			margin-left: 0.9em;
-			margin-right: 0.9em;
-			margin-bottom: 0.9em;
-		}
-	</style>
-	
-		<div class='header'>
-		
-			<table>	
-				<tr>
-					<td>
-					<div class='header_left'>
-						REPUBLIQUE DU CAMEROUN <br />
-						Paix- Travail- Patrie<br />
-						--------------<br />
-						MINISTERE DES FINANCES<br />
-						--------------<br />
-						SECRETARIAT GENERAL<br />
-						--------------<br />
-						PROGRAMME SUPERIEUR DE SPECIALISATION <br />
-						EN FINANCES PUBLIQUES<br />
-						--------------<br />
+        <div class="filigrane">COPIE CANDIDAT</div>
 
-					</div>			
-					<td>				
-					<div class='header_middle'>
-						<img src="/home/www/www.candidature.pfinancespubliques.org/candidature.pfinancespubliques.org/resources/images/logo5.png" style="width: 150px;"/>
-					</div>
-					</td>					
-					<td width='50'>					
-					</td>
-					</td>
-					<td>
-					<div class='header_right'>
-						REPUBLIC OF CAMEROON<br />
-						Peace- Work- Fatherland<br />
-						--------------<br />
-						MINISTRY OF FINANCE<br />
-						----------------<br />
-						GENERAL SECRETARIAT<br />
-						--------------<br />
-						ADVANCED PROGRAM OF SPECIALISATION<br />
-						IN PUBLIC FINANCE<br />
-						--------------<br />
+        <table class="header-table">
+            <tr>
+                <td class="header-left">
+                    REPUBLIQUE DU CAMEROUN <br />
+                    Paix- Travail- Patrie<br />
+                    MINISTERE DES FINANCES<br />
+                    SECRETARIAT GENERAL<br />
+                    PROGRAMME SUPERIEUR DE SPECIALISATION <br />
+                    EN FINANCES PUBLIQUES<br />
+                </td>
+                <td class="header-middle">
+                    <img src="/home/www/www.candidature.pfinancespubliques.org/candidature.pfinancespubliques.org/resources/images/logo5.png" alt="Logo">
+                </td>
+                <td class="header-right">
+                    REPUBLIC OF CAMEROON<br />
+                    Peace- Work- Fatherland<br />
+                    MINISTRY OF FINANCE<br />
+                    GENERAL SECRETARIAT<br />
+                    ADVANCED PROGRAM OF SPECIALISATION<br />
+                    IN PUBLIC FINANCE<br />
+                </td>
+            </tr>
+        </table>
 
-					</div>
-					</td>				
-				</tr>				
-			</table>
-		</div>
-		<div>			<center><p>
-			<h3 style ='margin-top: -8px;font-size:14px; '> <font style="color: #dd5600; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MASTER PROFESSIONNEL EN FINANCES PUBLIQUES </font></h3>
-			<span style="text-decoration: underline;font-size:14px; margin-top: -20px;"  >FORMULAIRE D&rsquo;INSCRIPTION N°:</span> <?php echo $candidat->ordre_candidature ;?><p></center>
-			
-			<div style ="padding-top:-30px">
-			<h4 style ="border-bottom: 1px solid; width: 600px; ">I. SPECIALITE</h4>
-                        <table >
-				<tr>
-					<td width='450'>
-                                            <div style="margin-top: -30px; ">
-						<strong>Specialite :  </strong><span class="info"> <?php echo $candidat->specialite ;?></span><br />
-						<strong>Type de formation :  </strong><span class="info"> <?php echo $candidat->type_etude ;?></span>
-					    </div>
-					</td>
-					<td>
-                                            <div style="margin-top: -30px; " class='photo'><i>Photo récente 4x4</i></div>
-					</td>
-				</tr>
-			</table>
-			</div>
-                        
-                        <div style ="padding-top:-50px">
-			<h4 style ="border-bottom: 1px solid; width: 600px;   " >II. ETAT CIVIL</h4>
-			<table >
-				<tr>
-					<td width="350">
-						<strong>Nom et prenom :  </strong><span class="info"><?php echo $candidat->nom. ' ' .$candidat->prenom;?></span><br />
-					</td>					
-					<td>
-					</td>					
-					<td>
-						<strong>Epouse :  </strong><span class="info"><?php echo $candidat->epouse ;?></span><br />
-					</td>
-				</tr>	
-			</table>
-			
-			
-			<table >		
-				<tr>
-					<td width="200">
-						<strong>Date de naissance:  </strong><span class="info"><?php echo $candidat->date_naissance ;?></span><br />
-					</td>					
-					<td colspan="2">
-						<strong>Lieu de naissance :  </strong><span class="info"><?php echo $candidat->lieu_de_naissce ;?></span> <br />
-					</td>					
-				</tr>				
-				<tr>
-					<td>
-						<strong>Sexe :  </strong><span class="info"><?php echo $candidat->sexe ;?></span><br />
-					</td>					
-					<td>
-						<strong>Statut matrimonial :  </strong><span class="info"><?php echo $candidat->statu_matrimonial ;?></span> <br />
-					</td>					
-					<td>
-						<strong>Nombre d&rsquo;enfants :  </strong><span class="info"><?php echo $candidat->nombre_enfant ;?></span><br />
-					</td>
-				</tr>				
-				<tr>
-					<td>
-						<strong>Nationalité :  </strong><span class="info pousser_haut"><?php echo $candidat->nationalite ;?></span><br />
-					</td>					
-					<td>
-						<strong>Région :  </strong><span class="info pousser_haut"><?php echo $candidat->region_dorigine ;?></span> <br />
-					</td>					
-					<td>
-						<strong>Département:  </strong><span class="info pousser_haut"><?php echo $candidat->dept_dorigine ;?></span><br />
-					</td>
-				</tr>				
-				<tr>
-					<td height="5"></td><td></td><td></td>
-				</tr>
-			</table>
-			</div>
-			
-			<h4 style ="border-bottom: 1px solid; width: 780px;" class="pousser_haut">III. CONTACT</h4>
-			<table style="margin-top: -20px;" class="pousser_haut">		
-				<tr>
-					<td>
-						<strong>Adresse :  </strong><span class="info"><?php echo substr($candidat->adresse_candidat , 0, 23)."...";?> </span><br />
-					</td>					
-					<td>
-						<strong>Lieu de résidence :  </strong><span class="info"><?php echo substr($candidat->ville_residence  , 0, 35);?></span><br />
-					</td>					
-				</tr>				
-				<tr>
-					<td>
-						<strong>Téléphone 1: </strong><span class="info"><?php echo $candidat->telephone ;?></span> <br />
-					</td>									
-					<td>
-						<strong>Téléphone 2: </strong><span class="info"><?php echo $candidat->telephone2 ;?></span> <br />
-					</td>									
-					<td>
-						<strong>E-mail:  </strong><span class="info"><?php echo $candidat->email ;?></span> <br />
-					</td>									
-				</tr>
-				
-				
-			</table>
-			<h4 style ="border-bottom: 1px solid; width: 780px;" class="pousser_haut">IV. ETUDES SUPERIEURES</h4>
-			<table style="margin-top: -20px;" class="pousser_haut">		
-				<tr>
-					<td width="250">
-						<strong>Nombre d'année d'études supérieures :  </strong><span class="info"><?php echo $candidat->nombre_annee_etude_sup ;?></span><br />
-					</td>					
-					<td>
-						<strong>Dernier Diplôme:  </strong><span class="info"><?php echo !empty($candidat->dernier_diplome) ? (strlen($candidat->dernier_diplome) > 30 ? substr($candidat->dernier_diplome, 0, 30).'...' : $candidat->dernier_diplome) : ''; ?></span> <br />
-					</td>
-				</tr>				
-				<tr>
-					<td width="250"> 
-						<strong>Lieu d&rsquo;optention :  </strong><span class="info"><?php echo !empty($candidat->diplome_obtenu_a) ? (strlen($candidat->diplome_obtenu_a) > 30 ? substr($candidat->diplome_obtenu_a, 0, 30).'...' : $candidat->diplome_obtenu_a) : ''; ?></span><br />
-					</td>
-					<td>
-						<strong>Année d&rsquo;obtention :  </strong><span class="info"><?php echo $candidat->annee_optention_diplome ?? ''; ?></span> <br />
-					</td>
-				</tr>				
-				<tr>
-					<td height="5"></td><td></td><td></td>
-				</tr>
-			</table>			
-			<h4 style ="border-bottom: 1px solid; width: 780px;" class="pousser_haut">V. COORDONNÉES PROFESSIONNEL</h4>
-			<table style="margin-top: -20px;" class="pousser_haut">		
-				<tr>
-					<td width="250">
-						<strong>Emploi actuel :  </strong><span class="info"><?php echo $candidat->statut_prof ;?></span> <br />
-					</td>					
-					<td width="250">
-						<strong>Structure :  </strong><span class="info"><?php echo substr( $candidat->structure , 0, 23).'...' ; ?></span><br />
-					</td>					
-				</tr>				
-				<tr>
-					<td width="350"> 
-						<strong>Contact de cette structure :  </strong><span class="info"><?php echo $candidat->telephone_structure ;?></span><br />
-					</td>					
-					<td>
-					</td>					
-				</tr>				
-				<tr>
-					<td height="5"></td><td></td><td></td>
-				</tr>
-			</table>
-			<h4 style ="border-bottom: 1px solid; width: 780px;" class="pousser_haut">VI. ENGAGEMENT</h4>
-			<table style="margin-top: -70px;" >
-				<tr>
-					<td colspan="3">
-						<p style ="text-align: justify;font-size:11px; margin-top: 0px;">Je sousigné(e) : <strong><?php echo $candidat->nom. ' ' .$candidat->prenom ;?></strong>, certifie sous l&rsquo;honneur, l&rsquo;exactidude des renseignements consignés dans cette fiche de candidature et avoir eu connaissance des conditions exigées pour être retenu comme candidat au programme de Master Professionnel en Finances Publiques</p>
-					</td>					
-				</tr>	
-				<tr>
-                                    <td style="margin-top: -20px;">A : ________________</td><td>le : ___/___/_______</td><td><p style ='font-size:11px; margin-top: -25px;'><strong>Signature du candidat</strong></p></td>
-				</tr>
-				<tr>
-					<td height="5"></td><td></td><td></td>
-				</tr>
-			</table>
-			<h4 style ="border-bottom: 1px solid; width: 780px; border-style:dotted; margin-bottom: 15px;" class="pousser_haut" ></h4>
-			<strong style="margin-left: 275px;" class="pousser_haut">COUPON DE CANDIDATURE</strong><br/>
-			<table style ="font-size:11px;  " >
-                            <tr>
-                                <td >
-					<span> Dossier N0 :  <?php echo $candidat->ordre_candidature ;?>&nbsp;&nbsp;&nbsp;<br /> Recu le: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ___/___/_______</span>
-                                </td>
-                                
-                            </tr>
-                            <tr>
-                                <td width='450'>
-                                    <p style="line-height: 22px;  margin-top: 0px;">
-                                        <strong class="info_fin">Specialite :  </strong><span class="info_fin"><?php echo substr($candidat->specialite,0, 51).'...' ;?></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <strong class="info_fin">Type de formation :  </strong><span class="info_fin"><?php echo $candidat->type_etude ;?></span><br />	
-                                        <strong class="info_fin">Nom et prénom :  </strong><span class="info_fin"><?php echo substr($candidat->nom, 0, 40 )." ".substr($candidat->prenom, 0, 40 );?></span> <br />
-                                        <strong class="info_fin">Epouse  :  </strong><span class="info_fin"><?php echo $candidat->epouse ;?></span><br />
-                                        <strong class="info_fin">Date et lieu de naissance:  </strong><span class="info_fin"><?php echo $candidat->date_naissance ;?> à <?php echo $candidat->lieu_de_naissce ;?></span><br/>
-                                        <strong class="info_fin">Structure :  </strong><span class="info"><?php echo substr( $candidat->adresse_structure , 0, 40) ; ?></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <strong class="info_fin">Contact structure :  </strong><span class="info"><?php echo $candidat->telephone_structure ;?></span>
-                                    </p>
-                                </td>
-                                <td>
-						<div class='photo'><i>Photo récente 4x4</i></div>
-                                </td>
-                                
-                            </tr>
-								
-			</table>					
-				
-                        <div style="margin-left: 100px; font-size: 8px; " >
-                        <span style="margin-left: 275px; " >cachet et visa du PSSFP</span><br/><br/>
-                        B.P: 16 578 Yaoundé – Cameroun Tel.: + (237) 242 22 76 81 / (237) 242 23 37 06 / (237) 697 92 13 32 Web: www.pfinancespubliques.org - E-Mail: info@pfinancespubliques.org
-                        </div>
-		</div>
+        <div class="header">
+            <h1>MASTER PROFESSIONNEL EN FINANCES PUBLIQUES</h1>
+            <p>Formulaire d'Inscription N°: <?php echo $candidat->ordre_candidature; ?></p>
+        </div>
+        <div class="section">
+            <div class="section-title">État civil</div>
+			<div class="photo-box">
+                Photo 4X4
+            </div>
+            <div class="info-row"><span class="info-label">Nom complet :</span><span class="info-value"><?php echo $candidat->nom . ' ' . $candidat->prenom; ?></span></div>
+            <div class="info-row"><span class="info-label">Épouse :</span><span class="info-value"><?php echo $candidat->epouse; ?></span></div>
+            <div class="info-row"><span class="info-label">Date & lieu de naissance :</span><span class="info-value"><?php echo $candidat->date_naissance . ' à ' . $candidat->lieu_de_naissce; ?></span></div>
+            <div class="info-row"><span class="info-label">Sexe :</span><span class="info-value"><?php echo $candidat->sexe; ?></span></div>
+            <div class="info-row"><span class="info-label">Statut matrimonial :</span><span class="info-value"><?php echo $candidat->statu_matrimonial; ?></span></div>
+            <!--div class="info-row"><span class="info-label">Nombre d'enfants :</span><span class="info-value"><?#php echo $candidat->nombre_enfant; ?></span></div-->
+            <div class="info-row"><span class="info-label">Nationalité :</span><span class="info-value"><?php echo $candidat->nationalite; ?></span></div>
+            <!--div class="info-row"><span class="info-label">Région :</span><span class="info-value"><?#php echo $candidat->region_dorigine; ?></span></div-->
+            <!--div class="info-row"><span class="info-label">Département :</span><span class="info-value"><?#php echo $candidat->dept_dorigine; ?></span></div-->
+        </div>
+        <div class="section">
+            <div class="section-title">Spécialité</div>
+            
+            <div class="info-row"><span class="info-label">Spécialité :</span><span class="info-value"><?php echo $candidat->specialite; ?></span></div>
+            <div class="info-row"><span class="info-label">Type de formation :</span><span class="info-value"><?php echo $candidat->type_etude; ?></span></div>
+        </div>
+
+
+        <div class="section">
+            <div class="section-title">Coordonnées</div>
+            <!--<div class="info-row"><span class="info-label">Adresse :</span><span class="info-value"><?#php echo $candidat->adresse_candidat; ?></span></div>-->
+            <div class="info-row"><span class="info-label">Lieu de résidence :</span><span class="info-value"><?php echo $candidat->ville_residence; ?></span></div>
+            <div class="info-row"><span class="info-label">Téléphones :</span><span class="info-value"><?php echo $candidat->telephone . ' / ' . $candidat->telephone2; ?></span></div>
+            <div class="info-row"><span class="info-label">Email :</span><span class="info-value"><?php echo $candidat->email; ?></span></div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Études supérieures</div>
+            <!--<div class="info-row"><span class="info-label">Nombre d'années d'études :</span><span class="info-value"><?#php echo $candidat->nombre_annee_etude_sup; ?></span></div>-->
+            <div class="info-row"><span class="info-label">Dernier diplôme :</span><span class="info-value"><?php echo $candidat->dernier_diplome; ?></span></div>
+            <div class="info-row"><span class="info-label">Lieu d'obtention :</span><span class="info-value"><?php echo $candidat->diplome_obtenu_a; ?></span></div>
+            <div class="info-row"><span class="info-label">Année d'obtention :</span><span class="info-value"><?php echo $candidat->annee_optention_diplome; ?></span></div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Coordonnées professionnelles</div>
+            <div class="info-row"><span class="info-label">Emploi actuel :</span><span class="info-value"><?php echo $candidat->statut_prof; ?></span></div>
+            <div class="info-row"><span class="info-label">Structure :</span><span class="info-value"><?php echo $candidat->structure; ?></span></div>
+            <!--div class="info-row"><span class="info-label">Contact structure :</span><span class="info-value"><?#php echo $candidat->telephone_structure; ?></span></div-->
+        </div>
+
+        <div class="section"><div style="font-size: 10px;">
+            <div class="section-title">Engagement</div>
+            <p style="text-align: justify; font-family: 9px;">
+                Je sousigné(e) : <strong><?php echo $candidat->nom . ' ' . $candidat->prenom; ?></strong>, certifie sous l'honneur, l'exactidude des renseignements 
+                consignés dans cette fiche de candidature et avoir eu connaissance des conditions exigées pour être retenu comme candidat au <em>Programme supérieures de spécialisation en Finances Publiques</em>.
+            </p></div>
+            <div style="display: flex; justify-content: space-around; margin-top: 20px;">
+                <span style="margin-right: 100px;">A____________</span>
+                <span style="margin-right: 80px;">Le _____/_____/______</span>
+                <span>Signature du candidat</span>
+            </div>
+            <div style="display: flex; margin-top: 10px; ">
+                <span style="margin-right: 250px;">Reçu le: ___/___/_______</span>
+                <span>Cachet et visa du PSSFP</span>
+            </div>
+        </div>
+
+        <div class="footer" style="margin-bottom: -60px;" >
+            <p style="font-size: 8px; margin-bottom: -10px;" >Plateforme PSSFP – © <?php echo date('Y'); ?> – Tous droits réservés - Généré le <?php echo date('d/m/Y à H:i'); ?></p>
+            <p style="font-size:5px;"><center>B.P: 16 578 Yaoundé – Cameroun Tel.: + (237) 242 22 76 81 / (237) 242 23 37 06 / (237) 697 92 13 32 <br> Web: www.pfinancespubliques.org - E-Mail: info@pfinancespubliques.org</center></p>
+        </div>
+
+        <!-- Saut de page pour la copie administration -->
+        <div class="page-break"></div>
+
+        <div class="filigrane">COPIE ADMINISTRATION</div>
+
+        <table class="header-table">
+            <tr>
+                <td class="header-left">
+                    REPUBLIQUE DU CAMEROUN <br />
+                    Paix- Travail- Patrie<br />
+                    MINISTERE DES FINANCES<br />
+                    SECRETARIAT GENERAL<br />
+                    PROGRAMME SUPERIEUR DE SPECIALISATION <br />
+                    EN FINANCES PUBLIQUES<br />
+                </td>
+                <td class="header-middle">
+                    <img src="/home/www/www.candidature.pfinancespubliques.org/candidature.pfinancespubliques.org/resources/images/logo5.png" alt="Logo">
+                </td>
+                <td class="header-right">
+                    REPUBLIC OF CAMEROON<br />
+                    Peace- Work- Fatherland<br />
+                    MINISTRY OF FINANCE<br />
+                    GENERAL SECRETARIAT<br />
+                    ADVANCED PROGRAM OF SPECIALISATION<br />
+                    IN PUBLIC FINANCE<br />
+                </td>
+            </tr>
+        </table>
+
+        <div class="header">
+            <h1>MASTER PROFESSIONNEL EN FINANCES PUBLIQUES</h1>
+            <p>Formulaire d'Inscription N°: <?php echo $candidat->ordre_candidature; ?></p>
+        </div>
+        <div class="section">
+            <div class="section-title">État civil</div>
+			<div class="photo-box">
+                Photo 4X4
+            </div>
+            <div class="info-row"><span class="info-label">Nom complet :</span><span class="info-value"><?php echo $candidat->nom . ' ' . $candidat->prenom; ?></span></div>
+            <div class="info-row"><span class="info-label">Épouse :</span><span class="info-value"><?php echo $candidat->epouse; ?></span></div>
+            <div class="info-row"><span class="info-label">Date & lieu de naissance :</span><span class="info-value"><?php echo $candidat->date_naissance . ' à ' . $candidat->lieu_de_naissce; ?></span></div>
+            <div class="info-row"><span class="info-label">Sexe :</span><span class="info-value"><?php echo $candidat->sexe; ?></span></div>
+            <div class="info-row"><span class="info-label">Statut matrimonial :</span><span class="info-value"><?php echo $candidat->statu_matrimonial; ?></span></div>
+            <!--div class="info-row"><span class="info-label">Nombre d'enfants :</span><span class="info-value"><?#php echo $candidat->nombre_enfant; ?></span></div-->
+            <div class="info-row"><span class="info-label">Nationalité :</span><span class="info-value"><?php echo $candidat->nationalite; ?></span></div>
+            <!--div class="info-row"><span class="info-label">Région :</span><span class="info-value"><?#php echo $candidat->region_dorigine; ?></span></div-->
+            <!--div class="info-row"><span class="info-label">Département :</span><span class="info-value"><?#php echo $candidat->dept_dorigine; ?></span></div-->
+        </div>
+        <div class="section">
+            <div class="section-title">Spécialité</div>
+            
+            <div class="info-row"><span class="info-label">Spécialité :</span><span class="info-value"><?php echo $candidat->specialite; ?></span></div>
+            <div class="info-row"><span class="info-label">Type de formation :</span><span class="info-value"><?php echo $candidat->type_etude; ?></span></div>
+        </div>
+
+
+
+        <div class="section">
+            <div class="section-title">Coordonnées</div>
+            <!--<div class="info-row"><span class="info-label">Adresse :</span><span class="info-value"><?#php echo $candidat->adresse_candidat; ?></span></div>-->
+            <div class="info-row"><span class="info-label">Lieu de résidence :</span><span class="info-value"><?php echo $candidat->ville_residence; ?></span></div>
+            <div class="info-row"><span class="info-label">Téléphones :</span><span class="info-value"><?php echo $candidat->telephone . ' / ' . $candidat->telephone2; ?></span></div>
+            <div class="info-row"><span class="info-label">Email :</span><span class="info-value"><?php echo $candidat->email; ?></span></div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Études supérieures</div>
+            <!--<div class="info-row"><span class="info-label">Nombre d'années d'études :</span><span class="info-value"><?#php echo $candidat->nombre_annee_etude_sup; ?></span></div>-->
+            <div class="info-row"><span class="info-label">Dernier diplôme :</span><span class="info-value"><?php echo $candidat->dernier_diplome; ?></span></div>
+            <div class="info-row"><span class="info-label">Lieu d'obtention :</span><span class="info-value"><?php echo $candidat->diplome_obtenu_a; ?></span></div>
+            <div class="info-row"><span class="info-label">Année d'obtention :</span><span class="info-value"><?php echo $candidat->annee_optention_diplome; ?></span></div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Coordonnées professionnelles</div>
+            <div class="info-row"><span class="info-label">Emploi actuel :</span><span class="info-value"><?php echo $candidat->statut_prof; ?></span></div>
+            <div class="info-row"><span class="info-label">Structure :</span><span class="info-value"><?php echo $candidat->structure; ?></span></div>
+            <!--div class="info-row"><span class="info-label">Contact structure :</span><span class="info-value"><?#php echo $candidat->telephone_structure; ?></span></div-->
+        </div>
+
+        <div class="section"><div style="font-size: 10px;">
+            <div class="section-title">Engagement</div>
+            <p style="text-align: justify; font-family: 7px;">
+                Je sousigné(e) : <strong><?php echo $candidat->nom . ' ' . $candidat->prenom; ?></strong>, certifie sous l'honneur, l'exactidude des renseignements 
+                consignés dans cette fiche de candidature et avoir eu connaissance des conditions exigées pour être retenu comme candidat au <em>Programme supérieures de spécialisation en Finances Publiques</em>.
+            </p></div>
+            <div style="display: flex; justify-content: space-around; margin-top: 20px;">
+                <span style="margin-right: 100px;">A____________</span>
+                <span style="margin-right: 80px;">Le _____/_____/______</span>
+                <span>Signature du candidat</span>
+            </div>
+            <div style="display: flex; margin-top: 10px; ">
+                <span style="margin-right: 250px;">Reçu le: ___/___/_______</span>
+                <span>Cachet et visa du PSSFP</span>
+            </div>
+        </div>
+
+        <div class="footer" style="margin-bottom: -60px;" >
+            <p style="font-size: 8px; margin-bottom: -10px;" >Plateforme PSSFP – © <?php echo date('Y'); ?> – Tous droits réservés - Généré le <?php echo date('d/m/Y à H:i'); ?></p>
+            <p style="font-size:5px;"><center>B.P: 16 578 Yaoundé – Cameroun Tel.: + (237) 242 22 76 81 / (237) 242 23 37 06 / (237) 697 92 13 32 <br> Web: www.pfinancespubliques.org - E-Mail: info@pfinancespubliques.org</center></p>
+        </div>
     </body>
 </html>

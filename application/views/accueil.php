@@ -1,172 +1,175 @@
 <style>
-    #page{background-image: url(<?= base_url()?>resources/assets/bg_3.jpg); background-size: cover;}
+    #page { background-image: url(<?= base_url()?>resources/assets/bg_3.jpg); background-size: cover; }
+    
+    .hero-section {
+        background-color: rgba(0, 0, 0, 0.7);
+        color: white;
+        padding: 100px 0;
+        margin-bottom: 50px;
+    }
+    .step-card {
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        height: 100%;
+    }
+    .step-icon {
+        font-size: 2.5rem;
+        color: #0d6efd;
+    }
+    .step-number {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        background: #0d6efd;
+        color: white;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 30px;
+        margin-right: 10px;
+    }
+    .feature-list li {
+        margin-bottom: 8px;
+        position: relative;
+        padding-left: 25px;
+    }
+    .feature-list li:before {
+        content: "•";
+        color: #0d6efd;
+        font-weight: bold;
+        position: absolute;
+        left: 0;
+    }
+    .cta-btn {
+        display: inline-block;
+        padding: 12px 25px;
+        background: #0d6efd;
+        color: white;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: all 0.3s;
+    }
+    .cta-btn:hover {
+        background: #0b5ed7;
+        color: white;
+        transform: translateY(-2px);
+    }
 </style>
-<div class="row" style="background : none">
+
+<div class="row" style="background: none">
     <div class="col-lg-12">
-
-        <div class="bs-example">
-            <div class="jumbotron">
-                <div class="bs-docs-section1">
-
-
-
-                    <div class="row">
-
-                        <div class="col-lg-12">
-                            <div class="col-lg-1">
-
+        <section class="hero-section">
+            <div class="container text-center position-relative">
+                <h1 class="display-4 fw-bold mb-4">Master Professionnel en Finances Publiques</h1>
+                <p class="lead mb-5">13ème promotion - Année académique 2025-2026</p>
+                <a href="<?= base_url()?>index.php/candidature/add" class="btn btn-light btn-lg px-5 py-3 fw-bold">Commencer l'inscription</a>
+            </div>
+        </section>
+        
+        <section class="py-5">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="fw-bold">Processus d'inscription en 3 étapes</h2>
+                    <p class="text-muted">Suivez ces étapes simples pour postuler à notre programme</p>
+                </div>
+                
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="step-card p-4">
+                            <div class="text-center mb-4">
+                                <i class="bi bi-file-earmark-text step-icon"></i>
                             </div>
-                            <div class="col-lg-10">
-                                <div class="panel panel-primary">
-                                    <div class="panel-heading">
-                                        <h3 class="panel-title">MASTER EN FINANCES PUBLIQUES</h3>
-                                    </div>
-                                    <div class="panel-body">
-                                        <center><strong>
-                                                <h2> COMMUNIQUE </h2>
-                                            </strong></center>
-                                        <p>
-                                            <strong><span style="font-style:italique">Un appel à candidatures est lancé
-                                                    pour l’entrée au niveau 1 du cycle de Master du Programme Supérieur
-                                                    de Spécialisation en Finances Publiques, au titre de l’année
-                                                    académique 2024/2025, au centre unique de Yaoundé.</span></strong>
-                                        </p>
-
-                                        <p style="font-size: 14px;"><strong>
-                                                Cet appel à candidature concerne les filières suivantes, selon le nombre
-                                                de places ci-après précisé :<br /><br /></strong>
-
-                                            <strong>I- Formation en présentiel</strong>
-                                        <ul style="font-size: 14px;">
-                                            <li><strong>Economie Publique et Gestion Publique :</strong> 25 places </li>
-                                            <li><strong>Fiscalité, Finance et Comptabilité Publique :</strong> 25 places
-                                            </li>
-                                            <li><strong>Gouvernance Territoriale et Finances Publiques locales
-                                                    :</strong> 25 places </li>
-                                            <li><strong>Marchés Publics et Partenariats Public-Privés :</strong> 25
-                                                places </li>
-                                            <li><strong>Audit et contrôle</strong> 25 places </li>
-
-                                        </ul>
-
-                                        <strong>II- Formation à distance</strong>
-                                        <ul style="font-size: 14px;">
-                                            <li><strong>Economie Publique et Gestion Publique :</strong> 10 places </li>
-                                            <li><strong>Fiscalité, Finance et Comptabilité Publique :</strong> 10 places
-                                            </li>
-                                            <li><strong>Gouvernance Territoriale et Finances Publiques locales
-                                                    :</strong> 10 places </li>
-                                            <li><strong>Marchés Publics et Partenariats Public-Privés :</strong> 10
-                                                places </li>
-                                            <li><strong>Audit et contrôle</strong> 10 places </li>
-
-                                        </ul>
-
-                                        </p>
-                                        <center><strong> A) CONDITIONS A REMPLIR </strong></center>
-
-                                        <p style="font-size: 14px;"><strong>
-                                                Peuvent faire acte de candidature, les personnes des deux sexes
-                                                présentant les Caractéristiques suivantes :
-                                                <p />
-                                                <p style="font-size: 14px;">
-                                                    1- Être titulaire d’un diplôme universitaire de niveau BAC + 3 avec
-                                                    une formation de base en économie, gestion, droit et discipline
-                                                    assimilée.<br />
-                                                    2- Justifier d'une expérience d'au moins cinq (05) ans dans un
-                                                    service ou une sttu turc ayant un lien direct avec les Finances
-                                                    Publiques.
-                                                    <br /><br /><strong>NB:<strong /> La validation des acquis et de
-                                                        l'expérience peut prévaloir en fonction de la cohérence entre la
-                                                        formation et le projet professionnel du candidat.
-
-                                                        <p />
-
-                                                        <center> B) Composition du dossier de candidature </center>
-                                                    </strong>
-
-                                                <p style="font-size: 14px; text-align: Justify;"><strong>
-                                                        Les dossiers complets de candidature doivent parvenir au bureau
-                                                        de la scolarité du PSSFP à Yaoundé, au plus tard le <span
-                                                            style="color: red; font-size:20px;">30 septembre 2024 à
-                                                            15h30 min</span>. Ils doivent impérativement, pour tous les
-                                                        candidats comporter les pièces suivantes : </strong>
-                                                    <br />
-
-                                                <ul style="font-size: 14px; ">
-                                                    <li style="margin-bottom: 5px;">01 fiche d'inscription à télécharger
-                                                        à l'adresse <a href="http://www.pfinancespubliques.org">
-                                                            www.pfinancespubliques.org</a></li>
-                                                    <li style="margin-bottom: 5px;">01 copie certifiée conforme des
-                                                        diplômes exigés, datant de moins de trois mois ;</li>
-                                                    <li style="margin-bottom: 5px;">01 extrait d'acte de naissance
-                                                        légalisé ;</li>
-                                                    <li style="margin-bottom: 5px;">Les relevés de note du cycle de
-                                                        licence dûment signés des autorités compétentes ;</li>
-                                                    <li style="margin-bottom: 5px;">Un CV détaillé ;</li>
-                                                    <li style="margin-bottom: 5px;">Une lettre de motivation ;</li>
-                                                    <li style="margin-bottom: 5px;">Une attestation de service et une
-                                                        autorisation de l’employeur seront requises le cas échéant ;
-                                                    </li>
-                                                    <li style="margin-bottom: 5px;">01 grande enveloppe timbrée au tarif
-                                                        réglementaire et portant l’adresse du candidat ;</li>
-                                                    <li style="margin-bottom: 5px;">Le récépissé de versement au "Crédit
-                                                        Mutuel d’Investissement du Cameroun", d’une somme de cinquante
-                                                        mille <br />(<strong>50 000</strong>) FCFA au titre des frais de
-                                                        dépôt du dossier, ou d’un mandat–lettre adressé à monsieur le
-                                                        Responsable Administratif et Financier du PSSFP, BP .16578
-                                                        Yaoundé-Messa.</li>
-                                                </ul>
-                                        </p>
-                                        <p style="font-size: 14px;">
-                                            <strong><u>NB :</u></strong> <a
-                                                href="/index.php/candidature/add">Un
-                                                formulaire d’inscription en ligne</a> est également disponible sur le
-                                            site internet du PSSFP et à la scolarité, porte 231.
-                                        </p>
-
-                                        <center><strong> C) SELECTION </strong></center>
-
-                                        <p style="font-size: 14px;">
-                                            La sélection se fait sur :<br />
-
-                                            1. Etude de dossier et entretien devant un jury pour les candidats ayant
-                                            souscrit à la modalité de formation en présentiel ;<br />
-                                            2. Etude de dossier uniquement pour les candidats ayant souscrit à la
-                                            modalité de la formation à distance.
-
-                                        </p>
-
-                                        <center><strong> D) ADMISSION </strong></center>
-
-                                        <p style="font-size: 13px;">
-                                            1. Les résultats définitifs seront publiés par un communiqué conjoint du
-                                            Ministre des Finances et du Recteur de l'Université de Yaoundé II-SOA.
-                                        </p>
-                                        <p style="font-size: 14px;">
-                                            <a href="/index.php/candidature/add">1.
-                                                Fiche de candidature 2024</a> <br />
-                                            <a href="/doc/2024/PSSFP_APPEL_CANDIDATURE_P12_2024-2025.pdf"
-                                                target="blank">2. Communiqué 2024 (version Française & English
-                                                version)</a><br />
-                                        </p>
-                                        <br />
-
-
-                                    </div>
-                                </div>
-
-
-                            </div>
-                            <div class="col-lg-1">
-
-                            </div>
+                            <h4 class="mb-3"><span class="step-number">1</span> Pré-requis</h4>
+                            <ul class="feature-list list-unstyled">
+                                <li>Diplôme Bac+3 minimum</li>
+                                <li>Expérience professionnelle</li>
+                                <li>CV et copies des diplômes</li>
+                                <li>Photo d'identité 4x4</li>
+                            </ul>
                         </div>
                     </div>
-
-
+                    
+                    <div class="col-md-4">
+                        <div class="step-card p-4">
+                            <div class="text-center mb-4">
+                                <i class="bi bi-laptop step-icon"></i>
+                            </div>
+                            <h4 class="mb-3"><span class="step-number">2</span> Formulaire en ligne</h4>
+                            <ul class="feature-list list-unstyled">
+                                <li>Suivez les étapes</li>
+                                <li>Remplissez le formulaire</li>
+                                <li>Paiement des frais sur place ou en ligne</li>
+                                <li>Validez vos informations</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="step-card p-4">
+                            <div class="text-center mb-4">
+                                <i class="bi bi-check-circle step-icon"></i>
+                            </div>
+                            <h4 class="mb-3"><span class="step-number">3</span> Validation finale</h4>
+                            <ul class="feature-list list-unstyled">
+                                <li>Dépôt physique du dossier</li>
+                                <li>Examen du dossier</li>
+                                <li>Entretien éventuel</li>
+                                <li>Notification des résultats</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
+
+        <section class="py-5 bg-light">
+            <div class="container text-center">
+                <h2 class="fw-bold mb-4">Prêt à commencer votre inscription ?</h2>
+                <p class="lead mb-5">Rejoignez notre programme d'excellence en Finances Publiques</p>
+                <div class="d-flex justify-content-center gap-3">
+                    <a href="<?= base_url()?>index.php/candidature/add" class="cta-btn">
+                        <i class="bi bi-pencil-fill me-2"></i> Commencer l'inscription
+                    </a>
+                    <!--a href="<?= base_url()?>index.php/candature/add" class="btn btn-outline-primary px-4">
+                        <i class="bi bi-box-arrow-in-right me-2"></i> Espace candidat
+                    </a-->
+                </div>
+                <p class="mt-4 text-muted">
+                    Vous avez des questions ? <a href="#" class="text-decoration-none">Contactez-nous</a>
+                </p>
+            </div>
+        </section>
     </div>
 </div>
+
+<footer class="footer bg-dark text-white mt-5 py-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 mb-4 mb-md-0">
+                <img style="width: 20%; margin: 20px;" src="<?= base_url()?>resources/assets/images/logo.png" alt="Logo PSSFP" height="50" class="mb-3">
+                <p>Programme Supérieur de Spécialisation en Finances Publiques</p>
+            </div>
+            <div class="col-md-4 mb-4 mb-md-0">
+                <h5 style="color:#0d6efd">Liens utiles</h5>
+                <ul class="list-unstyled">
+                    <li><a href="<?= base_url()?>" class="text-white text-decoration-none">Accueil</a></li>
+                    <li><a href="#" class="text-white text-decoration-none">Programme</a></li>
+                    <li><a href="<?= base_url()?>index.php/candidature/add" class="text-white text-decoration-none">Inscription</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h5 style="color:#0d6efd">Contact</h5>
+                <ul class="list-unstyled">
+                    <li><i class="bi bi-geo-alt-fill me-2"></i> Yaoundé, Cameroun</li>
+                    <li><i class="bi bi-telephone-fill me-2"></i> (+237) 694 17 61 92</li>
+                    <li><i class="bi bi-envelope-fill me-2"></i> info@pssfp.net</li>
+                </ul>
+            </div>
+        </div>
+        <hr class="my-4 bg-light">
+        <div class="text-center">
+            <p class="mb-0">&copy; 2025 PSSFP - Tous droits réservés</p>
+        </div>
+    </div>
+</footer>

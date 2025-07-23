@@ -21,8 +21,9 @@ class Welcome extends MY_Controller {
 	{
             //	$this->load->view('welcome_message');
             $data['monnom'] = 'james';
-            $this->load->view('template/head');
+            $this->load->view('template/heado');
             $this->template->layout('accueil', $data);
+            $this->load->view('template/foot');
 	}
 	
 }

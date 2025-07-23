@@ -7,11 +7,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="<?= base_url() ?>resources/css/modern-form.css">
     <link rel="stylesheet" href="<?= base_url() ?>resources/css/form-fixes.css">
-    <link rel="stylesheet" href="<?= base_url() ?>resources/css/review-styles.css">
 </head>
+<style>
+        
+    </style>
 <body>
 
 <script>
@@ -34,7 +36,32 @@
         }
     }
 </script>
-
+    <nav class="navbar navbar-expand-lg navbar-light bg-white p-3">
+        <div class="containeer d-flex">
+            <a class="navbar-brand" href="#">
+                <img src="<?= base_url()?>resources/assets/images/logo.png" alt="Logo PSSFP" height="50">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="formulaire.php">Programme</a>
+                    </li>
+                    <li class="nav-item ms-lg-3">
+                        <a class="nav-link" href="formulaire.php">Inscription</a>
+                    </li>
+                    <li class="nav-item ms-lg-3">
+                        <a class="nav-link" href="login.php">Connexion</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 <div class="container">
     <div class="formbold-main-wrapper">
         <div class="formbold-form-wrapper">
@@ -43,7 +70,7 @@
             <div class="form-header">
                 <img src="<?= base_url() ?>resources/assets/images/logform.png" class="form-logo" alt="Logo PSSFP">
                 <h2>Candidature Master en Finances Publiques</h2>
-                <p>13ème Promotion 2025/2026 • Remplissez soigneusement tous les champs obligatoires (*)</p>
+                <p>12ème Promotion 2024/2025 • Remplissez soigneusement tous les champs obligatoires (*)</p>
             </div>
 
             <!-- Enhanced Progress Steps -->
@@ -563,147 +590,6 @@
                     </div>
                 </div>
 
-                <!-- SECTION 8: Revue des informations -->
-                <div class="form-section" id="review-section">
-                    <legend><i class="fas fa-check-double"></i> Revue des Informations</legend>
-                    <p class="review-intro">Veuillez vérifier les informations saisies avant de soumettre votre candidature.</p>
-
-                    <div class="review-container">
-                        <!-- Formation -->
-                        <div class="review-section">
-                            <h3><i class="fas fa-graduation-cap"></i> Formation</h3>
-                            <div class="review-grid">
-                                <div class="review-item">
-                                    <span class="review-label">Spécialité de formation</span>
-                                    <span class="review-value" id="review-specialite">-</span>
-                                </div>
-                                <div class="review-item">
-                                    <span class="review-label">Mode de formation</span>
-                                    <span class="review-value" id="review-type_etude">-</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Identité -->
-                        <div class="review-section">
-                            <h3><i class="fas fa-user"></i> Identité</h3>
-                            <div class="review-grid">
-                                <div class="review-item">
-                                    <span class="review-label">Civilité</span>
-                                    <span class="review-value" id="review-civilite">-</span>
-                                </div>
-                                <div class="review-item">
-                                    <span class="review-label">Nom</span>
-                                    <span class="review-value" id="review-nom">-</span>
-                                </div>
-                                <div class="review-item">
-                                    <span class="review-label">Prénom(s)</span>
-                                    <span class="review-value" id="review-prenom">-</span>
-                                </div>
-                                <div class="review-item">
-                                    <span class="review-label">Nom d'épouse</span>
-                                    <span class="review-value" id="review-epouse">-</span>
-                                </div>
-                                <div class="review-item">
-                                    <span class="review-label">Date de naissance</span>
-                                    <span class="review-value" id="review-date_naissance">-</span>
-                                </div>
-                                <div class="review-item">
-                                    <span class="review-label">Lieu de naissance</span>
-                                    <span class="review-value" id="review-lieu_de_naissce">-</span>
-                                </div>
-                                <div class="review-item">
-                                    <span class="review-label">Nationalité</span>
-                                    <span class="review-value" id="review-nationalite">-</span>
-                                </div>
-                                <div class="review-item">
-                                    <span class="review-label">Région d'origine</span>
-                                    <span class="review-value" id="review-region_dorigine">-</span>
-                                </div>
-                                <div class="review-item">
-                                    <span class="review-label">Statut matrimonial</span>
-                                    <span class="review-value" id="review-statu_matrimonial">-</span>
-                                </div>
-                                <div class="review-item">
-                                    <span class="review-label">Nombre d'enfants</span>
-                                    <span class="review-value" id="review-nombre_enfant">-</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Contact -->
-                        <div class="review-section">
-                            <h3><i class="fas fa-address-book"></i> Contact</h3>
-                            <div class="review-grid">
-                                <div class="review-item">
-                                    <span class="review-label">Adresse</span>
-                                    <span class="review-value" id="review-adresse_candidat">-</span>
-                                </div>
-                                <div class="review-item">
-                                    <span class="review-label">Ville de résidence</span>
-                                    <span class="review-value" id="review-ville_residence">-</span>
-                                </div>
-                                <div class="review-item">
-                                    <span class="review-label">Téléphone principal</span>
-                                    <span class="review-value" id="review-telephone">-</span>
-                                </div>
-                                <div class="review-item">
-                                    <span class="review-label">Téléphone secondaire</span>
-                                    <span class="review-value" id="review-telephone2">-</span>
-                                </div>
-                                <div class="review-item">
-                                    <span class="review-label">Email</span>
-                                    <span class="review-value" id="review-email">-</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Formation -->
-                        <div class="review-section">
-                            <h3><i class="fas fa-university"></i> Cursus académique</h3>
-                            <div class="review-grid">
-                                <div class="review-item">
-                                    <span class="review-label">Dernier diplôme obtenu</span>
-                                    <span class="review-value" id="review-dernier_diplome">-</span>
-                                </div>
-                                <div class="review-item">
-                                    <span class="review-label">Diplôme requis</span>
-                                    <span class="review-value" id="review-diplome_requis">-</span>
-                                </div>
-                                <div class="review-item">
-                                    <span class="review-label">Spécialité du diplôme</span>
-                                    <span class="review-value" id="review-specialite_requise">-</span>
-                                </div>
-                                <div class="review-item">
-                                    <span class="review-label">Année d'obtention</span>
-                                    <span class="review-value" id="review-annee_optention_diplome">-</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Professionnel -->
-                        <div class="review-section">
-                            <h3><i class="fas fa-briefcase"></i> Informations professionnelles</h3>
-                            <div class="review-grid">
-                                <div class="review-item">
-                                    <span class="review-label">Statut actuel</span>
-                                    <span class="review-value" id="review-statut_prof">-</span>
-                                </div>
-                                <div class="review-item">
-                                    <span class="review-label">Employeur</span>
-                                    <span class="review-value" id="review-structure">-</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="review-actions">
-                        <button type="button" class="btn btn-warning" id="edit-submission">
-                            <i class="fas fa-edit"></i> Modifier mes informations
-                        </button>
-                    </div>
-                </div>
-
                 <div class="form-actions">
                     <button name="<?php if (isset($submitname)) echo $submitname; ?>" id="subenregistrer" class="btn btn-success" type="submit">
                         <i class="fas fa-paper-plane"></i> Soumettre ma candidature
@@ -720,6 +606,5 @@
 
 <!-- Load JavaScript at the end for better performance -->
 <script src="<?= base_url() ?>resources/js/modern-form.js"></script>
-<script src="<?= base_url() ?>resources/js/review-form.js"></script>
 </body>
 </html>

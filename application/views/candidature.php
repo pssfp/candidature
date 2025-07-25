@@ -11,11 +11,31 @@
     <link rel="stylesheet" href="<?= base_url() ?>resources/css/modern-form.css">
     <link rel="stylesheet" href="<?= base_url() ?>resources/css/form-fixes.css">
 </head>
-<style>
-        
-    </style>
 <body>
+<style>
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--gray-200);
+            transition: all 0.3s ease;
+        }
 
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+</style>
 <script>
     function changesoustitre() {
         const nom = document.getElementById('nom').value;
@@ -36,29 +56,13 @@
         }
     }
 </script>
-    <nav class="navbar navbar-expand-lg navbar-light bg-white p-3">
-        <div class="containeer d-flex">
-            <a class="navbar-brand" href="#">
-                <img src="<?= base_url()?>resources/assets/images/logo.png" alt="Logo PSSFP" height="50">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">Accueil</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="formulaire.php">Programme</a>
-                    </li>
-                    <li class="nav-item ms-lg-3">
-                        <a class="nav-link" href="formulaire.php">Inscription</a>
-                    </li>
-                    <li class="nav-item ms-lg-3">
-                        <a class="nav-link" href="login.php">Connexion</a>
-                    </li>
-                </ul>
+
+    <nav class="nav" id="nav">
+        <div class="nav-container">
+            <div class="logo"  style="width:20%"><a href="<?php echo base_url(); ?>index.php"><img src="<?= base_url()?>resources/assets/images/logo.png"  style="width:23%" alt=""></a></div>
+            <div class="nav-cta">
+                <a href="<?= base_url('index.php/')?>" class="btn btn-ghost">Acceuil</a>
+                <a href="<?php echo base_url(); ?>index.php/adminAuth" class="btn btn-primary">Connexion</a>
             </div>
         </div>
     </nav>

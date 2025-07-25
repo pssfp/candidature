@@ -1,66 +1,266 @@
+<!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>PSSFP</h3>
+                    <p style="color: var(--gray-400); line-height: 1.7; text-align : justify">
+                        Programme Supérieur de Spécialisation en Finances Publiques. 
+                        L'excellence académique au service de l'administration publique.
+                    </p>
+                    <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+                        <a href="" style="width: 40px; height: 40px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; text-decoration: none;">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://twitter.com/PPssfp/status/1235278646593671170" style="width: 40px; height: 40px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; text-decoration: none;">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/pssfp-programme-sup%C3%A9rieur-de-sp%C3%A9cialisation-en-finances-publiques" style="width: 40px; height: 40px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; text-decoration: none;">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://www.youtube.com/channel/UCfsbYkPPV4HXHAdIYCMKKTQ" style="width: 40px; height: 40px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; text-decoration: none;">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
 
-<footer id="fh5co-footer" role="contentinfo" style="background-image: url(images/img_bg_4.jpg);">
-		<div class="overlay"></div>
-		<div class="container">
-			<div class="row row-pb-md">
-				<div class="col-md-4 fh5co-widget">
-					<h3>A propos du PSSFP</h3>
-					<p>Le Programme Supérieur de Spécialisation en Finances Publiques (PSSFP), est la première phase de la mise en place de l’Institut Supérieur des Finances Publiques du Cameroun (ISFPC)</p>
-				</div>
-				<div class="col-md-4 col-sm-4 col-xs-6 col-md-push-1 fh5co-widget">
-					<h3>Nos Programmes</h3>
-					<ul class="fh5co-footer-links">
-						<li><a href="#">Economie Publique</a></li>
-						<li><a href="#">Finances Publiques</a></li>
-						<li><a href="#">Gouvernance Territoriale</a></li>
-						<li><a href="#">Marché Public</a></li>
-						<li><a href="#">Audit & Controle</a></li>
-					</ul>
-				</div>
+                <div class="footer-section">
+                    <h3>Programmes</h3>
+                    <ul class="footer-links" style="font-size : 70%; line-height: 120%">
+                        <li><a href="#">Audit et contrôle des finances publiques (AC)</a></li>
+                        <li><a href="#">Économie publique et gestion publique (EPGP)</a></li>
+                        <li><a href="#">Finance, fiscalité et comptabilité publique (FFCP)</a></li>
+                        <li><a href="#">Gouvernance Territoriale et Finance Publique Locale (GTFPL)</a></li>
+                        <li><a href="#">Marchés publics et partenariats Public-privés (MPPPP)</a></li>
+                    </ul>
+                </div>
 
-				<div class="col-md-4 col-sm-4 col-xs-6 col-md-push-1 fh5co-widget">
-					<h3>Liens</h3>
-					<ul class="fh5co-footer-links">
-						<li><a href="<?= base_url('index.php/page/about');?>">A Propos</a></li>
-						<li><a href="<?= base_url('index.php/page/contact')?>">Contacts</a></li>
-						<li><a href="<?php echo base_url('index.php/candidature/add')?>">Postuler</a></li>
-						<li><a href="<?= base_url('index.php/welcome/index')?>">Voir Communiqué</a></li>
-					</ul>
-				</div>
-			</div>
+                <div class="footer-section">
+                    <h3>Ressources</h3>
+                    <ul class="footer-links">
+                        <li><a href="<?php echo base_url(); ?>index.php/candidature/add">Candidature en ligne</a></li>
+                        <li><a href="<?= base_url('index.php/welcome/index')?>">Documentation</a></li>
+                        <li><a href="#news">Actualités</a></li>
+                        <li><a href="#programs">Programmes</a></li>
+                    </ul>
+                </div>
 
-		</div>
-	</footer>
-	</div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <div style="color: var(--gray-400); line-height: 1.8;">
+                        <p><strong style="color: white;">Campus de Messa</strong><br>
+                        Yaoundé, Cameroun</p>
+                        <p><strong style="color: white;">Téléphone</strong><br>
+                        +237 6 94 17 61 92</p>
+                    </div>
+                </div>
+            </div>
 
-	<div class="gototop js-top">
-		<a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
-	</div>
-	
-	<!-- jQuery -->
-	<script src="<?= base_url()?>resources/assets/js/jquery.min.js"></script>
-	<!-- jQuery Easing -->
-	<script src="<?= base_url()?>resources/assets/js/jquery.easing.1.3.js"></script>
-	<!-- Bootstrap -->
-	<script src="<?= base_url()?>resources/assets/js/bootstrap.min.js"></script>
-	<!-- Waypoints -->
-	<script src="<?= base_url()?>resources/assets/js/jquery.waypoints.min.js"></script>
-	<!-- Stellar Parallax -->
-	<script src="<?= base_url()?>resources/assets/js/jquery.stellar.min.js"></script>
-	<!-- Carousel -->
-	<script src="<?= base_url()?>resources/assets/js/owl.carousel.min.js"></script>
-	<!-- Flexslider -->
-	<script src="<?= base_url()?>resources/assets/js/jquery.flexslider-min.js"></script>
-	<!-- countTo -->
-	<script src="<?= base_url()?>resources/assets/js/jquery.countTo.js"></script>
-	<!-- Magnific Popup -->
-	<script src="<?= base_url()?>resources/assets/js/jquery.magnific-popup.min.js"></script>
-	<script src="<?= base_url()?>resources/assets/js/magnific-popup-options.js"></script>
-	<!-- Count Down -->
-	<script src="<?= base_url()?>resources/assets/js/simplyCountdown.js"></script>
-	<!-- Main -->
-	<script src="<?= base_url()?>resources/assets/js/main.js"></script>
-	
-	</body>
+            <div class="footer-bottom">
+                <p>&copy; 2025 PSSFP - Programme Supérieur de Spécialisation en Finances Publiques. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+ <script>
+        // Custom cursor
+        const cursor = document.querySelector('.cursor');
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+
+        // Navigation scroll effect
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Dynamic testimonials
+        const testimonials = [
+            {
+                quote: "Le PSSFP représente l'avant-garde de la formation en finances publiques. Une approche innovante qui forme les leaders de demain avec une vision moderne et pragmatique.",
+                author: "BASAHAG Achile Nestor",
+                role: "Président du Comité de Pilotage du PSSFP"
+            },
+            {
+                quote: "Cette formation a complètement transformé ma vision des finances publiques. L'approche pratique et l'excellence du corps professoral font toute la différence.",
+                author: "Marie-Claire NDJOMO",
+                role: "Diplômée Promotion 2023"
+            },
+            {
+                quote: "Un partenaire incontournable pour la modernisation de nos services financiers. La qualité des compétences développées répond parfaitement aux besoins actuels.",
+                author: "Dr. Paul MBARGA",
+                role: "Directeur des Finances Publiques"
+            }
+        ];
+
+        let currentTestimonial = 0;
+        const testimonialQuote = document.querySelector('.testimonial-quote');
+        const testimonialAuthor = document.querySelector('.testimonial-author');
+        const testimonialRole = document.querySelector('.testimonial-role');
+
+        function updateTestimonial() {
+            const testimonial = testimonials[currentTestimonial];
+            
+            // Fade out
+            testimonialQuote.style.opacity = '0';
+            testimonialAuthor.style.opacity = '0';
+            testimonialRole.style.opacity = '0';
+            
+            setTimeout(() => {
+                testimonialQuote.textContent = testimonial.quote;
+                testimonialAuthor.textContent = testimonial.author;
+                testimonialRole.textContent = testimonial.role;
+                
+                // Fade in
+                testimonialQuote.style.opacity = '1';
+                testimonialAuthor.style.opacity = '1';
+                testimonialRole.style.opacity = '1';
+            }, 300);
+            
+            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+        }
+
+        // Auto-rotate testimonials every 6 seconds
+        setInterval(updateTestimonial, 6000);
+
+        // Parallax effect for hero background
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const heroBackground = document.querySelector('.hero-bg');
+            if (heroBackground) {
+                heroBackground.style.transform = `translateY(${scrolled * 0.5}px) rotate(-15deg)`;
+            }
+        });
+
+        // Dynamic counter animation
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-number');
+            const targets = ['12', '500+', '95%'];
+            
+            counters.forEach((counter, index) => {
+                const target = targets[index];
+                const isPercentage = target.includes('%');
+                const isPlus = target.includes('+');
+                const numericTarget = parseInt(target.replace(/[^0-9]/g, ''));
+                
+                let current = 0;
+                const increment = numericTarget / 50; // Animation duration control
+                
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= numericTarget) {
+                        counter.textContent = target;
+                        clearInterval(timer);
+                    } else {
+                        let displayValue = Math.floor(current);
+                        if (isPlus && current >= numericTarget * 0.8) {
+                            displayValue += '+';
+                        } else if (isPercentage && current >= numericTarget * 0.8) {
+                            displayValue += '%';
+                        }
+                        counter.textContent = displayValue;
+                    }
+                }, 50);
+            });
+        }
+
+        // Trigger counter animation when hero section is visible
+        const heroObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    heroObserver.disconnect(); // Run only once
+                }
+            });
+        });
+
+        heroObserver.observe(document.querySelector('.hero-stats'));
+
+        // Mobile menu toggle (responsive behavior)
+        function handleResize() {
+            const navMenu = document.querySelector('.nav-menu');
+            const navCta = document.querySelector('.nav-cta');
+            
+            if (window.innerWidth <= 768) {
+                // Mobile behavior - could add hamburger menu here
+                navMenu.style.display = 'none';
+                navCta.style.flexDirection = 'column';
+                navCta.style.gap = '0.5rem';
+            } else {
+                navMenu.style.display = 'flex';
+                navCta.style.flexDirection = 'row';
+                navCta.style.gap = '1rem';
+            }
+        }
+
+        window.addEventListener('resize', handleResize);
+        handleResize(); // Initial call
+
+        // Enhanced hover effects
+        document.querySelectorAll('.specialty-card, .news-card, .agenda-item').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = this.classList.contains('agenda-item') 
+                    ? 'translateX(10px) scale(1.02)' 
+                    : 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = this.classList.contains('agenda-item') 
+                    ? 'translateX(0) scale(1)' 
+                    : 'translateY(0) scale(1)';
+            });
+        });
+
+        // Loading optimization
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '1';
+            // Trigger initial animations
+            setTimeout(() => {
+                document.querySelectorAll('.fade-in').forEach(el => {
+                    if (el.getBoundingClientRect().top < window.innerHeight) {
+                        el.classList.add('visible');
+                    }
+                });
+            }, 100);
+        });
+    </script>
+</body>
 </html>
-

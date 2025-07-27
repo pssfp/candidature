@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (!jour || moisIndex === undefined || !annee) return '';
 
             const mois = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin',
-                         'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'][moisIndex];
+                'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'][moisIndex];
             return `${jour} ${mois} ${annee}`;
         });
 

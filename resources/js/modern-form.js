@@ -20,7 +20,13 @@ document.addEventListener('DOMContentLoaded', function () {
         setupConditionalFields();
         setupAutoSave();
         setupFormEnhancements();
+        setupFormSubmission(); // Added form submission handling
         showSection(0);
+
+        // Initial button state update after everything is loaded
+        setTimeout(() => {
+            updateCurrentSectionNavigationButtons();
+        }, 100);
 
         console.log('Form initialized with', formSections.length, 'sections');
     }
@@ -40,29 +46,40 @@ document.addEventListener('DOMContentLoaded', function () {
     function showSection(sectionIndex) {
         console.log('Showing section:', sectionIndex);
 
-        // Hide all sections
+        // Hide all sections and remove active class
         formSections.forEach((section, index) => {
             section.style.display = 'none';
             section.classList.remove('active');
         });
 
-        // Show target section with animation
+        // Show the target section and add active class
         if (formSections[sectionIndex]) {
-            formSections[sectionIndex].style.display = 'block';
-            setTimeout(() => {
-                formSections[sectionIndex].classList.add('active');
-            }, 50);
+            formSections[sectionIndex].style.display = 'block'; // Explicitly set to block
+            formSections[sectionIndex].classList.add('active');
+            currentSection = sectionIndex;
+        } else {
+            console.error('Section index out of bounds:', sectionIndex);
+            return;
         }
 
         updateProgress(sectionIndex);
-        updateNavigationButtons(sectionIndex);
-        currentSection = sectionIndex;
 
-        // Scroll to top of form
-        document.querySelector('.formbold-form-wrapper').scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-        });
+        // Show/hide only the submit button on last section, keep navigation always visible
+        const submitBtn = document.querySelector('.form-actions .btn-success, .form-actions button[type="submit"]');
+        if (submitBtn) {
+            if (sectionIndex === formSections.length - 1) {
+                submitBtn.style.display = '';
+            } else {
+                submitBtn.style.display = 'none';
+            }
+        }
+        // Always show form-actions (navigation)
+        const formActions = document.querySelector('.form-actions');
+        if (formActions) {
+            formActions.style.display = '';
+        }
+
+        updateCurrentSectionNavigationButtons();
     }
 
     function updateProgress(step) {
@@ -83,6 +100,51 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    // Added function to properly handle form submission
+    function setupFormSubmission() {
+        // Remove any existing submit event handlers first to avoid conflicts
+        form.removeEventListener('submit', handleFormSubmit);
+
+        // Add the submit handler to the form rather than the button
+        form.addEventListener('submit', handleFormSubmit);
+
+        // Get the submit button
+        const submitBtn = document.querySelector('.form-actions .btn-success, .form-actions button[type="submit"]');
+
+        // If the submit button exists, add a click handler just for visual feedback
+        if (submitBtn) {
+            submitBtn.addEventListener('click', function(e) {
+                // Don't prevent default - let the form's submit event handle it
+                console.log('Submit button clicked, triggering form submission');
+
+                // No validation here - that will be handled in the form submit event
+                // Just trigger the form's submit event
+                const submitEvent = new Event('submit', { cancelable: true, bubbles: true });
+                form.dispatchEvent(submitEvent);
+            });
+        }
+    }
+
+    // Function to validate all sections
+    function validateAllSections() {
+        let isValid = true;
+
+        // Get all required fields
+        const requiredFields = form.querySelectorAll('[required]');
+
+        // Check each required field
+        requiredFields.forEach(field => {
+            if (!field.value.trim()) {
+                isValid = false;
+                field.classList.add('error');
+            } else {
+                field.classList.remove('error');
+            }
+        });
+
+        return isValid;
+    }
+
     // Section navigation
     function setupSectionNavigation() {
         formSections.forEach((section, index) => {
@@ -90,6 +152,11 @@ document.addEventListener('DOMContentLoaded', function () {
             const existingNav = section.querySelector('.form-navigation');
             if (existingNav) {
                 existingNav.remove();
+            }
+
+            // Skip navigation for review section - it will be handled by review-form.js
+            if (section.id === 'review-section') {
+                return;
             }
 
             // Create navigation container
@@ -102,12 +169,14 @@ document.addEventListener('DOMContentLoaded', function () {
                     console.log('Previous button clicked from section:', index);
                     navigateToSection(index - 1);
                 });
-                prevButton.innerHTML = '<i class="fas fa-arrow-left"></i> Précédent';
+                prevButton.innerHTML = '<i class="fas fa-arrow-left"></i> <span>Précédent</span>';
                 navContainer.appendChild(prevButton);
             }
 
-            // Next button or submit
-            if (index < formSections.length - 1) {
+            // Next button - check if this is the last regular section (before review)
+            const isLastRegularSection = index === formSections.length - 2 && formSections[formSections.length - 1].id === 'review-section';
+
+            if (index < formSections.length - 1 && !isLastRegularSection) {
                 const nextButton = createButton('Suivant', 'btn btn-primary', () => {
                     console.log('Next button clicked from section:', index);
                     if (validateSection(index)) {
@@ -117,8 +186,24 @@ document.addEventListener('DOMContentLoaded', function () {
                         showValidationErrors(section);
                     }
                 });
-                nextButton.innerHTML = 'Suivant <i class="fas fa-arrow-right"></i>';
+                nextButton.innerHTML = '<span>Suivant</span> <i class="fas fa-arrow-right"></i>';
+                nextButton.setAttribute('data-button-type', 'next');
                 navContainer.appendChild(nextButton);
+            } else if (isLastRegularSection) {
+                // This will be handled by review-form.js
+                const reviewButton = createButton('Vérifier ma candidature', 'btn btn-primary', () => {
+                    console.log('Review button clicked from section:', index);
+                    if (validateSection(index)) {
+                        saveFormData();
+                        // Trigger review section navigation
+                        window.dispatchEvent(new CustomEvent('navigateToReview', { detail: { fromSection: index } }));
+                    } else {
+                        showValidationErrors(section);
+                    }
+                });
+                reviewButton.innerHTML = '<span>Vérifier ma candidature</span> <i class="fas fa-check-circle"></i>';
+                reviewButton.setAttribute('data-button-type', 'review');
+                navContainer.appendChild(reviewButton);
             }
 
             section.appendChild(navContainer);
@@ -128,7 +213,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function createButton(text, className, onClick) {
         const button = document.createElement('button');
         button.type = 'button'; // Important: prevent form submission
-        button.textContent = text;
+        // button.textContent = text; // This will be set by innerHTML
         button.className = className;
         button.addEventListener('click', (e) => {
             e.preventDefault(); // Prevent any default behavior
@@ -146,38 +231,66 @@ document.addEventListener('DOMContentLoaded', function () {
         // Update button states based on validation
         if (nextBtn) {
             const isValid = validateSection(sectionIndex, false);
+            console.log('----- >Section', sectionIndex, 'validation state:', isValid);
             nextBtn.disabled = !isValid;
             nextBtn.classList.toggle('loading', false);
         }
     }
 
+    // New function to update current section's navigation buttons
+    function updateCurrentSectionNavigationButtons() {
+        updateNavigationButtons(currentSection);
+    }
+
     // Enhanced validation
     function setupFormValidation() {
-        // Real-time validation
+        // Real-time validation with comprehensive event handling
         const inputs = form.querySelectorAll('input, select, textarea');
         inputs.forEach(input => {
             // Validate on blur
             input.addEventListener('blur', () => {
                 validateField(input);
+                updateCurrentSectionNavigationButtons();
             });
 
-            // Clear errors on input
+            // Clear errors and update on input (typing)
             input.addEventListener('input', () => {
                 clearFieldError(input);
                 saveFormData();
+                clearTimeout(input.validationTimeout);
+                input.validationTimeout = setTimeout(() => {
+                    validateField(input, false);
+                    updateCurrentSectionNavigationButtons();
+                }, 300);
             });
 
-            // Enhanced select handling
-            if (input.tagName === 'SELECT') {
-                input.addEventListener('change', () => {
-                    validateField(input);
-                    saveFormData();
-                });
-            }
+            // Immediate validation on keyup for instant feedback
+            input.addEventListener('keyup', () => {
+                clearTimeout(input.keyupTimeout);
+                input.keyupTimeout = setTimeout(() => {
+                    updateCurrentSectionNavigationButtons();
+                }, 100);
+            });
+
+            // Always update on change for all input types (select, radio, checkbox, text, etc.)
+            input.addEventListener('change', () => {
+                validateField(input);
+                saveFormData();
+                updateCurrentSectionNavigationButtons();
+            });
         });
 
         // Form submission - only allow if on last section
         form.addEventListener('submit', handleFormSubmit);
+
+        // Additional global form change listener as fallback
+        form.addEventListener('change', () => {
+            setTimeout(updateCurrentSectionNavigationButtons, 50);
+        });
+
+        // On DOM ready, after autofill, update button state
+        window.addEventListener('pageshow', updateCurrentSectionNavigationButtons);
+        window.addEventListener('load', updateCurrentSectionNavigationButtons);
     }
 
     function validateSection(sectionIndex, showErrors = true) {
@@ -188,8 +301,15 @@ document.addEventListener('DOMContentLoaded', function () {
         let isValid = true;
 
         requiredFields.forEach(field => {
-            // Skip hidden fields
-            if (field.style.display === 'none' || field.closest('.form-group').style.display === 'none') {
+            // Proper null check before accessing style property
+            if (!field) return;
+
+            // Skip hidden fields - check both the field and its container
+            const isFieldHidden = field.style.display === 'none';
+            const formGroup = field.closest('.form-group');
+            const isContainerHidden = formGroup && formGroup.style.display === 'none';
+
+            if (isFieldHidden || isContainerHidden) {
                 return;
             }
 
@@ -214,7 +334,7 @@ document.addEventListener('DOMContentLoaded', function () {
         clearFieldError(field);
 
         // Skip validation for hidden fields
-        if (field.style.display === 'none' || field.closest('.form-group').style.display === 'none') {
+        if (field.style.display === 'none' || (field.closest('.form-group') && field.closest('.form-group').style.display === 'none')) {
             return true;
         }
 
@@ -388,6 +508,9 @@ document.addEventListener('DOMContentLoaded', function () {
                     }
                 });
             });
+
+            // Update button state after changing conditional fields
+            setTimeout(updateCurrentSectionNavigationButtons, 50);
         }
 
         if (statutProfSelect) {
@@ -409,6 +532,9 @@ document.addEventListener('DOMContentLoaded', function () {
                     // Don't make it required automatically
                 }
             }
+
+            // Update button state after changing conditional fields
+            setTimeout(updateCurrentSectionNavigationButtons, 50);
         }
 
         if (civiliteSelect) {
@@ -667,26 +793,22 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function handleFormSubmit(e) {
-        // Only allow submission if on the last section
-        if (currentSection < formSections.length - 1) {
-            e.preventDefault();
-            console.log('Form submission prevented - not on last section');
-            return false;
-        }
+        // Prevent default to handle validation first
+        e.preventDefault();
 
-        // Final validation
+        // Final validation for all sections
         let isFormValid = true;
 
         for (let i = 0; i < formSections.length; i++) {
-            if (!validateSection(i, true)) {
+            if (!validateSection(i, false)) {
                 isFormValid = false;
                 navigateToSection(i);
-                break;
+                showNotification('Veuillez corriger les erreurs dans la section ' + (i+1), 'error');
+                return false;
             }
         }
 
         if (!isFormValid) {
-            e.preventDefault();
             showNotification('Veuillez corriger les erreurs avant de soumettre le formulaire', 'error');
             return false;
         }
@@ -700,6 +822,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Clear saved data on successful submission
         localStorage.removeItem('candidature_form_data');
+
+        // If all validations pass, submit the form
+        form.submit();
     }
 
     function showNotification(message, type = 'info') {
@@ -718,10 +843,19 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Public API
-    window.FormController = {
+    window.formFunctions = {
         navigateToSection,
         validateSection,
         saveFormData,
-        getCurrentSection: () => currentSection
+        validateAllSections: () => {
+            for (let i = 0; i < formSections.length - 1; i++) {
+                if (!validateSection(i, false)) {
+                    return false;
+                }
+            }
+            return true;
+        },
+        getCurrentSection: () => currentSection,
+        getTotalSections: () => formSections.length
     };
 });

@@ -8,10 +8,8 @@ class Liste extends MY_Controller {
 
 		// load library
 		$this->load->library(array('table', 'form_validation'));
-
 		// load helper
 		$this->load->helper('url');
-
 		// load model
 		$this->load->model('Model_generique', 'model', TRUE);
                 
@@ -54,7 +52,7 @@ class Liste extends MY_Controller {
         $data['nbDeposer'] = $nbdeposer;        
         $data['nbtotal'] = $totalCandidatures;
 		
-//		// generate pagination
+		// generate pagination
 		$this->load->library('pagination');
 		$config['base_url'] = site_url('liste/index/');
  		$config['total_rows'] = $totalCandidatures;
@@ -62,7 +60,6 @@ class Liste extends MY_Controller {
 		$config['uri_segment'] = $uri_segment;
 		$this->pagination->initialize($config);
 		$data['pagination'] = $this->pagination->create_links();
-		
 		// generate table data
 		$this->load->library('table');
 		$this->table->set_empty("&nbsp;");
@@ -86,7 +83,6 @@ class Liste extends MY_Controller {
 		}
 		$data['table'] = $this->table->generate();
             //	$this->load->view('welcome_message');
-            
                 $this->template->layout('liste', $data);
 	}
 }

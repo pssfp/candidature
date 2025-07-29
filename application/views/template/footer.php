@@ -39,7 +39,7 @@
                     <h3>Ressources</h3>
                     <ul class="footer-links">
                         <li><a href="<?php echo base_url(); ?>index.php/candidature/add">Candidature en ligne</a></li>
-                        <li><a href="<?= base_url('index.php/welcome/index')?>">Documentation</a></li>
+                        <li><a href="<?= base_url('index.php/welcome/index')?>">En savoir Plus</a></li>
                         <li><a href="#news">Actualités</a></li>
                         <li><a href="#programs">Programmes</a></li>
                     </ul>

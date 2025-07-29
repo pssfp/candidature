@@ -10,6 +10,7 @@ session_start();
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="<?php echo base_url(); ?>/favicon.png" />
     
     <style>
         :root {
@@ -93,9 +94,6 @@ session_start();
         }
         .btne{
             background-color : #8b5cf6;
-        }
-        
-        .btne {
             padding: 12px 24px;
             border-radius: 50px;
             text-decoration: none;
@@ -111,7 +109,24 @@ session_start();
             color : white;
         }
         
-        .btne:hover {
+        .btnee {
+            border :  1px solid #7d24af;
+            padding: 12px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            position: relative;
+            overflow: hidden;
+            color : #6d189c;
+        }
+        
+        .btne:hover,
+        .btnee:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 25px rgba(139, 92, 246, 0.4);
         }

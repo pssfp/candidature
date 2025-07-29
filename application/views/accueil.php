@@ -2,9 +2,9 @@
     <nav class="nav" id="nav">
         <div class="nav-container">
             <div class="logo"  style="width:20%"><a href="<?php echo base_url(); ?>index.php"><img src="<?= base_url()?>resources/assets/images/logo.png"  style="width:23%" alt=""></a></div>
-            <div class="nav-cta">
+            <div id="nav" class="nav-cta">
                 <a href="<?= base_url('index.php/')?>" class="btn">Acceuil</a>
-                <a href="<?= base_url('index.php/welcome/index')?>" class="btne">Documentation</a>
+                <a href="<?= base_url('index.php/welcome/index')?>" class="btnee">En savoir plus</a>
                 <a href="<?php echo base_url(); ?>index.php/candidature/add" class="btne">Candidater</a>
             </div>
         </div>
@@ -13,7 +13,7 @@
         <div class="container text-center position-relative">
             <h1 class="display-4 fw-bold mb-4">Master Professionnel en Finances Publiques</h1>
             <p class="lead mb-5">13ème promotion - Année académique 2025-2026</p>
-            <a href="formulaire.php" class="btne">Commencer l'inscription</a>
+            <a href="<?php echo base_url(); ?>index.php/candidature/add" class="btne">Commencer l'inscription</a>
         </div>
     </section>
     <section class="py-5">
@@ -78,15 +78,12 @@
             <h2 class="fw-bold mb-4">Prêt à commencer votre inscription ?</h2>
             <p class="lead mb-5">Rejoignez notre programme d'excellence en Finances Publiques</p>
             <div class="d-flex justify-content-center gap-3">
-                <a href="formulaire.php" class="btne">
+                <a href="<?php echo base_url(); ?>index.php/candidature/add" class="btne">
                     <i class="bi bi-pencil-fill me-2"></i> Commencer l'inscription
-                </a>
-                <a href="login.php" class="btn btn-outline-primary px-4">
-                    <i class="bi bi-box-arrow-in-right me-2"></i> Espace candidat
                 </a>
             </div>
             <p class="mt-4 text-muted">
-                Vous avez des questions ? <a href="#" class="text-decoration-none">Contactez-nous</a>
+                Vous avez des questions ? <a href="http://wa.me/694176192" class="text-decoration-none">Cliquez ici</a>
             </p>
         </div>
     </section>

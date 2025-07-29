@@ -9,9 +9,9 @@
                 <div class="col-md-4 mb-4 mb-md-0">
                     <h5>Liens utiles</h5>
                     <ul class="list-unstyled">
-                        <li><a href="index.html" class="text-white text-decoration-none">Accueil</a></li>
-                        <li><a href="#" class="text-white text-decoration-none">Programme</a></li>
-                        <li><a href="#" class="text-white text-decoration-none">Inscription</a></li>
+                        <li><a href="<?php echo base_url(); ?>index.php" class="text-white text-decoration-none">Accueil</a></li>
+                        <li class="text-white text-decoration-none">Programme</li>
+                        <li><a href="<?php echo base_url(); ?>index.php/candidature/add" class="text-white text-decoration-none">Inscription</a></li>
                     </ul>
                 </div>
                 <div class="col-md-4">

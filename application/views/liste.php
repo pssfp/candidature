@@ -1,3 +1,22 @@
+<!-- Bootstrap 5 -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="<?php echo base_url(); ?>resources/bootstrap-lib/js/google-code-prettify/prettify.js"></script>
+<script src="<?php echo base_url(); ?>resources/bootstrap-lib/js/bootstrap-transition.js"></script>
+<script src="<?php echo base_url(); ?>resources/bootstrap-lib/js/bootstrap-alert.js"></script>
+<script src="<?php echo base_url(); ?>resources/bootstrap-lib/js/bootstrap-modal.js"></script>
+<script src="<?php echo base_url(); ?>resources/bootstrap-lib/js/bootstrap-dropdown.js"></script>
+<script src="<?php echo base_url(); ?>resources/bootstrap-lib/js/bootstrap-scrollspy.js"></script>
+<script src="<?php echo base_url(); ?>resources/bootstrap-lib/js/bootstrap-tab.js"></script>
+<script src="<?php echo base_url(); ?>resources/bootstrap-lib/js/bootstrap-tooltip.js"></script>
+<script src="<?php echo base_url(); ?>resources/bootstrap-lib/js/bootstrap-popover.js"></script>
+<script src="<?php echo base_url(); ?>resources/bootstrap-lib/js/bootstrap-button.js"></script>
+<script src="<?php echo base_url(); ?>resources/bootstrap-lib/js/bootstrap-collapse.js"></script>
+<script src="<?php echo base_url(); ?>resources/bootstrap-lib/js/bootstrap-carousel.js"></script>
+<script src="<?php echo base_url(); ?>resources/bootstrap-lib/js/bootstrap-typeahead.js"></script>
+<script src="<?php echo base_url(); ?>resources/bootstrap-lib/js/application.js"></script>
+<script src="<?php echo base_url(); ?>resources/bootstrap-lib/js/application.js"></script>
+
 <div class="main-content">
     <div class="header fade-in">
         <div>

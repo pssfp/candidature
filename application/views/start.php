@@ -1,74 +1,152 @@
 <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-bg"></div>
-        <div class="hero-container">
-            <div class="hero-content">
-                <h1>
-                    L'excellence en 
-                    <span class="hero-highlight">finances publiques</span> 
-                    commence ici
-                </h1>
-                <p>
-                    Rejoignez la nouvelle génération d'experts en finances publiques. 
-                    Formation de haut niveau, innovation pédagogique et réseau professionnel d'exception.
-                </p>
-                
-                <div class="hero-stats">
-                    <div class="stat">
-                        <span class="stat-number">12</span>
-                        <span class="stat-label">Promotions</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">500+</span>
-                        <span class="stat-label">Diplômés</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">95%</span>
-                        <span class="stat-label">Employabilité</span>
+
+        <section class="hero-carousel" id="home">
+            <div class="carousel-inner">
+                <!-- Slide 1 -->
+                <div class="carousel-item active">
+                    <div class="carousel-bg" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('<?= base_url()?>resources/assets/images/img_bg_1.jpeg');"></div>
+                    <div class="carousel-overlay"></div>
+                    <div class="hero-container">
+                        <div class="hero-content">
+                            <h1>
+                                L'excellence en
+                                <span class="hero-highlight">finances publiques</span>
+                                commence ici
+                            </h1>
+                            <p>
+                                Rejoignez la nouvelle génération d'experts en finances publiques.
+                                Formation de haut niveau, innovation pédagogique et réseau professionnel d'exception.
+                            </p>
+
+                            <div class="hero-stats">
+                                <div class="stat">
+                                    <span class="stat-number">12</span>
+                                    <span class="stat-label">Promotions</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-number">500+</span>
+                                    <span class="stat-label">Diplômés</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-number">95%</span>
+                                    <span class="stat-label">Employabilité</span>
+                                </div>
+                            </div>
+
+                            <div class="hero-actions">
+                                <a href="<?php echo base_url(); ?>index.php/candidature/add" class="btn btn-primary">
+                                    <i class="fas fa-rocket"></i>
+                                    Commencer maintenant
+                                </a>
+                                <a href="#programs" class="btn btn-ghost">
+                                    <i class="fas fa-play"></i>
+                                    Découvrir les programmes
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="hero-visual">
+                            <img src="<?= base_url()?>resources/assets/images/img_bg_1.jpeg" alt="Excellence académique" class="hero-image">
+
+                            <div class="floating-card card-1">
+                                <div style="display: flex; align-items: center; gap: 1rem;">
+                                    <div style="width: 50px; height: 50px; background: var(--gradient-main); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                        <i class="fas fa-graduation-cap" style="color: white;"></i>
+                                    </div>
+                                    <div>
+                                        <h4 style="margin: 0; font-size: 1.1rem; color: var(--gray-900);">Master en Finances</h4>
+                                        <p style="margin: 0; color: var(--gray-600); font-size: 0.9rem;">Formation d'excellence</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="floating-card card-2">
+                                <div style="display: flex; align-items: center; gap: 1rem;">
+                                    <div style="width: 50px; height: 50px; background: var(--gradient-main); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                        <i class="fas fa-chart-line" style="color: white;"></i>
+                                    </div>
+                                    <div>
+                                        <h4 style="margin: 0; font-size: 1.1rem; color: var(--gray-900);">Expertise Avérée</h4>
+                                        <p style="margin: 0; color: var(--gray-600); font-size: 0.9rem;">Opportunités garanties</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="hero-actions">
-                    <a href="<?php echo base_url(); ?>index.php/candidature/add" class="btn btn-primary">
-                        <i class="fas fa-rocket"></i>
-                        Commencer maintenant
-                    </a>
-                    <a href="#programs" class="btn btn-ghost">
-                        <i class="fas fa-play"></i>
-                        Découvrir les programmes
-                    </a>
+                <!-- Slide 2 -->
+                <div class="carousel-item">
+                    <div class="carousel-bg" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('<?= base_url()?>resources/assets/images/img_bg_1old.jpeg');"></div>
+                    <div class="carousel-overlay"></div>
+                    <div class="hero-container">
+                        <div class="hero-content">
+                            <h1>
+                                Formation d'experts en
+                                <span class="hero-highlight">gestion publique</span>
+                            </h1>
+                            <p>
+                                Acquérez des compétences pointues en audit, contrôle et gestion des finances publiques
+                                avec notre programme de formation innovant.
+                            </p>
+
+                            </div>
+
+                            <div class="hero-actions">
+                                <a href="<?php echo base_url(); ?>index.php/candidature/add" class="btn btn-primary">
+                                    <i class="fas fa-rocket"></i>
+                                    Postuler maintenant
+                                </a>
+                                <a href="#programs" class="btn btn-ghost">
+                                    <i class="fas fa-book-open"></i>
+                                    Voir les spécialités
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="hero-visual">
+                            <img src="<?= base_url()?>resources/assets/images/img_bg_1old.jpeg" alt="Formation pratique" class="hero-image">
+
+                            <div class="floating-card card-1">
+                                <div style="display: flex; align-items: center; gap: 1rem;">
+                                    <div style="width: 50px; height: 50px; background: var(--gradient-main); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                        <i class="fas fa-users" style="color: white;"></i>
+                                    </div>
+                                    <div>
+                                        <h4 style="margin: 0; font-size: 1.1rem; color: var(--gray-900);">Réseau Professionnel</h4>
+                                        <p style="margin: 0; color: var(--gray-600); font-size: 0.9rem;">Accès à notre communauté</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="floating-card card-2">
+                                <div style="display: flex; align-items: center; gap: 1rem;">
+                                    <div style="width: 50px; height: 50px; background: var(--gradient-main); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                        <i class="fas fa-briefcase" style="color: white;"></i>
+                                    </div>
+                                    <div>
+                                        <h4 style="margin: 0; font-size: 1.1rem; color: var(--gray-900);">Insertion Professionnelle</h4>
+                                        <p style="margin: 0; color: var(--gray-600); font-size: 0.9rem;">Carrières prestigieuses</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="hero-visual">
-                <img src="<?= base_url()?>resources/assets/images/img_bg_1.jpeg" alt="Excellence académique" class="hero-image">
-                
-                <div class="floating-card card-1">
-                    <div style="display: flex; align-items: center; gap: 1rem;">
-                        <div style="width: 50px; height: 50px; background: var(--gradient-main); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-                            <i class="fas fa-graduation-cap" style="color: white;"></i>
-                        </div>
-                        <div>
-                            <h4 style="margin: 0; font-size: 1.1rem; color: var(--gray-900);">Master en Finances</h4>
-                            <p style="margin: 0; color: var(--gray-600); font-size: 0.9rem;">Formation d'excellence</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="floating-card card-2">
-                    <div style="display: flex; align-items: center; gap: 1rem;">
-                        <div style="width: 50px; height: 50px; background: var(--gradient-main); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-                            <i class="fas fa-chart-line" style="color: white;"></i>
-                        </div>
-                        <div>
-                            <h4 style="margin: 0; font-size: 1.1rem; color: var(--gray-900);">Expertise Avérée</h4>
-                            <p style="margin: 0; color: var(--gray-600); font-size: 0.9rem;">Opportunités garanties</p>
-                        </div>
-                    </div>
-                </div>
+            <!-- Carousel Navigation -->
+            <div class="carousel-nav">
+                <button class="carousel-prev"><i class="fas fa-chevron-left"></i></button>
+                <button class="carousel-next"><i class="fas fa-chevron-right"></i></button>
             </div>
-        </div>
-    </section>
+
+            <!-- Carousel Indicators -->
+            <div class="carousel-indicators">
+                <div class="carousel-indicator active"></div>
+                <div class="carousel-indicator"></div>
+            </div>
+        </section>
 
     <section class="section" id="programs">
         <div class="container">

@@ -61,7 +61,60 @@
             </div>
         </div>
     </footer>
+
  <script>
+     document.addEventListener('DOMContentLoaded', function() {
+         const items = document.querySelectorAll('.carousel-item');
+         const indicators = document.querySelectorAll('.carousel-indicator');
+         let currentIndex = 0;
+         let interval;
+
+         function showSlide(index) {
+             items.forEach(item => item.classList.remove('active'));
+             indicators.forEach(indicator => indicator.classList.remove('active'));
+
+             items[index].classList.add('active');
+             indicators[index].classList.add('active');
+             currentIndex = index;
+         }
+
+         function nextSlide() {
+             const nextIndex = (currentIndex + 1) % items.length;
+             showSlide(nextIndex);
+         }
+
+         function startCarousel() {
+             interval = setInterval(nextSlide, 5000);
+         }
+
+         // Initialisation
+         showSlide(0);
+         startCarousel();
+
+         // Navigation
+         document.querySelector('.carousel-next').addEventListener('click', () => {
+             clearInterval(interval);
+             nextSlide();
+             startCarousel();
+         });
+
+         document.querySelector('.carousel-prev').addEventListener('click', () => {
+             clearInterval(interval);
+             const prevIndex = (currentIndex - 1 + items.length) % items.length;
+             showSlide(prevIndex);
+             startCarousel();
+         });
+
+         // Indicators
+         indicators.forEach((indicator, index) => {
+             indicator.addEventListener('click', () => {
+                 clearInterval(interval);
+                 showSlide(index);
+                 startCarousel();
+             });
+         });
+     });
+     ////////////////////////////////////////
         // Custom cursor
         const cursor = document.querySelector('.cursor');
         document.addEventListener('mousemove', (e) => {

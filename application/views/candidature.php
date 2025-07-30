@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="<?= base_url() ?>resources/css/modern-form.css">
     <link rel="stylesheet" href="<?= base_url() ?>resources/css/form-fixes.css">
     <link rel="stylesheet" href="<?= base_url() ?>resources/css/review-styles.css">
@@ -43,7 +43,7 @@
             <div class="form-header">
                 <img src="<?= base_url() ?>resources/assets/images/logform.png" class="form-logo" alt="Logo PSSFP">
                 <h2>Candidature Master en Finances Publiques</h2>
-                <p>12ème Promotion 2024/2025 • Remplissez soigneusement tous les champs obligatoires (*)</p>
+                <p>13ème Promotion 2025/2026 • Remplissez soigneusement tous les champs obligatoires (*)</p>
             </div>
 
             <!-- Enhanced Progress Steps -->
@@ -122,7 +122,7 @@
                             <div class="radio-group" role="radiogroup" aria-labelledby="type-etude-label">
                                 <div class="radio-item">
                                     <input type="radio" name="type_etude" id="presentiel" value="Presentiel"
-                                           <?php if (isset($this->form_data->type_etude) && ($this->form_data->type_etude === 'Présentiel' || $this->form_data->type_etude === 'Presentiel')) echo 'checked'; ?> required>
+                                        <?php if (isset($this->form_data->type_etude) && ($this->form_data->type_etude === 'Présentiel' || $this->form_data->type_etude === 'Presentiel')) echo 'checked'; ?> required>
                                     <label for="presentiel">
                                         <strong>Présentiel</strong>
                                         <br><small>Cours en salle avec présence physique obligatoire</small>
@@ -130,7 +130,7 @@
                                 </div>
                                 <div class="radio-item">
                                     <input type="radio" name="type_etude" id="distanciel" value="Distanciel"
-                                           <?php if (isset($this->form_data->type_etude) && ($this->form_data->type_etude === 'Distanciel' || $this->form_data->type_etude === 'Distanciel')) echo 'checked'; ?> required>
+                                        <?php if (isset($this->form_data->type_etude) && ($this->form_data->type_etude === 'Distanciel' || $this->form_data->type_etude === 'Distanciel')) echo 'checked'; ?> required>
                                     <label for="distanciel">
                                         <strong>Distanciel</strong>
                                         <br><small>Formation à distance avec outils numériques</small>
@@ -230,7 +230,7 @@
                                         <option value="" style="color: #718096;">Mois</option>
                                         <?php
                                         $mois = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin',
-                                               'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
+                                            'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
                                         for ($i = 1; $i < 13; $i++) {
                                             $selected = ($i == $this->form_data->datenaiss_mm) ? 'selected' : '';
                                             echo "<option value='{$i}' {$selected} style='color: #2d3748; background-color: #ffffff;'>{$mois[$i-1]}</option>";
@@ -563,7 +563,6 @@
                     </div>
                 </div>
 
-
                 <!-- SECTION 8: Revue des informations -->
                 <div class="form-section" id="review-section">
                     <legend><i class="fas fa-check-double"></i> Revue des Informations</legend>
@@ -721,5 +720,6 @@
 
 <!-- Load JavaScript at the end for better performance -->
 <script src="<?= base_url() ?>resources/js/modern-form.js"></script>
+<script src="<?= base_url() ?>resources/js/review-form.js"></script>
 </body>
 </html>

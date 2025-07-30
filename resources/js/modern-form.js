@@ -102,26 +102,45 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Added function to properly handle form submission
     function setupFormSubmission() {
-        // Remove any existing submit event handlers first to avoid conflicts
-        form.removeEventListener('submit', handleFormSubmit);
+        // Get the form and submit button
+        const form = document.getElementById('candidatureForm');
+        const submitBtn = document.querySelector('.btn-success[type="submit"]');
 
-        // Add the submit handler to the form rather than the button
-        form.addEventListener('submit', handleFormSubmit);
+        if (form && submitBtn) {
+            // Remove any previous event listeners that might be blocking submission
+            const clonedSubmitBtn = submitBtn.cloneNode(true);
+            submitBtn.parentNode.replaceChild(clonedSubmitBtn, submitBtn);
 
-        // Get the submit button
-        const submitBtn = document.querySelector('.form-actions .btn-success, .form-actions button[type="submit"]');
+            // Add proper submit handler to the form itself
+            form.addEventListener('submit', function(e) {
+                // Don't prevent the default submission - this is crucial!
+                console.log('Form is being submitted...');
 
-        // If the submit button exists, add a click handler just for visual feedback
-        if (submitBtn) {
-            submitBtn.addEventListener('click', function(e) {
-                // Don't prevent default - let the form's submit event handle it
-                console.log('Submit button clicked, triggering form submission');
+                // Store the original text to restore it if needed
+                const originalText = clonedSubmitBtn.innerHTML;
 
-                // No validation here - that will be handled in the form submit event
-                // Just trigger the form's submit event
-                const submitEvent = new Event('submit', { cancelable: true, bubbles: true });
-                form.dispatchEvent(submitEvent);
+                // Add loading state to submit button
+                clonedSubmitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
+
+                // Set a timeout to ensure the form can still submit if something goes wrong
+                setTimeout(function() {
+                    // This ensures the form submission completes even if there's a delay
+                    if (form.getAttribute('data-submitting') !== 'true') {
+                        form.setAttribute('data-submitting', 'true');
+                        form.submit();
+                    }
+                }, 1000);
+
+                // Allow normal form submission
+                return true;
             });
+
+            // Clear any previously saved form data to avoid conflicts
+            try {
+                localStorage.removeItem('candidature_form_data');
+            } catch (e) {
+                console.log('Could not clear form data from localStorage');
+            }
         }
     }
 
@@ -792,54 +811,10 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    // We don't need this function anymore as we want normal form submission
     function handleFormSubmit(e) {
-        // Prevent default to handle validation first
-        e.preventDefault();
-
-        // Final validation for all sections
-        let isFormValid = true;
-
-        for (let i = 0; i < formSections.length; i++) {
-            if (!validateSection(i, false)) {
-                isFormValid = false;
-                navigateToSection(i);
-                showNotification('Veuillez corriger les erreurs dans la section ' + (i+1), 'error');
-                return false;
-            }
-        }
-
-        if (!isFormValid) {
-            showNotification('Veuillez corriger les erreurs avant de soumettre le formulaire', 'error');
-            return false;
-        }
-
-        // Show loading state
-        const submitBtn = document.querySelector('.btn-success');
-        if (submitBtn) {
-            submitBtn.classList.add('loading');
-            submitBtn.disabled = true;
-        }
-
-        // Clear saved data on successful submission
-        localStorage.removeItem('candidature_form_data');
-
-        // If all validations pass, submit the form
-        form.submit();
-    }
-
-    function showNotification(message, type = 'info') {
-        const notification = document.createElement('div');
-        notification.className = `message ${type}`;
-        notification.innerHTML = `<i class="fas fa-${type === 'error' ? 'exclamation-triangle' : 'info-circle'}"></i> ${message}`;
-
-        const firstSection = formSections[0];
-        firstSection.insertBefore(notification, firstSection.firstChild);
-
-        setTimeout(() => {
-            notification.remove();
-        }, 5000);
-
-        notification.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        // Do nothing, allow default form submission
+        console.log('Submit button clicked');
     }
 
     // Public API

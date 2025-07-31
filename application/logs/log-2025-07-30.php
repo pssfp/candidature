@@ -4987,3 +4987,296 @@ INFO - 2025-07-30 15:49:36 --> File loaded: C:\wamp64\www\candidature\applicatio
 INFO - 2025-07-30 15:49:36 --> File loaded: C:\wamp64\www\candidature\application\views\template/footer.php
 INFO - 2025-07-30 15:49:36 --> Final output sent to browser
 DEBUG - 2025-07-30 15:49:36 --> Total execution time: 0.0515
+INFO - 2025-07-30 16:00:46 --> Config Class Initialized
+INFO - 2025-07-30 16:00:46 --> Hooks Class Initialized
+DEBUG - 2025-07-30 16:00:46 --> UTF-8 Support Enabled
+INFO - 2025-07-30 16:00:46 --> Utf8 Class Initialized
+INFO - 2025-07-30 16:00:46 --> URI Class Initialized
+DEBUG - 2025-07-30 16:00:46 --> No URI present. Default controller set.
+INFO - 2025-07-30 16:00:46 --> Router Class Initialized
+INFO - 2025-07-30 16:00:46 --> Output Class Initialized
+INFO - 2025-07-30 16:00:46 --> Security Class Initialized
+DEBUG - 2025-07-30 16:00:46 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-07-30 16:00:46 --> Input Class Initialized
+INFO - 2025-07-30 16:00:46 --> Language Class Initialized
+INFO - 2025-07-30 16:00:46 --> Loader Class Initialized
+INFO - 2025-07-30 16:00:46 --> Helper loaded: url_helper
+INFO - 2025-07-30 16:00:46 --> Helper loaded: php8_helper
+INFO - 2025-07-30 16:00:46 --> Database Driver Class Initialized
+INFO - 2025-07-30 16:00:46 --> Parser Class Initialized
+INFO - 2025-07-30 16:00:46 --> Model "Impression_model" initialized
+INFO - 2025-07-30 16:00:46 --> Controller Class Initialized
+INFO - 2025-07-30 16:00:46 --> File loaded: C:\wamp64\www\candidature\application\views\template/header.php
+INFO - 2025-07-30 16:00:46 --> File loaded: C:\wamp64\www\candidature\application\views\start.php
+INFO - 2025-07-30 16:00:46 --> File loaded: C:\wamp64\www\candidature\application\views\template/footer.php
+INFO - 2025-07-30 16:00:46 --> Final output sent to browser
+DEBUG - 2025-07-30 16:00:46 --> Total execution time: 0.0404
+INFO - 2025-07-30 16:01:23 --> Config Class Initialized
+INFO - 2025-07-30 16:01:23 --> Hooks Class Initialized
+DEBUG - 2025-07-30 16:01:23 --> UTF-8 Support Enabled
+INFO - 2025-07-30 16:01:23 --> Utf8 Class Initialized
+INFO - 2025-07-30 16:01:23 --> URI Class Initialized
+DEBUG - 2025-07-30 16:01:23 --> No URI present. Default controller set.
+INFO - 2025-07-30 16:01:23 --> Router Class Initialized
+INFO - 2025-07-30 16:01:23 --> Output Class Initialized
+INFO - 2025-07-30 16:01:23 --> Security Class Initialized
+DEBUG - 2025-07-30 16:01:23 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-07-30 16:01:23 --> Input Class Initialized
+INFO - 2025-07-30 16:01:23 --> Language Class Initialized
+INFO - 2025-07-30 16:01:23 --> Loader Class Initialized
+INFO - 2025-07-30 16:01:23 --> Helper loaded: url_helper
+INFO - 2025-07-30 16:01:23 --> Helper loaded: php8_helper
+INFO - 2025-07-30 16:01:23 --> Database Driver Class Initialized
+INFO - 2025-07-30 16:01:23 --> Parser Class Initialized
+INFO - 2025-07-30 16:01:23 --> Model "Impression_model" initialized
+INFO - 2025-07-30 16:01:23 --> Controller Class Initialized
+INFO - 2025-07-30 16:01:23 --> File loaded: C:\wamp64\www\candidature\application\views\template/header.php
+INFO - 2025-07-30 16:01:23 --> File loaded: C:\wamp64\www\candidature\application\views\start.php
+INFO - 2025-07-30 16:01:23 --> File loaded: C:\wamp64\www\candidature\application\views\template/footer.php
+INFO - 2025-07-30 16:01:23 --> Final output sent to browser
+DEBUG - 2025-07-30 16:01:23 --> Total execution time: 0.0652
+INFO - 2025-07-30 16:01:31 --> Config Class Initialized
+INFO - 2025-07-30 16:01:31 --> Hooks Class Initialized
+DEBUG - 2025-07-30 16:01:31 --> UTF-8 Support Enabled
+INFO - 2025-07-30 16:01:31 --> Utf8 Class Initialized
+INFO - 2025-07-30 16:01:31 --> URI Class Initialized
+DEBUG - 2025-07-30 16:01:31 --> No URI present. Default controller set.
+INFO - 2025-07-30 16:01:31 --> Router Class Initialized
+INFO - 2025-07-30 16:01:31 --> Output Class Initialized
+INFO - 2025-07-30 16:01:31 --> Security Class Initialized
+DEBUG - 2025-07-30 16:01:31 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-07-30 16:01:31 --> Input Class Initialized
+INFO - 2025-07-30 16:01:31 --> Language Class Initialized
+INFO - 2025-07-30 16:01:31 --> Loader Class Initialized
+INFO - 2025-07-30 16:01:31 --> Helper loaded: url_helper
+INFO - 2025-07-30 16:01:31 --> Helper loaded: php8_helper
+INFO - 2025-07-30 16:01:31 --> Database Driver Class Initialized
+INFO - 2025-07-30 16:01:31 --> Parser Class Initialized
+INFO - 2025-07-30 16:01:31 --> Model "Impression_model" initialized
+INFO - 2025-07-30 16:01:31 --> Controller Class Initialized
+INFO - 2025-07-30 16:01:31 --> File loaded: C:\wamp64\www\candidature\application\views\template/header.php
+INFO - 2025-07-30 16:01:31 --> File loaded: C:\wamp64\www\candidature\application\views\start.php
+INFO - 2025-07-30 16:01:31 --> File loaded: C:\wamp64\www\candidature\application\views\template/footer.php
+INFO - 2025-07-30 16:01:31 --> Final output sent to browser
+DEBUG - 2025-07-30 16:01:31 --> Total execution time: 0.0563
+INFO - 2025-07-30 16:01:52 --> Config Class Initialized
+INFO - 2025-07-30 16:01:52 --> Hooks Class Initialized
+DEBUG - 2025-07-30 16:01:52 --> UTF-8 Support Enabled
+INFO - 2025-07-30 16:01:52 --> Utf8 Class Initialized
+INFO - 2025-07-30 16:01:52 --> URI Class Initialized
+DEBUG - 2025-07-30 16:01:52 --> No URI present. Default controller set.
+INFO - 2025-07-30 16:01:52 --> Router Class Initialized
+INFO - 2025-07-30 16:01:52 --> Output Class Initialized
+INFO - 2025-07-30 16:01:52 --> Security Class Initialized
+DEBUG - 2025-07-30 16:01:52 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-07-30 16:01:52 --> Input Class Initialized
+INFO - 2025-07-30 16:01:52 --> Language Class Initialized
+INFO - 2025-07-30 16:01:52 --> Loader Class Initialized
+INFO - 2025-07-30 16:01:52 --> Helper loaded: url_helper
+INFO - 2025-07-30 16:01:52 --> Helper loaded: php8_helper
+INFO - 2025-07-30 16:01:52 --> Database Driver Class Initialized
+INFO - 2025-07-30 16:01:52 --> Parser Class Initialized
+INFO - 2025-07-30 16:01:52 --> Model "Impression_model" initialized
+INFO - 2025-07-30 16:01:52 --> Controller Class Initialized
+INFO - 2025-07-30 16:01:52 --> File loaded: C:\wamp64\www\candidature\application\views\template/header.php
+INFO - 2025-07-30 16:01:52 --> File loaded: C:\wamp64\www\candidature\application\views\start.php
+INFO - 2025-07-30 16:01:52 --> File loaded: C:\wamp64\www\candidature\application\views\template/footer.php
+INFO - 2025-07-30 16:01:52 --> Final output sent to browser
+DEBUG - 2025-07-30 16:01:52 --> Total execution time: 0.0508
+INFO - 2025-07-30 16:02:26 --> Config Class Initialized
+INFO - 2025-07-30 16:02:26 --> Hooks Class Initialized
+DEBUG - 2025-07-30 16:02:26 --> UTF-8 Support Enabled
+INFO - 2025-07-30 16:02:26 --> Utf8 Class Initialized
+INFO - 2025-07-30 16:02:26 --> URI Class Initialized
+DEBUG - 2025-07-30 16:02:26 --> No URI present. Default controller set.
+INFO - 2025-07-30 16:02:26 --> Router Class Initialized
+INFO - 2025-07-30 16:02:26 --> Output Class Initialized
+INFO - 2025-07-30 16:02:26 --> Security Class Initialized
+DEBUG - 2025-07-30 16:02:26 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-07-30 16:02:26 --> Input Class Initialized
+INFO - 2025-07-30 16:02:26 --> Language Class Initialized
+INFO - 2025-07-30 16:02:26 --> Loader Class Initialized
+INFO - 2025-07-30 16:02:26 --> Helper loaded: url_helper
+INFO - 2025-07-30 16:02:26 --> Helper loaded: php8_helper
+INFO - 2025-07-30 16:02:26 --> Database Driver Class Initialized
+INFO - 2025-07-30 16:02:26 --> Parser Class Initialized
+INFO - 2025-07-30 16:02:26 --> Model "Impression_model" initialized
+INFO - 2025-07-30 16:02:26 --> Controller Class Initialized
+INFO - 2025-07-30 16:02:26 --> File loaded: C:\wamp64\www\candidature\application\views\template/header.php
+INFO - 2025-07-30 16:02:26 --> File loaded: C:\wamp64\www\candidature\application\views\start.php
+INFO - 2025-07-30 16:02:26 --> File loaded: C:\wamp64\www\candidature\application\views\template/footer.php
+INFO - 2025-07-30 16:02:26 --> Final output sent to browser
+DEBUG - 2025-07-30 16:02:26 --> Total execution time: 0.0580
+INFO - 2025-07-30 16:02:31 --> Config Class Initialized
+INFO - 2025-07-30 16:02:31 --> Hooks Class Initialized
+DEBUG - 2025-07-30 16:02:31 --> UTF-8 Support Enabled
+INFO - 2025-07-30 16:02:31 --> Utf8 Class Initialized
+INFO - 2025-07-30 16:02:31 --> URI Class Initialized
+INFO - 2025-07-30 16:02:31 --> Router Class Initialized
+INFO - 2025-07-30 16:02:31 --> Output Class Initialized
+INFO - 2025-07-30 16:02:31 --> Security Class Initialized
+DEBUG - 2025-07-30 16:02:31 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-07-30 16:02:31 --> Input Class Initialized
+INFO - 2025-07-30 16:02:31 --> Language Class Initialized
+INFO - 2025-07-30 16:02:31 --> Loader Class Initialized
+INFO - 2025-07-30 16:02:31 --> Helper loaded: url_helper
+INFO - 2025-07-30 16:02:31 --> Helper loaded: php8_helper
+INFO - 2025-07-30 16:02:31 --> Database Driver Class Initialized
+INFO - 2025-07-30 16:02:31 --> Parser Class Initialized
+INFO - 2025-07-30 16:02:31 --> Model "Impression_model" initialized
+INFO - 2025-07-30 16:02:31 --> Controller Class Initialized
+INFO - 2025-07-30 16:02:31 --> Table Class Initialized
+INFO - 2025-07-30 16:02:31 --> Helper loaded: form_helper
+INFO - 2025-07-30 16:02:31 --> Form Validation Class Initialized
+DEBUG - 2025-07-30 16:02:31 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2025-07-30 16:02:31 --> Session: Class initialized using 'files' driver.
+INFO - 2025-07-30 16:02:31 --> Email Class Initialized
+INFO - 2025-07-30 16:02:31 --> Model "Model_generique" initialized
+INFO - 2025-07-30 16:02:31 --> File loaded: C:\wamp64\www\candidature\application\views\candidature.php
+INFO - 2025-07-30 16:02:31 --> File loaded: C:\wamp64\www\candidature\application\views\template/template.php
+INFO - 2025-07-30 16:02:31 --> Final output sent to browser
+DEBUG - 2025-07-30 16:02:31 --> Total execution time: 0.0909
+INFO - 2025-07-30 16:03:02 --> Config Class Initialized
+INFO - 2025-07-30 16:03:02 --> Hooks Class Initialized
+DEBUG - 2025-07-30 16:03:02 --> UTF-8 Support Enabled
+INFO - 2025-07-30 16:03:02 --> Utf8 Class Initialized
+INFO - 2025-07-30 16:03:02 --> URI Class Initialized
+DEBUG - 2025-07-30 16:03:02 --> No URI present. Default controller set.
+INFO - 2025-07-30 16:03:02 --> Router Class Initialized
+INFO - 2025-07-30 16:03:02 --> Output Class Initialized
+INFO - 2025-07-30 16:03:02 --> Security Class Initialized
+DEBUG - 2025-07-30 16:03:02 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-07-30 16:03:02 --> Input Class Initialized
+INFO - 2025-07-30 16:03:02 --> Language Class Initialized
+INFO - 2025-07-30 16:03:02 --> Loader Class Initialized
+INFO - 2025-07-30 16:03:02 --> Helper loaded: url_helper
+INFO - 2025-07-30 16:03:02 --> Helper loaded: php8_helper
+INFO - 2025-07-30 16:03:02 --> Database Driver Class Initialized
+INFO - 2025-07-30 16:03:02 --> Parser Class Initialized
+INFO - 2025-07-30 16:03:02 --> Model "Impression_model" initialized
+INFO - 2025-07-30 16:03:02 --> Controller Class Initialized
+INFO - 2025-07-30 16:03:02 --> File loaded: C:\wamp64\www\candidature\application\views\template/header.php
+INFO - 2025-07-30 16:03:02 --> File loaded: C:\wamp64\www\candidature\application\views\start.php
+INFO - 2025-07-30 16:03:02 --> File loaded: C:\wamp64\www\candidature\application\views\template/footer.php
+INFO - 2025-07-30 16:03:02 --> Final output sent to browser
+DEBUG - 2025-07-30 16:03:02 --> Total execution time: 0.0998
+INFO - 2025-07-30 16:03:46 --> Config Class Initialized
+INFO - 2025-07-30 16:03:46 --> Hooks Class Initialized
+DEBUG - 2025-07-30 16:03:46 --> UTF-8 Support Enabled
+INFO - 2025-07-30 16:03:46 --> Utf8 Class Initialized
+INFO - 2025-07-30 16:03:46 --> URI Class Initialized
+DEBUG - 2025-07-30 16:03:46 --> No URI present. Default controller set.
+INFO - 2025-07-30 16:03:46 --> Router Class Initialized
+INFO - 2025-07-30 16:03:46 --> Output Class Initialized
+INFO - 2025-07-30 16:03:46 --> Security Class Initialized
+DEBUG - 2025-07-30 16:03:46 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-07-30 16:03:46 --> Input Class Initialized
+INFO - 2025-07-30 16:03:46 --> Language Class Initialized
+INFO - 2025-07-30 16:03:46 --> Loader Class Initialized
+INFO - 2025-07-30 16:03:46 --> Helper loaded: url_helper
+INFO - 2025-07-30 16:03:46 --> Helper loaded: php8_helper
+INFO - 2025-07-30 16:03:46 --> Database Driver Class Initialized
+INFO - 2025-07-30 16:03:46 --> Parser Class Initialized
+INFO - 2025-07-30 16:03:46 --> Model "Impression_model" initialized
+INFO - 2025-07-30 16:03:46 --> Controller Class Initialized
+INFO - 2025-07-30 16:03:46 --> File loaded: C:\wamp64\www\candidature\application\views\template/header.php
+INFO - 2025-07-30 16:03:46 --> File loaded: C:\wamp64\www\candidature\application\views\start.php
+INFO - 2025-07-30 16:03:46 --> File loaded: C:\wamp64\www\candidature\application\views\template/footer.php
+INFO - 2025-07-30 16:03:46 --> Final output sent to browser
+DEBUG - 2025-07-30 16:03:46 --> Total execution time: 0.0736
+INFO - 2025-07-30 16:05:29 --> Config Class Initialized
+INFO - 2025-07-30 16:05:29 --> Hooks Class Initialized
+DEBUG - 2025-07-30 16:05:29 --> UTF-8 Support Enabled
+INFO - 2025-07-30 16:05:29 --> Utf8 Class Initialized
+INFO - 2025-07-30 16:05:29 --> URI Class Initialized
+DEBUG - 2025-07-30 16:05:29 --> No URI present. Default controller set.
+INFO - 2025-07-30 16:05:29 --> Router Class Initialized
+INFO - 2025-07-30 16:05:29 --> Output Class Initialized
+INFO - 2025-07-30 16:05:29 --> Security Class Initialized
+DEBUG - 2025-07-30 16:05:29 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-07-30 16:05:29 --> Input Class Initialized
+INFO - 2025-07-30 16:05:29 --> Language Class Initialized
+INFO - 2025-07-30 16:05:29 --> Loader Class Initialized
+INFO - 2025-07-30 16:05:29 --> Helper loaded: url_helper
+INFO - 2025-07-30 16:05:29 --> Helper loaded: php8_helper
+INFO - 2025-07-30 16:05:29 --> Database Driver Class Initialized
+INFO - 2025-07-30 16:05:29 --> Parser Class Initialized
+INFO - 2025-07-30 16:05:29 --> Model "Impression_model" initialized
+INFO - 2025-07-30 16:05:29 --> Controller Class Initialized
+INFO - 2025-07-30 16:05:29 --> File loaded: C:\wamp64\www\candidature\application\views\template/header.php
+INFO - 2025-07-30 16:05:29 --> File loaded: C:\wamp64\www\candidature\application\views\start.php
+INFO - 2025-07-30 16:05:29 --> File loaded: C:\wamp64\www\candidature\application\views\template/footer.php
+INFO - 2025-07-30 16:05:29 --> Final output sent to browser
+DEBUG - 2025-07-30 16:05:29 --> Total execution time: 0.0939
+INFO - 2025-07-30 16:05:57 --> Config Class Initialized
+INFO - 2025-07-30 16:05:57 --> Hooks Class Initialized
+DEBUG - 2025-07-30 16:05:57 --> UTF-8 Support Enabled
+INFO - 2025-07-30 16:05:57 --> Utf8 Class Initialized
+INFO - 2025-07-30 16:05:57 --> URI Class Initialized
+DEBUG - 2025-07-30 16:05:57 --> No URI present. Default controller set.
+INFO - 2025-07-30 16:05:57 --> Router Class Initialized
+INFO - 2025-07-30 16:05:57 --> Output Class Initialized
+INFO - 2025-07-30 16:05:57 --> Security Class Initialized
+DEBUG - 2025-07-30 16:05:57 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-07-30 16:05:57 --> Input Class Initialized
+INFO - 2025-07-30 16:05:57 --> Language Class Initialized
+INFO - 2025-07-30 16:05:57 --> Loader Class Initialized
+INFO - 2025-07-30 16:05:57 --> Helper loaded: url_helper
+INFO - 2025-07-30 16:05:57 --> Helper loaded: php8_helper
+INFO - 2025-07-30 16:05:57 --> Database Driver Class Initialized
+INFO - 2025-07-30 16:05:57 --> Parser Class Initialized
+INFO - 2025-07-30 16:05:57 --> Model "Impression_model" initialized
+INFO - 2025-07-30 16:05:57 --> Controller Class Initialized
+INFO - 2025-07-30 16:05:57 --> File loaded: C:\wamp64\www\candidature\application\views\template/header.php
+INFO - 2025-07-30 16:05:57 --> File loaded: C:\wamp64\www\candidature\application\views\start.php
+INFO - 2025-07-30 16:05:57 --> File loaded: C:\wamp64\www\candidature\application\views\template/footer.php
+INFO - 2025-07-30 16:05:57 --> Final output sent to browser
+DEBUG - 2025-07-30 16:05:57 --> Total execution time: 0.0306
+INFO - 2025-07-30 16:21:37 --> Config Class Initialized
+INFO - 2025-07-30 16:21:37 --> Hooks Class Initialized
+DEBUG - 2025-07-30 16:21:37 --> UTF-8 Support Enabled
+INFO - 2025-07-30 16:21:37 --> Utf8 Class Initialized
+INFO - 2025-07-30 16:21:37 --> URI Class Initialized
+DEBUG - 2025-07-30 16:21:37 --> No URI present. Default controller set.
+INFO - 2025-07-30 16:21:37 --> Router Class Initialized
+INFO - 2025-07-30 16:21:37 --> Output Class Initialized
+INFO - 2025-07-30 16:21:37 --> Security Class Initialized
+DEBUG - 2025-07-30 16:21:37 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-07-30 16:21:37 --> Input Class Initialized
+INFO - 2025-07-30 16:21:37 --> Language Class Initialized
+INFO - 2025-07-30 16:21:37 --> Loader Class Initialized
+INFO - 2025-07-30 16:21:37 --> Helper loaded: url_helper
+INFO - 2025-07-30 16:21:37 --> Helper loaded: php8_helper
+INFO - 2025-07-30 16:21:37 --> Database Driver Class Initialized
+INFO - 2025-07-30 16:21:37 --> Parser Class Initialized
+INFO - 2025-07-30 16:21:37 --> Model "Impression_model" initialized
+INFO - 2025-07-30 16:21:37 --> Controller Class Initialized
+INFO - 2025-07-30 16:21:37 --> File loaded: C:\wamp64\www\candidature\application\views\template/header.php
+INFO - 2025-07-30 16:21:37 --> File loaded: C:\wamp64\www\candidature\application\views\start.php
+INFO - 2025-07-30 16:21:37 --> File loaded: C:\wamp64\www\candidature\application\views\template/footer.php
+INFO - 2025-07-30 16:21:37 --> Final output sent to browser
+DEBUG - 2025-07-30 16:21:37 --> Total execution time: 0.0452
+INFO - 2025-07-30 16:21:41 --> Config Class Initialized
+INFO - 2025-07-30 16:21:41 --> Hooks Class Initialized
+DEBUG - 2025-07-30 16:21:41 --> UTF-8 Support Enabled
+INFO - 2025-07-30 16:21:41 --> Utf8 Class Initialized
+INFO - 2025-07-30 16:21:41 --> URI Class Initialized
+DEBUG - 2025-07-30 16:21:41 --> No URI present. Default controller set.
+INFO - 2025-07-30 16:21:41 --> Router Class Initialized
+INFO - 2025-07-30 16:21:41 --> Output Class Initialized
+INFO - 2025-07-30 16:21:41 --> Security Class Initialized
+DEBUG - 2025-07-30 16:21:41 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-07-30 16:21:41 --> Input Class Initialized
+INFO - 2025-07-30 16:21:41 --> Language Class Initialized
+INFO - 2025-07-30 16:21:41 --> Loader Class Initialized
+INFO - 2025-07-30 16:21:41 --> Helper loaded: url_helper
+INFO - 2025-07-30 16:21:41 --> Helper loaded: php8_helper
+INFO - 2025-07-30 16:21:41 --> Database Driver Class Initialized
+INFO - 2025-07-30 16:21:41 --> Parser Class Initialized
+INFO - 2025-07-30 16:21:41 --> Model "Impression_model" initialized
+INFO - 2025-07-30 16:21:41 --> Controller Class Initialized
+INFO - 2025-07-30 16:21:41 --> File loaded: C:\wamp64\www\candidature\application\views\template/header.php
+INFO - 2025-07-30 16:21:41 --> File loaded: C:\wamp64\www\candidature\application\views\start.php
+INFO - 2025-07-30 16:21:41 --> File loaded: C:\wamp64\www\candidature\application\views\template/footer.php
+INFO - 2025-07-30 16:21:41 --> Final output sent to browser
+DEBUG - 2025-07-30 16:21:41 --> Total execution time: 0.0442

@@ -34,12 +34,13 @@
                 <div class="slide-actions">
                     <a href="<?php echo base_url(); ?>index.php/candidature/add" class="btn btn-primary">
                         <i class="fas fa-briefcase"></i>
-                        Candidater Maintenant
+                        Rejoindre l'élite
                     </a>
                     <a href="#" class="btn btn-secondary">
-                        <i class="fas fa-users"></i>
+                        <i class="fas fa-play"></i>
                         En Savoir Plus
                     </a>
+                </div>
             </div>
         </div>
 
@@ -73,8 +74,8 @@
 
                 <div class="slide-actions">
                     <a href="<?php echo base_url(); ?>index.php/candidature/add" class="btn btn-primary">
-                        <i class="fas fa-graduation-cap"></i>
-                        Postuler maintenant
+                        <i class="fas fa-briefcase"></i>
+                        Rejoindre l'élite
                     </a>
                     <a href="#" class="btn btn-secondary">
                         <i class="fas fa-book-open"></i>
@@ -83,10 +84,9 @@
                 </div>
             </div>
         </div>
-</div>
 
         <div class="carousel-slide"
-              style="background-image: linear-gradient(135deg, rgba(42,17,101,0.42), rgba(49,19,99,0.47)) , url('<?= base_url() ?>resources/assets/images/img_bg_1old.jpeg')">
+             style="background-image: linear-gradient(135deg, rgba(42,17,101,0.42), rgba(49,19,99,0.47)) , url('<?= base_url() ?>resources/assets/images/img_bg_1old.jpeg')">
             <div class="slide-overlay"></div>
             <div class="particles"></div>
             <div class="slide-content">
@@ -196,7 +196,7 @@
                     <i class="fas fa-shield-alt"></i>
                 </div>
                 <h3>Gouvernance Territoriale et Finance Publique Locale (GTFPL)</h3>
-                <p>²
+                <p>
                     Maîtrise des enjeux locaux et territoriaux avec une vision
                     stratégique de la décentralisation financière.
                 </p>
@@ -260,7 +260,7 @@
                 <div class="news-content">
                     <h3>Sortie solennelle des 7&egrave;me 8&egrave;me et 9&egrave;me promotion</h3>
                     <p style="text-align : justify">
-                        Les auditeurs de ces différentes promotions ont eu ce jour leurs diplome d'expert en finance
+                        Les auditeurs de ces différentes promotions ont eu ce jour leurs diplômes d'expert en finance
                         publique.
                         Une cérémonie à la hauteur de leurs distinctions.
                     </p>
@@ -340,7 +340,7 @@
                 <div class="agenda-date">01 SEPTEMBRE 2024</div>
                 <h3>Rentrée Académique</h3>
                 <p>
-                    Lancement officiel de la 12&egrave;me promotion avec une semaine
+                    Lancement officiel de la 12&egrave;  promotion avec une semaine
                     d'intégration et de présentation des nouveaux programmes.
                 </p>
                 <a href="#" class="news-link">

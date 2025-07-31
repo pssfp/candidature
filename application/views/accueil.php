@@ -1,10 +1,8 @@
-  
-    <nav class="nav" id="nav">
+<nav class="nav" id="nav">
         <div class="nav-container">
             <div class="logo"  style="width:20%"><a href="<?php echo base_url(); ?>index.php"><img src="<?= base_url()?>resources/assets/images/logo.png"  style="width:23%" alt=""></a></div>
             <div id="nav" class="nav-cta">
                 <a href="<?= base_url('index.php/')?>" class="btn">Acceuil</a>
-                <a href="<?= base_url('index.php/welcome/index')?>" class="btnee">En savoir plus</a>
                 <a href="<?php echo base_url(); ?>index.php/candidature/add" class="btne">Candidater</a>
             </div>
         </div>
@@ -20,7 +18,7 @@
         <div class="container">
             <div class="text-center mb-5">
                 <h2 class="fw-bold">Processus d'inscription en 3 étapes</h2>
-                <p class="text-muted">Suivez ces étapes simples pour postuler à notre programme</p>
+                <p class="text-muted">Suivez ces étapes simples pour postuler notre programme</p>
             </div>
             
             <div class="row g-4">
@@ -47,7 +45,7 @@
                         <h4 class="mb-3"><span class="step-number">2</span> Formulaire en ligne</h4>
                         <ul class="feature-list list-unstyled">
                             <li>Suivez les étapes</li>
-                            <li>remplissez le formulaire</li>
+                            <li>Remplissez le formulaire</li>
                             <li>Paiement des frais sur place ou en ligne</li>
                             <li>Validez vos informations</li>
                         </ul>

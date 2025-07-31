@@ -12,8 +12,74 @@
     <link rel="stylesheet" href="<?= base_url() ?>resources/css/form-fixes.css">
     <link rel="stylesheet" href="<?= base_url() ?>resources/css/review-styles.css">
 </head>
-<body>
+<style>
+    .nav{
+        display : none;
+    }
+    @media screen and (max-width: 768px) {
+        .progress-step::after {
+            display: none !important;
+            content: none !important;
+            background: none !important;
+            width: 0 !important;
+            height: 0 !important;
+        }
+        .step-text {
+            display : none;
+        }
+        .progress-step {
+            margin-left:-30px !important;
+        }
 
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+        .nav {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--gray-200);
+            transition: all 0.3s ease;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--gray-700);
+            font-weight: 500;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary);
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-main);
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+    }
+</style>
 <script>
     function changesoustitre() {
         const nom = document.getElementById('nom').value;
@@ -34,6 +100,21 @@
         }
     }
 </script>
+<body>
+
+<nav class="nav" id="nav">
+    <div class="nav-container">
+        <div class="logo" style="width:20%">
+            <a href="<?php echo base_url(); ?>index.php"><img src="<?= base_url() ?>resources/assets/images/logo.png" style="width:23%" alt=""></a>
+        </div>
+<li>
+    <ul><a style="text-decoration : none" href="<?php echo base_url(); ?>index.php/">Acceuil</a></ul>
+</li>
+        <div class="nav-cta">
+            <a href="<?php echo base_url(); ?>index.php/candidature/add" class="btn btn-primary">Candidater</a>
+        </div>
+    </div>
+</nav>
 
 <div class="container">
     <div class="formbold-main-wrapper">
@@ -43,7 +124,7 @@
             <div class="form-header">
                 <img src="<?= base_url() ?>resources/assets/images/logform.png" class="form-logo" alt="Logo PSSFP">
                 <h2>Candidature Master en Finances Publiques</h2>
-                <p>12ème Promotion 2024/2025 • Remplissez soigneusement tous les champs obligatoires (*)</p>
+                <p>13&egrave;me Promotion 2025/2026 • Remplissez soigneusement tous les champs obligatoires (*)</p>
             </div>
 
             <!-- Enhanced Progress Steps -->
@@ -141,7 +222,7 @@
                     </div>
                 </div>
 
-                <!-- SECTION 2: Identité -->
+                <!-- SECTION 2 : Identité -->
                 <div class="form-section" id="section-identite">
                     <legend>
                         <i class="fas fa-user"></i>
@@ -449,7 +530,7 @@
                     </div>
                 </div>
 
-                <!-- SECTION 4: Cursus Académique -->
+                <!-- SECTION 4 : Cursus Académique -->
                 <div class="form-section">
                     <legend><i class="fas fa-university"></i> Cursus Académique</legend>
                     <div class="form-row">
@@ -489,7 +570,7 @@
                     </div>
                 </div>
 
-                <!-- SECTION 5: Coordonnées Professionnelles -->
+                <!-- SECTION 5 : Coordonnées Professionnelles -->
                 <div class="form-section">
                     <legend><i class="fas fa-briefcase"></i> Coordonnées Professionnelles</legend>
                     <div class="form-row">
@@ -530,7 +611,7 @@
                     </div>
                 </div>
 
-                <!-- SECTION 6: Avis -->
+                <!-- SECTION 6 : Avis -->
                 <div class="form-section">
                     <legend><i class="fas fa-comment-alt"></i> Votre Avis Nous Intéresse</legend>
                     <div class="form-row">
@@ -552,7 +633,7 @@
                 <div class="form-section">
                     <legend><i class="fas fa-handshake"></i> Engagement</legend>
                     <div class="panel-body" style="text-align: justify; font-size: 1rem; margin-bottom: 20px; padding: 15px; background: #f8f9fa; border-radius: 5px;">
-                        Je soussigné(e) <strong id="label_sous"><?php if (isset($this->form_data->nom_prenom)) echo $this->form_data->nom_prenom; ?></strong>, certifie sur l'honneur l'exactitude des renseignements consignés dans cette fiche de candidature et avoir eu connaissance des conditions exigées pour être retenu comme candidat au programme de Master Professionnel en Finances Publiques.
+                        Je soussigné(e) <strong id="label_sous"><?php if (isset($this->form_data->nom_prenom)) echo $this->form_data->nom_prenom; ?></strong>, certifie sur l'honneur l'exactitude des renseignements consignés sur cette fiche de candidature et avoir eu connaissance des conditions exigées pour être retenu comme candidat au programme de Master Professionnel en Finances Publiques.
                     </div>
 
                     <div class="checkbox-group">
@@ -564,7 +645,7 @@
                 </div>
 
 
-                <!-- SECTION 8: Revue des informations -->
+                <!-- SECTION 8 : Revue des informations -->
                 <div class="form-section" id="review-section">
                     <legend><i class="fas fa-check-double"></i> Revue des Informations</legend>
                     <p class="review-intro">Veuillez vérifier les informations saisies avant de soumettre votre candidature.</p>

@@ -1,5 +1,3 @@
-<!-- Hero Section -->
-
 <div class="hero-carousel">
     <div class="carousel-container">
         <!-- Slide 1 -->
@@ -36,10 +34,10 @@
                         <i class="fas fa-briefcase"></i>
                         Rejoindre l'élite
                     </a>
-                    <a href="#" class="btn btn-secondary">
-                        <i class="fas fa-play"></i>
-                        En Savoir Plus
-                    </a>
+<!--                    <a href="#" class="btn btn-secondary">-->
+<!--                        <i class="fas fa-play"></i>-->
+<!--                        En Savoir Plus-->
+<!--                    </a>-->
                 </div>
             </div>
         </div>
@@ -77,10 +75,10 @@
                         <i class="fas fa-briefcase"></i>
                         Rejoindre l'élite
                     </a>
-                    <a href="#" class="btn btn-secondary">
-                        <i class="fas fa-book-open"></i>
-                        Voir les spécialités
-                    </a>
+<!--                    <a href="#" class="btn btn-secondary">-->
+<!--                        <i class="fas fa-book-open"></i>-->
+<!--                        Voir les spécialités-->
+<!--                    </a>-->
                 </div>
             </div>
         </div>
@@ -118,10 +116,10 @@
                         <i class="fas fa-briefcase"></i>
                         Rejoindre l'élite
                     </a>
-                    <a href="#" class="btn btn-secondary">
-                        <i class="fas fa-users"></i>
-                        En Savoir Plus
-                    </a>
+<!--                    <a href="#" class="btn btn-secondary">-->
+<!--                        <i class="fas fa-users"></i>-->
+<!--                        En Savoir Plus-->
+<!--                    </a>-->
                 </div>
             </div>
         </div>
@@ -304,7 +302,7 @@
 <section class="section" id="agenda">
     <div class="container">
         <div class="section-header fade-in">
-            <h2 class="section-title">Calendrier & Événements</h2>
+            <h2 class="section-title">Calendrier &amp; Événements</h2>
             <p class="section-subtitle">
                 Suivez les dates clés de notre programme académique
                 et ne manquez aucune opportunité.
@@ -343,7 +341,7 @@
                     Lancement officiel de la 12&egrave;  promotion avec une semaine
                     d'intégration et de présentation des nouveaux programmes.
                 </p>
-                <a href="#" class="news-link">
+                <a href="<?php echo base_url(); ?>index.php/candidature/add" class="news-link">
                     Découvrir le programme <i class="fas fa-arrow-right"></i>
                 </a>
             </div>
@@ -355,7 +353,7 @@
                     Rencontre avec les acteurs majeurs du secteur des finances publiques.
                     Opportunités de stage et d'emploi.
                 </p>
-                <a href="#" class="news-link">
+                <a href="<?php echo base_url(); ?>index.php/candidature/add" class="news-link">
                     S'inscrire gratuitement <i class="fas fa-arrow-right"></i>
                 </a>
             </div>

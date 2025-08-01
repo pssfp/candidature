@@ -62,8 +62,8 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log("Populating review section");
 
         // Formation section
-        updateReviewField('specialite', function() {
-            const select = document.getElementById('specialite');
+        updateReviewField('id_specialite', function() {
+            const select = document.getElementById('id_specialite');
             return select ? select.options[select.selectedIndex]?.text || '' : '';
         });
 
@@ -153,115 +153,69 @@ document.addEventListener('DOMContentLoaded', function() {
         reviewField.textContent = value;
     }
 
-    // Enhanced form submission handling
-    function enhanceFormSubmission() {
-        const form = document.getElementById('candidatureForm');
-        const originalSubmitButton = document.getElementById('subenregistrer');
-        const resetButton = form.querySelector('button[type="reset"]') || form.querySelector('input[type="reset"]');
+    // Listen for the custom event to navigate to review
+    window.addEventListener('navigateToReview', function(e) {
+        console.log('Navigate to review event received from section:', e.detail.fromSection);
 
-        // Listen for the custom event to navigate to review
-        window.addEventListener('navigateToReview', function(e) {
-            console.log('Navigate to review event received from section:', e.detail.fromSection);
+        // Populate review section
+        populateReviewSection();
 
-            // Populate review section
-            populateReviewSection();
+        // Navigate to review section
+        const reviewSectionIndex = findReviewSectionIndex();
+        if (reviewSectionIndex !== -1 && window.formFunctions && window.formFunctions.navigateToSection) {
+            window.formFunctions.navigateToSection(reviewSectionIndex);
+        } else {
+            console.error("Could not navigate to review section");
+        }
+    });
 
-            // Navigate to review section
-            const reviewSectionIndex = findReviewSectionIndex();
-            if (reviewSectionIndex !== -1 && window.formFunctions && window.formFunctions.navigateToSection) {
-                window.formFunctions.navigateToSection(reviewSectionIndex);
-            } else {
-                console.error("Could not navigate to review section");
+    // Only handle reset button (not submit)
+    const form = document.getElementById('candidatureForm');
+    const originalSubmitButton = document.getElementById('subenregistrer');
+    const resetButton = form ? (form.querySelector('button[type="reset"]') || form.querySelector('input[type="reset"]')) : null;
+    if (form && resetButton) {
+        // Remove existing event listeners by cloning
+        const newResetButton = resetButton.cloneNode(true);
+        resetButton.parentNode.replaceChild(newResetButton, resetButton);
+        newResetButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            if (confirm('Êtes-vous sûr de vouloir réinitialiser le formulaire ? Toutes les données saisies seront perdues.')) {
+                // Reset the form
+                form.reset();
+
+                // Clear localStorage
+                localStorage.removeItem('candidature_form_data');
+
+                // Clear any validation errors
+                const errorElements = form.querySelectorAll('.form-error');
+                errorElements.forEach(error => error.remove());
+
+                // Remove validation classes
+                const invalidFields = form.querySelectorAll('.is-invalid');
+                invalidFields.forEach(field => field.classList.remove('is-invalid'));
+
+                // Navigate back to first section
+                if (window.formFunctions && window.formFunctions.navigateToSection) {
+                    window.formFunctions.navigateToSection(0);
+                }
+
+                // Trigger conditional field updates
+                setTimeout(() => {
+                    const selectElements = form.querySelectorAll('select');
+                    selectElements.forEach(select => {
+                        const event = new Event('change', { bubbles: true });
+                        select.dispatchEvent(event);
+                    });
+
+                    // Update button states
+                    if (window.formFunctions && window.formFunctions.updateCurrentSectionNavigationButtons) {
+                        window.formFunctions.updateCurrentSectionNavigationButtons();
+                    }
+                }, 100);
+
+                console.log("Form reset completed");
             }
         });
-
-        if (form && originalSubmitButton) {
-            // Enhanced reset functionality
-            if (resetButton) {
-                // Remove existing event listeners by cloning
-                const newResetButton = resetButton.cloneNode(true);
-                resetButton.parentNode.replaceChild(newResetButton, resetButton);
-
-                newResetButton.addEventListener('click', function(e) {
-                    e.preventDefault();
-
-                    if (confirm('Êtes-vous sûr de vouloir réinitialiser le formulaire ? Toutes les données saisies seront perdues.')) {
-                        // Reset the form
-                        form.reset();
-
-                        // Clear localStorage
-                        localStorage.removeItem('candidature_form_data');
-
-                        // Clear any validation errors
-                        const errorElements = form.querySelectorAll('.form-error');
-                        errorElements.forEach(error => error.remove());
-
-                        // Remove validation classes
-                        const invalidFields = form.querySelectorAll('.is-invalid');
-                        invalidFields.forEach(field => field.classList.remove('is-invalid'));
-
-                        // Navigate back to first section
-                        if (window.formFunctions && window.formFunctions.navigateToSection) {
-                            window.formFunctions.navigateToSection(0);
-                        }
-
-                        // Trigger conditional field updates
-                        setTimeout(() => {
-                            const selectElements = form.querySelectorAll('select');
-                            selectElements.forEach(select => {
-                                const event = new Event('change', { bubbles: true });
-                                select.dispatchEvent(event);
-                            });
-
-                            // Update button states
-                            if (window.formFunctions && window.formFunctions.updateCurrentSectionNavigationButtons) {
-                                window.formFunctions.updateCurrentSectionNavigationButtons();
-                            }
-                        }, 100);
-
-                        console.log("Form reset completed");
-                    }
-                });
-            }
-
-            // Set up edit button functionality
-            const editButton = document.getElementById('edit-submission');
-            if (editButton) {
-                editButton.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    // Go back to the first section to edit
-                    if (window.formFunctions && window.formFunctions.navigateToSection) {
-                        window.formFunctions.navigateToSection(0);
-                        console.log("Edit button clicked, navigating to first section");
-                    }
-                });
-            }
-
-            // Ensure submit button works properly in review section
-            originalSubmitButton.addEventListener('click', function(e) {
-                const reviewSection = document.getElementById('review-section');
-                const isInReviewSection = reviewSection && reviewSection.classList.contains('active');
-
-                if (!isInReviewSection) {
-                    e.preventDefault();
-                    console.log("Submit prevented - not in review section");
-                    return false;
-                }
-
-                // Final validation before submission
-                if (window.formFunctions && window.formFunctions.validateAllSections && !window.formFunctions.validateAllSections()) {
-                    e.preventDefault();
-                    alert('Veuillez corriger les erreurs avant de soumettre le formulaire.');
-                    return false;
-                }
-
-                // Show loading state
-                originalSubmitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
-                originalSubmitButton.disabled = true;
-
-                console.log("Form submission allowed");
-            });
-        }
     }
 
     // Initialize review functionality
@@ -270,9 +224,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Add review step to progress bar
         addReviewStepToProgressBar();
-
-        // Enhance form submission
-        enhanceFormSubmission();
 
         // Set up review section observer
         const reviewSection = document.getElementById('review-section');

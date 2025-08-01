@@ -41,7 +41,6 @@
 
             <!-- Enhanced Header -->
             <div class="form-header">
-                <img src="<?= base_url() ?>resources/assets/images/logform.png" class="form-logo" alt="Logo PSSFP">
                 <h2>Candidature Master en Finances Publiques</h2>
                 <p>13ème Promotion 2025/2026 • Remplissez soigneusement tous les champs obligatoires (*)</p>
             </div>
@@ -97,7 +96,7 @@
                     <div class="form-row">
                         <div class="form-group">
                             <label for="specialite" class="formbold-form-label required">Spécialité de formation</label>
-                            <select class="formbold-form-input" name="specialite" id="specialite" required aria-describedby="specialite-help">
+                            <select class="formbold-form-input" name="id_specialite" id="id_specialite" required aria-describedby="specialite-help">
                                 <option value="" style="color: #718096;">-- Sélectionnez votre spécialité --</option>
                                 <?php
                                 if (!empty($specialites)) {

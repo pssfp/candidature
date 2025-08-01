@@ -38,14 +38,12 @@ class Candidature extends MY_Controller {
     }
 
     public function index() {
-        //	$this->load->view('welcome_message');
-        // $data = array();
+        $this->reset_form_data();
         $submitname = "enregistrer";
         $data['submitname'] = $submitname;
         $data["specialites"] = $this->model->list_all("specialite")->result();
         $data["pays"] = $this->model->list_all("pays")->result();
         $data['action'] = site_url('candidature/add/');
-        //redirect('candidature/add/');
         $this->template->layout('candidature', $data);
     }
 
@@ -60,7 +58,7 @@ class Candidature extends MY_Controller {
         $data['action'] = site_url('candidature/add/');
 
         // Set validation rules
-        $this->form_validation->set_rules('specialite', 'Spécialité', 'required');
+        $this->form_validation->set_rules('id_specialite', 'Spécialité', 'required');
         $this->form_validation->set_rules('type_etude', 'Mode de formation', 'required');
         $this->form_validation->set_rules('civilite', 'Civilité', 'required');
         $this->form_validation->set_rules('nom', 'Nom', 'required');
@@ -81,16 +79,18 @@ class Candidature extends MY_Controller {
         $this->form_validation->set_rules('engagement', 'Engagement', 'required');
 
         if ($this->form_validation->run() == FALSE) {
-            // If validation fails or form is not submitted, redisplay the form
-            $this->form_data = new stdClass();
-            foreach ($this->input->post() as $key => $value) {
-                $this->form_data->$key = $value;
-            }
-            // For fields not in post, initialize them
-            $fields = ['type_etude', 'specialite', 'civilite', 'nom', 'prenom', 'epouse', 'nombre_enfant', 'datenaiss_jj', 'datenaiss_mm', 'datenaiss_yy', 'lieu_de_naissce', 'nationalite', 'paysorigine', 'region_dorigine', 'dept_dorigine', 'sexe', 'statu_matrimonial', 'langue', 'pays_residence', 'adresse_candidat', 'ville_residence', 'telephone', 'telephone2', 'email', 'emailverif', 'dernier_diplome', 'diplome_requis', 'specialite_requise', 'annee_optention_diplome', 'statut_prof', 'structure', 'adresse_structure', 'telephone_structure', 'email_structure', 'howDidYouKnewUs'];
-            foreach ($fields as $field) {
-                if (!isset($this->form_data->$field)) {
-                    $this->form_data->$field = '';
+            if (empty($_POST)) {
+                $this->reset_form_data();
+            } else {
+                $this->form_data = new stdClass();
+                foreach ($this->input->post() as $key => $value) {
+                    $this->form_data->$key = $value;
+                }
+                $fields = ['type_etude', 'id_specialite', 'civilite', 'nom', 'prenom', 'epouse', 'nombre_enfant', 'datenaiss_jj', 'datenaiss_mm', 'datenaiss_yy', 'lieu_de_naissce', 'nationalite', 'paysorigine', 'region_dorigine', 'dept_dorigine', 'sexe', 'statu_matrimonial', 'langue', 'pays_residence', 'adresse_candidat', 'ville_residence', 'telephone', 'telephone2', 'email', 'emailverif', 'dernier_diplome', 'diplome_requis', 'specialite_requise', 'annee_optention_diplome', 'statut_prof', 'structure', 'adresse_structure', 'telephone_structure', 'email_structure', 'howDidYouKnewUs'];
+                foreach ($fields as $field) {
+                    if (!isset($this->form_data->$field)) {
+                        $this->form_data->$field = '';
+                    }
                 }
             }
 
@@ -98,7 +98,7 @@ class Candidature extends MY_Controller {
         } else {
             // If validation is successful, process the data
             $candidat_data = array();
-            $fields = ['type_etude', 'specialite', 'civilite', 'nom', 'prenom', 'epouse', 'nombre_enfant', 'lieu_de_naissce', 'nationalite', 'paysorigine', 'region_dorigine', 'dept_dorigine', 'sexe', 'statu_matrimonial', 'langue', 'pays_residence', 'adresse_candidat', 'ville_residence', 'telephone', 'telephone2', 'email', 'dernier_diplome', 'diplome_requis', 'specialite_requise', 'annee_optention_diplome', 'statut_prof', 'structure', 'adresse_structure', 'telephone_structure', 'email_structure', 'howDidYouKnewUs'];
+            $fields = ['type_etude', 'id_specialite', 'civilite', 'nom', 'prenom', 'epouse', 'nombre_enfant', 'lieu_de_naissce', 'nationalite', 'paysorigine', 'region_dorigine', 'dept_dorigine', 'sexe', 'statu_matrimonial', 'langue', 'pays_residence', 'adresse_candidat', 'ville_residence', 'telephone', 'telephone2', 'email', 'dernier_diplome', 'diplome_requis', 'specialite_requise', 'annee_optention_diplome', 'statut_prof', 'structure', 'adresse_structure', 'telephone_structure', 'email_structure', 'howDidYouKnewUs'];
             foreach ($fields as $field) {
                 $candidat_data[$field] = $this->input->post($field);
             }
@@ -113,7 +113,7 @@ class Candidature extends MY_Controller {
     }
 
     public function success() {
-        $this->template->layout('success_page'); // Create a success view
+        $this->template->layout('success_page', array()); // Create a success view
     }
 
     public function viewnumordre(){
@@ -297,7 +297,7 @@ class Candidature extends MY_Controller {
                     'howDidYouKnewUs' => $this->input->post('howDidYouKnewUs'),
                     'telephone_structure' => $this->input->post('telephone_structure'),
                     'langue' => $this->input->post('langue'),
-                    'id_specialite' => $this->input->post('specialite'),
+                    'id_specialite' => $this->input->post('id_specialite'),
                     'id_pays' => $this->input->post('pays_residence'),
                     'pays_residence' => $this->model->get_by_id("pays", $this->input->post('pays_residence'), "id")->row()->nom,
                     //'ordre_candidature' => $numordre,
@@ -374,7 +374,7 @@ class Candidature extends MY_Controller {
 
     public function initRecupOrdre(){
         $data=array();
-        $this->template->layout('formEmailForNumOrdre', $data);
+        $this->template->layout('formEmailForNumOrdre', array());
     }
 
     /**

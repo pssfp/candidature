@@ -101,6 +101,10 @@ class Model_generique extends CI_Model{
 	
 		$this->db->query("UPDATE $table SET \"geom\" = ST_GeomFromText('POINT($longt $lat)', 2154) WHERE $id_name=$id_val");
 	}
+
+    public function create($table, $data) {
+        return $this->db->insert($table, $data);
+    }
 }
 
 ?>

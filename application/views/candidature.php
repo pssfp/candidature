@@ -13,30 +13,7 @@
     <link rel="stylesheet" href="<?= base_url() ?>resources/css/review-styles.css">
 </head>
 <body>
-<style>
-        .nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--gray-200);
-            transition: all 0.3s ease;
-        }
 
-
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 80px;
-        }
-</style>
 <script>
     function changesoustitre() {
         const nom = document.getElementById('nom').value;
@@ -57,26 +34,15 @@
         }
     }
 </script>
-<body>
 
-    <nav class="nav" id="nav">
-        <div class="nav-container">
-            <div class="logo"  style="width:20%"><a href="<?php echo base_url(); ?>index.php"><img src="<?= base_url()?>resources/assets/images/logo.png"  style="width:23%" alt=""></a></div>
-            <div class="nav-cta">
-                <a href="<?= base_url('index.php/')?>" class="btn btn-ghost">Acceuil</a>
-                <a href="<?php echo base_url(); ?>index.php/adminAuth" class="btn btn-primary">Connexion</a>
-            </div>
-        </div>
-    </nav>
 <div class="container">
     <div class="formbold-main-wrapper">
         <div class="formbold-form-wrapper">
 
             <!-- Enhanced Header -->
             <div class="form-header">
-                <img src="<?= base_url() ?>resources/assets/images/logform.png" class="form-logo" alt="Logo PSSFP">
                 <h2>Candidature Master en Finances Publiques</h2>
-                <p>13&egrave;me Promotion 2025/2026 • Remplissez soigneusement tous les champs obligatoires (*)</p>
+                <p>13ème Promotion 2025/2026 • Remplissez soigneusement tous les champs obligatoires (*)</p>
             </div>
 
             <!-- Enhanced Progress Steps -->
@@ -130,7 +96,7 @@
                     <div class="form-row">
                         <div class="form-group">
                             <label for="specialite" class="formbold-form-label required">Spécialité de formation</label>
-                            <select class="formbold-form-input" name="specialite" id="specialite" required aria-describedby="specialite-help">
+                            <select class="formbold-form-input" name="id_specialite" id="id_specialite" required aria-describedby="specialite-help">
                                 <option value="" style="color: #718096;">-- Sélectionnez votre spécialité --</option>
                                 <?php
                                 if (!empty($specialites)) {
@@ -155,7 +121,7 @@
                             <div class="radio-group" role="radiogroup" aria-labelledby="type-etude-label">
                                 <div class="radio-item">
                                     <input type="radio" name="type_etude" id="presentiel" value="Presentiel"
-                                           <?php if (isset($this->form_data->type_etude) && ($this->form_data->type_etude === 'Présentiel' || $this->form_data->type_etude === 'Presentiel')) echo 'checked'; ?> required>
+                                        <?php if (isset($this->form_data->type_etude) && ($this->form_data->type_etude === 'Présentiel' || $this->form_data->type_etude === 'Presentiel')) echo 'checked'; ?> required>
                                     <label for="presentiel">
                                         <strong>Présentiel</strong>
                                         <br><small>Cours en salle avec présence physique obligatoire</small>
@@ -163,7 +129,7 @@
                                 </div>
                                 <div class="radio-item">
                                     <input type="radio" name="type_etude" id="distanciel" value="Distanciel"
-                                           <?php if (isset($this->form_data->type_etude) && ($this->form_data->type_etude === 'Distanciel' || $this->form_data->type_etude === 'Distanciel')) echo 'checked'; ?> required>
+                                        <?php if (isset($this->form_data->type_etude) && ($this->form_data->type_etude === 'Distanciel' || $this->form_data->type_etude === 'Distanciel')) echo 'checked'; ?> required>
                                     <label for="distanciel">
                                         <strong>Distanciel</strong>
                                         <br><small>Formation à distance avec outils numériques</small>
@@ -263,7 +229,7 @@
                                         <option value="" style="color: #718096;">Mois</option>
                                         <?php
                                         $mois = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin',
-                                               'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
+                                            'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
                                         for ($i = 1; $i < 13; $i++) {
                                             $selected = ($i == $this->form_data->datenaiss_mm) ? 'selected' : '';
                                             echo "<option value='{$i}' {$selected} style='color: #2d3748; background-color: #ffffff;'>{$mois[$i-1]}</option>";
@@ -753,5 +719,6 @@
 
 <!-- Load JavaScript at the end for better performance -->
 <script src="<?= base_url() ?>resources/js/modern-form.js"></script>
+<script src="<?= base_url() ?>resources/js/review-form.js"></script>
 </body>
 </html>

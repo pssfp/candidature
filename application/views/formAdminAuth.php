@@ -1,66 +1,87 @@
-<div class="row">
-    <div class="col-lg-12">
-        <div class="bs-example">
-            <div class="jumbotron">
-                
-                
-                <div class="row">
-
-                        <div class="col-lg-12">
-                            <div class="col-lg-2">
-                                
-                            </div>
-                            <div class="col-lg-8">
-                                <div class="panel panel-primary">
-                                    <div class="panel-heading">
-                                        <h3 class="panel-title">Master en Finances Publiques : Admin Authentification</h3>
-                                    </div>
-                                    <div class="panel-body" >
-                                        <div style="color: #002166">
-                    <center>
-                        Veuillez entrer vos identifiants<br/>
-                    </center>
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="card shadow">
+                <div class="card-header text-white">
+                    <h3 class="card-title mb-0">Master en Finances Publiques : Authentification</h3>
                 </div>
-                <span style="color: red">
-                    <center><?php if (isset($message)) echo $message; ?></center>
-                </span>
+                <div class="card-body p-4">
+                    <?php if (isset($message)): ?>
+                        <div class="alert alert-danger text-center mb-4"><?php echo $message; ?></div>
+                    <?php endif; ?>
 
-                    <form id="myForm" method="post" class="bs-example form-horizontal" action="<?php echo $action; ?>">
-                        <div class="form-group">
-                            <span style="color: red"></span>
-                            <label class="col-lg-4 control-label" for="login">Identifiant :</label>
-                            <div class="col-lg-6">
-                                <input value="<?php echo set_value('login', $this->form_data->login); ?>" 
-                                       name="login" placeholder="Identifiant"  
-                                       required class="form-control taille_champ" id="login"  type="text">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="col-lg-4 control-label" for="password">Password :</label>
-                            <div class="col-lg-6">
-                                <input value="<?php echo set_value('password', $this->form_data->password); ?>" 
-                                       name="password" placeholder="Mot de passe" required class="form-control taille_champ" 
-                                       id="password"  type="password"  >
-                            </div>
-                        </div>
-                        <div  style="text-align: right;">
-                            <div class="form-group">
-                                <div class="col-lg-10 col-lg-offset-2">
-                                    <button  name="<?php if (isset($submitname)) echo $submitname; ?>" id="subenregistrer"  class="btn btn-info" >Connexion</button> 
-                                </div>
-                            </div>
-                        </div><br/>
-                    </form>
-                
-                                    </div>
-                                </div>
-
-
-                            </div>
-                        </div>
+                    <div class="text-center text-primary mb-4">
+                        Veuillez entrer vos identifiants
                     </div>
+
+                    <form id="loginForm" method="post" action="<?php echo $action; ?>">
+                        <div class="mb-4">
+                            <label for="login" class="form-label">Identifiant :</label>
+                            <input value="<?php echo set_value('login', $this->form_data->login); ?>"
+                                   name="login" placeholder="Identifiant"
+                                   required class="form-control form-control-lg" id="login" type="text">
+                            <div class="invalid-feedback">Veuillez saisir votre identifiant</div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="password" class="form-label">Mot de passe :</label>
+                            <input value="<?php echo set_value('password', $this->form_data->password); ?>"
+                                   name="password" placeholder="Mot de passe" required
+                                   class="form-control form-control-lg" id="password" type="password">
+                            <div class="invalid-feedback">Veuillez saisir votre mot de passe</div>
+                        </div>
+
+                        <div class="d-grid" >
+                            <button style="background-color: #6d189c; border-radius; 10px;" name="<?php if (isset($submitname)) echo $submitname; ?>"
+                                    id="subenregistrer" class="btn btn-primary btn-lg">
+                                Connexion
+                            </button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
 </div>
+
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+    .card {
+        border-radius: 10px;
+        border: none;
+    }
+    .form-control-lg {
+        padding: 1rem;
+    }
+    .card-header{
+        background-color: #6d189c;
+    }
+    button{
+        background-color: #6d189c;
+        border-radius: 15px;
+    }
+</style>
+
+<script>
+    // Validation côté client optionnelle
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+        let isValid = true;
+        const inputs = this.querySelectorAll('input[required]');
+
+        inputs.forEach(input => {
+            if (!input.value.trim()) {
+                input.classList.add('is-invalid');
+                isValid = false;
+            } else {
+                input.classList.remove('is-invalid');
+            }
+        });
+
+        if (!isValid) {
+            event.preventDefault();
+            event.stopPropagation();
+        }
+    });
+</script>

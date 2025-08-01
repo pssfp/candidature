@@ -10,6 +10,8 @@
       <sourceFolder url="file://$MODULE_DIR$/application/libraries/dompdf/lib/php-svg-lib/tests" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/application/libraries/dompdf/src" isTestSource="false" packagePrefix="Dompdf\" />
       <sourceFolder url="file://$MODULE_DIR$/application/libraries/dompdf/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/application/libraries/dompdf/lib/php-font-lib/tests/FontLib" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/application/libraries/dompdf/lib/php-svg-lib/tests/Svg" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/CodeIgniter-3.1.13/vendor/composer" />
       <excludeFolder url="file://$MODULE_DIR$/CodeIgniter-3.1.13/vendor/doctrine/instantiator" />
       <excludeFolder url="file://$MODULE_DIR$/CodeIgniter-3.1.13/vendor/mikey179/vfsstream" />

@@ -478,10 +478,10 @@ CREATE TABLE `specialite` (
 --
 
 INSERT INTO `specialite` (`id`, `nom`, `description`) VALUES
-(1, 'Economie Publique et Gestion Publique', 'Economie Publique et Gestion Publique'),
-(2, 'Fiscalité, Finance et Comptabilité Publique', 'Fiscalité, Finance et Comptabilité Publique'),
-(3, 'Gouvernance Territoriale et Finances Publiques locales', 'Gouvernance Territoriale et Finances Publiques locales'),
-(4, 'Marchés Publics et Partenariats Public-Privés', 'Marchés Publics et Partenariats Public-Privés'),
+(1, 'Economie Publique et Gestion Publique (EPGP)', 'Economie Publique et Gestion Publique (EPGP)'),
+(2, 'Fiscalité, Finance et Comptabilité Publique (FFCP)', 'Fiscalité, Finance et Comptabilité Publique (FFCP)'),
+(3, 'Gouvernance Territoriale et Finances Publiques locales (GTFPL)', 'Gouvernance Territoriale et Finances Publiques locales (GTFPL)'),
+(4, 'Marchés Publics et Partenariats Public-Privés (MPPPP)', 'Marchés Publics et Partenariats Public-Privés (MPPPP)'),
 (5, 'Audit et contrôle', 'Audit et contrôle');
 
 -- --------------------------------------------------------

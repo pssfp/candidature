@@ -33,6 +33,35 @@
             }
         }
     }
+
+    function showHideAutreDomaine() {
+        const domaineSelect = document.getElementById('dernier_diplome_domaine');
+        const autreDomaineRow = document.getElementById('autre_domaine_row');
+        if (domaineSelect.value === 'Autre') {
+            autreDomaineRow.style.display = 'block';
+        } else {
+            autreDomaineRow.style.display = 'none';
+            document.getElementById('dernier_diplome_autre_domaine').value = ''; // Clear the field
+        }
+    }
+
+    function toggleEmployerFields() {
+        const statut = document.getElementById('statut_prof').value;
+        const employerInfoSection = document.getElementById('employer_info_section');
+        const autreStatutRow = document.getElementById('autre_statut_row');
+
+        if (statut === "Étudiant / en recherche d'emploi" || statut === "Etudiant") {
+            employerInfoSection.style.display = 'none';
+        } else {
+            employerInfoSection.style.display = 'block';
+        }
+
+        if (statut === "Autre") {
+            autreStatutRow.style.display = 'block';
+        } else {
+            autreStatutRow.style.display = 'none';
+        }
+    }
 </script>
 
 <div class="container">
@@ -212,42 +241,13 @@
                     <div class="form-row">
                         <div class="form-group">
                             <label class="formbold-form-label required">Date de naissance</label>
-                            <div class="date-group">
-                                <div>
-                                    <label for="datenaiss_jj" class="sr-only">Jour</label>
-                                    <select class="formbold-form-input" name="datenaiss_jj" id="datenaiss_jj" required style="color: #2d3748 !important; background-color: #ffffff !important;">
-                                        <option value="" style="color: #718096;">Jour</option>
-                                        <?php for ($i = 1; $i < 32; $i++) {
-                                            $selected = ($i == $this->form_data->datenaiss_jj) ? 'selected' : '';
-                                            echo "<option value='{$i}' {$selected} style='color: #2d3748; background-color: #ffffff;'>{$i}</option>";
-                                        } ?>
-                                    </select>
-                                </div>
-                                <div>
-                                    <label for="datenaiss_mm" class="sr-only">Mois</label>
-                                    <select class="formbold-form-input" name="datenaiss_mm" id="datenaiss_mm" required style="color: #2d3748 !important; background-color: #ffffff !important;">
-                                        <option value="" style="color: #718096;">Mois</option>
-                                        <?php
-                                        $mois = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin',
-                                            'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
-                                        for ($i = 1; $i < 13; $i++) {
-                                            $selected = ($i == $this->form_data->datenaiss_mm) ? 'selected' : '';
-                                            echo "<option value='{$i}' {$selected} style='color: #2d3748; background-color: #ffffff;'>{$mois[$i-1]}</option>";
-                                        } ?>
-                                    </select>
-                                </div>
-                                <div>
-                                    <label for="datenaiss_yy" class="sr-only">Année</label>
-                                    <select class="formbold-form-input" name="datenaiss_yy" id="datenaiss_yy" required style="color: #2d3748 !important; background-color: #ffffff !important;">
-                                        <option value="" style="color: #718096;">Année</option>
-                                        <?php $x = date('Y');
-                                        for ($i = $x - 65; $i < $x - 15; $i++) {
-                                            $selected = ($i == $this->form_data->datenaiss_yy) ? 'selected' : '';
-                                            echo "<option value='{$i}' {$selected} style='color: #2d3748; background-color: #ffffff;'>{$i}</option>";
-                                        } ?>
-                                    </select>
-                                </div>
-                            </div>
+                            <input type="date" name="date_naissance" id="date_naissance"
+                                   class="formbold-form-input"
+                                   value="<?php echo set_value('date_naissance', isset($this->form_data->date_naissance) ? $this->form_data->date_naissance : ''); ?>"
+                                   required
+                                   min="<?php echo (date('Y')-65).'-01-01'; ?>"
+                                   max="<?php echo (date('Y')-15).'-12-31'; ?>" />
+                            <div class="input-help-text">Format: AAAA-MM-JJ</div>
                         </div>
                     </div>
 
@@ -449,123 +449,292 @@
                 </div>
 
                 <!-- SECTION 4: Cursus Académique -->
-                <div class="form-section">
-                    <legend><i class="fas fa-university"></i> Cursus Académique</legend>
+                <div class="form-section" id="section-cursus">
+                    <legend>
+                        <i class="fas fa-university"></i>
+                        IV – Cursus Académique
+                    </legend>
+
+                    <h4>🎓 Dernier diplôme obtenu</h4>
                     <div class="form-row">
                         <div class="form-group half">
-                            <label for="dernier_diplome" class="formbold-form-label required">Dernier diplôme obtenu</label>
-                            <input value="<?php echo set_value('dernier_diplome', $this->form_data->dernier_diplome); ?>" name="dernier_diplome" class="formbold-form-input" required id="dernier_diplome" type="text" placeholder="Ex. DEA " list="list_dernierdiplome" />
-                            <datalist id="list_dernierdiplome">
-                                <option value="Licence">
-                                <option value="DEA / Master">
-                                <option value="Doctorat">
-                            </datalist>
-                        </div>
-
-                        <div class="form-group half">
-                            <label for="diplome_requis" class="formbold-form-label required">Diplôme requis</label>
-                            <input value="<?php echo set_value('diplome_requis', $this->form_data->diplome_requis); ?>" name="diplome_requis" class="formbold-form-input" required id="diplome_requis" type="text" placeholder="Ex. Licence" />
+                            <label for="dernier_diplome_intitule" class="formbold-form-label required">Intitulé exact du diplôme</label>
+                            <input type="text" name="dernier_diplome_intitule" id="dernier_diplome_intitule" class="formbold-form-input" placeholder="Ex. Licence en Droit, Maîtrise en Sciences économiques" value="<?php echo set_value('dernier_diplome_intitule', isset($this->form_data->dernier_diplome_intitule) ? $this->form_data->dernier_diplome_intitule : ''); ?>" required />
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group half">
-                            <label for="specialite_requise" class="formbold-form-label required">Spécialité du diplôme requis</label>
-                            <input value="<?php echo set_value('specialite_requise', $this->form_data->specialite_requise); ?>" name="specialite_requise" class="formbold-form-input" required id="specialite_requiss" type="text" placeholder="Ex. Economie" />
+                            <label for="dernier_diplome_specialite" class="formbold-form-label required">Spécialité / Filière</label>
+                            <input type="text" name="dernier_diplome_specialite" id="dernier_diplome_specialite" class="formbold-form-input" placeholder="Ex. Économie, Finances, Gestion, Droit" value="<?php echo set_value('dernier_diplome_specialite', isset($this->form_data->dernier_diplome_specialite) ? $this->form_data->dernier_diplome_specialite : ''); ?>" required />
                         </div>
 
                         <div class="form-group half">
-                            <label for="annee_optention_diplome" class="formbold-form-label required">Année d'obtention du diplôme requis</label>
-                            <select class="formbold-form-input" name="annee_optention_diplome" id="annee_optention_diplome" required style="color: #2d3748 !important; background-color: #ffffff !important;">
-                                <option value="" style="color: #718096;">Choisir une année</option>
-                                <?php $x = date('Y');
-                                for ($i = $x; $i >= $x - 30; $i--) {
-                                    $selected = ($i == $this->form_data->annee_optention_diplome) ? 'selected' : '';
-                                    echo "<option value='{$i}' {$selected} style='color: #2d3748; background-color: #ffffff;'>{$i}</option>";
-                                } ?>
+                            <label for="dernier_diplome_domaine" class="formbold-form-label required">Domaine du diplôme</label>
+                            <select name="dernier_diplome_domaine" id="dernier_diplome_domaine" class="formbold-form-input" onchange="showHideAutreDomaine()" required>
+                                <option value="">-- Sélectionnez --</option>
+                                <option value="Économie" <?php if(isset($this->form_data->dernier_diplome_domaine) && $this->form_data->dernier_diplome_domaine=='Économie') echo 'selected'; ?>>Économie</option>
+                                <option value="Finances" <?php if(isset($this->form_data->dernier_diplome_domaine) && $this->form_data->dernier_diplome_domaine=='Finances') echo 'selected'; ?>>Finances</option>
+                                <option value="Gestion" <?php if(isset($this->form_data->dernier_diplome_domaine) && $this->form_data->dernier_diplome_domaine=='Gestion') echo 'selected'; ?>>Gestion</option>
+                                <option value="Droit" <?php if(isset($this->form_data->dernier_diplome_domaine) && $this->form_data->dernier_diplome_domaine=='Droit') echo 'selected'; ?>>Droit</option>
+                                <option value="Autre" <?php if(isset($this->form_data->dernier_diplome_domaine) && $this->form_data->dernier_diplome_domaine=='Autre') echo 'selected'; ?>>Autre</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row" id="autre_domaine_row" style="display: <?php echo (isset($this->form_data->dernier_diplome_domaine) && $this->form_data->dernier_diplome_domaine=='Autre') ? 'block' : 'none'; ?>">
+                        <div class="form-group">
+                            <label for="dernier_diplome_autre_domaine" class="formbold-form-label">Précisez le domaine</label>
+                            <input type="text" name="dernier_diplome_autre_domaine" id="dernier_diplome_autre_domaine" class="formbold-form-input" value="<?php echo set_value('dernier_diplome_autre_domaine', isset($this->form_data->dernier_diplome_autre_domaine) ? $this->form_data->dernier_diplome_autre_domaine : ''); ?>" />
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group half">
+                            <label for="dernier_diplome_etablissement" class="formbold-form-label required">Établissement d'obtention</label>
+                            <input type="text" name="dernier_diplome_etablissement" id="dernier_diplome_etablissement" class="formbold-form-input" value="<?php echo set_value('dernier_diplome_etablissement', isset($this->form_data->dernier_diplome_etablissement) ? $this->form_data->dernier_diplome_etablissement : ''); ?>" required />
+                        </div>
+
+                        <div class="form-group half">
+                            <label for="dernier_diplome_pays" class="formbold-form-label required">Pays de l'établissement</label>
+                            <select name="dernier_diplome_pays" id="dernier_diplome_pays" class="formbold-form-input" required>
+                                <option value="">-- Sélectionnez un pays --</option>
+                                <?php if (!empty($pays)) { foreach ($pays as $p) { $selected = (isset($this->form_data->dernier_diplome_pays) && $this->form_data->dernier_diplome_pays == $p->id) ? 'selected' : ''; echo "<option value='{$p->id}' $selected>{$p->nom}</option>"; } } ?>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group half">
+                            <label for="dernier_diplome_annee" class="formbold-form-label required">Année d'obtention</label>
+                            <input type="number" min="1950" max="<?php echo date('Y'); ?>" name="dernier_diplome_annee" id="dernier_diplome_annee" class="formbold-form-input" value="<?php echo set_value('dernier_diplome_annee', isset($this->form_data->dernier_diplome_annee) ? $this->form_data->dernier_diplome_annee : ''); ?>" required />
+                        </div>
+
+                        <div class="form-group half">
+                            <label for="dernier_diplome_niveau" class="formbold-form-label required">Niveau académique</label>
+                            <select name="dernier_diplome_niveau" id="dernier_diplome_niveau" class="formbold-form-input" required>
+                                <option value="">-- Sélectionnez --</option>
+                                <option value="BAC+3" <?php if(isset($this->form_data->dernier_diplome_niveau) && $this->form_data->dernier_diplome_niveau=='BAC+3') echo 'selected'; ?>>BAC+3</option>
+                                <option value="BAC+4" <?php if(isset($this->form_data->dernier_diplome_niveau) && $this->form_data->dernier_diplome_niveau=='BAC+4') echo 'selected'; ?>>BAC+4</option>
+                                <option value="BAC+5 ou plus" <?php if(isset($this->form_data->dernier_diplome_niveau) && $this->form_data->dernier_diplome_niveau=='BAC+5 ou plus') echo 'selected'; ?>>BAC+5 ou plus</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group half">
+                            <label for="dernier_diplome_mention" class="formbold-form-label">Mention (facultatif)</label>
+                            <select name="dernier_diplome_mention" id="dernier_diplome_mention" class="formbold-form-input">
+                                <option value="">-- Sélectionnez --</option>
+                                <option value="Passable" <?php if(isset($this->form_data->dernier_diplome_mention) && $this->form_data->dernier_diplome_mention=='Passable') echo 'selected'; ?>>Passable</option>
+                                <option value="Assez Bien" <?php if(isset($this->form_data->dernier_diplome_mention) && $this->form_data->dernier_diplome_mention=='Assez Bien') echo 'selected'; ?>>Assez Bien</option>
+                                <option value="Bien" <?php if(isset($this->form_data->dernier_diplome_mention) && $this->form_data->dernier_diplome_mention=='Bien') echo 'selected'; ?>>Bien</option>
+                                <option value="Très Bien" <?php if(isset($this->form_data->dernier_diplome_mention) && $this->form_data->dernier_diplome_mention=='Très Bien') echo 'selected'; ?>>Très Bien</option>
+                                <option value="Excellent" <?php if(isset($this->form_data->dernier_diplome_mention) && $this->form_data->dernier_diplome_mention=='Excellent') echo 'selected'; ?>>Excellent</option>
                             </select>
                         </div>
                     </div>
                 </div>
 
-                <!-- SECTION 5: Coordonnées Professionnelles -->
-                <div class="form-section">
-                    <legend><i class="fas fa-briefcase"></i> Coordonnées Professionnelles</legend>
+                <!-- SECTION 5: Situation et Expérience Professionnelles -->
+                <div class="form-section" id="section-professionnel">
+                    <legend><i class="fas fa-briefcase"></i> V – Situation et Expérience Professionnelles</legend>
+
+                    <h4>🔹 1. Statut professionnel</h4>
+                    <!-- 1. Statut professionnel actuel -->
                     <div class="form-row">
-                        <div class="form-group">
-                            <label class="formbold-form-label required">Votre statut actuel</label>
-                            <select class="formbold-form-input" name="statut_prof" id="statut" style="color: #2d3748 !important; background-color: #ffffff !important;">
-                                <option value="" style="color: #718096;">Choisir une réponse</option>
-                                <option value="Fonctionnaire" <?php if ($this->form_data->statut_prof === "Fonctionnaire") echo "selected"; ?> style="color: #2d3748; background-color: #ffffff;">Fonctionnaire</option>
-                                <option value="Travailleur privé" <?php if ($this->form_data->statut_prof === "Travailleur_Privé") echo "selected"; ?> style="color: #2d3748; background-color: #ffffff;">Travailleur Privé</option>
-                                <option value="Indépendant" <?php if ($this->form_data->statut_prof === "Indépendant") echo "selected"; ?> style="color: #2d3748; background-color: #ffffff;">Indépendant</option>
-                                <option value="Etudiant" <?php if ($this->form_data->statut_prof === "Etudiant") echo "selected"; ?> style="color: #2d3748; background-color: #ffffff;">Etudiant</option>
+                        <div class="form-group half">
+                            <label class="formbold-form-label required">Statut professionnel actuel</label>
+                            <select class="formbold-form-input" name="statut_prof" id="statut_prof" onchange="toggleEmployerFields();" required>
+                                <option value="">-- Sélectionnez votre statut actuel --</option>
+                                <option value="Fonctionnaire" <?php if ($this->form_data->statut_prof === "Fonctionnaire") echo "selected"; ?>>Fonctionnaire</option>
+                                <option value="Employé du secteur privé" <?php if ($this->form_data->statut_prof === "Employé du secteur privé" || $this->form_data->statut_prof === "Travailleur_Privé") echo "selected"; ?>>Employé du secteur privé</option>
+                                <option value="Travailleur indépendant / consultant" <?php if ($this->form_data->statut_prof === "Travailleur indépendant / consultant" || $this->form_data->statut_prof === "Indépendant") echo "selected"; ?>>Travailleur indépendant / consultant</option>
+                                <option value="Étudiant / en recherche d'emploi" <?php if ($this->form_data->statut_prof === "Étudiant / en recherche d'emploi" || $this->form_data->statut_prof === "Etudiant") echo "selected"; ?>>Étudiant / en recherche d'emploi</option>
+                                <option value="Autre" <?php if ($this->form_data->statut_prof === "Autre") echo "selected"; ?>>Autre</option>
                             </select>
                         </div>
                     </div>
 
-                    <div class="form-row">
-                        <div class="form-group half employer-field">
-                            <label for="structure" class="formbold-form-label">Employeur</label>
-                            <input value="<?php echo set_value('structure', $this->form_data->structure); ?>" placeholder="Ex. MINFI, FEICOM, DGTCFM ou AUTRE" name="structure" class="formbold-form-input" id="structure" type="text" />
-                        </div>
-
-                        <div class="form-group half employer-field">
-                            <label for="adresse_structure" class="formbold-form-label">Adresse de votre Employeur</label>
-                            <input value="<?php echo set_value('adresse_structure', $this->form_data->adresse_structure); ?>" placeholder="Ex. BP: 000 Douala" name="adresse_structure" class="formbold-form-input" id="adressAdministration" type="text" />
+                    <div id="autre_statut_row" class="form-row" style="display: <?php echo ($this->form_data->statut_prof === "Autre") ? 'block' : 'none'; ?>">
+                        <div class="form-group">
+                            <label for="autre_statut_prof" class="formbold-form-label">Précisez votre statut professionnel</label>
+                            <input type="text" name="autre_statut_prof" id="autre_statut_prof" class="formbold-form-input" value="<?php echo set_value('autre_statut_prof', isset($this->form_data->autre_statut_prof) ? $this->form_data->autre_statut_prof : ''); ?>" />
                         </div>
                     </div>
 
-                    <div class="form-row">
-                        <div class="form-group half employer-field">
-                            <label for="telephone_structure" class="formbold-form-label">Téléphone de l'employeur</label>
-                            <input value="<?php echo isset($this->form_data->telephone_structure) ? set_value('telephone_structure', $this->form_data->telephone_structure) : set_value('telephone_structure', ''); ?>" placeholder="Téléphone de l'employeur" name="telephone_structure" class="formbold-form-input" id="telephone_structure" type="text" />
+                    <!-- 2. Informations sur l'organisation actuelle -->
+                    <div id="employer_info_section" style="display: <?php echo ($this->form_data->statut_prof !== "Étudiant / en recherche d'emploi" && $this->form_data->statut_prof !== "Etudiant") ? 'block' : 'none'; ?>">
+                        <h4>🔹 2. Informations sur l'organisation actuelle</h4>
+
+                        <div class="form-row">
+                            <div class="form-group half">
+                                <label for="structure" class="formbold-form-label required">Nom de l'employeur actuel</label>
+                                <input value="<?php echo set_value('structure', $this->form_data->structure); ?>" placeholder="Ex. Ministère des Finances, Banque Atlantique" name="structure" class="formbold-form-input" id="structure" type="text" required />
+                            </div>
+
+                            <div class="form-group half">
+                                <label for="adresse_structure" class="formbold-form-label required">Adresse complète de l'employeur</label>
+                                <input value="<?php echo set_value('adresse_structure', $this->form_data->adresse_structure); ?>" placeholder="Ex. BP 1234 Yaoundé, Cameroun" name="adresse_structure" class="formbold-form-input" id="adresse_structure" type="text" required />
+                            </div>
                         </div>
 
-                        <div class="form-group half employer-field">
-                            <label for="email_structure" class="formbold-form-label">Email de l'employeur</label>
-                            <input value="<?php echo isset($this->form_data->email_structure) ? set_value('email_structure', $this->form_data->email_structure) : set_value('email_structure', ''); ?>" name="email_structure" placeholder="Email Administration" class="formbold-form-input" id="email_structure" type="email" />
+                        <div class="form-row">
+
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group half">
+                                <label for="telephone_structure" class="formbold-form-label">Téléphone de l'employeur</label>
+                                <input value="<?php echo isset($this->form_data->telephone_structure) ? set_value('telephone_structure', $this->form_data->telephone_structure) : set_value('telephone_structure', ''); ?>" placeholder="Téléphone de l'employeur" name="telephone_structure" class="formbold-form-input" id="telephone_structure" type="text" />
+                            </div>
+
+                            <div class="form-group half">
+                                <label for="email_structure" class="formbold-form-label">Email de l'employeur</label>
+                                <input value="<?php echo isset($this->form_data->email_structure) ? set_value('email_structure', $this->form_data->email_structure) : set_value('email_structure', ''); ?>" name="email_structure" placeholder="Email de l'employeur" class="formbold-form-input" id="email_structure" type="email" />
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group half">
+                                <label for="poste_actuel" class="formbold-form-label required">Poste occupé actuellement</label>
+                                <input type="text" name="poste_actuel" id="poste_actuel" placeholder="Ex. Comptable, Analyste budgétaire" class="formbold-form-input" value="<?php echo set_value('poste_actuel', isset($this->form_data->poste_actuel) ? $this->form_data->poste_actuel : ''); ?>" required />
+                            </div>
+
+                            <div class="form-group half">
+                                <label for="date_debut_poste" class="formbold-form-label required">Date de début de ce poste</label>
+                                <input type="month" name="date_debut_poste" id="date_debut_poste" class="formbold-form-input" value="<?php echo set_value('date_debut_poste', isset($this->form_data->date_debut_poste) ? $this->form_data->date_debut_poste : ''); ?>" required />
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group half">
+                                <label class="formbold-form-label required">Ce poste a-t-il un lien avec les finances publiques ?</label>
+                                <div class="radio-group" role="radiogroup">
+                                    <div class="radio-item">
+                                        <input type="radio" name="lien_finances_publiques" id="lien_oui" value="Oui" <?php if (isset($this->form_data->lien_finances_publiques) && $this->form_data->lien_finances_publiques === 'Oui') echo 'checked'; ?> required>
+                                        <label for="lien_oui">Oui</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" name="lien_finances_publiques" id="lien_partiel" value="Partiellement" <?php if (isset($this->form_data->lien_finances_publiques) && $this->form_data->lien_finances_publiques === 'Partiellement') echo 'checked'; ?> required>
+                                        <label for="lien_partiel">Partiellement</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" name="lien_finances_publiques" id="lien_non" value="Non" <?php if (isset($this->form_data->lien_finances_publiques) && $this->form_data->lien_finances_publiques === 'Non') echo 'checked'; ?> required>
+                                        <label for="lien_non">Non</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="lien_partiel_explication" class="form-row" style="display: <?php echo (isset($this->form_data->lien_finances_publiques) && $this->form_data->lien_finances_publiques === 'Partiellement') ? 'block' : 'none'; ?>">
+                            <div class="form-group">
+                                <label for="explication_lien_partiel" class="formbold-form-label">Veuillez expliquer</label>
+                                <textarea name="explication_lien_partiel" id="explication_lien_partiel" class="formbold-form-input" rows="3"><?php echo set_value('explication_lien_partiel', isset($this->form_data->explication_lien_partiel) ? $this->form_data->explication_lien_partiel : ''); ?></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3. Total d'années d'expérience professionnelle -->
+                    <h4>🔹 3. Total d'années d'expérience professionnelle</h4>
+                    <div class="form-row">
+                        <div class="form-group half">
+                            <label for="total_annees_experience" class="formbold-form-label">Nombre total d'années d'expérience</label>
+                            <input type="number" min="0" step="0.5" name="total_annees_experience" id="total_annees_experience" class="formbold-form-input" value="<?php echo set_value('total_annees_experience', isset($this->form_data->total_annees_experience) ? $this->form_data->total_annees_experience : ''); ?>" />
+                            <div class="input-help-text">Indiquez une estimation du total de vos années d'expérience professionnelle</div>
                         </div>
                     </div>
                 </div>
 
                 <!-- SECTION 6: Avis -->
                 <div class="form-section">
-                    <legend><i class="fas fa-comment-alt"></i> Votre Avis Nous Intéresse</legend>
+                    <legend><i class="fas fa-comment-alt"></i> Votre avis nous intéresse</legend>
                     <div class="form-row">
-                        <div class="form-group">
-                            <label class="formbold-form-label required">Comment avez-vous connu le PSSFP</label>
-                            <select class="formbold-form-input" name="howDidYouKnewUs" id="howDidYouKnewUs">
-                                <option value="">Choisir une réponse</option>
+                        <div class="form-group half">
+                            <label class="formbold-form-label required" for="howDidYouKnewUs">
+                                Comment avez-vous connu le PSSFP&nbsp;?
+                            </label>
+                            <select class="formbold-form-input" name="howDidYouKnewUs" id="howDidYouKnewUs" required>
+                                <option value="" disabled <?php if (empty($this->form_data->howDidYouKnewUs)) echo "selected"; ?>>-- Sélectionnez une option --</option>
                                 <option value="Cameroun Tribune" <?php if ($this->form_data->howDidYouKnewUs === "Cameroun Tribune") echo "selected"; ?>>Cameroun Tribune</option>
                                 <option value="Banderoles et affiches publicitaires" <?php if ($this->form_data->howDidYouKnewUs === "Banderoles et affiches publicitaires") echo "selected"; ?>>Banderoles et affiches publicitaires</option>
                                 <option value="Internet et réseaux sociaux" <?php if ($this->form_data->howDidYouKnewUs === "Internet et réseaux sociaux") echo "selected"; ?>>Internet et réseaux sociaux</option>
                                 <option value="Média Radio et TV" <?php if ($this->form_data->howDidYouKnewUs === "Média Radio et TV") echo "selected"; ?>>Média Radio et TV</option>
                                 <option value="Campagne de sensibilisation des équipes du PSSFP sur le terrain" <?php if ($this->form_data->howDidYouKnewUs === "Campagne de sensibilisation des équipes du PSSFP sur le terrain") echo "selected"; ?>>Campagne de sensibilisation des équipes du PSSFP sur le terrain</option>
+                                <option value="Recommandation d'un ancien" <?php if ($this->form_data->howDidYouKnewUs === "Recommandation d'un ancien") echo "selected"; ?>>Recommandation d'un ancien</option>
+                                <option value="Autre" <?php if ($this->form_data->howDidYouKnewUs === "Autre") echo "selected"; ?>>Autre</option>
                             </select>
+                            <div class="input-help-text">Merci de nous indiquer comment vous avez entendu parler du programme.</div>
+                        </div>
+                    </div>
+                    <div class="form-row" id="howDidYouKnewUs_autre_row" style="display: <?php echo (isset($this->form_data->howDidYouKnewUs) && $this->form_data->howDidYouKnewUs === "Autre") ? 'block' : 'none'; ?>">
+                        <div class="form-group half">
+                            <label class="formbold-form-label" for="howDidYouKnewUs_autre">Précisez&nbsp;:</label>
+                            <input type="text" class="formbold-form-input" name="howDidYouKnewUs_autre" id="howDidYouKnewUs_autre" value="<?php echo set_value('howDidYouKnewUs_autre', isset($this->form_data->howDidYouKnewUs_autre) ? $this->form_data->howDidYouKnewUs_autre : ''); ?>" />
                         </div>
                     </div>
                 </div>
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        const select = document.getElementById('howDidYouKnewUs');
+                        const autreRow = document.getElementById('howDidYouKnewUs_autre_row');
+                        if (select) {
+                            select.addEventListener('change', function() {
+                                if (this.value === 'Autre') {
+                                    autreRow.style.display = 'block';
+                                } else {
+                                    autreRow.style.display = 'none';
+                                    const input = document.getElementById('howDidYouKnewUs_autre');
+                                    if (input) input.value = '';
+                                }
+                            });
+                        }
+                    });
+                </script>
 
                 <!-- SECTION 7: Engagement -->
                 <div class="form-section">
                     <legend><i class="fas fa-handshake"></i> Engagement</legend>
                     <div class="panel-body" style="text-align: justify; font-size: 1rem; margin-bottom: 20px; padding: 15px; background: #f8f9fa; border-radius: 5px;">
-                        Je soussigné(e) <strong id="label_sous"><?php if (isset($this->form_data->nom_prenom)) echo $this->form_data->nom_prenom; ?></strong>, certifie sur l'honneur l'exactitude des renseignements consignés dans cette fiche de candidature et avoir eu connaissance des conditions exigées pour être retenu comme candidat au programme de Master Professionnel en Finances Publiques.
+                        Je soussigné(e) <strong id="label_sous"><?php echo isset($this->form_data->nom) && isset($this->form_data->prenom) ? $this->form_data->nom . ' ' . $this->form_data->prenom : ''; ?></strong>, certifie sur l'honneur l'exactitude des renseignements consignés dans cette fiche de candidature et avoir eu connaissance des conditions exigées pour être retenu comme candidat au programme de Master Professionnel en Finances Publiques.
                     </div>
 
                     <div class="checkbox-group">
                         <label class="checkbox-item">
-                            <input type="checkbox" name="engagement" required>
+                            <input type="checkbox" name="engagement" id="checkbox_engagement" required>
                             J'ai lu et j'accepte <a href="#" target="_blank">les termes, conditions et politiques</a>
                         </label>
+                        <div id="engagement_error" class="form-error" style="display: none; color: #dc3545; margin-top: 5px;">
+                            <i class="fas fa-exclamation-circle"></i> Vous devez accepter les termes et conditions pour continuer.
+                        </div>
                     </div>
                 </div>
+
+                <script>
+                    // Validation du formulaire pour vérifier que la case est cochée
+                    document.getElementById('candidatureForm').addEventListener('submit', function(event) {
+                        const checkbox = document.getElementById('checkbox_engagement');
+                        const errorMsg = document.getElementById('engagement_error');
+
+                        if (!checkbox.checked) {
+                            event.preventDefault();
+                            errorMsg.style.display = 'block';
+                            // Scroll to the checkbox
+                            checkbox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                            // Highlight the checkbox
+                            checkbox.parentElement.style.boxShadow = '0 0 0 2px #dc3545';
+                            return false;
+                        } else {
+                            errorMsg.style.display = 'none';
+                            checkbox.parentElement.style.boxShadow = 'none';
+                        }
+                    });
+                </script>
 
                 <!-- SECTION 8: Revue des informations -->
                 <div class="form-section" id="review-section">
                     <legend><i class="fas fa-check-double"></i> Revue des Informations</legend>
-                    <p class="review-intro">Veuillez vérifier les informations saisies avant de soumettre votre candidature.</p>
+                    <p class="review-intro">Veuillez vérifier attentivement toutes les informations saisies avant de soumettre votre candidature.</p>
 
                     <div class="review-container">
                         <!-- Formation -->
@@ -588,6 +757,10 @@
                             <h3><i class="fas fa-user"></i> Identité</h3>
                             <div class="review-grid">
                                 <div class="review-item">
+                                    <span class="review-label">Langue principale</span>
+                                    <span class="review-value" id="review-langue">-</span>
+                                </div>
+                                <div class="review-item">
                                     <span class="review-label">Civilité</span>
                                     <span class="review-value" id="review-civilite">-</span>
                                 </div>
@@ -599,7 +772,7 @@
                                     <span class="review-label">Prénom(s)</span>
                                     <span class="review-value" id="review-prenom">-</span>
                                 </div>
-                                <div class="review-item">
+                                <div class="review-item" id="review-epouse-container">
                                     <span class="review-label">Nom d'épouse</span>
                                     <span class="review-value" id="review-epouse">-</span>
                                 </div>
@@ -620,6 +793,10 @@
                                     <span class="review-value" id="review-region_dorigine">-</span>
                                 </div>
                                 <div class="review-item">
+                                    <span class="review-label">Département d'origine</span>
+                                    <span class="review-value" id="review-dept_dorigine">-</span>
+                                </div>
+                                <div class="review-item">
                                     <span class="review-label">Statut matrimonial</span>
                                     <span class="review-value" id="review-statu_matrimonial">-</span>
                                 </div>
@@ -635,6 +812,14 @@
                             <h3><i class="fas fa-address-book"></i> Contact</h3>
                             <div class="review-grid">
                                 <div class="review-item">
+                                    <span class="review-label">Pays d'origine</span>
+                                    <span class="review-value" id="review-paysorigine">-</span>
+                                </div>
+                                <div class="review-item">
+                                    <span class="review-label">Pays de résidence</span>
+                                    <span class="review-value" id="review-pays_residence">-</span>
+                                </div>
+                                <div class="review-item">
                                     <span class="review-label">Adresse</span>
                                     <span class="review-value" id="review-adresse_candidat">-</span>
                                 </div>
@@ -643,7 +828,7 @@
                                     <span class="review-value" id="review-ville_residence">-</span>
                                 </div>
                                 <div class="review-item">
-                                    <span class="review-label">Téléphone principal</span>
+                                    <span class="review-label">Téléphone WhatsApp</span>
                                     <span class="review-value" id="review-telephone">-</span>
                                 </div>
                                 <div class="review-item">
@@ -657,40 +842,111 @@
                             </div>
                         </div>
 
-                        <!-- Formation -->
+                        <!-- Cursus Académique -->
                         <div class="review-section">
                             <h3><i class="fas fa-university"></i> Cursus académique</h3>
                             <div class="review-grid">
                                 <div class="review-item">
-                                    <span class="review-label">Dernier diplôme obtenu</span>
-                                    <span class="review-value" id="review-dernier_diplome">-</span>
+                                    <span class="review-label">Intitulé du dernier diplôme</span>
+                                    <span class="review-value" id="review-dernier_diplome_intitule">-</span>
                                 </div>
                                 <div class="review-item">
-                                    <span class="review-label">Diplôme requis</span>
-                                    <span class="review-value" id="review-diplome_requis">-</span>
+                                    <span class="review-label">Spécialité / Filière</span>
+                                    <span class="review-value" id="review-dernier_diplome_specialite">-</span>
                                 </div>
                                 <div class="review-item">
-                                    <span class="review-label">Spécialité du diplôme</span>
-                                    <span class="review-value" id="review-specialite_requise">-</span>
+                                    <span class="review-label">Domaine</span>
+                                    <span class="review-value" id="review-dernier_diplome_domaine">-</span>
+                                </div>
+                                <div class="review-item" id="review-autre-domaine-container" style="display: none;">
+                                    <span class="review-label">Précision domaine</span>
+                                    <span class="review-value" id="review-dernier_diplome_autre_domaine">-</span>
+                                </div>
+                                <div class="review-item">
+                                    <span class="review-label">Établissement</span>
+                                    <span class="review-value" id="review-dernier_diplome_etablissement">-</span>
+                                </div>
+                                <div class="review-item">
+                                    <span class="review-label">Pays de l'établissement</span>
+                                    <span class="review-value" id="review-dernier_diplome_pays">-</span>
                                 </div>
                                 <div class="review-item">
                                     <span class="review-label">Année d'obtention</span>
-                                    <span class="review-value" id="review-annee_optention_diplome">-</span>
+                                    <span class="review-value" id="review-dernier_diplome_annee">-</span>
+                                </div>
+                                <div class="review-item">
+                                    <span class="review-label">Niveau académique</span>
+                                    <span class="review-value" id="review-dernier_diplome_niveau">-</span>
+                                </div>
+                                <div class="review-item">
+                                    <span class="review-label">Mention</span>
+                                    <span class="review-value" id="review-dernier_diplome_mention">-</span>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Professionnel -->
+                        <!-- Informations professionnelles -->
                         <div class="review-section">
                             <h3><i class="fas fa-briefcase"></i> Informations professionnelles</h3>
                             <div class="review-grid">
                                 <div class="review-item">
-                                    <span class="review-label">Statut actuel</span>
+                                    <span class="review-label">Statut professionnel</span>
                                     <span class="review-value" id="review-statut_prof">-</span>
                                 </div>
-                                <div class="review-item">
-                                    <span class="review-label">Employeur</span>
+                                <div class="review-item" id="review-autre-statut-container" style="display: none;">
+                                    <span class="review-label">Précision statut</span>
+                                    <span class="review-value" id="review-autre_statut_prof">-</span>
+                                </div>
+                                <div class="review-item" id="review-employeur-container">
+                                    <span class="review-label">Employeur actuel</span>
                                     <span class="review-value" id="review-structure">-</span>
+                                </div>
+                                <div class="review-item" id="review-adresse-structure-container">
+                                    <span class="review-label">Adresse employeur</span>
+                                    <span class="review-value" id="review-adresse_structure">-</span>
+                                </div>
+                                <div class="review-item" id="review-tel-structure-container">
+                                    <span class="review-label">Téléphone employeur</span>
+                                    <span class="review-value" id="review-telephone_structure">-</span>
+                                </div>
+                                <div class="review-item" id="review-email-structure-container">
+                                    <span class="review-label">Email employeur</span>
+                                    <span class="review-value" id="review-email_structure">-</span>
+                                </div>
+                                <div class="review-item" id="review-poste-actuel-container">
+                                    <span class="review-label">Poste occupé</span>
+                                    <span class="review-value" id="review-poste_actuel">-</span>
+                                </div>
+                                <div class="review-item" id="review-date-debut-container">
+                                    <span class="review-label">Date de début de poste</span>
+                                    <span class="review-value" id="review-date_debut_poste">-</span>
+                                </div>
+                                <div class="review-item" id="review-lien-finances-container">
+                                    <span class="review-label">Lien avec finances publiques</span>
+                                    <span class="review-value" id="review-lien_finances_publiques">-</span>
+                                </div>
+                                <div class="review-item" id="review-explication-lien-container" style="display: none;">
+                                    <span class="review-label">Explication lien partiel</span>
+                                    <span class="review-value" id="review-explication_lien_partiel">-</span>
+                                </div>
+                                <div class="review-item">
+                                    <span class="review-label">Années d'expérience</span>
+                                    <span class="review-value" id="review-total_annees_experience">-</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Connaissance du programme -->
+                        <div class="review-section">
+                            <h3><i class="fas fa-info-circle"></i> Comment vous avez connu le programme</h3>
+                            <div class="review-grid">
+                                <div class="review-item">
+                                    <span class="review-label">Source d'information</span>
+                                    <span class="review-value" id="review-howDidYouKnewUs">-</span>
+                                </div>
+                                <div class="review-item" id="review-autre-source-container" style="display: none;">
+                                    <span class="review-label">Précision source</span>
+                                    <span class="review-value" id="review-howDidYouKnewUs_autre">-</span>
                                 </div>
                             </div>
                         </div>
@@ -702,6 +958,171 @@
                         </button>
                     </div>
                 </div>
+
+                <script>
+                    // Script pour pré-remplir la section de revue
+                    document.addEventListener('DOMContentLoaded', function() {
+                        // Fonction pour mettre à jour les valeurs de revue
+                        function updateReviewValues() {
+                            // Formation
+                            updateSelectReviewValue('id_specialite', 'review-specialite');
+                            updateRadioReviewValue('type_etude', 'review-type_etude');
+
+                            // Identité
+                            updateSelectReviewValue('langue1', 'review-langue');
+                            updateSelectReviewValue('civilite', 'review-civilite');
+                            updateInputReviewValue('nom', 'review-nom');
+                            updateInputReviewValue('prenom', 'review-prenom');
+                            updateInputReviewValue('epouse', 'review-epouse');
+
+                            // Date de naissance
+                            updateInputReviewValue('date_naissance', 'review-date_naissance');
+
+                            updateInputReviewValue('lieu_de_naissce', 'review-lieu_de_naissce');
+                            updateInputReviewValue('nationalite', 'review-nationalite');
+                            updateInputReviewValue('region_dorigine', 'review-region_dorigine');
+                            updateInputReviewValue('dept_dorigine', 'review-dept_dorigine');
+                            updateSelectReviewValue('statu_matrimonial', 'review-statu_matrimonial');
+                            updateInputReviewValue('nombre_enfant', 'review-nombre_enfant');
+
+                            // Contact
+                            updateSelectReviewValue('paysorigine', 'review-paysorigine');
+                            updateSelectReviewValue('pays', 'review-pays_residence');
+                            updateInputReviewValue('adressecandidat', 'review-adresse_candidat');
+                            updateInputReviewValue('villeresidence', 'review-ville_residence');
+                            updateInputReviewValue('telephone1', 'review-telephone');
+                            updateInputReviewValue('telephone2', 'review-telephone2');
+                            updateInputReviewValue('email', 'review-email');
+
+                            // Cursus Académique
+                            updateInputReviewValue('dernier_diplome_intitule', 'review-dernier_diplome_intitule');
+                            updateInputReviewValue('dernier_diplome_specialite', 'review-dernier_diplome_specialite');
+                            updateSelectReviewValue('dernier_diplome_domaine', 'review-dernier_diplome_domaine');
+                            updateInputReviewValue('dernier_diplome_autre_domaine', 'review-dernier_diplome_autre_domaine');
+                            updateInputReviewValue('dernier_diplome_etablissement', 'review-dernier_diplome_etablissement');
+                            updateSelectReviewValue('dernier_diplome_pays', 'review-dernier_diplome_pays');
+                            updateInputReviewValue('dernier_diplome_annee', 'review-dernier_diplome_annee');
+                            updateSelectReviewValue('dernier_diplome_niveau', 'review-dernier_diplome_niveau');
+                            updateSelectReviewValue('dernier_diplome_mention', 'review-dernier_diplome_mention');
+
+                            // Situation Professionnelle
+                            updateSelectReviewValue('statut_prof', 'review-statut_prof');
+                            updateInputReviewValue('autre_statut_prof', 'review-autre_statut_prof');
+                            updateInputReviewValue('structure', 'review-structure');
+                            updateInputReviewValue('adresse_structure', 'review-adresse_structure');
+                            updateInputReviewValue('telephone_structure', 'review-telephone_structure');
+                            updateInputReviewValue('email_structure', 'review-email_structure');
+                            updateInputReviewValue('poste_actuel', 'review-poste_actuel');
+                            updateInputReviewValue('date_debut_poste', 'review-date_debut_poste');
+                            updateRadioReviewValue('lien_finances_publiques', 'review-lien_finances_publiques');
+                            updateInputReviewValue('explication_lien_partiel', 'review-explication_lien_partiel');
+                            updateInputReviewValue('total_annees_experience', 'review-total_annees_experience');
+
+                            // Comment vous avez connu le programme
+                            updateSelectReviewValue('howDidYouKnewUs', 'review-howDidYouKnewUs');
+                            updateInputReviewValue('howDidYouKnewUs_autre', 'review-howDidYouKnewUs_autre');
+
+                            // Affichage conditionnel des éléments
+                            toggleReviewElementVisibility('review-epouse-container', document.getElementById('civilite').value !== 'Monsieur');
+                            toggleReviewElementVisibility('review-autre-domaine-container', document.getElementById('dernier_diplome_domaine').value === 'Autre');
+                            toggleReviewElementVisibility('review-autre-statut-container', document.getElementById('statut_prof').value === 'Autre');
+
+                            const statutProf = document.getElementById('statut_prof').value;
+                            const estEtudiant = statutProf === "Étudiant / en recherche d'emploi" || statutProf === "Etudiant";
+                            toggleReviewElementVisibility('review-employeur-container', !estEtudiant);
+                            toggleReviewElementVisibility('review-adresse-structure-container', !estEtudiant);
+                            toggleReviewElementVisibility('review-tel-structure-container', !estEtudiant);
+                            toggleReviewElementVisibility('review-email-structure-container', !estEtudiant);
+                            toggleReviewElementVisibility('review-poste-actuel-container', !estEtudiant);
+                            toggleReviewElementVisibility('review-date-debut-container', !estEtudiant);
+                            toggleReviewElementVisibility('review-lien-finances-container', !estEtudiant);
+
+                            toggleReviewElementVisibility('review-explication-lien-container',
+                                document.querySelector('input[name="lien_finances_publiques"]:checked')?.value === 'Partiellement');
+
+                            toggleReviewElementVisibility('review-autre-source-container',
+                                document.getElementById('howDidYouKnewUs').value === 'Autre');
+                        }
+
+                        // Helper pour mettre à jour les valeurs de champs input
+                        function updateInputReviewValue(inputId, reviewId) {
+                            const input = document.getElementById(inputId);
+                            const review = document.getElementById(reviewId);
+                            if (input && review) {
+                                review.textContent = input.value || '-';
+                            }
+                        }
+
+                        // Helper pour mettre à jour les valeurs de champs select
+                        function updateSelectReviewValue(selectId, reviewId) {
+                            const select = document.getElementById(selectId);
+                            const review = document.getElementById(reviewId);
+                            if (select && review && select.selectedIndex !== -1) {
+                                review.textContent = select.options[select.selectedIndex].text;
+                                // Si c'est "--" ou "Sélectionnez", afficher "-" à la place
+                                if (review.textContent.includes('--') ||
+                                    review.textContent.includes('Sélectionnez') ||
+                                    review.textContent === '') {
+                                    review.textContent = '-';
+                                }
+                            }
+                        }
+
+                        // Helper pour mettre à jour les valeurs de boutons radio
+                        function updateRadioReviewValue(radioName, reviewId) {
+                            const checkedRadio = document.querySelector('input[name="' + radioName + '"]:checked');
+                            const review = document.getElementById(reviewId);
+                            if (checkedRadio && review) {
+                                if (radioName === 'type_etude') {
+                                    // Pour le mode de formation, on veut afficher "Présentiel" ou "Distanciel"
+                                    review.textContent = (checkedRadio.value === 'Presentiel') ? 'Présentiel' : 'Distanciel';
+                                } else {
+                                    review.textContent = checkedRadio.value || '-';
+                                }
+                            } else if (review) {
+                                review.textContent = '-';
+                            }
+                        }
+
+                        // Helper pour gérer l'affichage des éléments conditionnels
+                        function toggleReviewElementVisibility(containerId, condition) {
+                            const container = document.getElementById(containerId);
+                            if (container) {
+                                container.style.display = condition ? 'flex' : 'none';
+                            }
+                        }
+
+                        // Mettre à jour la revue quand on change de section
+                        const formSections = document.querySelectorAll('.form-section');
+                        formSections.forEach(section => {
+                            section.addEventListener('blur', updateReviewValues, true);
+                        });
+
+                        // Mettre à jour la revue quand on clique sur le bouton de revue
+                        document.querySelector('.progress-step:last-child').addEventListener('click', updateReviewValues);
+
+                        // Mettre à jour la revue au chargement initial de la page
+                        updateReviewValues();
+
+                        // Bouton pour revenir à l'édition
+                        document.getElementById('edit-submission').addEventListener('click', function() {
+                            const sections = document.querySelectorAll('.form-section');
+                            sections.forEach(section => {
+                                section.classList.remove('active');
+                            });
+                            sections[0].classList.add('active'); // Retourner à la première section
+
+                            // Mettre à jour l'état des étapes
+                            document.querySelectorAll('.progress-step').forEach((step, index) => {
+                                if (index === 0) {
+                                    step.classList.add('active');
+                                } else {
+                                    step.classList.remove('active');
+                                }
+                            });
+                        });
+                    });
+                </script>
 
                 <div class="form-actions">
                     <button name="<?php if (isset($submitname)) echo $submitname; ?>" id="subenregistrer" class="btn btn-success" type="submit">

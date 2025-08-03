@@ -103,7 +103,8 @@ class Model_generique extends CI_Model{
 	}
 
     public function create($table, $data) {
-        return $this->db->insert($table, $data);
+        $this->db->insert($table, $data);
+		return $this->db->insert_id();
     }
 }
 

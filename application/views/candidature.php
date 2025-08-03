@@ -1125,7 +1125,7 @@
                 </script>
 
                 <div class="form-actions">
-                    <button name="<?php if (isset($submitname)) echo $submitname; ?>" id="subenregistrer" class="btn btn-success" type="submit">
+                    <button name="enretistrer" id="subenregistrer" class="btn btn-success" type="submit">
                         <i class="fas fa-paper-plane"></i> Soumettre ma candidature
                     </button>
                     <button type="reset" class="btn btn-danger">

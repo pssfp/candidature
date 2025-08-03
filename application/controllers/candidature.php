@@ -47,6 +47,165 @@ class Candidature extends MY_Controller {
         $this->template->layout('candidature', $data);
     }
 
+    /**
+     * Send a confirmation email to the user after form submission
+     *
+     * @param object $candidature The candidate data object
+     * @param string $action The action performed (new submission or update)
+     * @return boolean True if email sent successfully
+     */
+    private function send_confirmation_email($candidature, $action = 'new') {
+        // Start by logging the attempt
+        log_message('info', 'Attempting to send email to: ' . $this->input->post('email') . ' for candidate ID: ' . (is_object($candidature) ? $candidature->id : $candidature));
+
+        $email_setting = array(
+            'charset' => 'utf-8',
+            'mailtype' => 'html'
+        );
+
+        // Load email configuration from config file
+        $this->config->load('email');
+
+        $this->email->initialize($email_setting);
+        $this->email->from('noreply@pssfp.net', '[PSSFP] DEPOT de CANDIDATURE 13ème PROMOTION 2025/2026');
+        $this->email->to($this->input->post('email'));
+        $this->email->newline = "\r\n";
+        $this->email->crlf = "\n";
+
+        // Log recipient email for debugging
+        log_message('debug', 'Email recipient: ' . $this->input->post('email'));
+
+        $candidat_id = isset($candidature->id) ? $candidature->id : $candidature;
+        $specialite_candidat = $this->model->get_by_id2('specialite', $this->input->post('id_specialite'));
+
+        // Set the appropriate subject based on action
+        if ($action == 'new') {
+            $this->email->subject('Confirmation de candidature N°' . $candidat_id . ' - PSSFP');
+        } else {
+            $this->email->subject('Mise à jour de candidature N°' . $candidat_id . ' - PSSFP');
+        }
+
+        // Build the email message with improved formatting
+        $message = '
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="utf-8">
+            <style>
+                body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+                .container { width: 100%; max-width: 600px; margin: 0 auto; }
+                .header { background-color: #0056b3; color: white; padding: 20px; text-align: center; }
+                .content { padding: 20px; }
+                .footer { background-color: #f8f9fa; padding: 15px; font-size: 12px; color: #666; text-align: center; }
+                table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+                table td { padding: 8px; border-bottom: 1px solid #eee; }
+                .label { font-weight: bold; width: 40%; }
+                .actions { background-color: #f5f5f5; padding: 15px; margin: 20px 0; border-left: 4px solid #0056b3; }
+                .btn { display: inline-block; background-color: #0056b3; color: white; padding: 10px 20px; 
+                       text-decoration: none; border-radius: 4px; margin: 10px 0; }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <div class="header">
+                    <h2>' . ($action == 'new' ? 'Confirmation de Candidature' : 'Mise à jour de Candidature') . '</h2>
+                </div>
+                
+                <div class="content">
+                    <p>Cher(e) ' . $this->input->post('civilite') . ' ' . $this->input->post('nom') . ' ' . $this->input->post('prenom') . ',</p>
+                    
+                    <p>Nous vous informons que votre candidature a bien été ' . ($action == 'new' ? 'enregistrée' : 'mise à jour') . ' avec les détails suivants :</p>
+                    
+                    <table>
+                        <tr>
+                            <td class="label">Dossier N°</td>
+                            <td>: ' . $candidat_id . '</td>
+                        </tr>
+                        <tr>
+                            <td class="label">N° de téléphone</td>
+                            <td>: ' . $this->input->post('telephone') . '</td>
+                        </tr>
+                        <tr>
+                            <td class="label">Spécialité</td>
+                            <td>: ' . $specialite_candidat->nom . '</td>
+                        </tr>
+                        <tr>
+                            <td class="label">Type de formation</td>
+                            <td>: ' . $this->input->post('type_etude') . '</td>
+                        </tr>
+                        <tr>
+                            <td class="label">Statut professionnel</td>
+                            <td>: ' . $this->input->post('statut_prof') . '</td>
+                        </tr>
+                        <tr>
+                            <td class="label">Administration d\'origine</td>
+                            <td>: ' . $this->input->post('structure') . '</td>
+                        </tr>
+                        <tr>
+                            <td class="label">Nationalité</td>
+                            <td>: ' . $this->input->post('nationalite') . '</td>
+                        </tr>
+                    </table>
+                    
+                    <div class="actions">
+                        <h3>Actions importantes :</h3>
+                        <p>
+                            <a href="' . site_url('impression/imprimer_fiche/' . $candidat_id) . '" class="btn">Télécharger votre fiche de candidature</a>
+                        </p>
+                        <p>
+                            <a href="' . site_url('candidature/initupdate/') . '" class="btn">Modifier vos informations</a>
+                        </p>
+                        
+                        <p><strong>Pour toute modification ultérieure, veuillez utiliser les identifiants suivants :</strong></p>
+                        <ul>
+                            <li><strong>Numéro d\'ordre</strong> : ' . $candidat_id . '</li>
+                            <li><strong>N° de téléphone</strong> : ' . $this->input->post('telephone') . '</li>
+                        </ul>
+                    </div>
+                    
+                    <p>Nous vous remercions de votre intérêt pour notre programme et restons à votre disposition pour toute information complémentaire.</p>
+                    
+                    <p>Cordialement,<br>L\'équipe PSSFP</p>
+                </div>
+                
+                <div class="footer">
+                    <p>PSSFP: B.P: 16 578 Yaoundé – Cameroun<br>
+                    Tel.: + (237) 697 921 332<br>
+                    (237) 677 257 272<br>
+                    (237) 671 171 808</p>
+                </div>
+            </div>
+        </body>
+        </html>';
+
+        $this->email->message($message);
+
+        // Try to send the email with enhanced error handling
+        try {
+            if ($this->email->send()) {
+                log_message('info', 'Confirmation email sent successfully to: ' . $this->input->post('email') . ' for candidate ID: ' . $candidat_id);
+
+                log_message('info', 'Confirmation email sent successfully to: ' . $this->input->post('email') . ' for candidate ID: ' . $candidat_id);
+                return true;
+            } else {
+                $error = $this->email->print_debugger();
+                log_message('error', 'Failed to send confirmation email to: ' . $this->input->post('email') . ' for candidate ID: ' . $candidat_id . '. Error: ' . $error);
+
+                // Log SMTP configuration for debugging
+                log_message('debug', 'SMTP Host: ' . $this->config->item('smtp_host', 'email'));
+                log_message('debug', 'SMTP Port: ' . $this->config->item('smtp_port', 'email'));
+                log_message('debug', 'SMTP User: ' . $this->config->item('smtp_user', 'email'));
+                log_message('debug', 'SMTP Protocol: ' . $this->config->item('protocol', 'email'));
+                //log_message('error', 'Failed to send confirmation email to: ' . $this->input->post('email') . ' for candidate ID: ' . $candidat_id . '. Error: ' . $error);
+
+                return false;
+            }
+        } catch (Exception $e) {
+            log_message('error', 'Exception when sending email: ' . $e->getMessage());
+            return false;
+        }
+    }
+
     public function add() {
         $this->load->library('form_validation');
         $table = 'candidats';
@@ -57,95 +216,143 @@ class Candidature extends MY_Controller {
         $data["pays"] = $this->model->list_all("pays")->result();
         $data['action'] = site_url('candidature/add/');
 
-        // Set validation rules
-        $this->form_validation->set_rules('id_specialite', 'Spécialité', 'required');
-        $this->form_validation->set_rules('type_etude', 'Mode de formation', 'required');
-        $this->form_validation->set_rules('civilite', 'Civilité', 'required');
-        $this->form_validation->set_rules('nom', 'Nom', 'required');
-        $this->form_validation->set_rules('prenom', 'Prénom', 'required');
-        $this->form_validation->set_rules('date_naissance', 'Date de naissance', 'required');
-        $this->form_validation->set_rules('lieu_de_naissce', 'Lieu de naissance', 'required');
-        $this->form_validation->set_rules('nationalite', 'Nationalité', 'required');
-        $this->form_validation->set_rules('paysorigine', 'Pays d\'origine', 'required');
-        $this->form_validation->set_rules('statu_matrimonial', 'Statut matrimonial', 'required');
-        $this->form_validation->set_rules('adresse_candidat', 'Adresse complète', 'required');
-        $this->form_validation->set_rules('ville_residence', 'Ville de résidence', 'required');
-        $this->form_validation->set_rules('pays_residence', 'Pays de résidence', 'required');
-        $this->form_validation->set_rules('telephone', 'Téléphone WhatsApp', 'required|is_unique[candidats.telephone]|is_unique[candidats.telephone2]');
-        $this->form_validation->set_rules('telephone2', 'Téléphone secondaire', 'trim|differs[telephone]|is_unique[candidats.telephone]|is_unique[candidats.telephone2]');
-        $this->form_validation->set_rules('email', 'Email', 'required|valid_email|matches[emailverif]|is_unique[candidats.email]');
-        $this->form_validation->set_rules('emailverif', 'Confirmation Email', 'required');
-        $this->form_validation->set_rules('engagement', 'Engagement', 'required');
+        // Log to help with debugging
+        //log_message('debug', 'Add method accessed. POST data present: ' . (empty($_POST) ? 'No' : 'Yes'));
+        //log_message("");
+        //log_message($submitname, $this->input->post($submitname));
 
-        // Set custom error messages with clear and specific descriptions
-        $this->form_validation->set_message('required', 'Le champ %s est obligatoire.');
-        $this->form_validation->set_message('is_unique', 'Ce %s est déjà utilisé par un autre candidat. Veuillez en saisir un autre.');
-        $this->form_validation->set_message('matches', 'La confirmation de l\'adresse e-mail ne correspond pas à l\'adresse e-mail principale.');
-        $this->form_validation->set_message('differs', 'Le numéro de téléphone secondaire doit être différent du numéro principal.');
-        $this->form_validation->set_message('valid_email', 'Veuillez saisir une adresse e-mail valide.');
+        // Check if form is submitted
+        if (empty($_POST) === false) {
+            log_message('debug', 'Form submitted with button: ' . $submitname);
 
-        if ($this->form_validation->run() == FALSE) {
-            if (empty($_POST)) {
-                $this->reset_form_data();
-            } else {
-                $this->form_data = new stdClass();
-                foreach ($this->input->post() as $key => $value) {
-                    $this->form_data->$key = $value;
-                }
-                $fields = ['type_etude', 'id_specialite', 'civilite', 'nom', 'prenom', 'epouse', 'nombre_enfant',
-                          'date_naissance', 'lieu_de_naissce', 'nationalite', 'paysorigine',
-                          'region_dorigine', 'dept_dorigine', 'sexe', 'statu_matrimonial', 'langue', 'pays_residence',
-                          'adresse_candidat', 'ville_residence', 'telephone', 'telephone2', 'email', 'emailverif',
-                          'dernier_diplome_intitule', 'dernier_diplome_specialite',
-                          'dernier_diplome_domaine', 'dernier_diplome_autre_domaine', 'dernier_diplome_etablissement',
-                          'dernier_diplome_pays', 'dernier_diplome_annee', 'dernier_diplome_niveau', 'dernier_diplome_mention',
-                          'statut_prof', 'autre_statut_prof', 'structure', 'adresse_structure', 'telephone_structure',
-                          'email_structure', 'poste_actuel', 'date_debut_poste', 'lien_finances_publiques',
-                          'explication_lien_partiel', 'total_annees_experience', 'howDidYouKnewUs', 'howDidYouKnewUs_autre'];
-                foreach ($fields as $field) {
-                    if (!isset($this->form_data->$field)) {
-                        $this->form_data->$field = '';
-                    }
-                }
+            // Set validation rules
+            $this->form_validation->set_rules('id_specialite', 'Spécialité', 'required');
+            $this->form_validation->set_rules('type_etude', 'Mode de formation', 'required');
+            $this->form_validation->set_rules('civilite', 'Civilité', 'required');
+            $this->form_validation->set_rules('nom', 'Nom', 'required');
+            $this->form_validation->set_rules('prenom', 'Prénom', 'required');
+            $this->form_validation->set_rules('date_naissance', 'Date de naissance', 'required');
+            $this->form_validation->set_rules('lieu_de_naissce', 'Lieu de naissance', 'required');
+            $this->form_validation->set_rules('nationalite', 'Nationalité', 'required');
+            $this->form_validation->set_rules('paysorigine', 'Pays d\'origine', 'required');
+            $this->form_validation->set_rules('statu_matrimonial', 'Statut matrimonial', 'required');
+            $this->form_validation->set_rules('adresse_candidat', 'Adresse complète', 'required');
+            $this->form_validation->set_rules('ville_residence', 'Ville de résidence', 'required');
+            $this->form_validation->set_rules('pays_residence', 'Pays de résidence', 'required');
+            $this->form_validation->set_rules('telephone', 'Téléphone WhatsApp', 'required|is_unique[candidats.telephone]|is_unique[candidats.telephone2]');
+            $this->form_validation->set_rules('telephone2', 'Téléphone secondaire', 'trim|differs[telephone]|is_unique[candidats.telephone]|is_unique[candidats.telephone2]');
+            $this->form_validation->set_rules('email', 'Email', 'required|valid_email|matches[emailverif]|is_unique[candidats.email]');
+            $this->form_validation->set_rules('emailverif', 'Confirmation Email', 'required');
+            $this->form_validation->set_rules('engagement', 'Engagement', 'required');
+
+            // Set custom error messages with clear and specific descriptions
+            $this->form_validation->set_message('required', 'Le champ %s est obligatoire.');
+            $this->form_validation->set_message('is_unique', 'Ce %s est déjà utilisé par un autre candidat. Veuillez en saisir un autre.');
+            $this->form_validation->set_message('matches', 'La confirmation de l\'adresse e-mail ne correspond pas à l\'adresse e-mail principale.');
+            $this->form_validation->set_message('differs', 'Le numéro de téléphone secondaire doit être différent du numéro principal.');
+            $this->form_validation->set_message('valid_email', 'Veuillez saisir une adresse e-mail valide.');
+
+            // Store form values for repopulation in case of validation failure
+            $this->form_data = new stdClass();
+            foreach ($this->input->post() as $key => $value) {
+                $this->form_data->$key = $value;
             }
 
-            $this->template->layout('candidature', $data);
-        } else {
-            // If validation is successful, process the data
-            $candidat_data = array();
             $fields = ['type_etude', 'id_specialite', 'civilite', 'nom', 'prenom', 'epouse', 'nombre_enfant',
-                      'lieu_de_naissce', 'nationalite', 'paysorigine', 'region_dorigine', 'dept_dorigine', 'sexe',
-                      'statu_matrimonial', 'langue', 'pays_residence', 'adresse_candidat', 'ville_residence',
-                      'telephone', 'telephone2', 'email', 'dernier_diplome_intitule', 'dernier_diplome_specialite',
+                      'date_naissance', 'lieu_de_naissce', 'nationalite', 'paysorigine',
+                      'region_dorigine', 'dept_dorigine', 'sexe', 'statu_matrimonial', 'langue', 'pays_residence',
+                      'adresse_candidat', 'ville_residence', 'telephone', 'telephone2', 'email',
+                      'dernier_diplome_intitule', 'dernier_diplome_specialite',
                       'dernier_diplome_domaine', 'dernier_diplome_autre_domaine', 'dernier_diplome_etablissement',
                       'dernier_diplome_pays', 'dernier_diplome_annee', 'dernier_diplome_niveau', 'dernier_diplome_mention',
                       'statut_prof', 'autre_statut_prof', 'structure', 'adresse_structure', 'telephone_structure',
                       'email_structure', 'poste_actuel', 'date_debut_poste', 'lien_finances_publiques',
                       'explication_lien_partiel', 'total_annees_experience', 'howDidYouKnewUs', 'howDidYouKnewUs_autre'];
+
             foreach ($fields as $field) {
-                if ($this->input->post($field) !== NULL) {
-                    $candidat_data[$field] = $this->input->post($field);
+                if (!isset($this->form_data->$field)) {
+                    $this->form_data->$field = '';
                 }
             }
-            $candidat_data['date_naissance'] = $this->input->post('date_naissance'); // Use the date directly from the input
-            // Set the sexe based on civilite
-            $candidat_data['sexe'] = ($this->input->post('civilite') === "Monsieur") ? "Homme" : "Femme";
-            $candidat_data['accepter_condition'] = true; // Assuming this is a checkbox
-            //ordre_candidature value is same as id in this case (auto increment)
-            $candidat_data['ordre_candidature'] = null; // This will be auto-generated by the database
-            $candidat_data['date_enregistrement'] = date("Y-m-d H:i:s");
-            $candidat_data['id_pays'] = $this->input->post('pays_residence');
-            $candidat_data['a_depose'] = false; // Default value for new candidates
 
-            // Assuming you have a model method to insert data
-            $this->model->create($table, $candidat_data);
+            // Run validation and log the result
+            $validation_result = $this->form_validation->run();
 
-            // Redirect to a success page
-            redirect('candidature/success'); // You need to create this success page and method
+            if ($validation_result === TRUE) {
+
+                // Only save data if validation passes
+                $candidat_data = array();
+                foreach ($fields as $field) {
+                    if ($this->input->post($field) !== NULL) {
+                        $candidat_data[$field] = $this->input->post($field);
+                    }
+                }
+
+                $candidat_data['date_naissance'] = $this->input->post('date_naissance');
+                $candidat_data['sexe'] = ($this->input->post('civilite') === "Monsieur") ? "Homme" : "Femme";
+                $candidat_data['accepter_condition'] = true;
+                $candidat_data['ordre_candidature'] = time();;
+                $candidat_data['date_enregistrement'] = date("Y-m-d H:i:s");
+                $candidat_data['id_pays'] = $this->input->post('pays_residence');
+                $candidat_data['a_depose'] = false;
+
+                // Create the new record
+                $candidat_id = $this->model->save($table, $candidat_data);
+
+                if ($candidat_id) {
+                    // Send confirmation email to the candidate
+                    //$email_sent = $this->send_confirmation_email($candidat_id, 'new');
+                    $email_sent = true;
+
+                    // Store info in session for the success page
+                    $this->session->set_flashdata('id', $candidat_id);
+                    $this->session->set_flashdata('numordre', $candidat_id);
+                    $this->session->set_flashdata('telephone', $this->input->post('telephone'));
+                    $this->session->set_flashdata('email', $this->input->post('email'));
+                    $this->session->set_flashdata('email_sent', $email_sent);
+
+                    // If email sending failed, get the error message
+                    if (!$email_sent) {
+                        $error = $this->email->print_debugger();
+                        $this->session->set_flashdata('email_error', $error);
+                        log_message('error', 'Email sending failed for candidate ID: ' . $candidat_id . '. Error: ' . $error);
+                    } else {
+                        log_message('info', 'Email successfully sent for candidate ID: ' . $candidat_id);
+                    }
+
+                    // Ensure the redirect URL is correct and properly formed
+                    $redirect_url = site_url('candidature/success');
+                    log_message('debug', 'Redirecting to success page: ' . $redirect_url);
+
+                    // Force a proper redirect with header
+                    header('Location: ' . $redirect_url);
+                    exit(); // Stop further execution to ensure the redirect takes place
+                } else {
+                    // Database insertion failed
+                    $data['error'] = 'Échec de l\'enregistrement de la candidature. Veuillez réessayer.';
+                    log_message('error', 'Failed to create candidate record in database');
+                    $this->template->layout('candidature', $data);
+                }
+            } else {
+                // Validation failed - log and display the form with errors
+                var_dump('debug', 'Form validation failed. Errors: ' . validation_errors());
+                $this->template->layout('candidature', $data);
+            }
+        } else {
+            // First time loading the form - reset form data
+            log_message('debug', 'Initial form load - resetting form data');
+            $this->reset_form_data();
+            $this->template->layout('candidature', $data);
         }
     }
 
     public function success() {
+        // Add detailed logging about the session data for debugging
+        log_message('debug', 'Success page accessed. Session data: ' .
+            'numordre=' . $this->session->flashdata('numordre') . ', ' .
+            'email=' . $this->session->flashdata('email') . ', ' .
+            'email_sent=' . ($this->session->flashdata('email_sent') ? 'true' : 'false'));
+
         $this->template->layout('success_page', array()); // Create a success view
     }
 
@@ -197,14 +404,21 @@ class Candidature extends MY_Controller {
         $submitname = "modifier";
         $data['submitname'] = $submitname;
 
+        // Get candidate data
         $candidature = $this->model->get_by_id($table, $numordre, 'ordre_candidature')->row();
+        if (!$candidature) {
+            // No candidate found with this order number
+            $this->session->set_flashdata('error', 'Aucune candidature trouvée avec ce numéro d\'ordre.');
+            redirect('candidature/initupdate');
+            return;
+        }
 
         $data["specialites"] = $this->model->list_all("specialite")->result();
         $data["pays"] = $this->model->list_all("pays")->result();
         $data['action'] = site_url('candidature/update/'.$numordre."/".$phone);
 
-        $this->form_data = new stdclass;
         // Load all current data into form_data
+        $this->form_data = new stdclass;
         $this->form_data->type_etude = $candidature->type_etude;
         $this->form_data->specialite = $candidature->id_specialite;
         $this->form_data->civilite = $candidature->civilite;
@@ -267,13 +481,12 @@ class Candidature extends MY_Controller {
             $this->form_validation->set_message('differs', 'Le numéro de téléphone secondaire doit être différent du numéro principal.');
             $this->form_validation->set_message('valid_email', 'Veuillez saisir une adresse e-mail valide.');
 
-            if ($this->form_validation->run() == FALSE) {
-                // Populate form data from POST values if validation fails
-                foreach ($this->input->post() as $key => $value) {
-                    $this->form_data->$key = $value;
-                }
-                $data['message'] = 'Des erreurs ont été rencontrées lors de l\'enregistrement de votre fiche<br/> verifier vos informations et corriger les problèmes signalés';
-            } else {
+            // Store form values for repopulation in case of validation failure
+            foreach ($this->input->post() as $key => $value) {
+                $this->form_data->$key = $value;
+            }
+
+            if ($this->form_validation->run() == TRUE) {
                 // Build update data array with all fields
                 $candidat = array(
                     'civilite' => $this->input->post('civilite'),
@@ -282,7 +495,7 @@ class Candidature extends MY_Controller {
                     'prenom' => $this->input->post('prenom'),
                     'epouse' => $this->input->post('epouse'),
                     'nombre_enfant' => $this->input->post('nombre_enfant'),
-                    'date_naissance' => $this->input->post('date_naissance'), // Use the date directly from input
+                    'date_naissance' => $this->input->post('date_naissance'),
                     'lieu_de_naissce' => $this->input->post('lieu_de_naissce'),
                     'nationalite' => $this->input->post('nationalite'),
                     'paysorigine' => $this->input->post('paysorigine'),
@@ -317,7 +530,7 @@ class Candidature extends MY_Controller {
                     'howDidYouKnewUs' => $this->input->post('howDidYouKnewUs'),
                     'howDidYouKnewUs_autre' => $this->input->post('howDidYouKnewUs_autre'),
                     'langue' => $this->input->post('langue'),
-                    'id_specialite' => $this->input->post('id_specialite'),
+                    'id_specialite' => $this->input->post('pays_residence'),
                     'id_pays' => $this->input->post('pays_residence'),
                     'pays_residence' => $this->model->get_by_id("pays", $this->input->post('pays_residence'), "id")->row()->nom,
                     'date_enregistrement' => date("Y-m-d H:i:s"),
@@ -326,70 +539,44 @@ class Candidature extends MY_Controller {
                 );
 
                 // Update the record
-                $this->model->update($table, 'id', $candidature->id, $candidat);
+                $update_result = $this->model->update($table, 'id', $candidature->id, $candidat);
 
-                // Create and send confirmation email
-                $email_setting['charset'] = 'utf-8';
-                $email_setting['mailtype'] = 'html';
-                $this->email->initialize($email_setting);
-                $this->email->from('info@pfinancespubliques.org', '[PSSFP] DEPOT de CANDIDATURE 12eme PROMOTION 2024/2025 ');
-                $this->email->to($this->input->post('email'));
-                $this->email->newline = "\r\n";
-                $this->email->crlf = "\n";
-                $specialite_candidat= $this->model->get_by_id2('specialite', $this->input->post('specialite'));
-                $this->email->subject('Enregistrement candidature N°'.$candidature->id);
-                $this->email->message('
-                    <h2>Confirmation de Candidature</h2>
+                if ($update_result) {
+                    // Send confirmation email to the candidate
+                    $email_sent = $this->send_confirmation_email($candidature, 'update');
 
-                    <p>Cher(e) ' . $this->input->post('civilite') . ' ' . $this->input->post('nom') . ' ' . $this->input->post('prenom') . ',</p>
+                    $this->session->set_flashdata('succes', 'Modification de la Candidature enregistrée avec succès, votre numéro d\'ordre a été envoyé à votre adresse mail!');
+                    $this->session->set_flashdata('id', $candidature->ordre_candidature);
+                    $this->session->set_flashdata('numordre', $candidature->ordre_candidature);
+                    $this->session->set_flashdata('telephone', $this->input->post('telephone'));
+                    $this->session->set_flashdata('email', $this->input->post('email'));
+                    $this->session->set_flashdata('email_sent', $email_sent);
 
-                    <p>Nous vous informons que votre candidature a bien été enregistrée avec les détails suivants :</p>
+                    // If email sending failed, get the error message
+                    if (!$email_sent) {
+                        $error = $this->email->print_debugger();
+                        $this->session->set_flashdata('email_error', $error);
+                        log_message('error', 'Email sending failed for update of candidate ID: ' . $candidature->id . '. Error: ' . $error);
+                    } else {
+                        log_message('info', 'Email successfully sent for update of candidate ID: ' . $candidature->id);
+                    }
 
-                    <table>
-                        <tr><td><strong>Dossier N°</strong></td><td>: ' . $candidature->id . '</td></tr>
-                        <tr><td><strong>N° de téléphone</strong></td><td>: ' . $this->input->post('telephone') . '</td></tr>
-                        <tr><td><strong>Spécialité</strong></td><td>: ' . $specialite_candidat->nom . '</td></tr>
-                        <tr><td><strong>Type de formation</strong></td><td>: ' . $this->input->post('type_etude') . '</td></tr>
-                        <tr><td><strong>Statut</strong></td><td>: ' . $this->input->post('statut_prof') . '</td></tr>
-                        <tr><td><strong>Administration d\'origine</strong></td><td>: ' . $this->input->post('structure') . '</td></tr>
-                        <tr><td><strong>Nationalité</strong></td><td>: ' . $this->input->post('nationalite') . '</td></tr>
-                    </table>
-
-                    <h3>Actions importantes :</h3>
-                    <ul>
-                        <li><a href="' . site_url('impression/imprimer_fiche/' . $candidature->id) . '">Télécharger votre fiche de candidature</a></li>
-                        <li><a href="' . site_url('candidature/initupdate/' ) . '">Modifier les informations de votre candidature</a></li>
-                    </ul>
-
-                    <p>Pour toute modification, veuillez utiliser les identifiants suivants :</p>
-                    <ul>
-                        <li><strong>Numéro d\'ordre</strong> : ' . $candidature->id . '</li>
-                        <li><strong>N° de téléphone</strong> : ' . $this->input->post('telephone') . '</li>
-                    </ul>
-
-                    <hr>
-
-                    <footer style="color: #666; font-size: 0.9em;">
-                        <p>PSSFP: B.P: 16 578 Yaoundé – Cameroun<br>
-                        Tel.: + (237) 697 921 332<br>
-                             (237) 677 257 272<br>
-                             (237) 671 171 808</p>
-                    </footer>
-                ');
-
-
-                $this->email->send();
-
-                $this->session->set_flashdata('succes', 'Modification de la Candidature enrégistrée avec succes, votre numéro d\'ordre a été envoyé à votre adresse mail!!');
-
-                $this->session->set_flashdata('id', $candidature->ordre_candidature);
-                $this->session->set_flashdata('numordre', $candidature->ordre_candidature);
-                $this->session->set_flashdata('telephone', $candidature->telephone);
-                $this->session->set_flashdata('email', $candidature->email);
-                redirect('candidature/viewnumordre');
+                    // Redirect to prevent form resubmission
+                    redirect('candidature/viewnumordre');
+                } else {
+                    // Database update failed
+                    $data['message'] = 'Échec de la mise à jour de la candidature. Veuillez réessayer.';
+                    $this->template->layout('candidature', $data);
+                }
+            } else {
+                // Validation failed
+                $data['message'] = 'Des erreurs ont été rencontrées lors de l\'enregistrement de votre fiche<br/> verifier vos informations et corriger les problèmes signalés';
+                $this->template->layout('candidature', $data);
             }
+        } else {
+            // Initial page load - just display the form
+            $this->template->layout('candidature', $data);
         }
-        $this->template->layout('candidature', $data);
     }
 
     public function initRecupOrdre(){

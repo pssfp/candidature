@@ -44,6 +44,9 @@
       <path value="$PROJECT_DIR$/CodeIgniter-3.1.13/vendor/sebastian/global-state" />
       <path value="$PROJECT_DIR$/CodeIgniter-3.1.13/vendor/sebastian/code-unit-reverse-lookup" />
       <path value="$PROJECT_DIR$/CodeIgniter-3.1.13/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/phpqrcode/cache" />
+      <path value="$PROJECT_DIR$/vendor/phpqrcode/tools" />
+      <path value="$PROJECT_DIR$/vendor/phpqrcode/bindings" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.0">

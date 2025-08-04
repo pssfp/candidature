@@ -2657,3 +2657,47 @@ INFO - 2025-08-04 08:56:52 --> Model "Impression_model" initialized
 INFO - 2025-08-04 08:56:52 --> File loaded: C:\wamp64\www\candidature\application\views\impression/fiche_candidature.php
 INFO - 2025-08-04 08:56:58 --> Final output sent to browser
 DEBUG - 2025-08-04 08:56:58 --> Total execution time: 6.3563
+INFO - 2025-08-04 09:19:11 --> Config Class Initialized
+INFO - 2025-08-04 09:19:11 --> Hooks Class Initialized
+DEBUG - 2025-08-04 09:19:11 --> UTF-8 Support Enabled
+INFO - 2025-08-04 09:19:11 --> Utf8 Class Initialized
+INFO - 2025-08-04 09:19:11 --> URI Class Initialized
+INFO - 2025-08-04 09:19:11 --> Router Class Initialized
+INFO - 2025-08-04 09:19:11 --> Output Class Initialized
+INFO - 2025-08-04 09:19:11 --> Security Class Initialized
+DEBUG - 2025-08-04 09:19:11 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-08-04 09:19:11 --> Input Class Initialized
+INFO - 2025-08-04 09:19:11 --> Language Class Initialized
+INFO - 2025-08-04 09:19:11 --> Loader Class Initialized
+INFO - 2025-08-04 09:19:11 --> Helper loaded: url_helper
+INFO - 2025-08-04 09:19:11 --> Helper loaded: php8_helper
+INFO - 2025-08-04 09:19:11 --> Database Driver Class Initialized
+INFO - 2025-08-04 09:19:11 --> Parser Class Initialized
+INFO - 2025-08-04 09:19:11 --> Model "Impression_model" initialized
+INFO - 2025-08-04 09:19:11 --> Controller Class Initialized
+INFO - 2025-08-04 09:19:11 --> Model "Impression_model" initialized
+INFO - 2025-08-04 09:19:12 --> File loaded: C:\wamp64\www\candidature\application\views\impression/fiche_candidature.php
+INFO - 2025-08-04 09:19:19 --> Final output sent to browser
+DEBUG - 2025-08-04 09:19:19 --> Total execution time: 7.9974
+INFO - 2025-08-04 09:19:19 --> Config Class Initialized
+INFO - 2025-08-04 09:19:19 --> Hooks Class Initialized
+DEBUG - 2025-08-04 09:19:19 --> UTF-8 Support Enabled
+INFO - 2025-08-04 09:19:19 --> Utf8 Class Initialized
+INFO - 2025-08-04 09:19:19 --> URI Class Initialized
+INFO - 2025-08-04 09:19:19 --> Router Class Initialized
+INFO - 2025-08-04 09:19:19 --> Output Class Initialized
+INFO - 2025-08-04 09:19:19 --> Security Class Initialized
+DEBUG - 2025-08-04 09:19:19 --> Global POST, GET and COOKIE data sanitized
+INFO - 2025-08-04 09:19:19 --> Input Class Initialized
+INFO - 2025-08-04 09:19:19 --> Language Class Initialized
+INFO - 2025-08-04 09:19:19 --> Loader Class Initialized
+INFO - 2025-08-04 09:19:19 --> Helper loaded: url_helper
+INFO - 2025-08-04 09:19:19 --> Helper loaded: php8_helper
+INFO - 2025-08-04 09:19:19 --> Database Driver Class Initialized
+INFO - 2025-08-04 09:19:19 --> Parser Class Initialized
+INFO - 2025-08-04 09:19:19 --> Model "Impression_model" initialized
+INFO - 2025-08-04 09:19:19 --> Controller Class Initialized
+INFO - 2025-08-04 09:19:19 --> Model "Impression_model" initialized
+INFO - 2025-08-04 09:19:19 --> File loaded: C:\wamp64\www\candidature\application\views\impression/fiche_candidature.php
+INFO - 2025-08-04 09:19:28 --> Final output sent to browser
+DEBUG - 2025-08-04 09:19:28 --> Total execution time: 8.3562

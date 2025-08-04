@@ -5,8 +5,8 @@
       <list>
         <option value="$PROJECT_DIR$/CodeIgniter-3.1.13/tests" />
         <option value="$PROJECT_DIR$/application/libraries/dompdf/tests" />
-        <option value="$PROJECT_DIR$/application/libraries/dompdf/lib/php-font-lib/tests" />
-        <option value="$PROJECT_DIR$/application/libraries/dompdf/lib/php-svg-lib/tests" />
+        <option value="$PROJECT_DIR$/application/libraries/dompdf/lib/php-font-lib/tests/FontLib" />
+        <option value="$PROJECT_DIR$/application/libraries/dompdf/lib/php-svg-lib/tests/Svg" />
       </list>
     </option>
   </component>

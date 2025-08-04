@@ -148,7 +148,7 @@
             EN FINANCES PUBLIQUES<br />
         </td>
         <td class="header-middle">
-            <img src="/home/www/www.candidature.pfinancespubliques.org/candidature.pfinancespubliques.org/resources/images/logopssfp.png" alt="Logo">
+            <img src="<?= base_url() ?>resources/assets/images/logo.png" alt="Logo">
         </td>
         <td class="header-right">
             REPUBLIC OF CAMEROON<br />
@@ -170,15 +170,12 @@
     <div class="photo-box">
         Photo 4X4
     </div>
-    <div class="info-row"><span class="info-label">Nom complet :</span><span class="info-value"><?php echo $candidat->nom . ' ' . $candidat->prenom; ?></span></div>
+    <div class="info-row"><span class="info-label">Nom complet : </span><span class="info-value"><?php echo ' '.$candidat->nom . ' ' . $candidat->prenom; ?></span></div>
     <div class="info-row"><span class="info-label">Épouse :</span><span class="info-value"><?php echo $candidat->epouse; ?></span></div>
     <div class="info-row"><span class="info-label">Date & lieu de naissance :</span><span class="info-value"><?php echo $candidat->date_naissance . ' à ' . $candidat->lieu_de_naissce; ?></span></div>
     <div class="info-row"><span class="info-label">Sexe :</span><span class="info-value"><?php echo $candidat->sexe; ?></span></div>
     <div class="info-row"><span class="info-label">Statut matrimonial :</span><span class="info-value"><?php echo $candidat->statu_matrimonial; ?></span></div>
-    <!--div class="info-row"><span class="info-label">Nombre d'enfants :</span><span class="info-value"><?#php echo $candidat->nombre_enfant; ?></span></div-->
     <div class="info-row"><span class="info-label">Nationalité :</span><span class="info-value"><?php echo $candidat->nationalite; ?></span></div>
-    <!--div class="info-row"><span class="info-label">Région :</span><span class="info-value"><?#php echo $candidat->region_dorigine; ?></span></div-->
-    <!--div class="info-row"><span class="info-label">Département :</span><span class="info-value"><?#php echo $candidat->dept_dorigine; ?></span></div-->
 </div>
 <div class="section">
     <div class="section-title">Spécialité</div>
@@ -190,7 +187,6 @@
 
 <div class="section">
     <div class="section-title">Coordonnées</div>
-    <!--<div class="info-row"><span class="info-label">Adresse :</span><span class="info-value"><?#php echo $candidat->adresse_candidat; ?></span></div>-->
     <div class="info-row"><span class="info-label">Lieu de résidence :</span><span class="info-value"><?php echo $candidat->ville_residence; ?></span></div>
     <div class="info-row"><span class="info-label">Téléphones :</span><span class="info-value"><?php echo $candidat->telephone . ' / ' . $candidat->telephone2; ?></span></div>
     <div class="info-row"><span class="info-label">Email :</span><span class="info-value"><?php echo $candidat->email; ?></span></div>
@@ -198,17 +194,17 @@
 
 <div class="section">
     <div class="section-title">Études supérieures</div>
-    <!--<div class="info-row"><span class="info-label">Nombre d'années d'études :</span><span class="info-value"><?#php echo $candidat->nombre_annee_etude_sup; ?></span></div>-->
-    <div class="info-row"><span class="info-label">Dernier diplôme :</span><span class="info-value"><?php echo $candidat->dernier_diplome; ?></span></div>
-    <div class="info-row"><span class="info-label">Lieu d'obtention :</span><span class="info-value"><?php echo $candidat->diplome_obtenu_a; ?></span></div>
-    <div class="info-row"><span class="info-label">Année d'obtention :</span><span class="info-value"><?php echo $candidat->annee_optention_diplome; ?></span></div>
+    <div class="info-row"><span class="info-label">Dernier diplôme :</span><span class="info-value"><?php echo $candidat->dernier_diplome_intitule; ?> <strong style="margin-left: 20px"><em>en :</em></strong> <?php echo $candidat->specialite; ?></span></div>
+    <div class="info-row"><span class="info-label">Lieu d'obtention :</span><span class="info-value"><?php echo $candidat->dernier_diplome_etablissement; ?></span></div>
+    <div class="info-row"><span class="info-label">Année d'obtention :</span><span class="info-value"><?php echo $candidat->dernier_diplome_annee; ?> <strong style="margin-left: 40px"><em>Niveau :</em></strong> <?php echo $candidat->dernier_diplome_niveau; ?></span></div>
+
 </div>
 
 <div class="section">
     <div class="section-title">Coordonnées professionnelles</div>
-    <div class="info-row"><span class="info-label">Emploi actuel :</span><span class="info-value"><?php echo $candidat->statut_prof; ?></span></div>
-    <div class="info-row"><span class="info-label">Structure :</span><span class="info-value"><?php echo $candidat->structure; ?></span></div>
-    <!--div class="info-row"><span class="info-label">Contact structure :</span><span class="info-value"><?#php echo $candidat->telephone_structure; ?></span></div-->
+    <div class="info-row"><span class="info-label">Statut professionnel :</span><span class="info-value"><?php echo $candidat->statut_prof; ?></span></div>
+    <div class="info-row"><span class="info-label">en lien avec les finances publiques ? :</span><span class="info-value"><?php echo $candidat->structure; ?></span></div>
+    <div class="info-row"><span class="info-label">Année d'expérience</span><span class="info-value"><?php echo $candidat->total_annees_experience; ?></span></div>
 </div>
 
 <div class="section"><div style="font-size: 10px;">
@@ -250,7 +246,7 @@
             EN FINANCES PUBLIQUES<br />
         </td>
         <td class="header-middle">
-            <img src="/home/www/www.candidature.pfinancespubliques.org/candidature.pfinancespubliques.org/resources/images/logopssfp.png" alt="Logo">
+            <img src="<?= base_url() ?>resources/assets/images/logo.png" alt="Logo">
         </td>
         <td class="header-right">
             REPUBLIC OF CAMEROON<br />
@@ -272,15 +268,12 @@
     <div class="photo-box">
         Photo 4X4
     </div>
-    <div class="info-row"><span class="info-label">Nom complet :</span><span class="info-value"><?php echo $candidat->nom . ' ' . $candidat->prenom; ?></span></div>
+    <div class="info-row"><span class="info-label">Nom complet : </span><span class="info-value"><?php echo ' '.$candidat->nom . ' ' . $candidat->prenom; ?></span></div>
     <div class="info-row"><span class="info-label">Épouse :</span><span class="info-value"><?php echo $candidat->epouse; ?></span></div>
     <div class="info-row"><span class="info-label">Date & lieu de naissance :</span><span class="info-value"><?php echo $candidat->date_naissance . ' à ' . $candidat->lieu_de_naissce; ?></span></div>
     <div class="info-row"><span class="info-label">Sexe :</span><span class="info-value"><?php echo $candidat->sexe; ?></span></div>
     <div class="info-row"><span class="info-label">Statut matrimonial :</span><span class="info-value"><?php echo $candidat->statu_matrimonial; ?></span></div>
-    <!--div class="info-row"><span class="info-label">Nombre d'enfants :</span><span class="info-value"><?#php echo $candidat->nombre_enfant; ?></span></div-->
     <div class="info-row"><span class="info-label">Nationalité :</span><span class="info-value"><?php echo $candidat->nationalite; ?></span></div>
-    <!--div class="info-row"><span class="info-label">Région :</span><span class="info-value"><?#php echo $candidat->region_dorigine; ?></span></div-->
-    <!--div class="info-row"><span class="info-label">Département :</span><span class="info-value"><?#php echo $candidat->dept_dorigine; ?></span></div-->
 </div>
 <div class="section">
     <div class="section-title">Spécialité</div>
@@ -290,10 +283,8 @@
 </div>
 
 
-
 <div class="section">
     <div class="section-title">Coordonnées</div>
-    <!--<div class="info-row"><span class="info-label">Adresse :</span><span class="info-value"><?#php echo $candidat->adresse_candidat; ?></span></div>-->
     <div class="info-row"><span class="info-label">Lieu de résidence :</span><span class="info-value"><?php echo $candidat->ville_residence; ?></span></div>
     <div class="info-row"><span class="info-label">Téléphones :</span><span class="info-value"><?php echo $candidat->telephone . ' / ' . $candidat->telephone2; ?></span></div>
     <div class="info-row"><span class="info-label">Email :</span><span class="info-value"><?php echo $candidat->email; ?></span></div>
@@ -301,22 +292,22 @@
 
 <div class="section">
     <div class="section-title">Études supérieures</div>
-    <!--<div class="info-row"><span class="info-label">Nombre d'années d'études :</span><span class="info-value"><?#php echo $candidat->nombre_annee_etude_sup; ?></span></div>-->
-    <div class="info-row"><span class="info-label">Dernier diplôme :</span><span class="info-value"><?php echo $candidat->dernier_diplome; ?></span></div>
-    <div class="info-row"><span class="info-label">Lieu d'obtention :</span><span class="info-value"><?php echo $candidat->diplome_obtenu_a; ?></span></div>
-    <div class="info-row"><span class="info-label">Année d'obtention :</span><span class="info-value"><?php echo $candidat->annee_optention_diplome; ?></span></div>
+    <div class="info-row"><span class="info-label">Dernier diplôme :</span><span class="info-value"><?php echo $candidat->dernier_diplome_intitule; ?> <strong style="margin-left: 15px"><em>en :</em></strong> <?php echo $candidat->specialite; ?></span></div>
+    <div class="info-row"><span class="info-label">Lieu d'obtention :</span><span class="info-value"><?php echo $candidat->dernier_diplome_etablissement; ?></span></div>
+    <div class="info-row"><span class="info-label">Année d'obtention :</span><span class="info-value"><?php echo $candidat->dernier_diplome_annee; ?> <strong style="margin-left: 25px"><em>Niveau :</em></strong> <?php echo $candidat->dernier_diplome_niveau; ?></span></div>
+
 </div>
 
 <div class="section">
     <div class="section-title">Coordonnées professionnelles</div>
-    <div class="info-row"><span class="info-label">Emploi actuel :</span><span class="info-value"><?php echo $candidat->statut_prof; ?></span></div>
-    <div class="info-row"><span class="info-label">Structure :</span><span class="info-value"><?php echo $candidat->structure; ?></span></div>
-    <!--div class="info-row"><span class="info-label">Contact structure :</span><span class="info-value"><?#php echo $candidat->telephone_structure; ?></span></div-->
+    <div class="info-row"><span class="info-label">Statut professionnel :</span><span class="info-value"><?php echo $candidat->statut_prof; ?></span></div>
+    <div class="info-row"><span class="info-label">en lien avec les finances publiques ? :</span><span class="info-value"><?php echo $candidat->structure; ?></span></div>
+    <div class="info-row"><span class="info-label">Année d'expérience</span><span class="info-value"><?php echo $candidat->total_annees_experience; ?></span></div>
 </div>
 
 <div class="section"><div style="font-size: 10px;">
         <div class="section-title">Engagement</div>
-        <p style="text-align: justify; font-family: 7px;">
+        <p style="text-align: justify; font-family: 9px;">
             Je sousigné(e) : <strong><?php echo $candidat->nom . ' ' . $candidat->prenom; ?></strong>, certifie sous l'honneur, l'exactidude des renseignements
             consignés dans cette fiche de candidature et avoir eu connaissance des conditions exigées pour être retenu comme candidat au <em>Programme supérieures de spécialisation en Finances Publiques</em>.
         </p></div>

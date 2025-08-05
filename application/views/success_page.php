@@ -1,28 +1,3 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Candidature Soumise avec Succès</title>
-    <link rel="stylesheet" href="<?= base_url() ?>resources/css/modern-form.css">
-    <style>
-        .success-container {
-            text-align: center;
-            padding: 40px;
-            border-radius: 8px;
-            background-color: #fff;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            margin: 40px auto;
-            max-width: 600px;
-        }
-        .success-icon {
-            font-size: 48px;
-            color: #28a745;
-        }
-        .success-icon.error {
-            color: #dc3545;
-        }
-        .success-title {
             font-size: 24px;
             margin-top: 20px;
             color: #333;
@@ -142,4 +117,28 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
 </body>
 </html>
-
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candidature Soumise avec Succès</title>
+    <link rel="stylesheet" href="<?= base_url() ?>resources/css/modern-form.css">
+    <style>
+        .success-container {
+            text-align: center;
+            padding: 40px;
+            border-radius: 8px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin: 40px auto;
+            max-width: 600px;
+        }
+        .success-icon {
+            font-size: 48px;
+            color: #28a745;
+        }
+        .success-icon.error {
+            color: #dc3545;
+        }
+        .success-title {

@@ -270,7 +270,7 @@ class Candidature extends MY_Controller {
                       'dernier_diplome_pays', 'dernier_diplome_annee', 'dernier_diplome_niveau', 'dernier_diplome_mention',
                       'statut_prof', 'autre_statut_prof', 'structure', 'adresse_structure', 'telephone_structure',
                       'email_structure', 'poste_actuel', 'date_debut_poste', 'lien_finances_publiques',
-                      'explication_lien_partiel', 'total_annees_experience', 'howDidYouKnewUs', 'howDidYouKnewUs_autre'];
+                      'explication_lien_partiel', 'total_annees_experience', 'howDidYouKnewUs', 'howDidYouKnewUs_autre', 'niveau_connaissance_fp', 'motivation_pssfp', 'utilite_formation', 'domaines_interet_fp'];
 
             foreach ($fields as $field) {
                 if (!isset($this->form_data->$field)) {
@@ -636,20 +636,37 @@ class Candidature extends MY_Controller {
         $this->form_data->howDidYouKnewUs = '';
     }
 
-    public function get_regions() {
-        header('Content-Type: application/json');
-        $regions = $this->region_model->get_all_regions();
-        echo json_encode($regions);
+    public function get_all_regions() {
+        return $this->db->get('regions')->result();
     }
 
-    public function get_departements($region_id) {
-        header('Content-Type: application/json');
-        if (is_numeric($region_id)) {
-            $departements = $this->region_model->get_departements_by_region($region_id);
-            echo json_encode($departements);
-        } else {
-            echo json_encode([]);
+    public function get_departements() {
+        $region_id = $this->input->post('region_id');
+
+        if (!$region_id) {
+            echo '<option value="">Aucune région reçue</option>';
+            return;
         }
+
+        $query = $this->db->get_where('departements', ['region_id' => $region_id]);
+        $departements = $query->result();
+
+        if (empty($departements)) {
+            echo '<option value="">Aucun département trouvé</option>';
+        } else {
+            echo '<option value="">--Sélectionner un département--</option>';
+            foreach ($departements as $dept) {
+                echo '<option value="' . $dept->nom . '">' . $dept->nom . '</option>';
+            }
+        }
+    }
+
+
+
+    public function get_departements_by_region($region_id) {
+        $this->db->where('region_id', $region_id);
+        $query = $this->db->get('departements');
+        return $query->result();
     }
 
 

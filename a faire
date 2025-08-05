@@ -7,3 +7,20 @@ couleur bouton sur le nav ✅
 icon pssfp sur les pages ✅
 ---------------------------------
 champs à ajouter sur le pdf rapidement :
+
+ <div class="form-group half">
+                            <label class="formbold-form-label required" for="howDidYouKnewUs">
+                                Comment avez-vous connu le PSSFP&nbsp;?
+                            </label>
+                            <select class="formbold-form-input" name="howDidYouKnewUs" id="howDidYouKnewUs" required>
+                                <option value="" disabled <?php if (empty($this->form_data->howDidYouKnewUs)) echo "selected"; ?>>-- Sélectionnez une option --</option>
+                                <option value="Cameroun Tribune" <?php if ($this->form_data->howDidYouKnewUs === "Cameroun Tribune") echo "selected"; ?>>Cameroun Tribune</option>
+                                <option value="Banderoles et affiches publicitaires" <?php if ($this->form_data->howDidYouKnewUs === "Banderoles et affiches publicitaires") echo "selected"; ?>>Banderoles et affiches publicitaires</option>
+                                <option value="Internet et réseaux sociaux" <?php if ($this->form_data->howDidYouKnewUs === "Internet et réseaux sociaux") echo "selected"; ?>>Internet et réseaux sociaux</option>
+                                <option value="Média Radio et TV" <?php if ($this->form_data->howDidYouKnewUs === "Média Radio et TV") echo "selected"; ?>>Média Radio et TV</option>
+                                <option value="Campagne de sensibilisation des équipes du PSSFP sur le terrain" <?php if ($this->form_data->howDidYouKnewUs === "Campagne de sensibilisation des équipes du PSSFP sur le terrain") echo "selected"; ?>>Campagne de sensibilisation des équipes du PSSFP sur le terrain</option>
+                                <option value="Recommandation d'un ancien" <?php if ($this->form_data->howDidYouKnewUs === "Recommandation d'un ancien") echo "selected"; ?>>Recommandation d'un ancien</option>
+                                <option value="Autre" <?php if ($this->form_data->howDidYouKnewUs === "Autre") echo "selected"; ?>>Autre</option>
+                            </select>
+                            <div class="input-help-text">Merci de nous indiquer comment vous avez entendu parler du programme.</div>
+                        </div>

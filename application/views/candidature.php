@@ -230,7 +230,7 @@
 
                     <div class="form-row" id="divEpouse">
                         <div class="form-group half">
-                            <label for="epouse" class="formbold-form-label">Nom d'épouse (si applicable)</label>
+                            <label for="epouse" class="formbold-form-label">Nom de l'époux (si applicable)</label>
                             <input value="<?php echo set_value('epouse', $this->form_data->epouse); ?>"
                                    name="epouse"
                                    placeholder="Nom d'épouse"
@@ -270,18 +270,28 @@
                             <label for="region_dorigine" class="formbold-form-label required">Région d'origine</label>
                             <select name="region_dorigine" id="region_dorigine" class="formbold-form-input" required>
                                 <option value="">-- Sélectionnez une région --</option>
-                                <!-- Les options seront chargées dynamiquement -->
+                                <?php foreach($this->region_model->get_all_regions() as $region): ?>
+                                    <option value="<?= $region->id ?>"
+                                        <?= (isset($this->form_data->region_dorigine) && $this->form_data->region_dorigine == $region->id ? 'selected' : '' )?>>
+                                        <?= $region->nom ?>
+                                    </option>
+                                <?php endforeach; ?>
                             </select>
-                            <input type="text" name="region_dorigine_autre" id="region_dorigine_autre" class="formbold-form-input" style="display: none;" placeholder="Précisez votre région d'origine">
                         </div>
 
                         <div class="form-group half">
                             <label for="dept_dorigine" class="formbold-form-label required">Département d'origine</label>
                             <select name="dept_dorigine" id="dept_dorigine" class="formbold-form-input" required>
-                                <option value="">-- D'abord, sélectionnez une région --</option>
-                                <!-- Les options seront chargées dynamiquement -->
+                                <option value="">-- Sélectionnez un département --</option>
+                                <?php if(isset($this->form_data->region_dorigine)): ?>
+                                    <?php foreach($this->region_model->get_departements_by_region($this->form_data->region_dorigine) as $dept): ?>
+                                        <option value="<?= $dept->id ?>"
+                                            <?= (isset($this->form_data->dept_dorigine) && $this->form_data->dept_dorigine == $dept->id ? 'selected' : '' )?>>
+                                            <?= $dept->nom ?>
+                                        </option>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
                             </select>
-                            <input type="text" name="dept_dorigine_autre" id="dept_dorigine_autre" class="formbold-form-input" style="display: none;" placeholder="Précisez votre département d'origine">
                         </div>
                     </div>
 
@@ -457,7 +467,13 @@
                     <div class="form-row">
                         <div class="form-group half">
                             <label for="dernier_diplome_intitule" class="formbold-form-label required">Intitulé exact du diplôme</label>
-                            <input type="text" name="dernier_diplome_intitule" id="dernier_diplome_intitule" class="formbold-form-input" placeholder="Ex. Licence en Droit, Maîtrise en Sciences économiques" value="<?php echo set_value('dernier_diplome_intitule', isset($this->form_data->dernier_diplome_intitule) ? $this->form_data->dernier_diplome_intitule : ''); ?>" required />
+                            <select name="dernier_diplome_intitule" id="dernier_diplome_intitule" class="formbold-form-input" required>
+                                <option value="">-- Sélectionnez --</option>
+                                <option value="Licence" <?php if(isset($this->form_data->dernier_diplome_intitule) && $this->form_data->dernier_diplome_intitule=='Licence') echo 'selected'; ?>>Licence</option>
+                                <option value="Maîtrise" <?php if(isset($this->form_data->dernier_diplome_intitule) && $this->form_data->dernier_diplome_intitule=='Maîtrise') echo 'selected'; ?>>Maîtrise</option>
+                                <option value="DEA" <?php if(isset($this->form_data->dernier_diplome_intitule) && $this->form_data->dernier_diplome_intitule=='DEA') echo 'selected'; ?>>DEA</option>
+                                <option value="Doctorat" <?php if(isset($this->form_data->dernier_diplome_intitule) && $this->form_data->dernier_diplome_intitule=='Doctorat') echo 'selected'; ?>>Doctorat</option>
+                            </select>
                         </div>
                     </div>
 
@@ -645,9 +661,75 @@
                 </div>
 
                 <!-- SECTION 6: Avis -->
+                <!-- SECTION 6: Avis -->
                 <div class="form-section">
                     <legend><i class="fas fa-comment-alt"></i> Votre avis nous intéresse</legend>
+
+                    <!-- Question 1 -->
                     <div class="form-row">
+                        <div class="form-group half">
+                            <label class="formbold-form-label required" for="niveau_connaissance_fp">
+                                Quel est votre niveau de connaissance des finances publiques ?
+                            </label>
+                            <select class="formbold-form-input" name="niveau_connaissance_fp" id="niveau_connaissance_fp" required>
+                                <option value="">-- Sélectionnez --</option>
+                                <option value="Faible">Faible</option>
+                                <option value="Moyen">Moyen</option>
+                                <option value="Bon">Bon</option>
+                                <option value="Très bon">Très bon</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Question 2 -->
+                    <div class="form-row">
+                        <div class="form-group half">
+                            <label class="formbold-form-label required" for="motivation_pssfp">
+                                Pourquoi avoir choisi le PSSFP ?
+                            </label>
+                            <select class="formbold-form-input" name="motivation_pssfp" id="motivation_pssfp" required>
+                                <option value="">-- Sélectionnez --</option>
+                                <option value="Renforcer mes capacités">Renforcer mes capacités</option>
+                                <option value="Être plus performant">Être plus performant</option>
+                                <option value="Obtenir un diplôme de master">Obtenir un diplôme de master</option>
+                                <option value="Autre">Autre</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Question 3 -->
+                    <div class="form-row">
+                        <div class="form-group half">
+                            <label class="formbold-form-label required" for="utilite_formation">
+                                En quoi la formation du PSSFP pourrait-elle vous être utile ?
+                            </label>
+                            <select class="formbold-form-input" name="utilite_formation" id="utilite_formation" required>
+                                <option value="">-- Sélectionnez --</option>
+                                <option value="Améliorer mes compétences professionnelles">Améliorer mes compétences professionnelles</option>
+                                <option value="Accéder à des postes plus élevés">Accéder à des postes plus élevés</option>
+                                <option value="Mieux comprendre les enjeux des finances publiques">Mieux comprendre les enjeux des finances publiques</option>
+                                <option value="Développer mon réseau professionnel">Développer mon réseau professionnel</option>
+                                <option value="Autre">Autre</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Question 4 -->
+                    <div class="form-row">
+                        <div class="form-group half">
+                            <label class="formbold-form-label required" for="domaines_interet_fp">
+                                Quels sont les domaines des finances publiques qui vous intéressent ?
+                            </label>
+                            <select class="formbold-form-input" name="domaines_interet_fp" id="domaines_interet_fp" required>
+                                <option value="">-- Sélectionnez --</option>
+                                <option value="Gestion budgétaire">Gestion budgétaire</option>
+                                <option value="Fiscalité">Fiscalité</option>
+                                <option value="Comptabilité publique">Comptabilité publique</option>
+                                <option value="Audit public">Audit public</option>
+                                <option value="Marchés publics">Marchés publics</option>
+                                <option value="Tous ces domaines">Tous ces domaines</option>
+                            </select>
+                        </div>
                         <div class="form-group half">
                             <label class="formbold-form-label required" for="howDidYouKnewUs">
                                 Comment avez-vous connu le PSSFP&nbsp;?
@@ -665,6 +747,7 @@
                             <div class="input-help-text">Merci de nous indiquer comment vous avez entendu parler du programme.</div>
                         </div>
                     </div>
+                </div>
                     <div class="form-row" id="howDidYouKnewUs_autre_row" style="display: <?php echo (isset($this->form_data->howDidYouKnewUs) && $this->form_data->howDidYouKnewUs === "Autre") ? 'block' : 'none'; ?>">
                         <div class="form-group half">
                             <label class="formbold-form-label" for="howDidYouKnewUs_autre">Précisez&nbsp;:</label>
@@ -673,6 +756,36 @@
                     </div>
                 </div>
                 <script>
+                    document.getElementById('region_dorigine').addEventListener('change', function() {
+                        const regionId = this.value;
+                        const deptSelect = document.getElementById('dept_dorigine');
+
+                        if (regionId) {
+
+                            deptSelect.innerHTML = '<option value="">Chargement...</option>';
+
+                            // Utiliser la bonne URL
+                            fetch(`<?= base_url() ?>candidature/get_departements/${regionId}`)
+                                .then(response => {
+                                    if (!response.ok) {
+                                        throw new Error('Erreur réseau');
+                                    }
+                                    return response.json();
+                                })
+                                .then(data => {
+                                    deptSelect.innerHTML = '<option value="">-- Sélectionnez un département --</option>';
+                                    data.forEach(dept => {
+                                        deptSelect.innerHTML += `<option value="${dept.id}">${dept.nom}</option>`;
+                                    });
+                                })
+                                .catch(error => {
+                                    console.error('Erreur:', error);
+                                    deptSelect.innerHTML = '<option value="">Erreur de hh </option>';
+                                });
+                        } else {
+                            deptSelect.innerHTML = '<option value="">-- Sélectionnez d\'abord une région --</option>';
+                        }
+                    });
                     document.addEventListener('DOMContentLoaded', function() {
                         const select = document.getElementById('howDidYouKnewUs');
                         const autreRow = document.getElementById('howDidYouKnewUs_autre_row');
@@ -933,6 +1046,28 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- Nouvelles questions -->
+                        <div class="review-section">
+                            <h3><i class="fas fa-comment-alt"></i> Votre avis</h3>
+                            <div class="review-grid">
+                                <div class="review-item">
+                                    <span class="review-label">Niveau connaissance FP</span>
+                                    <span class="review-value" id="review-niveau_connaissance_fp">-</span>
+                                </div>
+                                <div class="review-item">
+                                    <span class="review-label">Motivation PSSFP</span>
+                                    <span class="review-value" id="review-motivation_pssfp">-</span>
+                                </div>
+                                <div class="review-item">
+                                    <span class="review-label">Utilité formation</span>
+                                    <span class="review-value" id="review-utilite_formation">-</span>
+                                </div>
+                                <div class="review-item">
+                                    <span class="review-label">Domaines d'intérêt FP</span>
+                                    <span class="review-value" id="review-domaines_interet_fp">-</span>
+                                </div>
+                            </div>
+                        </div>
 
                         <!-- Connaissance du programme -->
                         <div class="review-section">
@@ -1015,7 +1150,11 @@
                             updateRadioReviewValue('lien_finances_publiques', 'review-lien_finances_publiques');
                             updateInputReviewValue('explication_lien_partiel', 'review-explication_lien_partiel');
                             updateInputReviewValue('total_annees_experience', 'review-total_annees_experience');
-
+                            // Nouvelles questions
+                            updateSelectReviewValue('niveau_connaissance_fp', 'review-niveau_connaissance_fp');
+                            updateSelectReviewValue('motivation_pssfp', 'review-motivation_pssfp');
+                            updateSelectReviewValue('utilite_formation', 'review-utilite_formation');
+                            updateSelectReviewValue('domaines_interet_fp', 'review-domaines_interet_fp');
                             // Comment vous avez connu le programme
                             updateSelectReviewValue('howDidYouKnewUs', 'review-howDidYouKnewUs');
                             updateInputReviewValue('howDidYouKnewUs_autre', 'review-howDidYouKnewUs_autre');
@@ -1147,6 +1286,34 @@ document.addEventListener('DOMContentLoaded', function() {
     const deptSelect = document.getElementById('dept_dorigine');
     const regionAutreInput = document.getElementById('region_dorigine_autre');
     const deptAutreInput = document.getElementById('dept_dorigine_autre');
+    // Gestion du changement de région
+    document.getElementById('region_dorigine').addEventListener('change', function() {
+        const regionId = this.value;
+        const deptSelect = document.getElementById('dept_dorigine');
+
+        if (regionId) {
+            // Afficher un message de chargement
+            deptSelect.innerHTML = '<option value="">Chargement...</option>';
+
+            // Faire la requête AJAX
+            fetch(`<?= base_url() ?>candidature/get_departements/${regionId}`)
+                .then(response => response.json())
+                .then(data => {
+                    deptSelect.innerHTML = '<option value="">-- Sélectionnez un département --</option>';
+                    data.forEach(dept => {
+                        deptSelect.innerHTML += `<option value="${dept.id}">${dept.nom}</option>`;
+                    });
+                })
+                .catch(error => {
+                    console.error('Erreur:', error);
+                    deptSelect.innerHTML = '<option value="">Erreur de chargement</option>';
+                });
+        } else {
+            deptSelect.innerHTML = '<option value="">-- Sélectionnez d\'abord une région --</option>';
+        }
+    });
+});
+
 
     function toggleRegionDeptFields() {
         const selectedOption = paysOrigineSelect.options[paysOrigineSelect.selectedIndex];

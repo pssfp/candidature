@@ -25,9 +25,12 @@
         const sel = document.getElementById('civilite');
         const civilite = sel.options[sel.selectedIndex].value;
         const epouseField = document.getElementById('epouse');
+        const divEpouse = document.getElementById('divEpouse');
 
         if (epouseField) {
-            epouseField.style.display = (civilite === "Monsieur") ? "none" : "block";
+            divEpouse.style.display = (civilite === "Monsieur" || civilite === "Mademoiselle") ? "none" : "block";
+            //Monsieur ou Mademoiselle
+            epouseField.style.display = (civilite === "Monsieur" || civilite === "Mademoiselle") ? "none" : "block";
             if (civilite === "Monsieur") {
                 epouseField.removeAttribute('required');
             }
@@ -123,7 +126,7 @@
                     </legend>
 
                     <div class="form-row">
-                        <div class="form-group">
+                        <div class="form-group half">
                             <label for="specialite" class="formbold-form-label required">Spécialité de formation</label>
                             <select class="formbold-form-input" name="id_specialite" id="id_specialite" required aria-describedby="specialite-help">
                                 <option value="" style="color: #718096;">-- Sélectionnez votre spécialité --</option>
@@ -145,7 +148,7 @@
 
 
                     <div class="form-row">
-                        <div class="form-group">
+                        <div class="form-group half">
                             <label class="formbold-form-label required">Mode de formation souhaité</label>
                             <div class="radio-group" role="radiogroup" aria-labelledby="type-etude-label">
                                 <div class="radio-item">
@@ -225,8 +228,8 @@
                         </div>
                     </div>
 
-                    <div class="form-row">
-                        <div class="form-group">
+                    <div class="form-row" id="divEpouse">
+                        <div class="form-group half">
                             <label for="epouse" class="formbold-form-label">Nom d'épouse (si applicable)</label>
                             <input value="<?php echo set_value('epouse', $this->form_data->epouse); ?>"
                                    name="epouse"
@@ -239,7 +242,7 @@
                     </div>
 
                     <div class="form-row">
-                        <div class="form-group">
+                        <div class="form-group half">
                             <label class="formbold-form-label required">Date de naissance</label>
                             <input type="date" name="date_naissance" id="date_naissance"
                                    class="formbold-form-input"
@@ -247,12 +250,10 @@
                                    required
                                    min="<?php echo (date('Y')-65).'-01-01'; ?>"
                                    max="<?php echo (date('Y')-15).'-12-31'; ?>" />
-                            <div class="input-help-text">Format: AAAA-MM-JJ</div>
+                            <div class="input-help-text">Format: JJ/MM/AAAA</div>
                         </div>
-                    </div>
 
-                    <div class="form-row">
-                        <div class="form-group">
+                        <div class="form-group half">
                             <label for="lieu_de_naissce" class="formbold-form-label required">Lieu de naissance</label>
                             <input value="<?php echo set_value('lieu_de_naissce', $this->form_data->lieu_de_naissce); ?>"
                                    name="lieu_de_naissce"
@@ -267,24 +268,20 @@
                     <div class="form-row">
                         <div class="form-group half">
                             <label for="region_dorigine" class="formbold-form-label required">Région d'origine</label>
-                            <input value="<?php echo set_value('region_dorigine', $this->form_data->region_dorigine); ?>"
-                                   name="region_dorigine"
-                                   placeholder="Ex: Centre, Littoral, Ouest..."
-                                   class="formbold-form-input"
-                                   id="region_dorigine"
-                                   type="text"
-                                   required />
+                            <select name="region_dorigine" id="region_dorigine" class="formbold-form-input" required>
+                                <option value="">-- Sélectionnez une région --</option>
+                                <!-- Les options seront chargées dynamiquement -->
+                            </select>
+                            <input type="text" name="region_dorigine_autre" id="region_dorigine_autre" class="formbold-form-input" style="display: none;" placeholder="Précisez votre région d'origine">
                         </div>
 
                         <div class="form-group half">
                             <label for="dept_dorigine" class="formbold-form-label required">Département d'origine</label>
-                            <input value="<?php echo set_value('dept_dorigine', $this->form_data->dept_dorigine); ?>"
-                                   name="dept_dorigine"
-                                   placeholder="Ex: Mfoundi, Wouri, Bamoun..."
-                                   class="formbold-form-input"
-                                   id="dept_dorigine"
-                                   type="text"
-                                   required />
+                            <select name="dept_dorigine" id="dept_dorigine" class="formbold-form-input" required>
+                                <option value="">-- D'abord, sélectionnez une région --</option>
+                                <!-- Les options seront chargées dynamiquement -->
+                            </select>
+                            <input type="text" name="dept_dorigine_autre" id="dept_dorigine_autre" class="formbold-form-input" style="display: none;" placeholder="Précisez votre département d'origine">
                         </div>
                     </div>
 
@@ -341,8 +338,9 @@
                             <select class="formbold-form-input" name="paysorigine" id="paysorigine" required style="color: #2d3748 !important; background-color: #ffffff !important;">
                                 <option value="" style="color: #718096;">-- Sélectionner --</option>
                                 <?php foreach ($pays as $pay) {
-                                    $selected = ($pay->id == $this->form_data->paysorigine) ? 'selected' : '';
-                                    echo "<option value='{$pay->id}' {$selected} style='color: #2d3748; background-color: #ffffff;'>{$pay->nom}</option>";
+                                    // Assumons que l'ID du Cameroun est 47
+                                    $selected = ($pay->id == $this->form_data->paysorigine || ($pay->id == 47 && empty($this->form_data->paysorigine))) ? 'selected' : '';
+                                    echo "<option value='{$pay->id}' data-name='{$pay->nom}' {$selected} style='color: #2d3748; background-color: #ffffff;'>{$pay->nom}</option>";
                                 } ?>
                             </select>
                         </div>
@@ -1141,5 +1139,80 @@
 <!-- Load JavaScript at the end for better performance -->
 <script src="<?= base_url() ?>resources/js/modern-form.js"></script>
 <script src="<?= base_url() ?>resources/js/review-form.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const paysOrigineSelect = document.getElementById('paysorigine');
+    const regionSelect = document.getElementById('region_dorigine');
+    const deptSelect = document.getElementById('dept_dorigine');
+    const regionAutreInput = document.getElementById('region_dorigine_autre');
+    const deptAutreInput = document.getElementById('dept_dorigine_autre');
+
+    function toggleRegionDeptFields() {
+        const selectedOption = paysOrigineSelect.options[paysOrigineSelect.selectedIndex];
+        const isCameroon = selectedOption.dataset.name === 'CAMEROUN';
+
+        regionSelect.style.display = isCameroon ? 'block' : 'none';
+        deptSelect.style.display = isCameroon ? 'block' : 'none';
+        regionAutreInput.style.display = isCameroon ? 'none' : 'block';
+        deptAutreInput.style.display = isCameroon ? 'none' : 'block';
+
+        if (isCameroon) {
+            regionSelect.setAttribute('required', 'required');
+            deptSelect.setAttribute('required', 'required');
+            regionAutreInput.removeAttribute('required');
+            deptAutreInput.removeAttribute('required');
+            // Charger les régions si ce n'est pas déjà fait
+            if (regionSelect.options.length <= 1) {
+                fetchRegions();
+            }
+        } else {
+            regionSelect.removeAttribute('required');
+            deptSelect.removeAttribute('required');
+            regionAutreInput.setAttribute('required', 'required');
+            deptAutreInput.setAttribute('required', 'required');
+        }
+    }
+
+    function fetchRegions() {
+        // Remplacer par l'URL de votre contrôleur
+        fetch('<?= base_url() ?>candidature/get_regions')
+            .then(response => response.json())
+            .then(data => {
+                regionSelect.innerHTML = '<option value="">-- Sélectionnez une région --</option>';
+                data.forEach(region => {
+                    regionSelect.innerHTML += `<option value="${region.id}">${region.nom}</option>`;
+                });
+            });
+    }
+
+    function fetchDepartements(regionId) {
+        // Remplacer par l'URL de votre contrôleur
+        fetch(`<?= base_url() ?>candidature/get_departements/${regionId}`)
+            .then(response => response.json())
+            .then(data => {
+                deptSelect.innerHTML = '<option value="">-- Sélectionnez un département --</option>';
+                data.forEach(dept => {
+                    deptSelect.innerHTML += `<option value="${dept.id}">${dept.nom}</option>`;
+                });
+            });
+    }
+
+    paysOrigineSelect.addEventListener('change', toggleRegionDeptFields);
+
+    regionSelect.addEventListener('change', function() {
+        const regionId = this.value;
+        if (regionId) {
+            fetchDepartements(regionId);
+        } else {
+            deptSelect.innerHTML = '<option value="">-- D\'abord, sélectionnez une région --</option>';
+        }
+    });
+
+    // Exécuter au chargement de la page
+    toggleRegionDeptFields();
+});
+</script>
+
 </body>
 </html>

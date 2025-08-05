@@ -5,7 +5,24 @@ if (!defined('BASEPATH'))
 
 class Candidature extends MY_Controller {
 
+    public $load;
     public $form_data;
+    public $region_model;
+
+
+    function __construct()
+    {
+        parent::__construct();
+        // load model
+        $this->load->model('model_generique', 'model', TRUE);
+        $this->load->model('region_model');
+
+        // load library
+        $this->load->library(['form_validation', 'session', 'email', 'table']);
+
+        // load helper
+        $this->load->helper(['form', 'url']);
+    }
 
     /**
      * Index Page for this controller.
@@ -22,20 +39,6 @@ class Candidature extends MY_Controller {
      * map to /index.php/welcome/<method_name>
      * @see http://codeigniter.com/user_guide/general/urls.html
      */
-    public function __construct() {
-        parent::__construct();
-
-        // load library
-        $this->load->library(array('table', 'form_validation'));
-        $this->load->library('session');
-        $this->load->library('email');
-        // Remove duplicate email loading
-        // load helper
-        $this->load->helper('url');
-
-        // load model
-        $this->load->model('Model_generique', 'model', TRUE);
-    }
 
     public function index() {
         $this->reset_form_data();
@@ -633,4 +636,40 @@ class Candidature extends MY_Controller {
         $this->form_data->howDidYouKnewUs = '';
     }
 
+    public function get_regions() {
+        header('Content-Type: application/json');
+        $regions = $this->region_model->get_all_regions();
+        echo json_encode($regions);
+    }
+
+    public function get_departements($region_id) {
+        header('Content-Type: application/json');
+        if (is_numeric($region_id)) {
+            $departements = $this->region_model->get_departements_by_region($region_id);
+            echo json_encode($departements);
+        } else {
+            echo json_encode([]);
+        }
+    }
+
+
+    function _remap($method)
+    {
+        $param_offset = 2;
+        $params = func_get_args();
+        array_shift($params);
+        if (method_exists($this, $method))
+        {
+            // Call the method with the remaining parameters
+            return call_user_func_array(array($this, $method), $params);
+        }
+        else
+        {
+            // Method doesn't exist, show 404
+            show_404();
+        }
+    }
 }
+
+/* End of file welcome.php */
+/* Location: ./application/controllers/welcome.php */

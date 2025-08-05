@@ -50,6 +50,7 @@ class MY_Loader extends CI_Loader {
     public $Impression_model;
     public $impression_model; // Add lowercase version
     public $pdf; // Add pdf property
+    public $region_model; // Add region_model property
 
     /**
      * Constructor

@@ -96,48 +96,38 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Added function to properly handle form submission
+    // A more reliable form submission handler
     function setupFormSubmission() {
-        // Get the form and submit button
         const form = document.getElementById('candidatureForm');
-        const submitBtn = document.querySelector('.btn-success[type="submit"]');
+        if (!form) return;
 
-        if (form && submitBtn) {
-            // Remove any previous event listeners that might be blocking submission
-            const clonedSubmitBtn = submitBtn.cloneNode(true);
-            submitBtn.parentNode.replaceChild(clonedSubmitBtn, submitBtn);
+        form.addEventListener('submit', function(e) {
+            const submitBtn = form.querySelector('.btn-success[type="submit"]');
 
-            // Add proper submit handler to the form itself
-            form.addEventListener('submit', function(e) {
-                // Don't prevent the default submission - this is crucial!
-                console.log('Form is being submitted...');
+            // Prevent multiple submissions
+            if (form.getAttribute('data-submitting')) {
+                e.preventDefault();
+                return;
+            }
 
-                // Store the original text to restore it if needed
-                const originalText = clonedSubmitBtn.innerHTML;
+            // Set submitting flag
+            form.setAttribute('data-submitting', 'true');
 
-                // Add loading state to submit button
-                clonedSubmitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
+            // Update button state
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
+            }
 
-                // Set a timeout to ensure the form can still submit if something goes wrong
-                setTimeout(function() {
-                    // This ensures the form submission completes even if there's a delay
-                    if (form.getAttribute('data-submitting') !== 'true') {
-                        form.setAttribute('data-submitting', 'true');
-                        form.submit();
-                    }
-                }, 1000);
-
-                // Allow normal form submission
-                return true;
-            });
-
-            // Clear any previously saved form data to avoid conflicts
+            // Clear saved data on successful submission
             try {
                 localStorage.removeItem('candidature_form_data');
-            } catch (e) {
-                console.log('Could not clear form data from localStorage');
+            } catch (err) {
+                console.error('Could not clear form data from localStorage:', err);
             }
-        }
+
+            // Allow the form to submit
+        });
     }
 
     // Function to validate all sections
@@ -804,8 +794,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // We don't need this function anymore as we want normal form submission
     function handleFormSubmit(e) {
-        // Do nothing, allow default form submission
-        console.log('Submit button clicked');
+        // Allow the form to submit normally - don't prevent default!
+        console.log('Submit button clicked, allowing normal submission...');
+        return true;
     }
 
     // Public API

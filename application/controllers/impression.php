@@ -50,6 +50,7 @@ class Impression extends MY_Controller {
         $options = new Options();
         $options->set('isHtml5ParserEnabled', true);
         $options->set('isRemoteEnabled', true); // Pour autoriser les images externes
+        $options->set('tempDir', APPPATH . 'cache/');
         // Créer l'instance Dompdf
         $dompdf = new Dompdf($options);
 

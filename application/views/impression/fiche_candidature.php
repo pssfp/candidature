@@ -87,18 +87,18 @@
             width: 100%;
         }
         .info-row.half {
-            width: 48%;
+            width: 100%;
         }
         .info-label {
             display: inline-block;
-            width: 35%;
+            width: 30%;
             font-weight: bold;
             vertical-align: top;
             color: #555;
         }
         .info-value {
             display: inline-block;
-            width: 60%;
+            width: 70%;
         }
         .footer {
             font-size: 8px;
@@ -164,8 +164,8 @@
     <div class="section">
         <div class="section-title">I – Formation Souhaitée</div>
         <div class="info-grid">
-            <div class="info-row half"><span class="info-label">Spécialité:</span><span class="info-value"><?php echo $candidat->specialite; ?></span></div>
-            <div class="info-row half"><span class="info-label">Mode de formation:</span><span class="info-value"><?php echo $candidat->type_etude; ?></span></div>
+            <div class="info-row "><span class="info-label">Spécialité:</span><span class="info-value"><?php echo $candidat->specialite; ?></span></div>
+            <div class="info-row "><span class="info-label">Mode de formation:</span><span class="info-value"><?php echo $candidat->type_etude; ?></span></div>
         </div>
     </div>
 

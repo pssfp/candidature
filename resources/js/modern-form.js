@@ -28,14 +28,12 @@ document.addEventListener('DOMContentLoaded', function () {
             updateCurrentSectionNavigationButtons();
         }, 100);
 
-        console.log('Form initialized with', formSections.length, 'sections');
     }
 
     // Progress bar and section management
     function setupProgressBar() {
         progressSteps.forEach((step, index) => {
             step.addEventListener('click', () => {
-                console.log('Progress step clicked:', index);
                 if (index <= currentSection || validateAllPreviousSections(index)) {
                     navigateToSection(index);
                 }
@@ -44,7 +42,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function showSection(sectionIndex) {
-        console.log('Showing section:', sectionIndex);
 
         // Hide all sections and remove active class
         formSections.forEach((section, index) => {
@@ -58,7 +55,6 @@ document.addEventListener('DOMContentLoaded', function () {
             formSections[sectionIndex].classList.add('active');
             currentSection = sectionIndex;
         } else {
-            console.error('Section index out of bounds:', sectionIndex);
             return;
         }
 
@@ -185,7 +181,6 @@ document.addEventListener('DOMContentLoaded', function () {
             // Previous button
             if (index > 0) {
                 const prevButton = createButton('Précédent', 'btn btn-secondary', () => {
-                    console.log('Previous button clicked from section:', index);
                     navigateToSection(index - 1);
                 });
                 prevButton.innerHTML = '<i class="fas fa-arrow-left"></i> <span>Précédent</span>';
@@ -197,7 +192,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
             if (index < formSections.length - 1 && !isLastRegularSection) {
                 const nextButton = createButton('Suivant', 'btn btn-primary', () => {
-                    console.log('Next button clicked from section:', index);
                     if (validateSection(index)) {
                         saveFormData();
                         navigateToSection(index + 1);
@@ -211,7 +205,6 @@ document.addEventListener('DOMContentLoaded', function () {
             } else if (isLastRegularSection) {
                 // This will be handled by review-form.js
                 const reviewButton = createButton('Vérifier ma candidature', 'btn btn-primary', () => {
-                    console.log('Review button clicked from section:', index);
                     if (validateSection(index)) {
                         saveFormData();
                         // Trigger review section navigation
@@ -250,7 +243,6 @@ document.addEventListener('DOMContentLoaded', function () {
         // Update button states based on validation
         if (nextBtn) {
             const isValid = validateSection(sectionIndex, false);
-            console.log('----- >Section', sectionIndex, 'validation state:', isValid);
             nextBtn.disabled = !isValid;
             nextBtn.classList.toggle('loading', false);
         }
@@ -340,7 +332,6 @@ document.addEventListener('DOMContentLoaded', function () {
         // Custom validations
         isValid = performCustomValidations(section, showErrors) && isValid;
 
-        console.log('Section', sectionIndex, 'validation result:', isValid);
         return isValid;
     }
 

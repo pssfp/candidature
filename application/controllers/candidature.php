@@ -661,14 +661,20 @@ class Candidature extends MY_Controller {
         }
     }
 
-
-
     public function get_departements_by_region($region_id) {
-        $this->db->where('region_id', $region_id);
-        $query = $this->db->get('departements');
-        return $query->result();
+        header('Content-Type: application/json');
+        if (is_array($region_id)) {
+            $region_id = $region_id[0];
+        }
+        $departements = $this->region_model->get_departements_by_region($region_id);
+        echo json_encode($departements);
     }
 
+    public function get_departements_json($region_id) {
+        $departements = $this->region_model->get_departements_by_region($region_id);
+        header('Content-Type: application/json');
+        echo json_encode($departements);
+    }
 
     function _remap($method)
     {

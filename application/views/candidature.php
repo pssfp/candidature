@@ -267,6 +267,31 @@
 
                     <div class="form-row">
                         <div class="form-group half">
+                            <label for="paysorigine" class="formbold-form-label required">Pays d'origine</label>
+                            <select class="formbold-form-input" name="paysorigine" id="paysorigine" required style="color: #2d3748 !important; background-color: #ffffff !important;">
+                                <option value="" style="color: #718096;">-- Sélectionner --</option>
+                                <?php foreach ($pays as $pay) {
+                                    // Assumons que l'ID du Cameroun est 47
+                                    $selected = ($pay->id == $this->form_data->paysorigine || ($pay->id == 47 && empty($this->form_data->paysorigine))) ? 'selected' : '';
+                                    echo "<option value='{$pay->id}' data-name='{$pay->nom}' {$selected} style='color: #2d3748; background-color: #ffffff;'>{$pay->nom}</option>";
+                                } ?>
+                            </select>
+                        </div>
+
+                        <div class="form-group half">
+                            <label for="pays" class="formbold-form-label required">Pays de résidence</label>
+                            <select class="formbold-form-input" name="pays_residence" id="pays" required style="color: #2d3748 !important; background-color: #ffffff !important;">
+                                <option value="" style="color: #718096;">-- Sélectionner --</option>
+                                <?php foreach ($pays as $pay) {
+                                    $selected = ($pay->id == $this->form_data->pays_residence) ? 'selected' : '';
+                                    echo "<option value='{$pay->id}' {$selected} style='color: #2d3748; background-color: #ffffff;'>{$pay->nom}</option>";
+                                } ?>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group half">
                             <label for="region_dorigine" class="formbold-form-label required">Région d'origine</label>
                             <select name="region_dorigine" id="region_dorigine" class="formbold-form-input" required>
                                 <option value="">-- Sélectionnez une région --</option>
@@ -292,6 +317,16 @@
                                     <?php endforeach; ?>
                                 <?php endif; ?>
                             </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group half">
+                            <label for="region_dorigine_autre" class="formbold-form-label">Autre Région d'origine</label>
+                            <input type="text" name="region_dorigine_autre" id="region_dorigine_autre" class="formbold-form-input">
+                        </div>
+                        <div class="form-group half">
+                            <label for="dept_dorigine_autre" class="formbold-form-label">Autre Département d'origine</label>
+                            <input type="text" name="dept_dorigine_autre" id="dept_dorigine_autre" class="formbold-form-input">
                         </div>
                     </div>
 
@@ -341,31 +376,6 @@
                         <i class="fas fa-address-book"></i>
                         Informations de Contact
                     </legend>
-
-                    <div class="form-row">
-                        <div class="form-group half">
-                            <label for="paysorigine" class="formbold-form-label required">Pays d'origine</label>
-                            <select class="formbold-form-input" name="paysorigine" id="paysorigine" required style="color: #2d3748 !important; background-color: #ffffff !important;">
-                                <option value="" style="color: #718096;">-- Sélectionner --</option>
-                                <?php foreach ($pays as $pay) {
-                                    // Assumons que l'ID du Cameroun est 47
-                                    $selected = ($pay->id == $this->form_data->paysorigine || ($pay->id == 47 && empty($this->form_data->paysorigine))) ? 'selected' : '';
-                                    echo "<option value='{$pay->id}' data-name='{$pay->nom}' {$selected} style='color: #2d3748; background-color: #ffffff;'>{$pay->nom}</option>";
-                                } ?>
-                            </select>
-                        </div>
-
-                        <div class="form-group half">
-                            <label for="pays" class="formbold-form-label required">Pays de résidence</label>
-                            <select class="formbold-form-input" name="pays_residence" id="pays" required style="color: #2d3748 !important; background-color: #ffffff !important;">
-                                <option value="" style="color: #718096;">-- Sélectionner --</option>
-                                <?php foreach ($pays as $pay) {
-                                    $selected = ($pay->id == $this->form_data->pays_residence) ? 'selected' : '';
-                                    echo "<option value='{$pay->id}' {$selected} style='color: #2d3748; background-color: #ffffff;'>{$pay->nom}</option>";
-                                } ?>
-                            </select>
-                        </div>
-                    </div>
 
                     <div class="form-row">
                         <div class="form-group half">
@@ -730,6 +740,8 @@
                                 <option value="Tous ces domaines">Tous ces domaines</option>
                             </select>
                         </div>
+                    </div>
+                    <div class="form-row">
                         <div class="form-group half">
                             <label class="formbold-form-label required" for="howDidYouKnewUs">
                                 Comment avez-vous connu le PSSFP&nbsp;?
@@ -765,7 +777,7 @@
                             deptSelect.innerHTML = '<option value="">Chargement...</option>';
 
                             // Utiliser la bonne URL
-                            fetch(`<?= base_url() ?>candidature/get_departements/${regionId}`)
+                            fetch(`<?= base_url() ?>index.php/candidature/get_departements_by_region/${regionId}`)
                                 .then(response => {
                                     if (!response.ok) {
                                         throw new Error('Erreur réseau');
@@ -780,7 +792,7 @@
                                 })
                                 .catch(error => {
                                     console.error('Erreur:', error);
-                                    deptSelect.innerHTML = '<option value="">Erreur de hh </option>';
+                                    deptSelect.innerHTML = '<option value="">Erreur de chargement</option>';
                                 });
                         } else {
                             deptSelect.innerHTML = '<option value="">-- Sélectionnez d\'abord une région --</option>';
@@ -822,10 +834,14 @@
                 </div>
 
                 <script>
+
                     // Validation du formulaire pour vérifier que la case est cochée
                     document.getElementById('candidatureForm').addEventListener('submit', function(event) {
+                        console.log('----- >Engagement section script loaded');
                         const checkbox = document.getElementById('checkbox_engagement');
                         const errorMsg = document.getElementById('engagement_error');
+
+
 
                         if (!checkbox.checked) {
                             event.preventDefault();
@@ -1286,18 +1302,17 @@ document.addEventListener('DOMContentLoaded', function() {
     const deptSelect = document.getElementById('dept_dorigine');
     const regionAutreInput = document.getElementById('region_dorigine_autre');
     const deptAutreInput = document.getElementById('dept_dorigine_autre');
-    // Gestion du changement de région
-    document.getElementById('region_dorigine').addEventListener('change', function() {
-        const regionId = this.value;
-        const deptSelect = document.getElementById('dept_dorigine');
 
+    function fetchDepartements(regionId) {
         if (regionId) {
-            // Afficher un message de chargement
             deptSelect.innerHTML = '<option value="">Chargement...</option>';
-
-            // Faire la requête AJAX
-            fetch(`<?= base_url() ?>candidature/get_departements/${regionId}`)
-                .then(response => response.json())
+            fetch(`<?= base_url() ?>index.php/candidature/get_departements_by_region/${regionId}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Erreur réseau');
+                    }
+                    return response.json();
+                })
                 .then(data => {
                     deptSelect.innerHTML = '<option value="">-- Sélectionnez un département --</option>';
                     data.forEach(dept => {
@@ -1311,38 +1326,55 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             deptSelect.innerHTML = '<option value="">-- Sélectionnez d\'abord une région --</option>';
         }
-    });
-});
-
+    }
 
     function toggleRegionDeptFields() {
         const selectedOption = paysOrigineSelect.options[paysOrigineSelect.selectedIndex];
-        const isCameroon = selectedOption.dataset.name === 'CAMEROUN';
+        const isCameroun = paysOrigineSelect.value == '41';
 
-        regionSelect.style.display = isCameroon ? 'block' : 'none';
-        deptSelect.style.display = isCameroon ? 'block' : 'none';
-        regionAutreInput.style.display = isCameroon ? 'none' : 'block';
-        deptAutreInput.style.display = isCameroon ? 'none' : 'block';
+        const regionGroup = regionSelect.closest('.form-row');
+        const deptGroup = deptSelect.closest('.form-row');
+        const regionAutreGroup = regionAutreInput.closest('.form-row');
+        const deptAutreGroup = deptAutreInput.closest('.form-row');
 
-        if (isCameroon) {
+        if (isCameroun) {
+            regionGroup.style.display = 'flex';
+            deptGroup.style.display = 'flex';
+            regionAutreGroup.style.display = 'none';
+            deptAutreGroup.style.display = 'none';
+
             regionSelect.setAttribute('required', 'required');
             deptSelect.setAttribute('required', 'required');
             regionAutreInput.removeAttribute('required');
             deptAutreInput.removeAttribute('required');
-            // Charger les régions si ce n'est pas déjà fait
+
             if (regionSelect.options.length <= 1) {
                 fetchRegions();
             }
-        } else {
+        } else if (selectedOption && paysOrigineSelect.value) { // Another country is selected
+            regionGroup.style.display = 'none';
+            deptGroup.style.display = 'none';
+            regionAutreGroup.style.display = 'flex';
+            deptAutreGroup.style.display = 'flex';
+
             regionSelect.removeAttribute('required');
             deptSelect.removeAttribute('required');
             regionAutreInput.setAttribute('required', 'required');
             deptAutreInput.setAttribute('required', 'required');
+        } else { // No country selected
+            regionGroup.style.display = 'none';
+            deptGroup.style.display = 'none';
+            regionAutreGroup.style.display = 'none';
+            deptAutreGroup.style.display = 'none';
+
+            regionSelect.removeAttribute('required');
+            deptSelect.removeAttribute('required');
+            regionAutreInput.removeAttribute('required');
+            deptAutreInput.removeAttribute('required');
         }
     }
 
     function fetchRegions() {
-        // Remplacer par l'URL de votre contrôleur
         fetch('<?= base_url() ?>candidature/get_regions')
             .then(response => response.json())
             .then(data => {
@@ -1353,27 +1385,11 @@ document.addEventListener('DOMContentLoaded', function() {
             });
     }
 
-    function fetchDepartements(regionId) {
-        // Remplacer par l'URL de votre contrôleur
-        fetch(`<?= base_url() ?>candidature/get_departements/${regionId}`)
-            .then(response => response.json())
-            .then(data => {
-                deptSelect.innerHTML = '<option value="">-- Sélectionnez un département --</option>';
-                data.forEach(dept => {
-                    deptSelect.innerHTML += `<option value="${dept.id}">${dept.nom}</option>`;
-                });
-            });
-    }
-
     paysOrigineSelect.addEventListener('change', toggleRegionDeptFields);
 
     regionSelect.addEventListener('change', function() {
         const regionId = this.value;
-        if (regionId) {
-            fetchDepartements(regionId);
-        } else {
-            deptSelect.innerHTML = '<option value="">-- D\'abord, sélectionnez une région --</option>';
-        }
+        fetchDepartements(regionId);
     });
 
     // Exécuter au chargement de la page

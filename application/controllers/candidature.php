@@ -304,8 +304,8 @@ class Candidature extends MY_Controller {
 
                 if ($candidat_id) {
                     // Send confirmation email to the candidate
-                    //$email_sent = $this->send_confirmation_email($candidat_id, 'new');
-                    $email_sent = true;
+                    $email_sent = $this->send_confirmation_email($candidat_id, 'new');
+                    //$email_sent = true;
 
                     // Store info in session for the success page
                     $this->session->set_flashdata('id', $candidat_id);

@@ -16,10 +16,11 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%) rotate(-40deg);
-            font-size: 60px;
+            font-size: 100px;
             font-weight: 800;
             color: rgba(0, 0, 0, 0.08);
             z-index: -1000;
+            text-align: center;
         }
         .header-table {
             width: 100%;
@@ -65,7 +66,7 @@
             padding-top: 50px;
         }
         .section {
-            margin-bottom: 12px;
+            margin-bottom: 5px;
             clear: both;
         }
         .section-title {
@@ -117,7 +118,7 @@
             page-break-after: always;
         }
         .engagement-section {
-            margin-top: 20px;
+            margin-top: 10px;
             font-size: 9px;
             text-align: justify;
         }
@@ -218,15 +219,23 @@
         </div>
     </div>
 
-    <div class="section engagement-section">
-        <p>
-            Je soussigné(e), <strong><?php echo $candidat->nom . ' ' . $candidat->prenom; ?></strong>, certifie sur l'honneur l'exactitude des renseignements consignés dans cette fiche et avoir pris connaissance des conditions d'admission au programme.
-        </p>
+    <div class="section">
+        <div class="section-title">VI – Engagement</div>
+        <div class="section engagement-section">
+            <p>
+                Je soussigné(e), <strong><?php echo $candidat->nom . ' ' . $candidat->prenom; ?></strong>, certifie sur l'honneur l'exactitude des renseignements consignés dans cette fiche et avoir pris connaissance des conditions d'admission au Programme Supérieur de Spécialisation en Finance Publiques.
+            </p>
+        </div>
     </div>
 
-    <div class="signature-area">
-        <div style="float: left; width: 50%; text-align: center;">Fait à ____________________, le ____/____/________</div>
-        <div style="float: right; width: 50%; text-align: center;"><strong>Signature du candidat</strong></div>
+    <div class="signature-area" style="margin-top: 1px; text-align: right">
+        <div style="width: 100%; text-align: right; margin-bottom: 25px;">Fait à ____________________, le ____/____/________</div>
+        <div style="float: left; width: 50%; text-align: center;">
+            <strong>Signature du candidat</strong>
+        </div>
+        <div style="float: right; width: 50%; text-align: center;">
+            <strong>Cachet et visa du PSSFP</strong>
+        </div>
     </div>
 
 </div>
@@ -324,15 +333,23 @@
         </div>
     </div>
 
-    <div class="section engagement-section">
-        <p>
-            Je soussigné(e), <strong><?php echo $candidat->nom . ' ' . $candidat->prenom; ?></strong>, certifie sur l'honneur l'exactitude des renseignements consignés dans cette fiche et avoir pris connaissance des conditions d'admission au programme.
-        </p>
+    <div class="section">
+        <div class="section-title">VI – Engagement</div>
+        <div class="section engagement-section">
+            <p>
+                Je soussigné(e), <strong><?php echo $candidat->nom . ' ' . $candidat->prenom; ?></strong>, certifie sur l'honneur l'exactitude des renseignements consignés dans cette fiche et avoir pris connaissance des conditions d'admission au Programme Supérieur de Spécialisation en Finance Publiques.
+            </p>
+        </div>
     </div>
 
-    <div class="signature-area">
-        <div style="float: left; width: 50%; text-align: center;">Fait à ____________________, le ____/____/________</div>
-        <div style="float: right; width: 50%; text-align: center;"><strong>Signature du candidat</strong></div>
+    <div class="signature-area" style="margin-top: 1px; text-align: right">
+        <div style="width: 100%; text-align: right; margin-bottom: 25px;">Fait à ____________________, le ____/____/________</div>
+        <div style="float: left; width: 50%; text-align: center;">
+            <strong>Signature du candidat</strong>
+        </div>
+        <div style="float: right; width: 50%; text-align: center;">
+            <strong>Cachet et visa du PSSFP</strong>
+        </div>
     </div>
 
 </div>

@@ -1,0 +1,38 @@
+# CodeIgniter cache and log files
+application/cache/*
+!application/cache/index.html
+application/logs/*
+!application/logs/index.html
+
+# Composer dependencies
+vendor/
+
+# Node.js dependencies
+node_modules/
+
+# IDE specific files
+.idea/
+.vscode/
+nbproject/
+*.swp
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Archives
+*.zip
+*.rar
+
+# SQL files
+*.sql
+
+# Backup files
+*.bak
+
+# Temp files
+*.tmp
+
+# Other
+a faire
+
